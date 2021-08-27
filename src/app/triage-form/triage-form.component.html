@@ -1,0 +1,10 @@
+<div>
+  <p>Progress: {{progress}} / {{progressMax}}</p>
+  <form [formGroup]="form">
+    <p>{{questionText}}</p>
+    <input formControlName="answer">
+    <button (click)="next($event)">Next</button>
+    <button (click)="back($event)">Back</button>
+    <button (click)="cancel($event)">Cancel</button>
+  </form>
+</div>
