@@ -1,5 +1,6 @@
 import { sequence } from '@angular/animations';
 import { Injectable } from '@angular/core';
+import { CollectPersonalInfoFormComponent } from './collect-personal-info-form/collect-personal-info-form.component';
 import { ColorSectionComponent } from './color-section/color-section.component';
 import { ConsultNowComponent } from './consult-now/consult-now.component';
 import { TriageFormComponent } from './triage-form/triage-form.component';
@@ -50,8 +51,8 @@ export class DataService {
               config: { questionText: 'What complaints do you have today?' }
             },
             {
-              component: TriageFormComponent,
-              config: { questionText: 'What did you do today?' }
+              component: CollectPersonalInfoFormComponent,
+              config: { title: 'Please provide your personal info.' }
             }
           ]
         },
@@ -59,13 +60,13 @@ export class DataService {
           cmdCancel: ['home'], // route navigate command
           cmdSuccess: ['waiting-room'], // route navigate command
           sequence: [
+            // {
+            //   component: CollectPersonalInfoFormComponent,
+            //   config: { title: '请输入您的个人信息。' }
+            // },
             {
               component: TriageFormComponent,
               config: { questionText: "Health Screening is fun, isn't it?" }
-            },
-            {
-              component: TriageFormComponent,
-              config: { questionText: 'Come play with health screening' }
             },
             {
               component: TriageFormComponent,
