@@ -11,6 +11,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { CollectPersonalInfoFormComponent } from './collect-personal-info-form/collect-personal-info-form.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './header/header.component';
+import { WaitingRoomComponent } from './waiting-room/waiting-room.component';
+import { DataService } from './data.service';
 
 @NgModule({
   imports: [
@@ -24,11 +27,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   declarations: [
     AppComponent,
+    HeaderComponent,
     HomeComponent,
+    WaitingRoomComponent,
     JourneyComponent,
     TriageFormComponent,
     CollectPersonalInfoFormComponent
   ],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

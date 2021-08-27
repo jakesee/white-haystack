@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { DataService } from '../data.service';
 import { Form, FormEvent } from '../interfaces';
 
 @Component({
@@ -23,7 +24,7 @@ export class CollectPersonalInfoFormComponent implements Form, OnInit {
     birthDate: new FormControl()
   });
 
-  constructor() {}
+  constructor(private _dataService: DataService) {}
 
   init(config: any, progress: number, progressMax: number) {
     this.progress = progress;
@@ -33,6 +34,7 @@ export class CollectPersonalInfoFormComponent implements Form, OnInit {
   }
 
   next($event) {
+    this._dataService.state.push(Object.values(this.form.value));
     this.onNext.emit(new FormEvent(this));
   }
 

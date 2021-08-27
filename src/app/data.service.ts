@@ -14,10 +14,20 @@ export class DataService {
 
   constructor() {
     this._loadConfig();
+
+    console.log('DataService Constructed');
   }
 
   private _loadConfig() {
     this.config = {
+      HeaderComponent: {
+        imgURL: 'https://picsum.photos/200/80',
+        menuItems: [
+          { text: 'Home', command: 'home' },
+          { text: 'Waiting Room', command: 'waiting-room' },
+          { text: 'Profile', command: 'profile' }
+        ]
+      },
       HomeComponent: [
         { component: ColorSectionComponent, config: { color: '#336699' } },
         {
@@ -60,10 +70,10 @@ export class DataService {
           cmdCancel: ['home'], // route navigate command
           cmdSuccess: ['waiting-room'], // route navigate command
           sequence: [
-            // {
-            //   component: CollectPersonalInfoFormComponent,
-            //   config: { title: '请输入您的个人信息。' }
-            // },
+            {
+              component: CollectPersonalInfoFormComponent,
+              config: { title: '请输入您的个人信息。' }
+            },
             {
               component: TriageFormComponent,
               config: { questionText: "Health Screening is fun, isn't it?" }
