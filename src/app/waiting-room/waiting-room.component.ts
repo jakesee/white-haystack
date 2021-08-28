@@ -4,7 +4,7 @@ import { DataService } from '../data.service';
 @Component({
   selector: 'app-waiting-room',
   templateUrl: './waiting-room.component.html',
-  styleUrls: ['./waiting-room.component.css']
+  styleUrls: ['./waiting-room.component.scss']
 })
 export class WaitingRoomComponent implements OnInit {
   state: Array<any>;
