@@ -4,7 +4,7 @@ import { Section } from '../interfaces';
 @Component({
   selector: 'app-color-section',
   templateUrl: './color-section.component.html',
-  styleUrls: ['./color-section.component.css']
+  styleUrls: ['./color-section.component.scss']
 })
 export class ColorSectionComponent implements OnInit, Section {
   color: string = '#0000FF';

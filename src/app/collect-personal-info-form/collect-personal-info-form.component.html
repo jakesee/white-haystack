@@ -1,3 +1,29 @@
-<p>
-collect-personal-info-form works!
-</p>
+<div>
+  <p>Progress: {{progress}} / {{progressMax}}</p>
+  <h1>{{title}}</h1>
+  <div>
+    <form [formGroup]="form">
+      <div><label>First Name</label><input formControlName="firstName" /></div>
+      <div><label>Last Name</label><input formControlName="lastName" /></div>
+      <div>
+        <label>Gender</label>
+        <select formControlName="gender">
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div>
+        <label>Birthdate</label>
+        <input formControlName="birthDate" matInput [matDatepicker]="picker" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </div>
+      <div>
+        <button (click)="next($event)">Next</button>
+        <button (click)="back($event)">Back</button>
+        <button (click)="cancel($event)">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

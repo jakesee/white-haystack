@@ -5,11 +5,12 @@ import { Section } from '../interfaces';
 @Component({
   selector: 'app-consult-now',
   templateUrl: './consult-now.component.html',
-  styleUrls: ['./consult-now.component.css']
+  styleUrls: ['./consult-now.component.scss']
 })
 export class ConsultNowComponent implements Section, OnInit {
-  color: string = '';
+  imgSource: string = '';
   title: string = 'Title';
+  subText: string = '';
   buttonText: string = 'Consult Now';
   command: [];
 
@@ -18,10 +19,11 @@ export class ConsultNowComponent implements Section, OnInit {
   ngOnInit() {}
 
   init(config: any) {
-    this.command = config.command;
+    this.imgSource = config.imgSource;
     this.title = config.title;
+    this.subText = config.subText;
     this.buttonText = config.buttonText;
-    this.color = config.color;
+    this.command = config.command;
   }
 
   consult_click($event) {

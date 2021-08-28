@@ -13,7 +13,7 @@ import { Form, FormEvent } from '../interfaces';
 @Component({
   selector: 'app-journey',
   templateUrl: './journey.component.html',
-  styleUrls: ['./journey.component.css']
+  styleUrls: ['./journey.component.scss']
 })
 export class JourneyComponent implements OnInit, AfterViewInit {
   @ViewChild('container', { read: ViewContainerRef })

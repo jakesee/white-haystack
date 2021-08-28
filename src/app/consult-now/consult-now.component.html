@@ -1,4 +1,8 @@
-<div [style.background-color]="color">
-  <p>{{title}}</p>
-  <button (click)="consult_click($event)">{{buttonText}}</button>
+<div>
+  <img src="{{imgSource}}"/>
+  <div>
+    <h1>{{title}}</h1>
+    <button class="theme" (click)="consult_click($event)">{{buttonText}}</button>
+    <h2>{{subText}}</h2>
+  </div>
 </div>

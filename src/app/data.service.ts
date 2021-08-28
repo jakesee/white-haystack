@@ -1,5 +1,6 @@
 import { sequence } from '@angular/animations';
 import { Injectable } from '@angular/core';
+import { CollectPersonalInfoFormComponent } from './collect-personal-info-form/collect-personal-info-form.component';
 import { ColorSectionComponent } from './color-section/color-section.component';
 import { ConsultNowComponent } from './consult-now/consult-now.component';
 import { TriageFormComponent } from './triage-form/triage-form.component';
@@ -13,28 +14,44 @@ export class DataService {
 
   constructor() {
     this._loadConfig();
+
+    console.log('DataService Constructed');
   }
 
   private _loadConfig() {
     this.config = {
+      HeaderComponent: {
+        imgURL:
+          'https://my-doc.com/wp-content/uploads/2019/11/mydoc-logo-@2x.png',
+        menuItems: [
+          { text: 'Home', routerLink: '/home' },
+          { text: 'Waiting Room', routerLink: '/waiting-room' },
+          { text: 'Profile', routerLink: '/profile' }
+        ]
+      },
       HomeComponent: [
-        { component: ColorSectionComponent, config: { color: '#336699' } },
         {
           component: ConsultNowComponent,
           config: {
-            color: '#F44A22',
-            buttonText: 'Talk to Doctor Now!',
+            imgSource:
+              'https://app.my-doc.com/dai-ichi/assets/images/Banner_happy_family.png',
             title: 'Awesome Co. Virtual Teleheath',
+            subText:
+              'Operational Hours: 0800H - 2200H, including weekend and holidays',
+            buttonText: 'Talk to Doctor Now!',
             command: ['journey', { id: 0 }]
           }
         },
+        { component: ColorSectionComponent, config: { color: '#336699' } },
         { component: ColorSectionComponent, config: { color: '#35FF88' } },
         {
           component: ConsultNowComponent,
           config: {
-            color: '#117BD0',
+            imgSource:
+              'https://app.my-doc.com/baoviet/assets/images/banner_web.png',
+            title: 'Premptive Health Screening Programme',
+            subText: 'Have a peace mind and assurance',
             buttonText: 'Get a Health Screening',
-            title: 'Cheap Health Screening Co.',
             command: ['journey', { id: 1 }]
           }
         },
@@ -42,30 +59,30 @@ export class DataService {
       ],
       JourneyComponent: [
         {
-          cmdCancel: ['home'], // route navigate command
-          cmdSuccess: ['waiting-room'], // route navigate command
+          cmdCancel: ['/home'], // route navigate command
+          cmdSuccess: ['/waiting-room'], // route navigate command
           sequence: [
             {
               component: TriageFormComponent,
               config: { questionText: 'What complaints do you have today?' }
             },
             {
-              component: TriageFormComponent,
-              config: { questionText: 'What did you do today?' }
+              component: CollectPersonalInfoFormComponent,
+              config: { title: 'Please provide your personal info.' }
             }
           ]
         },
         {
-          cmdCancel: ['home'], // route navigate command
-          cmdSuccess: ['waiting-room'], // route navigate command
+          cmdCancel: ['/home'], // route navigate command
+          cmdSuccess: ['/waiting-room'], // route navigate command
           sequence: [
             {
-              component: TriageFormComponent,
-              config: { questionText: "Health Screening is fun, isn't it?" }
+              component: CollectPersonalInfoFormComponent,
+              config: { title: '请输入您的个人信息。' }
             },
             {
               component: TriageFormComponent,
-              config: { questionText: 'Come play with health screening' }
+              config: { questionText: "Health Screening is fun, isn't it?" }
             },
             {
               component: TriageFormComponent,
