@@ -6,7 +6,7 @@ import { Form, FormEvent } from '../interfaces';
 @Component({
   selector: 'app-collect-personal-info-form',
   templateUrl: './collect-personal-info-form.component.html',
-  styleUrls: ['./collect-personal-info-form.component.css']
+  styleUrls: ['./collect-personal-info-form.component.scss']
 })
 export class CollectPersonalInfoFormComponent implements Form, OnInit {
   progress: number;

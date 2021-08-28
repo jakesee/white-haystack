@@ -6,7 +6,7 @@ import { Form, FormEvent } from '../interfaces';
 @Component({
   selector: 'app-triage-form',
   templateUrl: './triage-form.component.html',
-  styleUrls: ['./triage-form.component.css']
+  styleUrls: ['./triage-form.component.scss']
 })
 export class TriageFormComponent implements Form, OnInit {
   progress: number = 0;

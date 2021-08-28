@@ -5,7 +5,7 @@ import { Section } from '../interfaces';
 @Component({
   selector: 'app-consult-now',
   templateUrl: './consult-now.component.html',
-  styleUrls: ['./consult-now.component.css']
+  styleUrls: ['./consult-now.component.scss']
 })
 export class ConsultNowComponent implements Section, OnInit {
   color: string = '';
