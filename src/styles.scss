@@ -1,2 +1,26 @@
 /* Add application styles & imports to this file! */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+
+  @media (min-width: 800px) {
+    font-size: 18px;
+  }
+  @media (min-width: 1200px) {
+    font-size: 22px;
+  }
+}
+
+.theme {
+  background-color: #1447fc;
+  color: #1447fc;
+}

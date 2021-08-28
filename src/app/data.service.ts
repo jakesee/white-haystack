@@ -21,31 +21,37 @@ export class DataService {
   private _loadConfig() {
     this.config = {
       HeaderComponent: {
-        imgURL: 'https://picsum.photos/200/80',
+        imgURL:
+          'https://my-doc.com/wp-content/uploads/2019/11/mydoc-logo-@2x.png',
         menuItems: [
-          { text: 'Home', command: 'home' },
-          { text: 'Waiting Room', command: 'waiting-room' },
-          { text: 'Profile', command: 'profile' }
+          { text: 'Home', routerLink: '/home' },
+          { text: 'Waiting Room', routerLink: '/waiting-room' },
+          { text: 'Profile', routerLink: '/profile' }
         ]
       },
       HomeComponent: [
-        { component: ColorSectionComponent, config: { color: '#336699' } },
         {
           component: ConsultNowComponent,
           config: {
-            color: '#F44A22',
-            buttonText: 'Talk to Doctor Now!',
+            imgSource:
+              'https://app.my-doc.com/dai-ichi/assets/images/Banner_happy_family.png',
             title: 'Awesome Co. Virtual Teleheath',
+            subText:
+              'Operational Hours: 0800H - 2200H, including weekend and holidays',
+            buttonText: 'Talk to Doctor Now!',
             command: ['journey', { id: 0 }]
           }
         },
+        { component: ColorSectionComponent, config: { color: '#336699' } },
         { component: ColorSectionComponent, config: { color: '#35FF88' } },
         {
           component: ConsultNowComponent,
           config: {
-            color: '#117BD0',
+            imgSource:
+              'https://app.my-doc.com/baoviet/assets/images/banner_web.png',
+            title: 'Premptive Health Screening Programme',
+            subText: 'Have a peace mind and assurance',
             buttonText: 'Get a Health Screening',
-            title: 'Cheap Health Screening Co.',
             command: ['journey', { id: 1 }]
           }
         },
@@ -53,8 +59,8 @@ export class DataService {
       ],
       JourneyComponent: [
         {
-          cmdCancel: ['home'], // route navigate command
-          cmdSuccess: ['waiting-room'], // route navigate command
+          cmdCancel: ['/home'], // route navigate command
+          cmdSuccess: ['/waiting-room'], // route navigate command
           sequence: [
             {
               component: TriageFormComponent,
@@ -67,8 +73,8 @@ export class DataService {
           ]
         },
         {
-          cmdCancel: ['home'], // route navigate command
-          cmdSuccess: ['waiting-room'], // route navigate command
+          cmdCancel: ['/home'], // route navigate command
+          cmdSuccess: ['/waiting-room'], // route navigate command
           sequence: [
             {
               component: CollectPersonalInfoFormComponent,
