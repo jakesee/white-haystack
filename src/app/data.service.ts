@@ -1,9 +1,8 @@
-import { sequence } from '@angular/animations';
 import { Injectable } from '@angular/core';
-import { CollectPersonalInfoFormComponent } from './collect-personal-info-form/collect-personal-info-form.component';
-import { ColorSectionComponent } from './color-section/color-section.component';
-import { ConsultNowComponent } from './consult-now/consult-now.component';
-import { TriageFormComponent } from './triage-form/triage-form.component';
+import { CollectPersonalInfoFormComponent } from './form/collect-personal-info-form/collect-personal-info-form.component';
+import { ColorSectionComponent } from './sections/color-section/color-section.component';
+import { ConsultNowComponent } from './sections/consult-now/consult-now.component';
+import { TriageFormComponent } from './form/triage-form/triage-form.component';
 
 @Injectable({
   providedIn: 'root'

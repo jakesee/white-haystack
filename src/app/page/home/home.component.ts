@@ -7,8 +7,8 @@ import {
   ViewChildren,
   ViewContainerRef
 } from '@angular/core';
-import { DataService } from '../data.service';
-import { DefinitionSection, Section } from '../interfaces';
+import { DataService } from 'src/app/data.service';
+import { DefinitionSection, Section } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-home',

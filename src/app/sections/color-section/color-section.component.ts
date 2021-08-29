@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Section } from '../interfaces';
+import { Section } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-color-section',

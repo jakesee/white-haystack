@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { DataService } from '../data.service';
-import { Form, FormEvent } from '../interfaces';
+import { DataService } from 'src/app/data.service';
+import { Form, FormEvent } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-triage-form',

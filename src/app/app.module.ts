@@ -4,15 +4,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from './home/home.component';
-import { TriageFormComponent } from './triage-form/triage-form.component';
-import { JourneyComponent } from './journey/journey.component';
+import { HomeComponent } from './page/home/home.component';
+import { TriageFormComponent } from './form/triage-form/triage-form.component';
+import { JourneyComponent } from './page/journey/journey.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { CollectPersonalInfoFormComponent } from './collect-personal-info-form/collect-personal-info-form.component';
+import { CollectPersonalInfoFormComponent } from './form/collect-personal-info-form/collect-personal-info-form.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './header/header.component';
-import { WaitingRoomComponent } from './waiting-room/waiting-room.component';
+import { HeaderComponent } from './sections/header/header.component';
+import { WaitingRoomComponent } from './page/waiting-room/waiting-room.component';
 import { DataService } from './data.service';
 
 @NgModule({

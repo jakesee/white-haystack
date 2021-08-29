@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Section } from '../interfaces';
+import { Section } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-consult-now',

@@ -7,8 +7,8 @@ import {
   ViewContainerRef
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DataService } from '../data.service';
-import { Form, FormEvent } from '../interfaces';
+import { DataService } from 'src/app/data.service';
+import { Form, FormEvent } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-journey',
