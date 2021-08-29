@@ -14,11 +14,10 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup;
 
-  returnUrl: string | null;
   error;
   loading;
 
-  constructor(private _authenticationService: AuthenticationService, private _route: ActivatedRoute, private _router: Router) {
+  constructor(private _authenticationService: AuthenticationService) {
 
   }
 
@@ -28,10 +27,9 @@ export class LoginComponent implements OnInit {
       password: new FormControl('', Validators.required),
     });
 
-    this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
 
-    if (this._authenticationService.currentUser) {
-      this._router.navigate([this.returnUrl]);
+    if (this._authenticationService.isLoggedIn()) {
+      this._authenticationService.navigateToReturnUrl();
     }
   }
 
@@ -40,25 +38,22 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit($event) {
-
-    console.log("LoginComponent::onSubmit");
-    console.log(this.f.username.errors);
-
     // stop here if form is invalid
     if (this.form.invalid) {
       return;
     }
 
-
     this._authenticationService.logIn(this.f.username.value, this.f.password.value)
-      .pipe(first()).subscribe(
-        data => {
-          this._router.navigate([this.returnUrl]);
+      .pipe(first())
+      .subscribe({
+        complete: () => {
+          this._authenticationService.navigateToReturnUrl();
         },
-        error => {
+        error: (error) => {
           this.error = error;
           this.loading = false;
-        });
+        }
+      });
   }
 
 }

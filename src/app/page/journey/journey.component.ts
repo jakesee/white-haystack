@@ -82,13 +82,13 @@ export class JourneyComponent implements OnInit, AfterViewInit {
     const compRef = this.container.createComponent(factory);
     const instance: Form = compRef.instance as Form;
     instance.init(step.config, progress, this.sequence.length);
-    instance.onBack.subscribe(event => {
+    instance.backHandler.subscribe(event => {
       this._back(event);
     });
-    instance.onNext.subscribe(event => {
+    instance.nextHandler.subscribe(event => {
       this._next(event);
     });
-    instance.onCancel.subscribe(event => {
+    instance.cancelHandler.subscribe(event => {
       this._cancel(event);
     });
   }

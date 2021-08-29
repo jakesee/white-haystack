@@ -6,14 +6,10 @@ import { Section } from 'src/app/interfaces';
   templateUrl: './color-section.component.html',
   styleUrls: ['./color-section.component.scss']
 })
-export class ColorSectionComponent implements OnInit, Section {
+export class ColorSectionComponent extends Section implements OnInit {
   color: string = '#0000FF';
 
-  constructor() {}
+  constructor() { super(); }
 
   ngOnInit() {}
-
-  init(config: any) {
-    this.color = config.color;
-  }
 }

@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     private _componentFactoryResolver: ComponentFactoryResolver
   ) {
     this.sections = _dataService.config.HomeComponent;
-    console.log(this.sections.length + ' sections loaded');
   }
 
   ngOnInit() {}

@@ -5,9 +5,9 @@ import { delay, dematerialize, materialize, mergeMap, Observable, of, throwError
 
 const db = {
   users: [
-    { id: 1, username: 'bill.gates@my-doc.com', password: 'mydoc', firstName: 'Bill', lastName: 'Gates', gender: 'male', birthdate: '28/10/1955' },
-    { id: 2, username: 'steve.jobs@my-doc.com', password: 'mydoc', firstName: 'Steve', lastName: 'Jobs', gender: 'male', birthdate: '24/02/1955' },
-    { id: 3, username: 'test', password: 'test', firstName: 'Jake', lastName: 'See', gender: 'male', birthdate: '28/10/1985' },
+    { id: 1, username: 'bill.gates@my-doc.com', password: 'mydoc', firstName: 'Bill', lastName: 'Gates', gender: 'Male', birthdate: '10/28/1955' },
+    { id: 2, username: 'steve.jobs@my-doc.com', password: 'mydoc', firstName: 'Steve', lastName: 'Jobs', gender: 'Male', birthdate: '02/24/1955' },
+    { id: 3, username: 'test', password: 'test', firstName: 'Jake', lastName: 'See', gender: 'Male', birthdate: '01/22/1985' },
   ]
 }
 
@@ -20,11 +20,9 @@ export class MockHttpProviderService implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-
-
     const { url, method, headers, body } = request;
 
-    console.log('intercept ' + url);
+    console.log('MockHttpProviderService:intercept ' + url);
 
     return of(null)
       .pipe(mergeMap(handleEndpoint))
@@ -47,10 +45,7 @@ export class MockHttpProviderService implements HttpInterceptor {
       const user = db.users.find(x => x.username === username && x.password === password);
       if (!user) return error('Username or password is incorrect');
       return ok({
-        id: user.id,
-        username: user.username,
-        firstName: user.firstName,
-        lastName: user.lastName,
+        ...user,
         token: 'fake-jwt-token'
       })
     }
