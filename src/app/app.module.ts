@@ -13,7 +13,11 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './sections/header/header.component';
 import { WaitingRoomComponent } from './page/waiting-room/waiting-room.component';
+import { LoginComponent } from './auth/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './data.service';
+import { AuthenticationService } from './auth/authentication.service';
+import { mockHttpProviderService } from './mock-http-provider.service';
 
 @NgModule({
   imports: [
@@ -23,18 +27,21 @@ import { DataService } from './data.service';
     ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   declarations: [
     AppComponent,
+    LoginComponent,
     HeaderComponent,
     HomeComponent,
     WaitingRoomComponent,
     JourneyComponent,
     TriageFormComponent,
-    CollectPersonalInfoFormComponent
+    CollectPersonalInfoFormComponent,
   ],
-  providers: [DataService],
-  bootstrap: [AppComponent]
+  providers: [DataService, AuthenticationService, mockHttpProviderService],
+  bootstrap: [AppComponent],
+
 })
 export class AppModule {}

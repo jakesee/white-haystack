@@ -8,7 +8,7 @@ export interface Form {
   onBack: EventEmitter<FormEvent>;
   onCancel: EventEmitter<FormEvent>;
 
-  init(config: any, progress: number, progressMax: number);
+  init(config: any, progress: number, progressMax: number) : void
 }
 
 export class FormEvent {
@@ -22,4 +22,13 @@ export interface Section {
 export interface DefinitionSection {
   component: Type<any>;
   config: any;
+}
+
+export class User {
+
+  constructor(public firstName: string, public lastName: string, public gender: string, public birthdate:Date) { }
+
+  getName(): string {
+    return this.firstName + " " + this.lastName;
+  }
 }

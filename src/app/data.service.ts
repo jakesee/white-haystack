@@ -3,15 +3,23 @@ import { CollectPersonalInfoFormComponent } from './form/collect-personal-info-f
 import { ColorSectionComponent } from './sections/color-section/color-section.component';
 import { ConsultNowComponent } from './sections/consult-now/consult-now.component';
 import { TriageFormComponent } from './form/triage-form/triage-form.component';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Observable } from 'rxjs';
+import { User } from './interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+
+  // store services
   config: any;
   state: Array<any> = [];
 
-  constructor() {
+  // auth service
+  currentUser: User | null = null;
+
+  constructor(private _router: Router) {
     this._loadConfig();
 
     console.log('DataService Constructed');
