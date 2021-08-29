@@ -31,16 +31,16 @@ export class TriageFormComponent implements Form, OnInit {
 
   ngOnInit() {}
 
-  next($event) {
+  next($event:any) {
     this._dataService.state.push(this.form.value.answer);
     this.onNext.emit(new FormEvent(this));
   }
 
-  back($event) {
+  back($event: any) {
     this.onBack.emit(new FormEvent(this));
   }
 
-  cancel($event) {
+  cancel($event: any) {
     this.onCancel.emit(new FormEvent(this));
   }
 }

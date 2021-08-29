@@ -9,13 +9,13 @@ import { Form, FormEvent } from '../interfaces';
   styleUrls: ['./collect-personal-info-form.component.scss']
 })
 export class CollectPersonalInfoFormComponent implements Form, OnInit {
-  progress: number;
-  progressMax: number;
+  progress: number = 0;
+  progressMax: number = 0;
   onNext: EventEmitter<FormEvent> = new EventEmitter<FormEvent>();
   onBack: EventEmitter<FormEvent> = new EventEmitter<FormEvent>();
   onCancel: EventEmitter<FormEvent> = new EventEmitter<FormEvent>();
 
-  title: string;
+  title: string = '';
 
   form = new FormGroup({
     firstName: new FormControl(),
@@ -33,16 +33,16 @@ export class CollectPersonalInfoFormComponent implements Form, OnInit {
     console.log(config);
   }
 
-  next($event) {
+  next($event: any) {
     this._dataService.state.push(Object.values(this.form.value));
     this.onNext.emit(new FormEvent(this));
   }
 
-  back($event) {
+  back($event: any) {
     this.onBack.emit(new FormEvent(this));
   }
 
-  cancel($event) {
+  cancel($event: any) {
     this.onCancel.emit(new FormEvent(this));
   }
 

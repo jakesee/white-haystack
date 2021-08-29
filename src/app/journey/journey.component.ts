@@ -33,7 +33,7 @@ export class JourneyComponent implements OnInit, AfterViewInit {
     private _route: ActivatedRoute,
     private _componentFactoryResolver: ComponentFactoryResolver
   ) {
-    const journeyId: number = parseInt(_route.snapshot.paramMap.get('id'));
+    const journeyId: number = parseInt(_route.snapshot.paramMap.get('id') as string);
     const config = _dataService.config.JourneyComponent[journeyId];
 
     this.cmdCancel = config.cmdCancel;
