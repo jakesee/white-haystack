@@ -1,7 +1,7 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Section } from 'src/app/interfaces';
+import { Section } from '@app/interfaces';
 
 @Component({
   selector: 'app-consult-now',

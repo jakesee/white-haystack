@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, ActivatedRoute, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { User } from 'src/app/interfaces';
+import { User } from '@app/interfaces';
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
