@@ -15,7 +15,7 @@ export class AuthenticationService implements CanActivate {
   currentUser:User
 
   constructor(private _http: HttpClient, private _router: Router, private _route: ActivatedRoute) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser')) as User;
+    this.currentUser = User.create(JSON.parse(localStorage.getItem('currentUser')));
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
