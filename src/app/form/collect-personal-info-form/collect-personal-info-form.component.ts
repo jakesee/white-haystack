@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { AuthenticationService } from '@app/auth/authentication.service';
+import { AuthenticationService } from 'src/app/auth/authentication.service';
 import { DataService } from 'src/app/data.service';
 import { Form, FormEvent, User } from 'src/app/interfaces';
 
