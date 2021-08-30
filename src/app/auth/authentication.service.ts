@@ -5,6 +5,8 @@ import { User } from '@app/interfaces';
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
+// Reference: https://jasonwatmore.com/post/2020/07/09/angular-10-jwt-authentication-example-tutorial
+
 @Injectable({
   providedIn: 'root'
 })
