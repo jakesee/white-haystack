@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, ActivatedRoute, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { User } from '@app/interfaces';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators'
 import { environment } from 'src/environments/environment';
 
 // Reference: https://jasonwatmore.com/post/2020/07/09/angular-10-jwt-authentication-example-tutorial
