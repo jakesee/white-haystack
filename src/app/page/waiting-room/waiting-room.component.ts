@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/data.service';
+import { DataService } from '@app/data.service';
 
 @Component({
   selector: 'app-waiting-room',

@@ -9,7 +9,8 @@ import { WaitingRoomComponent } from './page/waiting-room/waiting-room.component
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'journey', component: JourneyComponent, canActivate: [ AuthenticationService ]  },
+  { path: 'service', component: JourneyComponent, canActivate: [AuthenticationService] },
+  { path: 'public', component: JourneyComponent },
   { path: 'waiting-room', component: WaitingRoomComponent, canActivate: [AuthenticationService] },
   { path: '**', component: HomeComponent }
 ];

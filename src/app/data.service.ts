@@ -43,7 +43,7 @@ export class DataService {
             subText:
               'Operational Hours: 0800H - 2200H, including weekend and holidays',
             buttonText: 'Talk to Doctor Now!',
-            command: ['journey', { id: 0 }]
+            command: ['service', { id: 0 }]
           }
         },
         { component: ColorSectionComponent, config: { color: '#336699' } },
@@ -56,7 +56,7 @@ export class DataService {
             title: 'Premptive Health Screening Programme',
             subText: 'Have a peace mind and assurance',
             buttonText: 'Get a Health Screening',
-            command: ['journey', { id: 1 }]
+            command: ['public', { id: 1 }]
           }
         },
         { component: ColorSectionComponent, config: { color: '#FF9864' } }

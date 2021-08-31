@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { AuthenticationService } from 'src/app/auth/authentication.service';
-import { DataService } from 'src/app/data.service';
-import { Form, FormEvent, User } from 'src/app/interfaces';
+import { AuthenticationService } from '@app/auth/authentication.service';
+import { DataService } from '@app/data.service';
+import { Form, FormEvent, User } from '@app/interfaces';
 
 @Component({
   selector: 'app-collect-personal-info-form',

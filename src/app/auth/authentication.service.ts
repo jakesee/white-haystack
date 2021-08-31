@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, ActivatedRoute, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { User } from 'src/app/interfaces';
-import { map, Observable } from 'rxjs';
+import { User } from '@app/interfaces';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators'
 import { environment } from 'src/environments/environment';
 
 // Reference: https://jasonwatmore.com/post/2020/07/09/angular-10-jwt-authentication-example-tutorial
@@ -15,7 +16,7 @@ export class AuthenticationService implements CanActivate {
   currentUser:User
 
   constructor(private _http: HttpClient, private _router: Router, private _route: ActivatedRoute) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser')) as User;
+    this.currentUser = User.create(JSON.parse(localStorage.getItem('currentUser')));
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
