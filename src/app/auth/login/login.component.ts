@@ -1,8 +1,6 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router, ɵangular_packages_router_router_b } from '@angular/router';
-import { first } from 'rxjs';
+import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../authentication.service';
 
 @Component({

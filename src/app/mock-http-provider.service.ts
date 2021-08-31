@@ -1,6 +1,7 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse, HTTP_INTERCEPTORS, JsonpClientBackend } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, dematerialize, materialize, mergeMap, Observable, of, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
+import { delay, dematerialize, materialize, mergeMap } from 'rxjs/operators';
 
 
 const db = {
