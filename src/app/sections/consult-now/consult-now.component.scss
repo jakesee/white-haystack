@@ -1,36 +1,70 @@
-div {
-  width: 100%;
-  position: relative;
+@import '../../../variables.scss';
 
-  img {
-    display: block;
-    max-width: 100%;
+img {
+  display: block;
+  max-width: 100%;
+}
+
+#call-to-action {
+  text-align: center;
+  padding: 20px;
+
+  button {
+     border-radius: 5px;
+     padding: 10px 18px;
+     border: none;
+     color: white;
+   }
+
+  button {
+    font-size: 1rem;
   }
-
-  div {
-    position: absolute;
-    bottom: 25%;
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 20px;
-    width: 50%;
-
-    h1 {
-      margin-top: 0;
-      margin-bottom: 5px;
-      padding: 0;
-      font-size: 1.5rem;
-    }
-
-    button {
-      border-radius: 5px;
-      padding: 10px 18px;
-      border: none;
-      color: white;
-      font-size: 1.2rem;
-    }
-
-    h2 {
-      font-size: 1rem;
-    }
+  h2 {
+    font-size: 1rem;
   }
 }
+
+@media (min-width: $size-sm) {
+  #background {
+     position: relative;
+
+     #call-to-action {
+       text-align: left;
+       float: none;
+       position: absolute;
+       bottom: 25%;
+       background-color: rgba(255, 255, 255, 0.5);
+
+       h1 {
+         margin-top: 0;
+         margin-bottom: 5px;
+         padding: 0;
+         font-size: 1rem;
+       }
+       button {
+         font-size: 1rem;
+       }
+       h2 {
+         font-size: 0.8rem;
+       }
+     }
+   }
+ }
+@media only screen and (min-width: $size-md) {
+  button {
+    font-size: 1rem;
+  }
+  h2 {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: $size-lg) {
+  button {
+    font-size: 1rem;
+  }
+  h2 {
+    font-size: 0.8rem;
+  }
+}
+
+
