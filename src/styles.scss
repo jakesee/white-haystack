@@ -18,28 +18,24 @@
 // /* Extra large devices (large laptops and desktops, 1200px and up) */
 // @media only screen and (min-width: 1200px) {}
 
-html,
-body {
+html, body {
   padding: 0;
   margin: 0;
+}
 
+html {
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 62.5%;
 
-  @media (min-width: $size-sm) { font-size: 18px; }
-  @media (min-width: $size-md) { font-size: 22px; }
-  @media (min-width: $size-lg) { font-size: 22px; }
+  body {
+    font-size: 1.4rem;
+  }
 }
 
 * {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-}
-
-
-.container {
-  width: 100%;
 }
 
 .row::after {

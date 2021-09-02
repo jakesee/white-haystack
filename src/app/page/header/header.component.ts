@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   menuItems: Array<any> = [];
 
   currentUser: User | null;
+  isShowMenu: boolean = false;
 
   constructor(private _dataService: DataService, private _authenticationService: AuthenticationService, private _router: Router) {
 
@@ -36,5 +37,10 @@ export class HeaderComponent implements OnInit {
   onLogOut($event: any) {
     this._authenticationService.logOut();
     this._router.navigate(['/']);
+  }
+
+  onToggleMenu($event: any) {
+    this.isShowMenu = !this.isShowMenu;
+    console.log(this.isShowMenu);
   }
 }
