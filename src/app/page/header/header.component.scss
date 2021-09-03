@@ -1,27 +1,38 @@
 @import '../../../variables.scss';
 
+
+
 .navbar {
 
   font-size: 1.4rem;
 
   .navbar-brand {
+    width: auto;
+    height: 55px;
     float: left;
-    height: 50px;
-    margin: 12px;
 
-    img {
+    a {
+      line-height: 55px;
       display: inline-block;
-      vertical-align: middle;
+
+      img {
+        display: inline-block;
+        width: auto;
+        height: 55px;
+        box-sizing: border-box;
+        padding: 3px 0 3px 12px;
+        vertical-align: middle;
+      }
     }
+
   }
 
   .navbar-toggler {
     background: none;
     border: none;
     float: right;
-    height: 50px;
-    margin: 12px;
     font-size: 160%;
+    line-height: 55px;
   }
 
   .navbar-collapse {
@@ -35,11 +46,9 @@
   }
 
   .navbar-menu {
-    padding: 20px;
-
     ul {
       margin: 0;
-      padding: 0;
+      padding: 12px;
 
 
       li { list-style: none; }
@@ -70,36 +79,52 @@
       }
     }
   }
-
 }
 
 @media only screen and (min-width: $size-md) {
+
+
+  .navbar {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .navbar-brand {
+    display: inline-flex;
+    width: 160px;
+  }
 
   .navbar-toggler {
     display: none;
   }
 
   .navbar-menu {
-    float: left;
+    // display: inline-flex !important;
+    display: inline-block !important;
+    width: 100%;
+
+    .navbar-nav {
+
+      .navbar-divider {
+        display: none;
+      }
+
+      .dropdown-divider {
+        display: none;
+      }
+
+      .nav-item {
+        float: left;
+      }
+
+      .nav-item.align-right {
+        float: right;
+      }
+    }
+
   }
 
-  .navbar-nav {
-    display: block;
-    padding: 0;
 
-    li {
-      display: none;
-    }
-
-    .dropdown-divider {
-      display: none;
-    }
-
-    .nav-item {
-      display: inline-block;
-      padding: 3px 6px;
-    }
-  }
 }
 
 

@@ -42,11 +42,13 @@ img {
 }
 @media only screen and (min-width: $size-md) {
   #call-to-action {
+    padding-left: 5%;
     font-size: 3.0rem;
   }
 }
 @media only screen and (min-width: $size-lg) {
   #call-to-action {
+    padding-left: 10%;
     font-size: 3.3rem;
   }
 }

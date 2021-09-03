@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   menuItems: Array<any> = [];
 
   currentUser: User | null;
-  isShowMenu: boolean = false;
+  isHideMenu: boolean = true;
 
   constructor(private _dataService: DataService, private _authenticationService: AuthenticationService, private _router: Router) {
 
@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onToggleMenu($event: any) {
-    this.isShowMenu = !this.isShowMenu;
-    console.log(this.isShowMenu);
+    this.isHideMenu = !this.isHideMenu;
+    console.log(this.isHideMenu);
   }
 }
