@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   imgURL: string = 'https://placekitten.com/200/80';
   menuItems: Array<any> = [];
 
-  currentUser: User | null;
+  currentUser: User;
   isHideMenu: boolean = true;
 
   constructor(private _dataService: DataService, private _authenticationService: AuthenticationService, private _router: Router) {
@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
     let config = _dataService.config.HeaderComponent;
     this.imgURL = config.imgURL;
     this.menuItems = config.menuItems;
+    this.currentUser = null;
   }
 
   ngOnInit() {
