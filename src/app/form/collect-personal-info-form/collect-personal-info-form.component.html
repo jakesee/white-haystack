@@ -1,7 +1,7 @@
-<div>
-  <p>Progress: {{progress}} / {{progressMax}}</p>
-  <h1>{{title}}</h1>
-  <div>
+<div class="container">
+  <div class="col-sm-1"><div><fa-icon [icon]="['fas', 'robot']" size="4x"></fa-icon></div></div>
+  <div class="col-sm-11">
+    <h1>{{title}}</h1>
     <form [formGroup]="form">
       <div><label>First Name</label><input formControlName="firstName" /></div>
       <div><label>Last Name</label><input formControlName="lastName" /></div>
@@ -20,7 +20,7 @@
         <mat-datepicker #picker></mat-datepicker>
       </div>
       <div>
-        <button (click)="onNext($event)">Next</button>
+        <button (click)="onNext($event)" class="default">Next</button>
         <button (click)="onBack($event)">Back</button>
         <button (click)="onCancel($event)">Cancel</button>
       </div>

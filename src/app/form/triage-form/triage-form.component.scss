@@ -1,0 +1,32 @@
+@import '../../../variables.scss';
+
+div {
+    padding: 10px;
+}
+
+form {
+    label {
+        display: block;
+        margin-bottom: 6px;
+    }
+    input, select {
+        display: block;
+        border: none;
+        border-radius: 5px;
+        background: #EEEEEE;
+        padding: 6px 9px;
+        width: 100%;
+    }
+}
+
+button {
+    border: none;
+    padding: 6px 9px;
+    border-radius: 5px;
+    //float: left;
+    margin-right: 5px;
+}
+button.default {
+    background-color: $theme-color;
+    color: white;
+}

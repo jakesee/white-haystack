@@ -1,36 +1,56 @@
-div {
-  width: 100%;
-  position: relative;
+@import '../../../variables.scss';
 
-  img {
-    display: block;
-    max-width: 100%;
-  }
+img {
+  display: block;
+  max-width: 100%;
+}
 
-  div {
+#call-to-action {
+  text-align: center;
+  padding: 20px;
+  font-size: 2.2rem;
+
+  button {
+     border-radius: 5px;
+     padding: 10px 18px;
+     border: none;
+     color: white;
+   }
+
+  h1 { font-size: 100%; }
+  button { font-size: 80%; }
+  h2 { font-size: 50%; }
+}
+
+@media (min-width: $size-sm) {
+  #background { position: relative; }
+
+  #call-to-action {
+    text-align: left;
+    float: none;
     position: absolute;
     bottom: 25%;
     background-color: rgba(255, 255, 255, 0.5);
-    padding: 20px;
-    width: 50%;
+    font-size: 2.4rem;
 
     h1 {
       margin-top: 0;
       margin-bottom: 5px;
       padding: 0;
-      font-size: 1.5rem;
-    }
-
-    button {
-      border-radius: 5px;
-      padding: 10px 18px;
-      border: none;
-      color: white;
-      font-size: 1.2rem;
-    }
-
-    h2 {
-      font-size: 1rem;
     }
   }
 }
+@media only screen and (min-width: $size-md) {
+  #call-to-action {
+    padding-left: 5%;
+    font-size: 3.0rem;
+  }
+}
+@media only screen and (min-width: $size-lg) {
+  #call-to-action {
+    padding-left: 10%;
+    font-size: 3.3rem;
+  }
+}
+
+

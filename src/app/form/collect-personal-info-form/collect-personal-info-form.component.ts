@@ -22,9 +22,7 @@ export class CollectPersonalInfoFormComponent implements Form, OnInit {
 
   constructor(private _dataService: DataService, private _authenticationService: AuthenticationService) {}
 
-  init(config: any, progress: number, progressMax: number) {
-    this.progress = progress;
-    this.progressMax = progressMax;
+  init(config: any) {
     this.title = config.title;
   }
 

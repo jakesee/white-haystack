@@ -18,6 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './data.service';
 import { AuthenticationService } from './auth/authentication.service';
 import { mockHttpProviderService } from './mock-http-provider.service';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faBars, faRobot, faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
 
 @NgModule({
   imports: [
@@ -28,7 +31,8 @@ import { mockHttpProviderService } from './mock-http-provider.service';
     MatDatepickerModule,
     MatNativeDateModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   declarations: [
     AppComponent,
@@ -39,9 +43,14 @@ import { mockHttpProviderService } from './mock-http-provider.service';
     JourneyComponent,
     TriageFormComponent,
     CollectPersonalInfoFormComponent,
+    EmergencyFormComponent,
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],
 
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private library: FaIconLibrary) {
+    library.addIcons(faBars, faSignInAlt, faSignOutAlt, faRobot);
+  }
+}

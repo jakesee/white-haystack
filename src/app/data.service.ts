@@ -5,6 +5,7 @@ import { ConsultNowComponent } from './sections/consult-now/consult-now.componen
 import { TriageFormComponent } from './form/triage-form/triage-form.component';
 import { Router } from '@angular/router';
 import { User } from './interfaces';
+import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
 
 @Injectable({
   providedIn: 'root'
@@ -66,6 +67,10 @@ export class DataService {
           cmdCancel: ['/home'], // route navigate command
           cmdSuccess: ['/waiting-room'], // route navigate command
           sequence: [
+            {
+              component: EmergencyFormComponent,
+              config: { }
+            },
             {
               component: TriageFormComponent,
               config: { questionText: 'What complaints do you have today?' }

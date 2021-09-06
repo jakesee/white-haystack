@@ -81,7 +81,7 @@ export class JourneyComponent implements OnInit, AfterViewInit {
     );
     const compRef = this.container.createComponent(factory);
     const instance: Form = compRef.instance as Form;
-    instance.init(step.config, progress, this.sequence.length);
+    instance.init(step.config);
     instance.backHandler.subscribe(event => {
       this._back(event);
     });
@@ -91,5 +91,13 @@ export class JourneyComponent implements OnInit, AfterViewInit {
     instance.cancelHandler.subscribe(event => {
       this._cancel(event);
     });
+  }
+
+  public get journeyStepCount(): number {
+    return this.sequence.length;
+  }
+
+  public get currentJourneyStep():number {
+    return this.progress + 1;
   }
 }
