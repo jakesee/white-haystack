@@ -1,14 +1,12 @@
 import { EventEmitter, Type } from '@angular/core';
 
 export interface Form {
-  progress: number;
-  progressMax: number;
 
   nextHandler: EventEmitter<FormEvent>;
   backHandler: EventEmitter<FormEvent>;
   cancelHandler: EventEmitter<FormEvent>;
 
-  init(config: any, progress: number, progressMax: number) : void
+  init(config: any) : void
 }
 
 export class FormEvent {

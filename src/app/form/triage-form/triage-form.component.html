@@ -1,10 +1,13 @@
 <div>
-  <p>Progress: {{progress}} / {{progressMax}}</p>
+  <h1>How are you feeling today?</h1>
   <form [formGroup]="form">
-    <p>{{questionText}}</p>
-    <input formControlName="answer">
-    <button (click)="next($event)">Next</button>
-    <button (click)="back($event)">Back</button>
-    <button (click)="cancel($event)">Cancel</button>
+    <div><label>What are your symptoms?</label><input formControlName="answer"></div>
+    <div><label>How long have your symptoms persisted?</label><input formControlName="answer"></div>
+    <div><label>Any other complaints?</label><input formControlName="answer"></div>
+    <div>
+      <button (click)="next($event)" class="default">Next</button>
+      <button (click)="back($event)">Back</button>
+      <button (click)="cancel($event)">Cancel</button>
+    </div>
   </form>
 </div>

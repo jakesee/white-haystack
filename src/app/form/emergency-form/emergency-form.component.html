@@ -1,0 +1,30 @@
+<div>
+    <h1>Not for emergency!</h1>
+    <form>
+        <div>
+            <p>If you are facing an emergency, please visit the nearest hospital.</p>
+            <p>Are you experiencing any of the following emergency symptoms?</p>
+            <uL>
+                <li>Guilt</li>
+                <li>Anger</li>
+                <li>Terror</li>
+                <li>Horror</li>
+                <li>Hatred</li>
+                <li>Smugness</li>
+                <li>Interest</li>
+                <li>Despair</li>
+                <li>Melancholy</li>
+            </uL>
+        </div>
+        <div *ngIf="isShowEmergencyHelp" class="emergency-notice">
+            <p>Please visit the nearest hospital immediately or call 995.</p>
+            <p><a href="http://map.google.com">Find on Google Map</a></p>
+        </div>
+        <div>
+            <button (click)="onNext($event)" class="default">No, proceed.</button>
+            <button (click)="onShowEmergencyHelp($event)">Yes</button>
+            <button (click)="onCancel($event)">Cancel</button>
+        </div>
+    </form>
+</div>
+

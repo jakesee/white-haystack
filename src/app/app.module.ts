@@ -19,7 +19,8 @@ import { DataService } from './data.service';
 import { AuthenticationService } from './auth/authentication.service';
 import { mockHttpProviderService } from './mock-http-provider.service';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBars, faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faRobot, faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
 
 @NgModule({
   imports: [
@@ -42,6 +43,7 @@ import { faBars, faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-i
     JourneyComponent,
     TriageFormComponent,
     CollectPersonalInfoFormComponent,
+    EmergencyFormComponent,
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],
@@ -49,6 +51,6 @@ import { faBars, faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-i
 })
 export class AppModule {
   constructor(private library: FaIconLibrary) {
-    library.addIcons(faBars, faSignInAlt, faSignOutAlt);
+    library.addIcons(faBars, faSignInAlt, faSignOutAlt, faRobot);
   }
 }

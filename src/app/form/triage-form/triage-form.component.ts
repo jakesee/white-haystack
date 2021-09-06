@@ -9,8 +9,7 @@ import { Form, FormEvent } from '@app/interfaces';
   styleUrls: ['./triage-form.component.scss']
 })
 export class TriageFormComponent implements Form, OnInit {
-  progress: number = 0;
-  progressMax: number = 0;
+
   nextHandler: EventEmitter<FormEvent> = new EventEmitter<FormEvent>();
   backHandler: EventEmitter<FormEvent> = new EventEmitter<FormEvent>();
   cancelHandler: EventEmitter<FormEvent> = new EventEmitter<FormEvent>();
@@ -22,9 +21,7 @@ export class TriageFormComponent implements Form, OnInit {
 
   constructor(private _dataService: DataService) {}
 
-  init(config: any, progress: number, progressMax: number) {
-    this.progress = progress;
-    this.progressMax = progressMax;
+  init(config: any) {
     this.questionText = config.questionText;
   }
 

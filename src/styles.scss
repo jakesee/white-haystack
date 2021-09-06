@@ -1,5 +1,6 @@
 /* Add application styles & imports to this file! */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
 @import 'variables.scss';
 
 
@@ -18,19 +19,23 @@
 // /* Extra large devices (large laptops and desktops, 1200px and up) */
 // @media only screen and (min-width: 1200px) {}
 
-html, body {
-  padding: 0;
-  margin: 0;
+html, body { padding: 0; margin: 0; }
+html, body, input, select, textarea, button {
+  font-family: 'Roboto', sans-serif;
+  // font-family: Helvetica, Arial, sans-serif;
+  // font-weight: 100, 300, 400, 700;
 }
 
 html {
-  font-family: Helvetica, Arial, sans-serif;
   font-size: 62.5%;
-
   body {
     font-size: 1.4rem;
+    h1 { font-weight: 700; }
+    p { font-weight: 400; }
   }
 }
+
+
 
 * {
   box-sizing: border-box;
@@ -98,6 +103,6 @@ html {
 }
 
 .theme {
-  background-color: #1447fc;
-  color: #1447fc;
+  background-color: $theme-color;
+  color: $theme-color;
 }
