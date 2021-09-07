@@ -21,6 +21,8 @@ import { mockHttpProviderService } from './mock-http-provider.service';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faBars, faRobot, faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
+import { SymptomsSectionComponent } from './sections/symptoms-section/symptoms-section.component';
+import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onetwothree-section.component';
 
 @NgModule({
   imports: [
@@ -44,6 +46,8 @@ import { EmergencyFormComponent } from './form/emergency-form/emergency-form.com
     TriageFormComponent,
     CollectPersonalInfoFormComponent,
     EmergencyFormComponent,
+    SymptomsSectionComponent,
+    OnetwothreeSectionComponent,
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],

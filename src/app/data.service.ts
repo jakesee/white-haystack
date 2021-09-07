@@ -6,6 +6,8 @@ import { TriageFormComponent } from './form/triage-form/triage-form.component';
 import { Router } from '@angular/router';
 import { User } from './interfaces';
 import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
+import { SymptomsSectionComponent } from './sections/symptoms-section/symptoms-section.component';
+import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onetwothree-section.component';
 
 @Injectable({
   providedIn: 'root'
@@ -47,7 +49,8 @@ export class DataService {
             command: ['service', { id: 0 }]
           }
         },
-        { component: ColorSectionComponent, config: { color: '#336699' } },
+        { component: SymptomsSectionComponent, config: {} },
+        { component: OnetwothreeSectionComponent, config: {} },
         { component: ColorSectionComponent, config: { color: '#35FF88' } },
         {
           component: ConsultNowComponent,
