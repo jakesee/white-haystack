@@ -10,9 +10,9 @@
     width: auto;
     height: 55px;
     float: left;
+    margin: 12px;
 
     a {
-      line-height: 55px;
       display: inline-block;
 
       img {
@@ -20,8 +20,6 @@
         width: auto;
         height: 55px;
         box-sizing: border-box;
-        padding: 3px 0 3px 12px;
-        vertical-align: middle;
       }
     }
 
@@ -33,6 +31,8 @@
     float: right;
     font-size: 160%;
     line-height: 55px;
+    margin: 11px;
+    box-sizing: border-box;
   }
 
   .navbar-collapse {
@@ -47,7 +47,7 @@
 
   .navbar-menu {
     ul {
-      margin: 0;
+      margin: 12px;
       padding: 12px;
 
 
