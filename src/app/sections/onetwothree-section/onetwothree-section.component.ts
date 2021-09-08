@@ -6,13 +6,11 @@ import { Section } from '@app/interfaces';
   templateUrl: './onetwothree-section.component.html',
   styleUrls: ['./onetwothree-section.component.scss']
 })
-export class OnetwothreeSectionComponent implements Section, OnInit {
+export class OnetwothreeSectionComponent extends Section implements OnInit {
 
-  constructor() { }
-
-  init(config: any): void {
-
-  }
+  constructor() {
+    super();
+   }
 
   ngOnInit(): void {
   }

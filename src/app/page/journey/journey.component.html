@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div>
+<div class="container">
     <ul class="journey-line">
         <li *ngFor="let seq of sequence; index as i" [ngClass]="{'active': i == progress}" class="journey-stop">{{i + 1}}</li>
     </ul>

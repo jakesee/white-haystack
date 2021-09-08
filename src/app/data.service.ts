@@ -8,6 +8,8 @@ import { User } from './interfaces';
 import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
 import { SymptomsSectionComponent } from './sections/symptoms-section/symptoms-section.component';
 import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onetwothree-section.component';
+import { BannerSectionComponent } from './sections/banner-section/banner-section.component';
+import { NeedAssistanceSectionComponent } from './sections/need-assistance-section/need-assistance-section.component';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +43,7 @@ export class DataService {
           component: ConsultNowComponent,
           config: {
             imgSource:
-              'https://app.my-doc.com/dai-ichi/assets/images/Banner_happy_family.png',
+              'https://app.qa.my-doc.com/dai-ichi/assets/images/Banner_happy_family.png',
             title: 'Awesome Co. Virtual Teleheath',
             subText:
               'Operational Hours: 0800H - 2200H, including weekend and holidays',
@@ -51,19 +53,24 @@ export class DataService {
         },
         { component: SymptomsSectionComponent, config: {} },
         { component: OnetwothreeSectionComponent, config: {} },
-        { component: ColorSectionComponent, config: { color: '#35FF88' } },
+        {
+          component: NeedAssistanceSectionComponent,
+          config: {
+            content: "<p>Need any assistance? Call us at</p><p><b>Dai-ichi Life Vietnam<br /> (028) 38100888</b><br /> 08: 00 - 17: 30, Mon - Fri and 08: 00 - 12: 00, Sat </p><p><b>MyDoc <br /> 0707150628</b><br /> 8: 00 to 22: 00, incl.weekend & holidays </p>"
+          }
+        },
+        { component: BannerSectionComponent, config: {} },
         {
           component: ConsultNowComponent,
           config: {
             imgSource:
-              'https://app.my-doc.com/baoviet/assets/images/banner_web.png',
+              'https://app.qa.my-doc.com/baoviet/assets/images/banner_web.png',
             title: 'Premptive Health Screening Programme',
             subText: 'Have a peace mind and assurance',
             buttonText: 'Get a Health Screening',
             command: ['public', { id: 1 }]
           }
         },
-        { component: ColorSectionComponent, config: { color: '#FF9864' } }
       ],
       JourneyComponent: [
         {

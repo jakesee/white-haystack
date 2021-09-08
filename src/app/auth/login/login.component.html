@@ -1,16 +1,17 @@
 <app-header></app-header>
-<div>
-    <h1>Login</h1>
-    <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
-        <div>Username <input formControlName="username" /></div>
-        <div *ngIf="f.username.errors" class="invalid-feedback">
-            <div *ngIf="f.username.errors.required">Username is required</div>
-        </div>
-        <div>Password <input formControlName="password" type="password"/></div>
-        <div *ngIf="f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
-        </div>
-
-        <input class="theme" type="submit" value="Log In" />
-    </form>
+<div class="container">
+    <div class="card">
+        <h1>Login</h1>
+        <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+            <div><label>Username</label><input formControlName="username" /></div>
+            <div *ngIf="f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required" class="error">Username is required</div>
+            </div>
+            <div><label>Password</label><input formControlName="password" type="password"/></div>
+            <div *ngIf="f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required" class="error">Password is required</div>
+            </div>
+            <input type="submit" value="Log In" />
+        </form>
+    </div>
 </div>

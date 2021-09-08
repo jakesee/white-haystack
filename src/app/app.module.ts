@@ -23,6 +23,8 @@ import { faBars, faRobot, faSignInAlt, faSignOutAlt } from '@fortawesome/free-so
 import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
 import { SymptomsSectionComponent } from './sections/symptoms-section/symptoms-section.component';
 import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onetwothree-section.component';
+import { BannerSectionComponent } from './sections/banner-section/banner-section.component';
+import { NeedAssistanceSectionComponent } from './sections/need-assistance-section/need-assistance-section.component';
 
 @NgModule({
   imports: [
@@ -48,6 +50,8 @@ import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onet
     EmergencyFormComponent,
     SymptomsSectionComponent,
     OnetwothreeSectionComponent,
+    BannerSectionComponent,
+    NeedAssistanceSectionComponent,
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],

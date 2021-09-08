@@ -2,8 +2,10 @@
 
 .journey-line {
 
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid $theme-border-color;
     position: relative;
+    margin: 0;
+    padding: 0;
 
     .journey-stop {
         display: inline-block;
@@ -12,7 +14,7 @@
         width: 20px;
         line-height: 20px;
         box-sizing: border-box;
-        background: black;
+        background-color: $theme-border-color;
         border-radius: 10px;
         margin-left: 20px;
         //font-size: 0;
