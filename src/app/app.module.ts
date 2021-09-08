@@ -25,6 +25,8 @@ import { SymptomsSectionComponent } from './sections/symptoms-section/symptoms-s
 import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onetwothree-section.component';
 import { BannerSectionComponent } from './sections/banner-section/banner-section.component';
 import { NeedAssistanceSectionComponent } from './sections/need-assistance-section/need-assistance-section.component';
+import { NextAppointmentInfoFormComponent } from './form/next-appointment-info-form/next-appointment-info-form.component';
+import { RequestAppointmentFormComponent } from './form/request-appointment-form/request-appointment-form.component';
 
 @NgModule({
   imports: [
@@ -36,7 +38,7 @@ import { NeedAssistanceSectionComponent } from './sections/need-assistance-secti
     MatNativeDateModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   declarations: [
     AppComponent,
@@ -52,6 +54,8 @@ import { NeedAssistanceSectionComponent } from './sections/need-assistance-secti
     OnetwothreeSectionComponent,
     BannerSectionComponent,
     NeedAssistanceSectionComponent,
+    NextAppointmentInfoFormComponent,
+    RequestAppointmentFormComponent
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],

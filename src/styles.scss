@@ -113,17 +113,17 @@ div.container { padding: 0; margin: 0; width: 100%; }
 
 
 // forms
+
+div.card { padding: 20px; }
 @media only screen and (min-width: $size-md) {
     div.card {
         margin: 20px auto 0 auto;
         width: $size-md;
     }
 }
-
 @media only screen and (min-width: $size-lg) {
     div.card {
         margin-left: 0;
-        padding: 20px;
         border: 1px solid $theme-border-color;
         border-radius: 5px;
         background-color: white;

@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="card">
+        <h1>Next available appointment</h1>
+        <div>
+        <p>Currently, the next available appointment time is estimated at <strong>{{appointmentStartDateTime}}</strong>. Do you want to proceed?</p>
+        </div>
+        <div>
+            <button (click)="onNext($event)" class="default">Yes</button>
+            <button (click)="onBack($event)">Back</button>
+            <button (click)="onCancel($event)">Cancel</button>
+        </div>
+    </div>
+</div>
+

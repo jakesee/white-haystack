@@ -1,3 +1,17 @@
-<p>
-request-appointment-form works!
-</p>
+<div class="container">
+    <div class="card">
+        <h1>Request Appointment</h1>
+        <p>Send an appointment request to our healthcare professional.</p>
+        <p>Currently, the next available appointment time is estimated at <strong>{{timeslots[0]|date:'medium'}}</strong>.</p>
+        <div>
+            <ul>
+                <li *ngFor="let timeslot of timeslots"><a class="timeslot" (click)="onSelectTime(timeslot)" href="#">{{timeslot|date:'medium'}}</a></li>
+            </ul>
+        </div>
+        <div>
+            <button (click)="onRequestAppointment($event)" class="default">Request: {{selectedTimeslot|date:'medium'}}</button>
+            <button (click)="onBack($event)">Back</button>
+            <button (click)="onCancel($event)">Cancel</button>
+        </div>
+    </div>
+</div>
