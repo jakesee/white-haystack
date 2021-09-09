@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Type } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -23,6 +23,12 @@ import { faBars, faRobot, faSignInAlt, faSignOutAlt } from '@fortawesome/free-so
 import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
 import { SymptomsSectionComponent } from './sections/symptoms-section/symptoms-section.component';
 import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onetwothree-section.component';
+import { BannerSectionComponent } from './sections/banner-section/banner-section.component';
+import { NeedAssistanceSectionComponent } from './sections/need-assistance-section/need-assistance-section.component';
+import { NextAppointmentInfoFormComponent } from './form/next-appointment-info-form/next-appointment-info-form.component';
+import { RequestAppointmentFormComponent } from './form/request-appointment-form/request-appointment-form.component';
+import { ExploreComponent } from './page/explore/explore.component';
+import { ProviderComponent } from './page/provider/provider.component';
 
 @NgModule({
   imports: [
@@ -34,7 +40,7 @@ import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onet
     MatNativeDateModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   declarations: [
     AppComponent,
@@ -48,6 +54,12 @@ import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onet
     EmergencyFormComponent,
     SymptomsSectionComponent,
     OnetwothreeSectionComponent,
+    BannerSectionComponent,
+    NeedAssistanceSectionComponent,
+    NextAppointmentInfoFormComponent,
+    RequestAppointmentFormComponent,
+    ExploreComponent,
+    ProviderComponent,
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],

@@ -1,6 +1,8 @@
 @import '../../../variables.scss';
 
-
+div.fluid-container {
+  background-color: #ffffff;
+}
 
 .navbar {
 
@@ -55,7 +57,7 @@
 
 
       .nav-item:hover {
-        background-color: #B7BDCF;
+        //background-color: #B7BDCF;
       }
 
       .nav-item {
@@ -82,7 +84,6 @@
 }
 
 @media only screen and (min-width: $size-md) {
-
 
   .navbar {
     display: flex;
@@ -123,8 +124,13 @@
     }
 
   }
+}
 
-
+@media only screen and (min-width: $size-lg) {
+  div.fluid-container {
+      border-bottom: 1px solid $theme-border-color;
+      margin-bottom: 10px;
+    }
 }
 
 

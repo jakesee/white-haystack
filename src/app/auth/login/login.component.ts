@@ -35,23 +35,17 @@ export class LoginComponent implements OnInit {
     return this.form.controls;
   }
 
-  onSubmit($event) {
+  async onSubmit($event) {
     // stop here if form is invalid
     if (this.form.invalid) {
       return;
     }
 
-    this._authenticationService.logIn(this.f.username.value, this.f.password.value)
-      .pipe(first())
-      .subscribe({
-        complete: () => {
-          this._authenticationService.navigateToReturnUrl();
-        },
-        error: (error) => {
-          this.error = error;
-          this.loading = false;
-        }
-      });
+    console.log("this._authenticationService.logIn");
+    await this._authenticationService.logIn(this.f.username.value, this.f.password.value).then((data) => {
+      this._authenticationService.navigateToReturnUrl();
+      console.log("navigated");
+    });
+    console.log("submitted");
   }
-
 }

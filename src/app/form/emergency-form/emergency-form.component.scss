@@ -1,10 +1,9 @@
 @import '../../../variables.scss';
 
-div {
-    padding: 10px;
-}
-
 form {
+    div {
+        padding: 20px;
+    }
     label {
         display: block;
         margin-bottom: 6px;
@@ -21,7 +20,8 @@ form {
 
 .emergency-notice {
     background: lightpink;
-    border-radius: 15px;
+    border-radius: 5px;
+    padding: 3px 15px;
 }
 
 button {
@@ -35,3 +35,4 @@ button.default {
     background-color: $theme-color;
     color: white;
 }
+

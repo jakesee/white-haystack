@@ -24,12 +24,37 @@ export interface DefinitionSection {
   config: any;
 }
 
+export interface ProviderData {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  sections: Array<ComponentData>;
+  journeys: Array<JourneyData>;
+}
+
+export interface JourneyData {
+  auth: boolean;
+  cmdCancel: any;
+  cmdSuccess: any;
+  sequence: Array<ComponentData>;
+}
+
+export interface ComponentData {
+  component: string;
+  config: any;
+}
+
 export class User {
 
   firstName: string;
   lastName: string;
   gender: string;
   birthdate: string;
+
+  medicalCondition: string;
+  medication: string;
+  allergies: string;
 
   static create(template: object): User {
     let user = new User();

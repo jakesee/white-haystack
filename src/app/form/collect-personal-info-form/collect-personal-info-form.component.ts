@@ -45,11 +45,15 @@ export class CollectPersonalInfoFormComponent implements Form, OnInit {
        firstName: new FormControl(this.user.firstName),
        lastName: new FormControl(this.user.lastName),
        gender: new FormControl(this.user.gender),
-       birthdate: new FormControl(this.user.birthdate)
+       birthdate: new FormControl(this.user.birthdate),
+
+       medicalCondition: new FormControl(this.user.medicalCondition),
+       medication: new FormControl(this.user.medication),
+       allergies: new FormControl(this.user.allergies),
      });
   }
 
   get user(): User {
-    return this._authenticationService.currentUser;
+    return this._authenticationService.getCurrentUser();
   }
 }
