@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Type } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -27,6 +27,8 @@ import { BannerSectionComponent } from './sections/banner-section/banner-section
 import { NeedAssistanceSectionComponent } from './sections/need-assistance-section/need-assistance-section.component';
 import { NextAppointmentInfoFormComponent } from './form/next-appointment-info-form/next-appointment-info-form.component';
 import { RequestAppointmentFormComponent } from './form/request-appointment-form/request-appointment-form.component';
+import { ExploreComponent } from './page/explore/explore.component';
+import { ProviderComponent } from './page/provider/provider.component';
 
 @NgModule({
   imports: [
@@ -55,7 +57,9 @@ import { RequestAppointmentFormComponent } from './form/request-appointment-form
     BannerSectionComponent,
     NeedAssistanceSectionComponent,
     NextAppointmentInfoFormComponent,
-    RequestAppointmentFormComponent
+    RequestAppointmentFormComponent,
+    ExploreComponent,
+    ProviderComponent,
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],

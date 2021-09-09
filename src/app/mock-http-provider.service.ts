@@ -1,23 +1,15 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse, HTTP_INTERCEPTORS, JsonpClientBackend } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse, HTTP_INTERCEPTORS, JsonpClientBackend } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, dematerialize, materialize, mergeMap } from 'rxjs/operators';
-
-
-const db = {
-  users: [
-    { id: 1, username: 'bill.gates@my-doc.com', password: 'mydoc', firstName: 'Bill', lastName: 'Gates', gender: 'Male', birthdate: '10/28/1955' },
-    { id: 2, username: 'steve.jobs@my-doc.com', password: 'mydoc', firstName: 'Steve', lastName: 'Jobs', gender: 'Male', birthdate: '02/24/1955' },
-    { id: 3, username: 'test', password: 'test', firstName: 'Jake', lastName: 'See', gender: 'Male', birthdate: '01/22/1985' },
-  ]
-}
+import database from '../assets/database.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MockHttpProviderService implements HttpInterceptor {
 
-  constructor() { }
+  constructor(private _httpClient: HttpClient) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -36,14 +28,33 @@ export class MockHttpProviderService implements HttpInterceptor {
         return post_user_authenticate();
       } else if (url.endsWith('/me/profile') && method == 'GET') {
         return get_me_profile();
+      } else if (url.endsWith('/providers') && method == 'GET') {
+        return get_providers();
+      } else if (url.endsWith('/provider') && method == 'GET') {
+        return get_provider();
       } else {
         return next.handle(request);
       }
     }
 
+    function get_providers() {
+      return ok({
+        data: database.providers
+      });
+    }
+
+    function get_provider() {
+      let providerId = request.params.get('id');
+      let provider = database.providers[providerId]
+
+      return ok({
+        data: provider
+      });
+    }
+
     function post_user_authenticate() {
       const { username, password } = body;
-      const user = db.users.find(x => x.username === username && x.password === password);
+      const user = database.users.find(x => x.username === username && x.password === password);
       if (!user) return error('Username or password is incorrect');
       return ok({
         ...user,

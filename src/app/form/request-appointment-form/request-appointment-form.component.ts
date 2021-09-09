@@ -26,7 +26,7 @@ export class RequestAppointmentFormComponent implements Form, OnInit {
 
   ngOnInit() {
     let now = Date.now();
-    for (var i = 0; i < 10; i++) {
+    for (var i = 1; i < 10; i++) {
       var time = now + i * 15 * 60 * 1000;
       this.timeslots.push(time);
     }

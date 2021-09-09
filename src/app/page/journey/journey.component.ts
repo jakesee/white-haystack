@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '@app/data.service';
-import { Form, FormEvent } from '@app/interfaces';
+import { Form, FormEvent, ProviderData } from '@app/interfaces';
 
 @Component({
   selector: 'app-journey',
@@ -33,20 +33,29 @@ export class JourneyComponent implements OnInit, AfterViewInit {
     private _route: ActivatedRoute,
     private _componentFactoryResolver: ComponentFactoryResolver
   ) {
-    const journeyId: number = parseInt(_route.snapshot.paramMap.get('id') as string);
-    const config = _dataService.config.JourneyComponent[journeyId];
+    this._construct();
+  }
 
-    this.cmdCancel = config.cmdCancel;
-    this.cmdSuccess = config.cmdSuccess;
-    this.sequence = config.sequence;
+  private async _construct() {
+    const journeyId: number = this._route.snapshot.params.jid;
+    const providerId: number = this._route.snapshot.params.pid;
+    await this._dataService.getProvider(providerId).toPromise().then((data) => {
+      const journey = data.journeys[journeyId];
+      this.cmdCancel = journey.cmdCancel;
+      this.cmdSuccess = journey.cmdSuccess;
+      this.sequence = journey.sequence;
+
+      this.progress = 0;
+      this._loadForm(this.progress);
+    });
   }
 
   ngOnInit() {}
 
   ngAfterViewInit() {
-    this.progress = 0;
+
     setTimeout(() => {
-      this._loadForm(this.progress);
+
     });
   }
 
@@ -64,21 +73,20 @@ export class JourneyComponent implements OnInit, AfterViewInit {
     if (this.progress >= 0) {
       this._loadForm(this.progress);
     } else {
-      this._router.navigate(this.cmdCancel);
+      this._router.navigate(this.cmdCancel, { relativeTo: this._route });
     }
   }
 
   private _cancel(event: FormEvent) {
     this._dataService.state = []; // reset state
-    this._router.navigate(this.cmdCancel);
+    this._router.navigate(this.cmdCancel, { relativeTo: this._route });
   }
 
   private _loadForm(progress: number) {
     const step: any = this.sequence[progress];
     this.container.clear();
-    const factory = this._componentFactoryResolver.resolveComponentFactory(
-      step.component
-    );
+    const componentType = this._dataService.resolveComponent(step.component);
+    const factory = this._componentFactoryResolver.resolveComponentFactory(componentType);
     const compRef = this.container.createComponent(factory);
     const instance: Form = compRef.instance as Form;
     instance.init(step.config);

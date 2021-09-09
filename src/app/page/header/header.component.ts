@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private _dataService: DataService, private _authenticationService: AuthenticationService, private _router: Router) {
 
-    let config = _dataService.config.HeaderComponent;
+    let config = this._dataService.config.HeaderComponent;
     this.imgURL = config.imgURL;
     this.menuItems = config.menuItems;
     this.currentUser = null;
@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     if (this.isLoggedIn) {
       this.currentUser = this._authenticationService.getCurrentUser();
-      console.log(this.currentUser);
+      console.log('HeaderComponent: ' + this.currentUser);
     }
   }
 

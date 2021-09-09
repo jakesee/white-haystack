@@ -16,9 +16,7 @@ import { DefinitionSection, Section } from '@app/interfaces';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-  @ViewChildren('section', { read: ViewContainerRef }) containers: QueryList<
-    ViewContainerRef
-  >;
+  @ViewChildren('section', { read: ViewContainerRef }) containers: QueryList<ViewContainerRef>;
 
   sections: Array<DefinitionSection>;
 
