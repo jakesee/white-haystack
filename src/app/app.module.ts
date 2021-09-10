@@ -19,7 +19,7 @@ import { DataService } from './data.service';
 import { AuthenticationService } from './auth/authentication.service';
 import { mockHttpProviderService } from './mock-http-provider.service';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBars, faRobot, faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faRobot, faSignInAlt, faSignOutAlt, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
 import { SymptomsSectionComponent } from './sections/symptoms-section/symptoms-section.component';
 import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onetwothree-section.component';
@@ -29,6 +29,7 @@ import { NextAppointmentInfoFormComponent } from './form/next-appointment-info-f
 import { RequestAppointmentFormComponent } from './form/request-appointment-form/request-appointment-form.component';
 import { ExploreComponent } from './page/explore/explore.component';
 import { ProviderComponent } from './page/provider/provider.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   imports: [
@@ -60,6 +61,7 @@ import { ProviderComponent } from './page/provider/provider.component';
     RequestAppointmentFormComponent,
     ExploreComponent,
     ProviderComponent,
+    ProfileComponent,
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],
@@ -67,6 +69,6 @@ import { ProviderComponent } from './page/provider/provider.component';
 })
 export class AppModule {
   constructor(private library: FaIconLibrary) {
-    library.addIcons(faBars, faSignInAlt, faSignOutAlt, faRobot);
+    library.addIcons(faBars, faSignInAlt, faSignOutAlt, faRobot, faWindowClose);
   }
 }

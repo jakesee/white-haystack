@@ -38,6 +38,8 @@ export class DataService {
   config: any;
   state: Array<any> = [];
 
+  isShowMobileDownloadBar: boolean = true;
+
   constructor(private _router: Router, private _http: HttpClient, ) {
     this._loadConfig();
   }

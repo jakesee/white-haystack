@@ -42,6 +42,15 @@ export class HeaderComponent implements OnInit {
 
   onToggleMenu($event: any) {
     this.isHideMenu = !this.isHideMenu;
-    console.log(this.isHideMenu);
+    return false;
+  }
+
+  onCloseMobileDownloadBar($event: any) {
+    this._dataService.isShowMobileDownloadBar = false;
+    return false;
+  }
+
+  get isShowMobileDownloadBar(): boolean {
+    return this._dataService.isShowMobileDownloadBar;
   }
 }
