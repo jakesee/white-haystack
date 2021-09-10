@@ -1,0 +1,18 @@
+@import '../../../variables.scss';
+
+.row {
+
+  margin-bottom: 12px;
+  border-bottom: 1px solid $theme-border-color;
+
+
+  .col-field div,
+  .col-value div {
+    margin-bottom: 12px;
+  }
+
+  .col-field {
+    font-weight: bold;
+  }
+}
+

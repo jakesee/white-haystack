@@ -29,7 +29,8 @@ import { NextAppointmentInfoFormComponent } from './form/next-appointment-info-f
 import { RequestAppointmentFormComponent } from './form/request-appointment-form/request-appointment-form.component';
 import { ExploreComponent } from './page/explore/explore.component';
 import { ProviderComponent } from './page/provider/provider.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './page/profile/profile.component';
+import { SwitchControlComponent } from './control/switch-control/switch-control.component';
 
 @NgModule({
   imports: [
@@ -62,6 +63,7 @@ import { ProfileComponent } from './profile/profile.component';
     ExploreComponent,
     ProviderComponent,
     ProfileComponent,
+    SwitchControlComponent,
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],

@@ -14,18 +14,19 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthenticationService implements CanActivate {
 
-  currentUser = new BehaviorSubject(null);
+  private _currentUser = new BehaviorSubject(null);
 
   constructor(private _http: HttpClient, private _router: Router, private _route: ActivatedRoute, private _dataService: DataService) {
     const user = localStorage.getItem('currentUser');
-    this.currentUser.next(user ? User.create(JSON.parse(user)) : null);
+    this._currentUser.next(user ? User.create(JSON.parse(user)) : null);
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
 
     var path = route.routeConfig.path;
+    console.log(path);
 
-    if (this.getCurrentUser()) {
+    if (this.currentUser) {
       console.log('current user valid');
       return true; // logged in so can proceed to activate route
     } else if (path == 'provider/:pid') {
@@ -56,14 +57,14 @@ export class AuthenticationService implements CanActivate {
       user => {
         console.log(user);
         localStorage.setItem('currentUser', JSON.stringify(user));
-        this.currentUser.next(User.create(user));
+        this._currentUser.next(User.create(user));
       }
     );
   }
 
   logOut(): void {
     localStorage.removeItem('currentUser');
-    this.currentUser.next(null);
+    this._currentUser.next(null);
   }
 
   getReturnUrl(): string {
@@ -74,12 +75,12 @@ export class AuthenticationService implements CanActivate {
     this._router.navigateByUrl(this.getReturnUrl());
   }
 
-  getCurrentUser(): User {
-    return this.currentUser.value;
+  get currentUser(): User {
+    return this._currentUser.value;
   }
 
   isLoggedIn(): boolean {
-    return this.getCurrentUser() != null;
+    return this.currentUser != null;
   }
 
 
