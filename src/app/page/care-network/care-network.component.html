@@ -1,0 +1,20 @@
+<app-header></app-header>
+<div class="container">
+    <div class="search-bar">
+        <div class="search-control">
+            <input class="search-input" type="search" value="" placeholder="Search"/> <fa-icon [icon]="['fas', 'search']"></fa-icon>
+        </div>
+    </div>
+</div>
+<div *ngFor="let category of categories" class="container">
+    <h1>{{category}}</h1>
+    <div class="row">
+        <div *ngFor="let p of getProvidersByCategory(category)" class="col-sm-4 col-md-3 provider">
+            <div class="logo"><img src="assets/{{p.logoImage}}" /></div>
+            <div class="metadata">
+                <div class="title"><a [routerLink]="['/provider', p.id]">{{p.title}}</a></div>
+                <div class="description">{{p.description}}</div>
+            </div>
+        </div>
+    </div>
+</div>

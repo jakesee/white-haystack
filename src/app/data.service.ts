@@ -65,7 +65,8 @@ export class DataService {
           { text: 'Home', routerLink: '/home' },
           { text: 'Waiting Room', routerLink: '/waiting-room' },
           { text: 'Profile', routerLink: '/profile' },
-          { text: 'Explore', routerLink: '/explore' }
+          { text: 'Explore', routerLink: '/explore' },
+          { text: 'Care Network', routerLink: '/care-network' }
         ]
       },
       HomeComponent: [

@@ -1,6 +1,27 @@
 <app-header></app-header>
+<div class="container">
+    <div class="banner">
+        <img src="https://placekitten.com/1920/970?image=12"/>
+    </div>
+</div>
+<div class="container">
+    <h1>Recently Viewed</h1>
+    <div class="row">
+        <div *ngFor="let p of getProvidersByCategory('Insurer')" class="col-sm-4 col-md-3 provider">
+            <div class="logo"><img src="assets/{{p.logoImage}}" /></div>
+            <div class="metadata">
+                <div class="title"><a [routerLink]="['/provider', p.id]">{{p.title}}</a></div>
+                <div class="description">{{p.description}}</div>
+            </div>
+        </div>
+    </div>
 <div>
-    <ul>
-        <li *ngFor="let p of providers"><a [routerLink]="['/provider', p.id]">{{p.title}}</a></li>
-    </ul>
-<div>
+<div class="container">
+    <h1>Insights for You</h1>
+    <div class="row">
+        <div class="col-sm-4 col-md-3 insight"><img src="https://place-hold.it/300" /></div>
+        <div class="col-sm-4 col-md-3 insight"><img src="https://place-hold.it/300" /></div>
+        <div class="col-sm-4 col-md-3 insight"><img src="https://place-hold.it/300" /></div>
+        <div class="col-sm-4 col-md-3 insight"><img src="https://place-hold.it/300" /></div>
+    </div>
+</div>
