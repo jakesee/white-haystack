@@ -3,12 +3,11 @@ import { DataService } from '@app/data.service';
 import * as _ from 'lodash';
 
 @Component({
-  selector: 'app-explore',
-  templateUrl: './explore.component.html',
-  styleUrls: ['./explore.component.scss']
+  selector: 'app-care-network',
+  templateUrl: './care-network.component.html',
+  styleUrls: ['./care-network.component.scss']
 })
-export class ExploreComponent implements OnInit {
-
+export class CareNetworkComponent implements OnInit {
 
   providers: any;
 

@@ -1,5 +1,37 @@
 @import '../../../variables.scss';
 
+div.download-mobile-prompt {
+  background-color: #10164C;
+  color: white;
+  padding: 10px;
+
+  img {
+    width: 20px;
+    vertical-align: middle;
+    margin-right: 12px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  div {
+    width: 20px;
+    height: 20px;
+    font-weight: bold;
+    text-align: center;
+    float: right;
+    font-size: 130%;
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+
 div.fluid-container {
   background-color: #ffffff;
 }
@@ -84,6 +116,10 @@ div.fluid-container {
 }
 
 @media only screen and (min-width: $size-md) {
+
+  div.download-mobile-prompt {
+    display: none;
+  }
 
   .navbar {
     display: flex;

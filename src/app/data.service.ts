@@ -38,6 +38,8 @@ export class DataService {
   config: any;
   state: Array<any> = [];
 
+  isShowMobileDownloadBar: boolean = true;
+
   constructor(private _router: Router, private _http: HttpClient, ) {
     this._loadConfig();
   }
@@ -63,7 +65,8 @@ export class DataService {
           { text: 'Home', routerLink: '/home' },
           { text: 'Waiting Room', routerLink: '/waiting-room' },
           { text: 'Profile', routerLink: '/profile' },
-          { text: 'Explore', routerLink: '/explore' }
+          { text: 'Explore', routerLink: '/explore' },
+          { text: 'Care Network', routerLink: '/care-network' }
         ]
       },
       HomeComponent: [

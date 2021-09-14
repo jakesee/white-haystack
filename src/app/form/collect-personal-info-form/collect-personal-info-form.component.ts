@@ -20,7 +20,7 @@ export class CollectPersonalInfoFormComponent implements Form, OnInit {
 
   form: FormGroup;
 
-  constructor(private _dataService: DataService, private _authenticationService: AuthenticationService) {}
+  constructor(private _dataService: DataService, private _auth: AuthenticationService) {}
 
   init(config: any) {
     this.title = config.title;
@@ -54,6 +54,6 @@ export class CollectPersonalInfoFormComponent implements Form, OnInit {
   }
 
   get user(): User {
-    return this._authenticationService.getCurrentUser();
+    return this._auth.currentUser;
   }
 }

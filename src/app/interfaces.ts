@@ -56,6 +56,8 @@ export class User {
   medication: string;
   allergies: string;
 
+  is2faEnabled: boolean;
+
   static create(template: object): User {
     let user = new User();
     Object.assign(user, template);
