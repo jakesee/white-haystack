@@ -33,6 +33,7 @@ import { ProfileComponent } from './page/profile/profile.component';
 import { SwitchControlComponent } from './control/switch-control/switch-control.component';
 import { CareNetworkComponent } from './page/care-network/care-network.component';
 import { FooterComponent } from './page/footer/footer.component';
+import { TitleBarSectionComponent } from './sections/title-bar-section/title-bar-section.component';
 
 @NgModule({
   imports: [
@@ -68,6 +69,7 @@ import { FooterComponent } from './page/footer/footer.component';
     SwitchControlComponent,
     CareNetworkComponent,
     FooterComponent,
+    TitleBarSectionComponent,
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],

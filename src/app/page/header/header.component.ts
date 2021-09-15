@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterStateSnapshot } from '@angular/router';
 import { AuthenticationService } from '@app/auth/authentication.service';
 import { User } from '@app/interfaces';
 import { DataService } from '@app/data.service';
@@ -18,12 +18,15 @@ export class HeaderComponent implements OnInit {
   currentUser: User;
   isHideMenu: boolean = true;
 
+  returnUrl: string = '/';
+
   constructor(private _dataService: DataService, private _auth: AuthenticationService, private _router: Router) {
 
     let config = this._dataService.config.HeaderComponent;
     this.imgURL = config.imgURL;
     this.menuItems = config.menuItems;
     this.currentUser = null;
+    this.returnUrl = _router.routerState.snapshot.url;
   }
 
   ngOnInit() {

@@ -18,7 +18,7 @@
           </li>
           <li class="navbar-divider"><hr class="dropdown-divider"></li>
           <li class="nav-item align-right" *ngIf="isLoggedIn && currentUser"><fa-icon [icon]="['fas', 'user']"></fa-icon>&nbsp;<a class="nav-link active" aria-current="page" (click)="onLogOut($event)">Log Out {{ currentUser.name }}</a></li>
-          <li class="nav-item align-right" *ngIf="!isLoggedIn"><fa-icon [icon]="['fas', 'user']"></fa-icon>&nbsp;<a class="nav-link active" aria-current="page" routerLink="/profile">Log In</a></li>
+          <li class="nav-item align-right" *ngIf="!isLoggedIn"><fa-icon [icon]="['fas', 'user']"></fa-icon>&nbsp;<a class="nav-link active" aria-current="page" routerLink="/login" [queryParams]="{returnUrl: returnUrl}">Log In</a></li>
         </ul>
       </div>
     </nav>

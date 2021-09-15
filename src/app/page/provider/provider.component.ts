@@ -15,6 +15,8 @@ export class ProviderComponent implements OnInit {
 
   provider: ProviderData = {} as ProviderData;
 
+  logoImage: string = "";
+
   constructor(
     private _dataService: DataService,
     private _route: ActivatedRoute,
@@ -28,6 +30,7 @@ export class ProviderComponent implements OnInit {
     let providerId = this._route.snapshot.params.pid;
     await this._dataService.getProvider(providerId).toPromise().then((data) => {
       this.provider = data;
+      console.log(data);
       this._changeDetectorRef.detectChanges();
       this._loadSections();
     });

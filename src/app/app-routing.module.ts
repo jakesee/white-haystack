@@ -11,7 +11,6 @@ import { ProviderComponent } from './page/provider/provider.component';
 import { WaitingRoomComponent } from './page/waiting-room/waiting-room.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'public', component: JourneyComponent },
   { path: 'explore', component: ExploreComponent },
@@ -20,7 +19,8 @@ const routes: Routes = [
   { path: 'provider/:pid/journey/:jid', component: JourneyComponent, canActivate: [AuthenticationService] },
   { path: 'provider/:pid', component: ProviderComponent, canActivate: [AuthenticationService] },
   { path: 'waiting-room', component: WaitingRoomComponent, canActivate: [AuthenticationService] },
-  { path: '**', component: HomeComponent }
+  { path: 'home', component: HomeComponent },
+  { path: '**', component: ExploreComponent }
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { Component, HostListener, Inject, OnInit } from '@angular/core';
+import { Component, HostListener, Inject, Input, OnInit } from '@angular/core';
 import { DataService } from '@app/data.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { DataService } from '@app/data.service';
 })
 export class FooterComponent implements OnInit {
 
+  @Input() hasNavigation = true;
 
   isVisible = false;
 

@@ -15,17 +15,21 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators'
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { TitleBarSectionComponent } from './sections/title-bar-section/title-bar-section.component';
 
 
 export const REGISTRY = new Map<string, Type<any>>();
+// Sections
 REGISTRY.set("ConsultNowComponent", ConsultNowComponent);
-REGISTRY.set("TriageFormComponent", TriageFormComponent);
-REGISTRY.set("CollectPersonalInfoFormComponent", CollectPersonalInfoFormComponent);
-REGISTRY.set("EmergencyFormComponent", EmergencyFormComponent);
 REGISTRY.set("SymptomsSectionComponent", SymptomsSectionComponent);
 REGISTRY.set("OnetwothreeSectionComponent", OnetwothreeSectionComponent);
 REGISTRY.set("BannerSectionComponent", BannerSectionComponent);
 REGISTRY.set("NeedAssistanceSectionComponent", NeedAssistanceSectionComponent);
+REGISTRY.set("TitleBarSectionComponent", TitleBarSectionComponent);
+// Forms
+REGISTRY.set("TriageFormComponent", TriageFormComponent);
+REGISTRY.set("CollectPersonalInfoFormComponent", CollectPersonalInfoFormComponent);
+REGISTRY.set("EmergencyFormComponent", EmergencyFormComponent);
 REGISTRY.set("NextAppointmentInfoFormComponent", NextAppointmentInfoFormComponent);
 REGISTRY.set("RequestAppointmentFormComponent", RequestAppointmentFormComponent);
 
