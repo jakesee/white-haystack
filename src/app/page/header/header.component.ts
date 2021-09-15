@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '@app/auth/authentication.service';
 import { User } from '@app/interfaces';
@@ -10,9 +10,11 @@ import { DataService } from '@app/data.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+  @Input() hasNavigation = true;
+
   imgURL: string = 'https://placekitten.com/200/80';
   menuItems: Array<any> = [];
-
   currentUser: User;
   isHideMenu: boolean = true;
 

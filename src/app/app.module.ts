@@ -19,7 +19,7 @@ import { DataService } from './data.service';
 import { AuthenticationService } from './auth/authentication.service';
 import { mockHttpProviderService } from './mock-http-provider.service';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBars, faRobot, faSearch, faSignInAlt, faSignOutAlt, faWindowClose } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCalendar, faCog, faHeart, faHome, faNewspaper, faRobot, faSearch, faSignInAlt, faSignOutAlt, faUser, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
 import { SymptomsSectionComponent } from './sections/symptoms-section/symptoms-section.component';
 import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onetwothree-section.component';
@@ -32,6 +32,7 @@ import { ProviderComponent } from './page/provider/provider.component';
 import { ProfileComponent } from './page/profile/profile.component';
 import { SwitchControlComponent } from './control/switch-control/switch-control.component';
 import { CareNetworkComponent } from './page/care-network/care-network.component';
+import { FooterComponent } from './page/footer/footer.component';
 
 @NgModule({
   imports: [
@@ -66,6 +67,7 @@ import { CareNetworkComponent } from './page/care-network/care-network.component
     ProfileComponent,
     SwitchControlComponent,
     CareNetworkComponent,
+    FooterComponent,
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],
@@ -73,6 +75,18 @@ import { CareNetworkComponent } from './page/care-network/care-network.component
 })
 export class AppModule {
   constructor(private library: FaIconLibrary) {
-    library.addIcons(faBars, faSignInAlt, faSignOutAlt, faRobot, faWindowClose, faSearch);
+    library.addIcons(
+      faBars,
+      faSignInAlt,
+      faSignOutAlt,
+      faRobot,
+      faWindowClose,
+      faSearch,
+      faHome,
+      faHeart,
+      faCalendar,
+      faNewspaper,
+      faUser
+    );
   }
 }

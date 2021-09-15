@@ -62,11 +62,12 @@ export class DataService {
         imgURL:
           'https://my-doc.com/wp-content/uploads/2019/11/mydoc-logo-@2x.png',
         menuItems: [
-          { text: 'Home', routerLink: '/home' },
-          { text: 'Waiting Room', routerLink: '/waiting-room' },
-          { text: 'Profile', routerLink: '/profile' },
-          { text: 'Explore', routerLink: '/explore' },
-          { text: 'Care Network', routerLink: '/care-network' }
+          //{ text: 'Home', routerLink: '/home' },
+          { text: 'Home', routerLink: '/explore', icon: ['fas', 'home'] },
+          { text: 'Care Network', routerLink: '/care-network', icon: ['fas', 'heart'] },
+          { text: 'Feeds', routerLink: '/feeds', icon: ['fas', 'newspaper'] },
+          { text: 'Appointments', routerLink: '/waiting-room', icon: ['fas', 'calendar'] },
+          { text: 'Settings', routerLink: '/profile', icon: ['fas', 'user'] },
         ]
       },
       HomeComponent: [
