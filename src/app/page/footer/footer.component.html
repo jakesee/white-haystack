@@ -1,0 +1,7 @@
+<div *ngIf="isVisible" class="fluid-container">
+    <ul>
+        <li *ngFor="let item of menuItems">
+            <a routerLink="{{item.routerLink}}" href="#"><fa-icon [icon]="item.icon"></fa-icon></a>
+        </li>
+    </ul>
+</div>

@@ -1,4 +1,24 @@
 <app-header></app-header>
-<p>
-  {{state}}
-</p>
+<div class="container">
+  <h1>Upcoming Appointments</h1>
+  <div class="row">
+    <div class="">
+      <p>{{state}}</p>
+      <ul class="journey-timeline">
+        <li class="journey-stop">Book Appointment</li>
+        <li class="journey-stop">Confirm the appointment</li>
+        <li class="journey-stop">Join Teleconsult Video</li>
+        <li class="journey-stop">Arrange Medicine Delivery</li>
+        <li class="journey-stop">Complete Payment</li>
+      </ul>
+    </div>
+  </div>
+  <h1>Past Appointments</h1>
+  <div class="row">
+    <div class="">
+      <p>
+        {{state}}
+      </p>
+    </div>
+  </div>
+</div>

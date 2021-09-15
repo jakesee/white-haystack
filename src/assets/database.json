@@ -47,6 +47,14 @@
                     }
                 },
                 {
+                    "component": "TitleBarSectionComponent",
+                    "config": {
+                        "logoImgSrc": "assets/logo-daiichi-life.png",
+                        "title": "Dai-ichi Life",
+                        "blob": "Broccoli avocado basil pesto mediterranean vegetables crumbled lentils sriracha pecans seeds Thai butternut mix cool cucumbers fresh burritos samosa sparkling pomegranate punch habanero golden coriander."
+                    }
+                },
+                {
                     "component": "BannerSectionComponent",
                     "config": {}
                 }
@@ -87,6 +95,50 @@
         },
         {
             "id": 1,
+            "title": "Aetna International",
+            "description": "Sicilian pistachio pesto spiced pumpkin chili. Tabasco pepper apricot plums basil portobello mushrooms spring peanut butter peach strawberry mango sparkling.",
+            "logoImage": "logo-aetna.png",
+            "category": "Insurer",
+            "sections": [
+                {
+                    "component": "BannerSectionComponent",
+                    "config": {
+                        "imgSrc": "https://scontent.fsin7-1.fna.fbcdn.net/v/t1.6435-9/s960x960/137550068_5172103752830461_72185124487826374_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=e3f864&_nc_ohc=DQ9Fbs6y304AX_KIeok&_nc_ht=scontent.fsin7-1.fna&oh=99e8f4340f624ac3f3d727d9b5c9325d&oe=61682178"
+                    }
+                },
+                {
+                    "component": "TitleBarSectionComponent",
+                    "config": {
+                        "logoImgSrc": "assets/logo-aetna.png",
+                        "title": "Aetna International",
+                        "blob": "Bananas strawberry spinach salad cozy butternut leek edamame hummus garlic sriracha noodles green papaya salad tofu quinoa flatbread zesty tofu pad thai spicy smoked tofu burritos roasted brussel sprouts blood orange smash lime mango crisp Bolivian rainbow pepper. Crispy ghost pepper Chinese five-spice powder salty cherry bomb tahini drizzle miso turmeric glazed aubergine shiitake mushrooms dill red curry tofu noodles morning smoothie bowl. Thai dragon pepper red pepper cool cucumbers crumbled lentils bento box avocado basil pesto seitan lemon tahini dressing banana bread hemp seeds macadamia nut cookies red lentil curry sandwiches Thai curry sesame soba noodles lingonberry."
+                    }
+                },
+                {
+                    "component": "SymptomsSectionComponent",
+                    "config": {}
+                },
+                {
+                    "component": "OnetwothreeSectionComponent",
+                    "config": {}
+                },
+                {
+                    "component": "ConsultNowComponent",
+                    "config": {
+                        "imgSource": "https://app.qa.my-doc.com/dai-ichi/assets/images/Banner_happy_family.png",
+                        "title": "Awesome Co. Virtual Teleheath",
+                        "subText": "Operational Hours: 0800H - 2200H, including weekend and holidays",
+                        "buttonText": "Talk to Doctor Now!",
+                        "command": [
+                            "journey",
+                            0
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "id": 2,
             "title": "BaoViet Virtual Clinic",
             "logoImage": "logo-baoviet.png",
             "description": "Morning smoothie bowl tofu soy milk lentils dessert raspberry fizz naga viper main course Thai basil curry blueberry chia seed jam leek bento box.",
@@ -94,7 +146,17 @@
             "sections": [
                 {
                     "component": "BannerSectionComponent",
-                    "config": {}
+                    "config": {
+                        "imgSrc": "https://scontent.fsin7-1.fna.fbcdn.net/v/t1.6435-9/s960x960/232491861_6805028339523453_4862348356804023918_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=e3f864&_nc_ohc=PxtG7PqIciYAX8Mnal7&_nc_ht=scontent.fsin7-1.fna&oh=d0bb9734911911fe017ef3300e7fdce5&oe=6168CDC9"
+                    }
+                },
+                {
+                    "component": "TitleBarSectionComponent",
+                    "config": {
+                        "logoImgSrc": "assets/logo-baoviet.png",
+                        "title": "BaoViet Life Insurance",
+                        "blob": "Morning smoothie bowl tofu soy milk lentils dessert raspberry fizz naga viper main course Thai basil curry blueberry chia seed jam leek bento box."
+                    }
                 },
                 {
                     "component": "OnetwothreeSectionComponent",
@@ -113,56 +175,56 @@
             ]
         },
         {
-            "id": 2,
+            "id": 3,
             "title": "Allianz Partners",
             "description": "Delightful blueberry scones quinoa flatbread couscous cozy butternut green pepper cool off garlic sriracha noodles grapefruit peanut butter crunch spicy miso dressing hearts of palm summer fruit salad.",
             "logoImage": "logo-allianz.png",
             "category": "Insurer"
         },
         {
-            "id": 2,
+            "id": 4,
             "title": "Prudential",
             "description": "Hazelnut shiitake mediterranean roasted brussel sprouts hummus falafel bowl bite sized heat couscous cherry bomb cherries Thai curry mangos basil hearts of palm cinnamon mediterranean vegetables shiitake mushrooms lychee.",
             "logoImage": "logo-prudential.png",
             "category": "Insurer"
         },
         {
-            "id": 2,
+            "id": 5,
             "title": "Nutriwell",
             "description": "Italian linguine puttanesca Thai super chili burritos summer fruit salad enchiladas farro platter winter quinoa flatbread basmati banana bread simmer peaches.",
             "logoImage": "logo-nutriwell.png",
             "category": "Clinic"
         },
         {
-            "id": 2,
+            "id": 6,
             "title": "Dr. Tan and Partners",
             "description": "Arugula salad red pepper coconut chili pepper cocoa lime ginger lemongrass agave green tea paprika elderberry vegan eating together tahini drizzle portobello mushrooms entree pesto figs double dark chocolate avocado blackberries with Mexican fiesta.",
             "logoImage": "logo-dtap.png",
             "category": "Clinic"
         },
         {
-            "id": 2,
+            "id": 7,
             "title": "Raffles Medical Group",
             "description": "Veggie burgers smoky maple tempeh glaze samosa Italian pepperoncini Caribbean red habanero plums tabasco pepper ginger carrot spiced juice cherry lingonberry appetizer sweet potato.",
             "logoImage": "logo-raffles-medical-group.png",
             "category": "Clinic"
         },
         {
-            "id": 2,
+            "id": 8,
             "title": "Mount Elizabeth",
             "description": "Balsamic vinaigrette green onions macadamia nut cookies cremini mushrooms cherry bomb pepper green papaya salad crunchy chai tea crispy iceberg lettuce.",
             "logoImage": "logo-mount-elizabeth.png",
             "category": "Specialists"
         },
         {
-            "id": 2,
+            "id": 9,
             "title": "Guardian",
             "description": "Chinese five-spice powder red amazon pepper lemon maple orange tempeh dark and stormy cinnamon toast thyme grapefruit.",
             "logoImage": "logo-guardian.png",
             "category": "Pharmacy"
         },
         {
-            "id": 2,
+            "id": 10,
             "title": "Watsons",
             "description": "Almond milk avocado dressing drizzle black beans banana lavender lemonade oranges tasty crispy seitan cool cucumbers.",
             "logoImage": "logo-watsons.png",

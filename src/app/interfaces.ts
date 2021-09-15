@@ -28,7 +28,7 @@ export interface ProviderData {
   id: number;
   title: string;
   description: string;
-  image: string;
+  logoImage: string;
   sections: Array<ComponentData>;
   journeys: Array<JourneyData>;
 }

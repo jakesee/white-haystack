@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router, RouterStateSnapshot } from '@angular/router';
 import { AuthenticationService } from '@app/auth/authentication.service';
 import { User } from '@app/interfaces';
 import { DataService } from '@app/data.service';
@@ -10,11 +10,15 @@ import { DataService } from '@app/data.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+  @Input() hasNavigation = true;
+
   imgURL: string = 'https://placekitten.com/200/80';
   menuItems: Array<any> = [];
-
   currentUser: User;
   isHideMenu: boolean = true;
+
+  returnUrl: string = '/';
 
   constructor(private _dataService: DataService, private _auth: AuthenticationService, private _router: Router) {
 
@@ -22,6 +26,7 @@ export class HeaderComponent implements OnInit {
     this.imgURL = config.imgURL;
     this.menuItems = config.menuItems;
     this.currentUser = null;
+    this.returnUrl = _router.routerState.snapshot.url;
   }
 
   ngOnInit() {

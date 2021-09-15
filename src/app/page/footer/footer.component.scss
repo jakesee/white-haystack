@@ -1,0 +1,33 @@
+@import '../../../variables.scss';
+
+ul {
+    display: flex;
+    margin: 0;
+    padding: 10px;
+    border-top: 1px solid $theme-border-color;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: white;
+
+    li {
+        list-style: none;
+        text-align: center;
+        flex-grow: 1;
+        font-size: 200%;
+
+        a {
+            color: black;
+        }
+
+        a:hover {
+            color: $theme-color;
+        }
+    }
+}
+
+@media screen and (min-width: $size-md) {
+    ul {
+        display: none;
+    }
+}

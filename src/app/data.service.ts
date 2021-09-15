@@ -15,17 +15,21 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators'
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { TitleBarSectionComponent } from './sections/title-bar-section/title-bar-section.component';
 
 
 export const REGISTRY = new Map<string, Type<any>>();
+// Sections
 REGISTRY.set("ConsultNowComponent", ConsultNowComponent);
-REGISTRY.set("TriageFormComponent", TriageFormComponent);
-REGISTRY.set("CollectPersonalInfoFormComponent", CollectPersonalInfoFormComponent);
-REGISTRY.set("EmergencyFormComponent", EmergencyFormComponent);
 REGISTRY.set("SymptomsSectionComponent", SymptomsSectionComponent);
 REGISTRY.set("OnetwothreeSectionComponent", OnetwothreeSectionComponent);
 REGISTRY.set("BannerSectionComponent", BannerSectionComponent);
 REGISTRY.set("NeedAssistanceSectionComponent", NeedAssistanceSectionComponent);
+REGISTRY.set("TitleBarSectionComponent", TitleBarSectionComponent);
+// Forms
+REGISTRY.set("TriageFormComponent", TriageFormComponent);
+REGISTRY.set("CollectPersonalInfoFormComponent", CollectPersonalInfoFormComponent);
+REGISTRY.set("EmergencyFormComponent", EmergencyFormComponent);
 REGISTRY.set("NextAppointmentInfoFormComponent", NextAppointmentInfoFormComponent);
 REGISTRY.set("RequestAppointmentFormComponent", RequestAppointmentFormComponent);
 
@@ -62,11 +66,12 @@ export class DataService {
         imgURL:
           'https://my-doc.com/wp-content/uploads/2019/11/mydoc-logo-@2x.png',
         menuItems: [
-          { text: 'Home', routerLink: '/home' },
-          { text: 'Waiting Room', routerLink: '/waiting-room' },
-          { text: 'Profile', routerLink: '/profile' },
-          { text: 'Explore', routerLink: '/explore' },
-          { text: 'Care Network', routerLink: '/care-network' }
+          //{ text: 'Home', routerLink: '/home' },
+          { text: 'Home', routerLink: '/explore', icon: ['fas', 'home'] },
+          { text: 'Care Network', routerLink: '/care-network', icon: ['fas', 'heart'] },
+          { text: 'Feeds', routerLink: '/feeds', icon: ['fas', 'newspaper'] },
+          { text: 'Appointments', routerLink: '/waiting-room', icon: ['fas', 'calendar'] },
+          { text: 'Settings', routerLink: '/profile', icon: ['fas', 'user'] },
         ]
       },
       HomeComponent: [
