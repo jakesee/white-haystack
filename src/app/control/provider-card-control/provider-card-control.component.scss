@@ -1,51 +1,6 @@
-@import '../../../variables.scss';
+@import "../../../variables.scss";
 
-
-.banner {
-    img {
-        max-width: 100%;
-    }
-}
-
-.category-list {
-    display: flex;
-    margin: 0;
-    padding: 10px;
-    gap: 10px;
-    flex-wrap: wrap;
-
-    li {
-        font-weight: 700;
-        text-transform: uppercase;
-        list-style: none;
-        margin: 0;
-        padding: 10px;
-        background-color: $theme-border-color;
-        border-radius: 15px;
-        flex-grow: 1;
-        flex-basis: 100px;
-        text-align: center;
-
-        a {
-            color: black;
-            text-decoration: none;
-        }
-    }
-
-    li:hover {
-        background-color: $theme-color;
-        a { color: white; }
-    }
-}
-
-
-h1 {
-    font-weight: 300;
-    padding: 10px 10px 10px 20px;
-    background: $theme-background-color;
-}
-
-div.provider {
+.provider {
     display: flex;
     padding: 10px;
 
@@ -69,23 +24,26 @@ div.provider {
             text-decoration: none;
             color: black;
         }
-    }
-}
 
-.insight {
-    margin: auto;
-    text-align: center;
-    padding: 10px;
+        .property {
+            fa-icon {
+                font-size: 120%;
+                display: inline-block;
+                margin: 5px 5px 5px 0;
+                color: $theme-color-light;
+            }
 
-    img {
-        max-width: 100%;
+            fa-icon.member {
+                color: $theme-color;
+            }
+        }
     }
 }
 
 
 @media only screen and (min-width: $size-sm) {
 
-    div.provider{
+    .provider{
         display: inline-block;
         vertical-align: top;
 
@@ -107,14 +65,7 @@ div.provider {
             border: 1px solid $theme-border-color;
             border-top: none;
             border-radius: 0 0 10px 10px;
-        }
-    }
-
-
-    .insight {
-
-        img {
-            max-width: 100%;
+            background: white;
         }
     }
 }

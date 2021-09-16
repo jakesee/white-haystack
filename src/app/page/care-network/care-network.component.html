@@ -9,12 +9,15 @@
 <div *ngFor="let category of categories" class="container">
     <h1>{{category}}</h1>
     <div class="row">
-        <div *ngFor="let p of getProvidersByCategory(category)" class="col-sm-4 col-md-3 provider">
-            <div class="logo"><img src="assets/{{p.logoImage}}" /></div>
+        <app-provider-card-control *ngFor="let p of getProvidersByCategory(category)" [provider]="p">
+            <!-- <div class="logo"><img src="assets/{{p.logoImage}}" /></div>
             <div class="metadata">
                 <div class="title"><a [routerLink]="['/provider', p.id]">{{p.title}}</a></div>
+                <div class="property">
+                    <fa-icon [ngClass]="p.isMemberRequired ? 'member' : ''" [icon]="['fas', 'id-card']"></fa-icon> <fa-icon [icon]="['fas', 'heart']"></fa-icon>
+                </div>
                 <div class="description">{{p.description}}</div>
-            </div>
-        </div>
+            </div> -->
+        </app-provider-card-control>
     </div>
 </div>

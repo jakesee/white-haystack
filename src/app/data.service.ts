@@ -2,7 +2,7 @@ import { Injectable, TestabilityRegistry, Type } from '@angular/core';
 import { CollectPersonalInfoFormComponent } from './form/collect-personal-info-form/collect-personal-info-form.component';
 import { ConsultNowComponent } from './sections/consult-now/consult-now.component';
 import { TriageFormComponent } from './form/triage-form/triage-form.component';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from './interfaces';
 import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
 import { SymptomsSectionComponent } from './sections/symptoms-section/symptoms-section.component';
@@ -16,6 +16,7 @@ import { map } from 'rxjs/operators'
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { TitleBarSectionComponent } from './sections/title-bar-section/title-bar-section.component';
+import { ProviderEligibilityFormComponent } from './form/provider-eligibility-form/provider-eligibility-form.component';
 
 
 export const REGISTRY = new Map<string, Type<any>>();
@@ -27,6 +28,7 @@ REGISTRY.set("BannerSectionComponent", BannerSectionComponent);
 REGISTRY.set("NeedAssistanceSectionComponent", NeedAssistanceSectionComponent);
 REGISTRY.set("TitleBarSectionComponent", TitleBarSectionComponent);
 // Forms
+REGISTRY.set("ProviderEligibilityFormComponent", ProviderEligibilityFormComponent);
 REGISTRY.set("TriageFormComponent", TriageFormComponent);
 REGISTRY.set("CollectPersonalInfoFormComponent", CollectPersonalInfoFormComponent);
 REGISTRY.set("EmergencyFormComponent", EmergencyFormComponent);
@@ -44,7 +46,7 @@ export class DataService {
 
   isShowMobileDownloadBar: boolean = true;
 
-  constructor(private _router: Router, private _http: HttpClient, ) {
+  constructor(private _router: Router, private _http: HttpClient, private _route: ActivatedRoute) {
     this._loadConfig();
   }
 

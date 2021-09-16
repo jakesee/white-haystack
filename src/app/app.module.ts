@@ -19,7 +19,7 @@ import { DataService } from './data.service';
 import { AuthenticationService } from './auth/authentication.service';
 import { mockHttpProviderService } from './mock-http-provider.service';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBars, faCalendar, faCog, faHeart, faHome, faNewspaper, faRobot, faSearch, faSignInAlt, faSignOutAlt, faUser, faWindowClose } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCalendar, faHeart, faHome, faIdCard, faNewspaper, faRobot, faSearch, faSignInAlt, faSignOutAlt, faUser, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
 import { SymptomsSectionComponent } from './sections/symptoms-section/symptoms-section.component';
 import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onetwothree-section.component';
@@ -34,6 +34,8 @@ import { SwitchControlComponent } from './control/switch-control/switch-control.
 import { CareNetworkComponent } from './page/care-network/care-network.component';
 import { FooterComponent } from './page/footer/footer.component';
 import { TitleBarSectionComponent } from './sections/title-bar-section/title-bar-section.component';
+import { ProviderEligibilityFormComponent } from './form/provider-eligibility-form/provider-eligibility-form.component';
+import { ProviderCardControlComponent } from './control/provider-card-control/provider-card-control.component';
 
 @NgModule({
   imports: [
@@ -70,6 +72,8 @@ import { TitleBarSectionComponent } from './sections/title-bar-section/title-bar
     CareNetworkComponent,
     FooterComponent,
     TitleBarSectionComponent,
+    ProviderEligibilityFormComponent,
+    ProviderCardControlComponent,
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],
@@ -88,7 +92,8 @@ export class AppModule {
       faHeart,
       faCalendar,
       faNewspaper,
-      faUser
+      faUser,
+      faIdCard
     );
   }
 }

@@ -5,15 +5,14 @@
     </div>
 </div>
 <div class="container">
+    <ul class="category-list">
+        <li *ngFor="let c of categories"><a routerLink="/care-network" href="#">{{c}}</a></li>
+    </ul>
+</div>
+<div class="container">
     <h1>Recently Viewed</h1>
     <div class="row">
-        <div *ngFor="let p of getProvidersByCategory('Insurer')" class="col-sm-4 col-md-3 provider">
-            <div class="logo"><img src="assets/{{p.logoImage}}" /></div>
-            <div class="metadata">
-                <div class="title"><a [routerLink]="['/provider', p.id]">{{p.title}}</a></div>
-                <div class="description">{{p.description}}</div>
-            </div>
-        </div>
+        <app-provider-card-control *ngFor="let p of getProvidersByCategory('Insurer')" [provider]="p"></app-provider-card-control>
     </div>
 <div>
 <div class="container">
