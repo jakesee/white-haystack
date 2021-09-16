@@ -38,59 +38,7 @@ h1 {
     background: $theme-background-color;
 }
 
-div.provider {
-    display: flex;
-    padding: 10px;
-
-    .logo {
-        flex-basis: 100px;
-        min-width: 100px;
-        img {
-            max-width: 100%;
-            border-radius: 5px 5px 5px 5px;
-            border: 1px solid $theme-border-color;
-        }
-
-    }
-
-    .metadata {
-        padding: 0 10px;
-        flex-grow: 1;
-
-        a {
-            font-weight: 700;
-            text-decoration: none;
-            color: black;
-        }
-    }
-}
 
 
-@media only screen and (min-width: $size-sm) {
 
-    div.provider{
-        display: inline-block;
-        vertical-align: top;
 
-        .logo {
-            border-radius: 10px;
-            width: 100%;
-
-            img {
-                display: block;
-                width: 100%;
-                border-radius: 10px 10px 0 0;
-                border: 1px solid $theme-border-color;
-            }
-        }
-
-        .metadata {
-            padding: 10px;
-            width: 100%;
-            border: 1px solid $theme-border-color;
-            border-top: none;
-            border-radius: 0 0 10px 10px;
-            background: white;
-        }
-    }
-}

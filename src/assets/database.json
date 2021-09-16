@@ -35,6 +35,7 @@
             "logoImage": "logo-daiichi-life.png",
             "description": "Hemp seeds Thai soba noodles candy cane winter crunchy seaweed blueberry pops Southern Italian sweet potato black bean burrito green tea lime apricot instant pot dark chocolate green pepper",
             "category": "Insurer",
+            "isMemberRequired": true,
             "sections": [
                 {
                     "component": "ConsultNowComponent",
@@ -66,26 +67,36 @@
                     "cmdSuccess": ["/waiting-room"],
                     "sequence": [
                         {
+                            "stepName": "Validate Membership",
+                            "component": "ProviderEligibilityFormComponent",
+                            "config": {}
+                        },
+                        {
+                            "stepName": "Emergency Notice",
                             "component": "EmergencyFormComponent",
                             "config": {}
                         },
                         {
+                            "stepName": "Check Time",
                             "component": "NextAppointmentInfoFormComponent",
                             "config": {}
                         },
                         {
+                            "stepName": "Triage",
                             "component": "TriageFormComponent",
                             "config": {
                                 "questionText": "What complaints do you have today?"
                             }
                         },
                         {
+                            "stepName": "Confirm Personal Info",
                             "component": "CollectPersonalInfoFormComponent",
                             "config": {
                                 "title": "Please provide your personal info."
                             }
                         },
                         {
+                            "stepName": "Request Appointment",
                             "component": "RequestAppointmentFormComponent",
                             "config": {}
                         }
@@ -99,6 +110,7 @@
             "description": "Sicilian pistachio pesto spiced pumpkin chili. Tabasco pepper apricot plums basil portobello mushrooms spring peanut butter peach strawberry mango sparkling.",
             "logoImage": "logo-aetna.png",
             "category": "Insurer",
+            "isMemberRequired": true,
             "sections": [
                 {
                     "component": "BannerSectionComponent",
@@ -143,6 +155,7 @@
             "logoImage": "logo-baoviet.png",
             "description": "Morning smoothie bowl tofu soy milk lentils dessert raspberry fizz naga viper main course Thai basil curry blueberry chia seed jam leek bento box.",
             "category": "Insurer",
+            "isMemberRequired": true,
             "sections": [
                 {
                     "component": "BannerSectionComponent",
@@ -179,6 +192,7 @@
             "title": "Allianz Partners",
             "description": "Delightful blueberry scones quinoa flatbread couscous cozy butternut green pepper cool off garlic sriracha noodles grapefruit peanut butter crunch spicy miso dressing hearts of palm summer fruit salad.",
             "logoImage": "logo-allianz.png",
+            "isMemberRequired": true,
             "category": "Insurer"
         },
         {
@@ -186,6 +200,7 @@
             "title": "Prudential",
             "description": "Hazelnut shiitake mediterranean roasted brussel sprouts hummus falafel bowl bite sized heat couscous cherry bomb cherries Thai curry mangos basil hearts of palm cinnamon mediterranean vegetables shiitake mushrooms lychee.",
             "logoImage": "logo-prudential.png",
+            "isMemberRequired": true,
             "category": "Insurer"
         },
         {
@@ -193,6 +208,7 @@
             "title": "Nutriwell",
             "description": "Italian linguine puttanesca Thai super chili burritos summer fruit salad enchiladas farro platter winter quinoa flatbread basmati banana bread simmer peaches.",
             "logoImage": "logo-nutriwell.png",
+            "isMemberRequired": false,
             "category": "Clinic"
         },
         {
@@ -200,6 +216,7 @@
             "title": "Dr. Tan and Partners",
             "description": "Arugula salad red pepper coconut chili pepper cocoa lime ginger lemongrass agave green tea paprika elderberry vegan eating together tahini drizzle portobello mushrooms entree pesto figs double dark chocolate avocado blackberries with Mexican fiesta.",
             "logoImage": "logo-dtap.png",
+            "isMemberRequired": false,
             "category": "Clinic"
         },
         {
@@ -207,6 +224,7 @@
             "title": "Raffles Medical Group",
             "description": "Veggie burgers smoky maple tempeh glaze samosa Italian pepperoncini Caribbean red habanero plums tabasco pepper ginger carrot spiced juice cherry lingonberry appetizer sweet potato.",
             "logoImage": "logo-raffles-medical-group.png",
+            "isMemberRequired": true,
             "category": "Clinic"
         },
         {
@@ -214,6 +232,7 @@
             "title": "Mount Elizabeth",
             "description": "Balsamic vinaigrette green onions macadamia nut cookies cremini mushrooms cherry bomb pepper green papaya salad crunchy chai tea crispy iceberg lettuce.",
             "logoImage": "logo-mount-elizabeth.png",
+            "isMemberRequired": true,
             "category": "Specialists"
         },
         {
@@ -221,6 +240,7 @@
             "title": "Guardian",
             "description": "Chinese five-spice powder red amazon pepper lemon maple orange tempeh dark and stormy cinnamon toast thyme grapefruit.",
             "logoImage": "logo-guardian.png",
+            "isMemberRequired": false,
             "category": "Pharmacy"
         },
         {
@@ -228,6 +248,7 @@
             "title": "Watsons",
             "description": "Almond milk avocado dressing drizzle black beans banana lavender lemonade oranges tasty crispy seitan cool cucumbers.",
             "logoImage": "logo-watsons.png",
+            "isMemberRequired": false,
             "category": "Pharmacy"
         }
     ]

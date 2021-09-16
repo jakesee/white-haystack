@@ -1,0 +1,11 @@
+<div class="col-sm-4 col-md-3 provider">
+    <div class="logo"><img src="assets/{{provider.logoImage}}" /></div>
+    <div class="metadata">
+        <div class="title"><a [routerLink]="['/provider', provider.id]">{{provider.title}}</a></div>
+        <div class="property">
+            <fa-icon [ngClass]="provider.isMemberRequired ? 'member' : ''" [icon]="['fas', 'id-card']"></fa-icon>
+            <fa-icon [icon]="['fas', 'heart']"></fa-icon>
+        </div>
+        <div class="description">{{provider.description}}</div>
+    </div>
+</div>

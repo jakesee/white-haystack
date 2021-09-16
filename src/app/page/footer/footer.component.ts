@@ -20,6 +20,9 @@ export class FooterComponent implements OnInit {
   }
 
   @HostListener("window:scroll", ['$event']) onScroll($event): void {
+
+    if (!this.hasNavigation) return;
+
     const element = $event.target.documentElement;
     const scrollPos = element.scrollTop;
     const isBottom = scrollPos + window.innerHeight >= element.offsetHeight;
