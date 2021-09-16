@@ -67,30 +67,36 @@
                     "cmdSuccess": ["/waiting-room"],
                     "sequence": [
                         {
+                            "stepName": "Validate Membership",
                             "component": "ProviderEligibilityFormComponent",
                             "config": {}
                         },
                         {
+                            "stepName": "Emergency Notice",
                             "component": "EmergencyFormComponent",
                             "config": {}
                         },
                         {
+                            "stepName": "Check Time",
                             "component": "NextAppointmentInfoFormComponent",
                             "config": {}
                         },
                         {
+                            "stepName": "Triage",
                             "component": "TriageFormComponent",
                             "config": {
                                 "questionText": "What complaints do you have today?"
                             }
                         },
                         {
+                            "stepName": "Confirm Personal Info",
                             "component": "CollectPersonalInfoFormComponent",
                             "config": {
                                 "title": "Please provide your personal info."
                             }
                         },
                         {
+                            "stepName": "Request Appointment",
                             "component": "RequestAppointmentFormComponent",
                             "config": {}
                         }
