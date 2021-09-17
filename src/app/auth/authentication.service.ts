@@ -27,7 +27,6 @@ export class AuthenticationService implements CanActivate {
     console.log(path);
 
     if (this.currentUser) {
-      console.log('current user valid');
       return true; // logged in so can proceed to activate route
     } else if (path == 'provider/:pid') {
       return true;
@@ -55,7 +54,6 @@ export class AuthenticationService implements CanActivate {
   logIn(username: string, password: string): Promise<any> {
     return this._http.post<any>(`${environment.apiUrl}/user/authenticate`, { username, password }).toPromise().then(
       user => {
-        console.log(user);
         localStorage.setItem('currentUser', JSON.stringify(user));
         this._currentUser.next(User.create(user));
       }

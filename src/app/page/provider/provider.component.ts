@@ -30,7 +30,6 @@ export class ProviderComponent implements OnInit {
     let providerId = this._route.snapshot.params.pid;
     await this._dataService.getProvider(providerId).toPromise().then((data) => {
       this.provider = data;
-      console.log(data);
       this._changeDetectorRef.detectChanges();
       this._loadSections();
     });
@@ -46,10 +45,8 @@ export class ProviderComponent implements OnInit {
 
   private _loadSections() {
     if (this.containers !== null && this.containers !== undefined) {
-      console.log('this.containers.toArray().length:' + this.containers.toArray().length);
       for (let i = 0; i < this.containers.toArray().length; i++) {
         const section = this.provider.sections[i];
-        console.log('load ' + section.component)
         const componentType = this._dataService.resolveComponent(section.component);
         if (componentType) {
           const container = this.containers.toArray()[i];

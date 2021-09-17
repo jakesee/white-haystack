@@ -32,7 +32,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     if (this.isLoggedIn) {
       this.currentUser = this._auth.currentUser;
-      console.log('HeaderComponent: ' + this.currentUser);
     }
   }
 

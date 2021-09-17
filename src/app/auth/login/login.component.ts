@@ -41,11 +41,8 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    console.log("this._authenticationService.logIn");
     await this._authenticationService.logIn(this.f.username.value, this.f.password.value).then((data) => {
       this._authenticationService.navigateToReturnUrl();
-      console.log("navigated");
     });
-    console.log("submitted");
   }
 }

@@ -17,7 +17,7 @@ export class ExploreComponent implements OnInit {
   }
 
   private async _construct() {
-    await this._dataService.getProviders().then((response) => {
+    await this._dataService.getProviders().toPromise().then((response) => {
       this.providers = response.data;
 
       this.providers = _.groupBy(this.providers, (p) => p.category);

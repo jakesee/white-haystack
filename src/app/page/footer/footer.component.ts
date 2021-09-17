@@ -21,12 +21,10 @@ export class FooterComponent implements OnInit {
 
   @HostListener("window:scroll", ['$event']) onScroll($event): void {
 
-    if (!this.hasNavigation) return;
-
     const element = $event.target.documentElement;
     const scrollPos = element.scrollTop;
-    const isBottom = scrollPos + window.innerHeight >= element.offsetHeight;
-    this.isVisible = isBottom || scrollPos >= 100;
+    const isBottom = element.offsetHeight - scrollPos - window.innerHeight <= 1;
+    this.isVisible = this.hasNavigation && (isBottom || scrollPos >= 100);
   }
 
   ngOnInit(): void {

@@ -36,6 +36,7 @@ import { FooterComponent } from './page/footer/footer.component';
 import { TitleBarSectionComponent } from './sections/title-bar-section/title-bar-section.component';
 import { ProviderEligibilityFormComponent } from './form/provider-eligibility-form/provider-eligibility-form.component';
 import { ProviderCardControlComponent } from './control/provider-card-control/provider-card-control.component';
+import { SubProvidersSectionComponent } from './sub-providers-section/sub-providers-section.component';
 
 @NgModule({
   imports: [
@@ -74,6 +75,7 @@ import { ProviderCardControlComponent } from './control/provider-card-control/pr
     TitleBarSectionComponent,
     ProviderEligibilityFormComponent,
     ProviderCardControlComponent,
+    SubProvidersSectionComponent,
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],

@@ -42,7 +42,6 @@ export class CollectPersonalInfoFormComponent implements Form, OnInit {
   }
 
   ngOnInit() {
-    console.log(this.user);
      this.form = new FormGroup({
        firstName: new FormControl(this.user.firstName),
        lastName: new FormControl(this.user.lastName),

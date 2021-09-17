@@ -3,7 +3,6 @@ import { CollectPersonalInfoFormComponent } from './form/collect-personal-info-f
 import { ConsultNowComponent } from './sections/consult-now/consult-now.component';
 import { TriageFormComponent } from './form/triage-form/triage-form.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from './interfaces';
 import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
 import { SymptomsSectionComponent } from './sections/symptoms-section/symptoms-section.component';
 import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onetwothree-section.component';
@@ -17,6 +16,8 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { TitleBarSectionComponent } from './sections/title-bar-section/title-bar-section.component';
 import { ProviderEligibilityFormComponent } from './form/provider-eligibility-form/provider-eligibility-form.component';
+import * as _ from 'lodash';
+import { SubProvidersSectionComponent } from './sub-providers-section/sub-providers-section.component';
 
 
 export const REGISTRY = new Map<string, Type<any>>();
@@ -27,6 +28,8 @@ REGISTRY.set("OnetwothreeSectionComponent", OnetwothreeSectionComponent);
 REGISTRY.set("BannerSectionComponent", BannerSectionComponent);
 REGISTRY.set("NeedAssistanceSectionComponent", NeedAssistanceSectionComponent);
 REGISTRY.set("TitleBarSectionComponent", TitleBarSectionComponent);
+REGISTRY.set("SubProvidersSectionComponent", SubProvidersSectionComponent);
+
 // Forms
 REGISTRY.set("ProviderEligibilityFormComponent", ProviderEligibilityFormComponent);
 REGISTRY.set("TriageFormComponent", TriageFormComponent);
@@ -58,8 +61,22 @@ export class DataService {
     return this._http.get<any>(`${environment.apiUrl}/provider`, { params: { id: id } }).pipe(map(response => response.data));
   }
 
-  getProviders() {
-    return this._http.get<any>(`${environment.apiUrl}/providers`).toPromise();
+  getProvidersByParent(id: number) {
+    return this._getProviders().pipe(map((val) => {
+      val.data = _.filter(val.data, (p) => p.parentId == id);
+      return val;
+    }));
+  }
+
+  getProviders():Observable<any> {
+    return this._getProviders().pipe(map((val) => {
+      val.data = _.filter(val.data, (p) => p.parentId == -1);
+      return val;
+    }));
+  }
+
+  private _getProviders():Observable<any> {
+    return this._http.get<any>(`${environment.apiUrl}/providers`);
   }
 
   private _loadConfig() {
@@ -68,7 +85,7 @@ export class DataService {
         imgURL:
           'https://my-doc.com/wp-content/uploads/2019/11/mydoc-logo-@2x.png',
         menuItems: [
-          { text: 'Home', routerLink: '/home' },
+          { text: 'Home', routerLink: '/home', icon: ['fas', 'home'] },
           { text: 'Explore', routerLink: '/explore', icon: ['fas', 'home'] },
           { text: 'Care Network', routerLink: '/care-network', icon: ['fas', 'heart'] },
           { text: 'Feeds', routerLink: '/feeds', icon: ['fas', 'newspaper'] },
