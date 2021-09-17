@@ -22,8 +22,10 @@ export class CollectPersonalInfoFormComponent implements Form, OnInit {
 
   constructor(private _dataService: DataService, private _auth: AuthenticationService) {}
 
-  init(config: any) {
+  evaluate(config: any): boolean {
     this.title = config.title;
+
+    return true;
   }
 
   onNext($event: any) {

@@ -26,8 +26,10 @@ export class ProviderEligibilityFormComponent implements Form, OnInit {
 
   requirements: Array<any> = [];
 
-  init(config: any): void {
+  evaluate(config: any): boolean {
     Object.assign(this, config);
+
+    return true;
   }
 
   ngOnInit(): void {

@@ -6,7 +6,7 @@ export interface Form {
   backHandler: EventEmitter<FormEvent>;
   cancelHandler: EventEmitter<FormEvent>;
 
-  init(config: any) : void
+  evaluate(config: any) : boolean
 }
 
 export class FormEvent {

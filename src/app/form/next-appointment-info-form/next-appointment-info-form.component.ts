@@ -17,8 +17,8 @@ export class NextAppointmentInfoFormComponent implements Form, OnInit {
   backHandler: EventEmitter<FormEvent> = new EventEmitter<FormEvent>();
   cancelHandler: EventEmitter<FormEvent> = new EventEmitter<FormEvent>();
 
-  init(config: any): void {
-
+  evaluate(config: any): boolean {
+    return false;
   }
 
   ngOnInit(): void {
