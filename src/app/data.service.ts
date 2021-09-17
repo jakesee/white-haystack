@@ -68,8 +68,8 @@ export class DataService {
         imgURL:
           'https://my-doc.com/wp-content/uploads/2019/11/mydoc-logo-@2x.png',
         menuItems: [
-          //{ text: 'Home', routerLink: '/home' },
-          { text: 'Home', routerLink: '/explore', icon: ['fas', 'home'] },
+          { text: 'Home', routerLink: '/home' },
+          { text: 'Explore', routerLink: '/explore', icon: ['fas', 'home'] },
           { text: 'Care Network', routerLink: '/care-network', icon: ['fas', 'heart'] },
           { text: 'Feeds', routerLink: '/feeds', icon: ['fas', 'newspaper'] },
           { text: 'Appointments', routerLink: '/waiting-room', icon: ['fas', 'calendar'] },
@@ -97,18 +97,7 @@ export class DataService {
             content: "<p>Need any assistance? Call us at</p><p><b>Dai-ichi Life Vietnam<br /> (028) 38100888</b><br /> 08: 00 - 17: 30, Mon - Fri and 08: 00 - 12: 00, Sat </p><p><b>MyDoc <br /> 0707150628</b><br /> 8: 00 to 22: 00, incl.weekend & holidays </p>"
           }
         },
-        { component: BannerSectionComponent, config: {} },
-        {
-          component: ConsultNowComponent,
-          config: {
-            imgSource:
-              'https://app.qa.my-doc.com/baoviet/assets/images/banner_web.png',
-            title: 'Premptive Health Screening Programme',
-            subText: 'Have a peace mind and assurance',
-            buttonText: 'Get a Health Screening',
-            command: ['journey', { id: 1 }]
-          }
-        },
+        { component: BannerSectionComponent, config: {} }
       ],
       JourneyComponent: [
         {

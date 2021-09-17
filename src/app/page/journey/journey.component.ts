@@ -15,13 +15,14 @@ import { Form, FormEvent, ProviderData } from '@app/interfaces';
   templateUrl: './journey.component.html',
   styleUrls: ['./journey.component.scss']
 })
-export class JourneyComponent implements OnInit, AfterViewInit {
+export class JourneyComponent implements OnInit {
   @ViewChild('container', { read: ViewContainerRef })
   container: ViewContainerRef;
 
   // sequence of forms
   sequence: Array<any>;
   progress: number = 0;
+  farthest: number = 0;
 
   // router.navigate commands
   cmdCancel: [];
@@ -45,30 +46,31 @@ export class JourneyComponent implements OnInit, AfterViewInit {
       this.cmdSuccess = journey.cmdSuccess;
       this.sequence = journey.sequence;
 
-      this.progress = 0;
-      this._loadForm(this.progress);
+      this._next(null);
     });
   }
 
   ngOnInit() {}
 
-  ngAfterViewInit() {
-
-    setTimeout(() => {
-
-    });
-  }
-
   private _next(event: FormEvent) {
     this.progress++;
     if (this.progress < this.sequence.length) {
-      this._loadForm(this.progress);
+
+      const complete = this._loadForm(this.progress);
+
+      // skip the form if already complete
+      if (complete && this.progress > this.farthest) this._next(event);
+
     } else {
       this._router.navigate(this.cmdSuccess);
     }
   }
 
   private _back(event: FormEvent) {
+
+    // record the furthest we've been in the journey
+    this.farthest = this.progress > this.farthest ? this.progress : this.farthest;
+
     this.progress--;
     if (this.progress >= 0) {
       this._loadForm(this.progress);
@@ -82,7 +84,7 @@ export class JourneyComponent implements OnInit, AfterViewInit {
     this._router.navigate(this.cmdCancel, { relativeTo: this._route });
   }
 
-  private _loadForm(progress: number) {
+  private _loadForm(progress: number): boolean {
     const step: any = this.sequence[progress];
     this.container.clear();
     const componentType = this._dataService.resolveComponent(step.component);
@@ -100,7 +102,7 @@ export class JourneyComponent implements OnInit, AfterViewInit {
       this._cancel(event);
     });
 
-    instance.init(step.config);
+    return instance.evaluate(step.config);
   }
 
   public get journeyStepCount(): number {

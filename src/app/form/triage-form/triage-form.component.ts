@@ -21,8 +21,10 @@ export class TriageFormComponent implements Form, OnInit {
 
   constructor(private _dataService: DataService) {}
 
-  init(config: any) {
+  evaluate(config: any): boolean {
     this.questionText = config.questionText;
+
+    return false;
   }
 
   ngOnInit() {}
