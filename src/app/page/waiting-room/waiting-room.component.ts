@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '@app/auth/authentication.service';
 import { DataService } from '@app/data.service';
 
 @Component({
@@ -7,10 +8,11 @@ import { DataService } from '@app/data.service';
   styleUrls: ['./waiting-room.component.scss']
 })
 export class WaitingRoomComponent implements OnInit {
-  state: Array<any>;
 
-  constructor(private _dataService: DataService) {
-    this.state = _dataService.state;
+  user:any;
+
+  constructor(auth: AuthenticationService) {
+    this.user = auth.currentUser;
   }
 
   ngOnInit() {}

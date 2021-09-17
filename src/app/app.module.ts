@@ -19,7 +19,7 @@ import { DataService } from './data.service';
 import { AuthenticationService } from './auth/authentication.service';
 import { mockHttpProviderService } from './mock-http-provider.service';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBars, faCalendar, faHeart, faHome, faIdCard, faNewspaper, faRobot, faSearch, faSignInAlt, faSignOutAlt, faUser, faWindowClose } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCalendar, faCalendarAlt, faClock, faHeart, faHome, faIdCard, faNewspaper, faRobot, faSearch, faSignInAlt, faSignOutAlt, faUser, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
 import { SymptomsSectionComponent } from './sections/symptoms-section/symptoms-section.component';
 import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onetwothree-section.component';
@@ -95,7 +95,9 @@ export class AppModule {
       faCalendar,
       faNewspaper,
       faUser,
-      faIdCard
+      faIdCard,
+      faClock,
+      faCalendarAlt
     );
   }
 }
