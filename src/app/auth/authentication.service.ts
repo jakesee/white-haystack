@@ -51,18 +51,27 @@ export class AuthenticationService implements CanActivate {
     return false;
   }
 
-  logIn(username: string, password: string): Promise<any> {
-    return this._http.post<any>(`${environment.apiUrl}/user/authenticate`, { username, password }).toPromise().then(
-      user => {
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        this._currentUser.next(User.create(user));
-      }
-    );
+  logIn(username: string, password: string) {
+    return this._http.post<any>(`${environment.apiUrl}/user/authenticate`, { username, password }).pipe(map((response) => {
+      let user = response.data;
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      this._currentUser.next(User.create(user));
+      return response;
+    }));
   }
 
   logOut(): void {
     localStorage.removeItem('currentUser');
     this._currentUser.next(null);
+  }
+
+  register(username: string, password: string) {
+    return this._http.post<any>(`${environment.apiUrl}/user/register`, { username, password }).pipe(map((response) => {
+      let user = response.data;
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      this._currentUser.next(User.create(user));
+      return response;
+    }));
   }
 
   getReturnUrl(): string {

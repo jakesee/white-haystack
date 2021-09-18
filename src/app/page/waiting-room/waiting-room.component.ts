@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AuthenticationService } from '@app/auth/authentication.service';
-import { AppointmentCardControlComponent } from '@app/control/appointment-card-control/appointment-card-control.component';
 import * as _ from 'lodash';
 
 @Component({
@@ -24,9 +23,11 @@ export class WaitingRoomComponent implements OnInit {
   constructor(auth: AuthenticationService) {
     this.user = auth.currentUser;
 
+    this.user.episodes = _.orderBy(this.user.episodes, ['startAt'], ['desc']);
+
     this.user.episodes.forEach(e => {
       let now = new Date();
-      let apptDate = new Date(e.startAt);
+      let apptDate = new Date(e.endAt);
       if (apptDate >= now) {
         this.future.push(e);
       } else {

@@ -54,7 +54,7 @@ export class ProviderComponent implements OnInit {
           const factory = this._componentFactoryResolver.resolveComponentFactory<any>(componentType);
           const refComponent = container.createComponent(factory);
           let instance: Section = refComponent.instance;
-          instance.init(section.config);
+          instance.init(section.config, this.provider);
         }
       }
     }

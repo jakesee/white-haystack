@@ -14,8 +14,12 @@ export class FormEvent {
 }
 
 export class Section {
-  init(config: any): void {
+
+  provider: any;
+
+  init(config: any, provider: any): void {
     Object.assign(this, config);
+    this.provider = provider;
   }
 }
 

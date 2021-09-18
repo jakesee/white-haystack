@@ -34,6 +34,11 @@ form {
     }
 }
 
+.button-list {
+    display: flex;
+    gap: 10px;
+}
+
 button {
     border: none;
     padding: 6px 9px;

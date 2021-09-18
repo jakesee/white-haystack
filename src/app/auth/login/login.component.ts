@@ -12,10 +12,12 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup;
 
+  isLogin: boolean = true;
+
   error;
   loading;
 
-  constructor(private _authenticationService: AuthenticationService) {
+  constructor(private _auth: AuthenticationService) {
 
   }
 
@@ -26,8 +28,8 @@ export class LoginComponent implements OnInit {
     });
 
 
-    if (this._authenticationService.isLoggedIn()) {
-      this._authenticationService.navigateToReturnUrl();
+    if (this._auth.isLoggedIn()) {
+      this._auth.navigateToReturnUrl();
     }
   }
 
@@ -35,14 +37,25 @@ export class LoginComponent implements OnInit {
     return this.form.controls;
   }
 
-  async onSubmit($event) {
+  async onLogin($event) {
     // stop here if form is invalid
     if (this.form.invalid) {
       return;
     }
 
-    await this._authenticationService.logIn(this.f.username.value, this.f.password.value).then((data) => {
-      this._authenticationService.navigateToReturnUrl();
+    return await this._auth.logIn(this.f.username.value, this.f.password.value).toPromise().then((data) => {
+      this._auth.navigateToReturnUrl();
     });
+  }
+
+  onRegister($event: any): void {
+    this._auth.register(this.f.username.value, this.f.password.value).toPromise().then((data) => {
+      this._auth.navigateToReturnUrl();
+    });
+  }
+
+  onToggleForm($event: any): void {
+    this.isLogin = !this.isLogin;
+
   }
 }

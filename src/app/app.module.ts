@@ -19,7 +19,7 @@ import { DataService } from './data.service';
 import { AuthenticationService } from './auth/authentication.service';
 import { mockHttpProviderService } from './mock-http-provider.service';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBars, faBell, faCalendarAlt, faClock, faComment, faHeart, faHome, faIdCard, faNewspaper, faRobot, faSearch, faSignInAlt, faSignOutAlt, faTasks, faUser, faVideo, faWindowClose } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBell, faCalendarAlt, faClinicMedical, faClock, faComment, faFilePrescription, faHeart, faHome, faIdCard, faMoneyBillAlt, faNewspaper, faRobot, faSearch, faSignInAlt, faSignOutAlt, faTasks, faUser, faVideo, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
 import { SymptomsSectionComponent } from './sections/symptoms-section/symptoms-section.component';
 import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onetwothree-section.component';
@@ -39,6 +39,8 @@ import { ProviderCardControlComponent } from './control/provider-card-control/pr
 import { SubProvidersSectionComponent } from './sections/sub-providers-section/sub-providers-section.component';
 import { AppointmentCardControlComponent } from './control/appointment-card-control/appointment-card-control.component';
 import { ChatControlComponent } from './control/chat-control/chat-control.component';
+import database from '../assets/database.json';
+
 
 @NgModule({
   imports: [
@@ -86,7 +88,7 @@ import { ChatControlComponent } from './control/chat-control/chat-control.compon
 
 })
 export class AppModule {
-  constructor(private library: FaIconLibrary) {
+  constructor(library: FaIconLibrary, dataService: DataService) {
     library.addIcons(
       faBars,
       faSignInAlt,
@@ -104,7 +106,12 @@ export class AppModule {
       faComment,
       faBell,
       faVideo,
-      faTasks
+      faTasks,
+      faFilePrescription,
+      faClinicMedical,
+      faMoneyBillAlt
     );
+
+    localStorage.setItem('database', JSON.stringify(database));
   }
 }

@@ -30,4 +30,16 @@ export class AppointmentCardControlComponent implements OnInit {
   onTaskClick($event: any) {
     this.isShowDetail = !this.isShowDetail;
   }
+
+  isChatAvailable(endAt: number): boolean {
+    const now = Date.now();
+
+    return (now - endAt) < (1000 * 60 * 60 * 24);
+  }
+
+  isVideoAvailable(startAt: number, endAt: number): boolean {
+    const now = Date.now();
+
+    return (endAt > now) && ((startAt - now) <= (1000 * 60 * 60 * 10));
+  }
 }

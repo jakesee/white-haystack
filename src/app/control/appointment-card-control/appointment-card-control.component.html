@@ -8,9 +8,12 @@
                 <div><fa-icon [icon]="['fas', 'clock']"></fa-icon> {{episode.startAt | date: 'shortTime'}} - {{episode.endAt | date: 'shortTime'}}</div>
             </div>
             <div class="action">
-                <div><fa-icon class="button" (click)="onVideoClick($event)" [icon]="['fas', 'video']"></fa-icon></div>
-                <div><fa-icon class="button" (click)="onChatClick($event)" [icon]="['fas', 'comment']"></fa-icon></div>
-                <div><fa-icon class="button" (click)="onTaskClick($event)" [icon]="['fas', 'tasks']"></fa-icon></div>
+                <div><fa-icon [ngClass]="isVideoAvailable(episode.startAt, episode.endAt) ? 'active' : ''" class="button" (click)="onVideoClick($event)" [icon]="['fas', 'video']"></fa-icon></div>
+                <div><fa-icon [ngClass]="isChatAvailable(episode.endAt) ? 'active' : ''" class="button" (click)="onChatClick($event)" [icon]="['fas', 'comment']"></fa-icon></div>
+                <div><fa-icon class="button" [icon]="['fas', 'file-prescription']"></fa-icon></div>
+                <div><fa-icon class="button" [icon]="['fas', 'money-bill-alt']"></fa-icon></div>
+
+                <div><fa-icon class="button active" (click)="onTaskClick($event)" [icon]="['fas', 'tasks']"></fa-icon></div>
             </div>
         </div>
     </div>

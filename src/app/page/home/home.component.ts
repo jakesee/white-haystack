@@ -20,18 +20,25 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   sections: Array<DefinitionSection>;
 
+  provider: any;
+
   constructor(
     private _dataService: DataService,
     private _componentFactoryResolver: ComponentFactoryResolver
   ) {
     this.sections = _dataService.config.HomeComponent;
+    this._dataService.getProvider(this._dataService.config.providerId).toPromise().then((response) => {
+      this.provider = response.data;
+      this._loadSections();
+    });
   }
 
   ngOnInit() {}
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this._loadSections();
+
+
     });
   }
 
@@ -47,7 +54,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
           >(component);
           const refComponent = container.createComponent(factory);
           let instance: Section = refComponent.instance;
-          instance.init(section.config);
+          instance.init(section.config, this.provider);
         }
       }
     }

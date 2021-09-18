@@ -1,4 +1,4 @@
-import { Injectable, TestabilityRegistry, Type } from '@angular/core';
+import { Injectable, Type } from '@angular/core';
 import { CollectPersonalInfoFormComponent } from './form/collect-personal-info-form/collect-personal-info-form.component';
 import { ConsultNowComponent } from './sections/consult-now/consult-now.component';
 import { TriageFormComponent } from './form/triage-form/triage-form.component';
@@ -16,8 +16,8 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { TitleBarSectionComponent } from './sections/title-bar-section/title-bar-section.component';
 import { ProviderEligibilityFormComponent } from './form/provider-eligibility-form/provider-eligibility-form.component';
-import * as _ from 'lodash';
 import { SubProvidersSectionComponent } from './sections/sub-providers-section/sub-providers-section.component';
+import * as _ from 'lodash';
 
 
 export const REGISTRY = new Map<string, Type<any>>();
@@ -81,12 +81,13 @@ export class DataService {
 
   private _loadConfig() {
     this.config = {
+      providerId: 13,
       HeaderComponent: {
         imgURL:
           'https://my-doc.com/wp-content/uploads/2019/11/mydoc-logo-@2x.png',
         menuItems: [
           //{ text: 'Home', routerLink: '/home', icon: ['fas', 'home'] },
-          { text: 'Explore', routerLink: '/explore', icon: ['fas', 'home'] },
+          { text: 'Home', routerLink: '/explore', icon: ['fas', 'home'] },
           { text: 'Care Network', routerLink: '/care-network', icon: ['fas', 'heart'] },
           { text: 'Feeds', routerLink: '/feeds', icon: ['fas', 'newspaper'] },
           { text: 'Appointments', routerLink: '/waiting-room', icon: ['fas', 'calendar-alt'] },
@@ -103,7 +104,7 @@ export class DataService {
             subText:
               'Operational Hours: 0800H - 2200H, including weekend and holidays',
             buttonText: 'Talk to Doctor Now!',
-            command: ['journey', 'start']
+            command: ['/provider', 13, 'journey', 'start']
           }
         },
         { component: SymptomsSectionComponent, config: {} },
@@ -114,17 +115,17 @@ export class DataService {
             content: "<p>Need any assistance? Call us at</p><p><b>Dai-ichi Life Vietnam<br /> (028) 38100888</b><br /> 08: 00 - 17: 30, Mon - Fri and 08: 00 - 12: 00, Sat </p><p><b>MyDoc <br /> 0707150628</b><br /> 8: 00 to 22: 00, incl.weekend & holidays </p>"
           }
         },
-        { component: BannerSectionComponent, config: {} }
+        { component: SubProvidersSectionComponent, config: {} }
       ],
-      JourneyComponent: [
-        {
+      journey: {
+        start: {
           auth: true,
           cmdCancel: ['/home'], // route navigate command
           cmdSuccess: ['/waiting-room'], // route navigate command
           sequence: [
             {
               component: EmergencyFormComponent,
-              config: { }
+              config: {}
             },
             {
               component: NextAppointmentInfoFormComponent,
@@ -143,27 +144,8 @@ export class DataService {
               config: {}
             }
           ]
-        },
-        {
-          auth: false,
-          cmdCancel: ['/home'], // route navigate command
-          cmdSuccess: ['/waiting-room'], // route navigate command
-          sequence: [
-            {
-              component: CollectPersonalInfoFormComponent,
-              config: { title: '请输入您的个人信息。' }
-            },
-            {
-              component: TriageFormComponent,
-              config: { questionText: "Health Screening is fun, isn't it?" }
-            },
-            {
-              component: TriageFormComponent,
-              config: { questionText: 'last step for health screening' }
-            }
-          ]
         }
-      ]
+      }
     };
   }
 }

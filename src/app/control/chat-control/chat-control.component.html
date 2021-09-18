@@ -1,7 +1,7 @@
 <div class="chat-window">
     <div class="chat-header">
         <h1>Live Chat</h1>
-        <fa-icon class="button" (click)="onClose($event)" [icon]="['fas', 'window-close']"></fa-icon>
+        <div class="chat-header-close-button"><fa-icon class="button" (click)="onClose($event)" [icon]="['fas', 'window-close']"></fa-icon></div>
     </div>
     <div class="chat-target-selector">
         <button [ngClass]="isDoctorTarget ? 'active' : ''" (click)="isDoctorTarget = true">{{episode.doctorName}}</button>

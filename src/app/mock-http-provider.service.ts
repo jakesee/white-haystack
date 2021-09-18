@@ -2,7 +2,6 @@ import { HttpClient, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpR
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, dematerialize, materialize, mergeMap } from 'rxjs/operators';
-import database from '../assets/database.json';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +13,7 @@ export class MockHttpProviderService implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     const { url, method, headers, body } = request;
+    var database = JSON.parse(localStorage.getItem('database'));
 
     console.log('MockHttpProviderService:intercept ' + url);
 
@@ -26,6 +26,8 @@ export class MockHttpProviderService implements HttpInterceptor {
     function handleEndpoint() {
       if (url.endsWith('/user/authenticate') && method == 'POST') {
         return post_user_authenticate();
+      } else if (url.endsWith('/user/register') && method == 'POST') {
+        return post_user_register();
       } else if (url.endsWith('/me/profile') && method == 'GET') {
         return get_me_profile();
       } else if (url.endsWith('/providers') && method == 'GET') {
@@ -57,10 +59,31 @@ export class MockHttpProviderService implements HttpInterceptor {
       const user = database.users.find(x => x.username === username && x.password === password);
       if (!user) return error('Username or password is incorrect');
 
-      let response = ({ ...user, token: 'fake-jwt-token' });
+      let response = { data: { ...user, token: 'fake-jwt-token' } };
       response = _fixAppointmentDateTime(response);
 
       return ok(response)
+    }
+
+    function post_user_register() {
+      const { username, password } = body;
+
+      console.log('post_user_register', database.users);
+
+      const newUser = {
+        "id": database.users.length,
+        "username": username,
+        "password": password,
+        "firstName": 'Guest',
+        "lastName": Date.now(),
+        "episodes": []
+      };
+
+      database.users.push(newUser);
+
+      updateDatabase(database);
+
+      return post_user_authenticate();
     }
 
     function get_me_profile() {
@@ -88,13 +111,18 @@ export class MockHttpProviderService implements HttpInterceptor {
 
     // manipulate data for testing
 
-    function _fixAppointmentDateTime(response:any):any {
-      for (var i = 0, day = -3; i < response.episodes.length; i++, day++) {
-        response.episodes[i].startAt = Date.now() + (1000 * 60 * 60 * 24 * day);
+    function _fixAppointmentDateTime(response: any): any {
+
+      for (var i = 0, day = -3; i < response.data.episodes.length; i++, day++) {
+        response.data.episodes[i].startAt = Date.now() + (1000 * 60 * 60 * 24 * day);
         // 15 minutes, but can be any duration
-        response.episodes[i].endAt = response.episodes[i].startAt + (1000 * 60 * 15);
+        response.data.episodes[i].endAt = response.data.episodes[i].startAt + (1000 * 60 * 15);
       }
       return response;
+    }
+
+    function updateDatabase(database: any) {
+      localStorage.setItem("database", JSON.stringify(database));
     }
 
   }

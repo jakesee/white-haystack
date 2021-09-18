@@ -36,12 +36,19 @@
 
         .action {
             display: flex;
-            gap: 18px;
+            gap: 12px;
 
             margin-top: 10px;
 
             fa-icon {
-                font-size: 200%;
+                font-size: 180%;
+                color: $theme-border-color;
+                cursor: auto;
+            }
+
+            fa-icon.active {
+                color: $theme-color;
+                cursor: pointer;
             }
         }
     }

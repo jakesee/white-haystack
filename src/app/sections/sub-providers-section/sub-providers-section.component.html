@@ -12,6 +12,7 @@
                 <div class="property">
                     <fa-icon [ngClass]="provider.isMemberRequired ? 'member' : ''" [icon]="['fas', 'id-card']"></fa-icon>
                     <fa-icon [icon]="['fas', 'heart']"></fa-icon>
+                    <span>$25 - $100</span>
                     <div class="journey-button">
                         <button (click)="onJourneyStart($event, provider)">{{provider.journey.start.ctaLabel}}</button>
                     </div>
