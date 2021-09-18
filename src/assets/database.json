@@ -27,10 +27,12 @@
             "gender": "Male",
             "birthdate": "01/22/1985",
             "episodes": [
-                { "doctorName": "Dr Kim Lee Yong", "doctorImgUrl": "https://randomuser.me/api/portraits/men/75.jpg", "startAt": 1631893316000 },
-                { "doctorName": "Dr Eileen Fox", "doctorImgUrl": "https://randomuser.me/api/portraits/women/65.jpg", "startAt": 1631893316000 },
-                { "doctorName": "Dr Lucas Vamp", "doctorImgUrl": "https://randomuser.me/api/portraits/men/18.jpg", "startAt": 1631893316000 },
-                { "doctorName": "Dr Angelina Jolie", "doctorImgUrl": "https://randomuser.me/api/portraits/women/35.jpg", "startAt": 1631893316000 }
+                { "doctorName": "Dr Kim Lee Yong", "doctorImgUrl": "https://randomuser.me/api/portraits/men/75.jpg", "startAt": 1631893316000, "endAt": 1631893316000 },
+                { "doctorName": "Dr Eileen Fox", "doctorImgUrl": "https://randomuser.me/api/portraits/women/65.jpg", "startAt": 1631893316000, "endAt": 1631893316000 },
+                { "doctorName": "Dr Lucas Vamp", "doctorImgUrl": "https://randomuser.me/api/portraits/men/18.jpg", "startAt": 1631893316000, "endAt": 1631893316000 },
+                { "doctorName": "Dr Angelina Jolie", "doctorImgUrl": "https://randomuser.me/api/portraits/women/35.jpg", "startAt": 1631893316000, "endAt": 1631893316000 },
+                { "doctorName": "Dr Famous Amos", "doctorImgUrl": "https://randomuser.me/api/portraits/men/35.jpg", "startAt": 1631893316000, "endAt": 1631893316000 },
+                { "doctorName": "Dr Minnie Feline", "doctorImgUrl": "https://randomuser.me/api/portraits/women/12.jpg", "startAt": 1631893316000, "endAt": 1631893316000 }
             ]
         }
     ],

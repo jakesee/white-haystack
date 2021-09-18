@@ -56,10 +56,11 @@ export class MockHttpProviderService implements HttpInterceptor {
       const { username, password } = body;
       const user = database.users.find(x => x.username === username && x.password === password);
       if (!user) return error('Username or password is incorrect');
-      return ok({
-        ...user,
-        token: 'fake-jwt-token'
-      })
+
+      let response = ({ ...user, token: 'fake-jwt-token' });
+      response = _fixAppointmentDateTime(response);
+
+      return ok(response)
     }
 
     function get_me_profile() {
@@ -84,6 +85,18 @@ export class MockHttpProviderService implements HttpInterceptor {
     function isLoggedIn() {
       return headers.get('Authorization') === 'Bearer fake-jwt-token';
     }
+
+    // manipulate data for testing
+
+    function _fixAppointmentDateTime(response:any):any {
+      for (var i = 0, day = -3; i < response.episodes.length; i++, day++) {
+        response.episodes[i].startAt = Date.now() + (1000 * 60 * 60 * 24 * day);
+        // 15 minutes, but can be any duration
+        response.episodes[i].endAt = response.episodes[i].startAt + (1000 * 60 * 15);
+      }
+      return response;
+    }
+
   }
 }
 

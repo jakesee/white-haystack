@@ -1,21 +1,28 @@
 <app-header></app-header>
 <div class="container">
-  <h1>Upcoming Appointments</h1>
-  <div *ngFor="let episode of user.episodes">
-    <div><img src="{{episode.doctorImgUrl}}"/></div>
-    <div>
-      <div>{{episode.doctorName}}</div>
-      <div><fa-icon [icon]="['fas', 'calendar-alt']"></fa-icon>{{episode.startAt | date: 'fullDate'}}</div>
-      <div><fa-icon [icon]="['fas', 'clock']"></fa-icon>{{episode.startAt | date: 'shortTime'}}</div>
+  <div class="appointments">
+    <div class="appointment-nav">
+      <button (click)="onSelectPeriod('today')" [ngClass]="selectedPeriod == 'today' ? 'active' : ''">Today</button>
+      <button (click)="onSelectPeriod('future')" [ngClass]="selectedPeriod == 'future' ? 'active' : ''">Upcoming Appointments</button>
+      <button (click)="onSelectPeriod('past')" [ngClass]="selectedPeriod == 'past' ? 'active' : ''">Past Appointments</button>
     </div>
-  </div>
-  <h1>Past Appointments</h1>
-  <div class="row">
-    <div class="">
-      <p>
 
-      </p>
+    <div *ngIf="selectedPeriod == 'today'">
+      <h1>Today</h1>
+      <app-appointment-card-control *ngFor="let episode of today" [episode]="episode" (chatClick)="onChatOpen($event)"></app-appointment-card-control>
+    </div>
+
+    <div *ngIf="selectedPeriod == 'future'">
+      <h1>Upcoming Appointments</h1>
+      <app-appointment-card-control *ngFor="let episode of future" [episode]="episode" (chatClick)="onChatOpen($event)"></app-appointment-card-control>
+    </div>
+
+
+    <div *ngIf="selectedPeriod == 'past'">
+      <h1>Past Appointments</h1>
+      <app-appointment-card-control *ngFor="let episode of past" [episode]="episode" (chatClick)="onChatOpen($event)"></app-appointment-card-control>
     </div>
   </div>
 </div>
+<app-chat-control *ngIf="chatEpisode" [episode]="chatEpisode" (close)="onChatClose($event)"></app-chat-control>
 <app-footer></app-footer>

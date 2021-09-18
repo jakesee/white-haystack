@@ -16,8 +16,8 @@ export class JourneyComponent implements OnInit {
 
   // sequence of forms
   sequence: Array<any>;
-  progress: number = -1;
-  farthest: number = -1;
+  progress: number = -1; // index
+  farthest: number = -1; // index
 
   // router.navigate commands
   cmdCancel: [];

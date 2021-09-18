@@ -85,11 +85,11 @@ export class DataService {
         imgURL:
           'https://my-doc.com/wp-content/uploads/2019/11/mydoc-logo-@2x.png',
         menuItems: [
-          { text: 'Home', routerLink: '/home', icon: ['fas', 'home'] },
+          //{ text: 'Home', routerLink: '/home', icon: ['fas', 'home'] },
           { text: 'Explore', routerLink: '/explore', icon: ['fas', 'home'] },
           { text: 'Care Network', routerLink: '/care-network', icon: ['fas', 'heart'] },
           { text: 'Feeds', routerLink: '/feeds', icon: ['fas', 'newspaper'] },
-          { text: 'Appointments', routerLink: '/waiting-room', icon: ['fas', 'calendar'] },
+          { text: 'Appointments', routerLink: '/waiting-room', icon: ['fas', 'calendar-alt'] },
           { text: 'Settings', routerLink: '/profile', icon: ['fas', 'user'] },
         ]
       },

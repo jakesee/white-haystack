@@ -39,7 +39,8 @@ html {
   }
 }
 
-button:hover {
+// buttons
+button:hover, fa-icon.button:hover {
   cursor: pointer;
 }
 

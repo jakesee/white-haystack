@@ -19,7 +19,7 @@ import { DataService } from './data.service';
 import { AuthenticationService } from './auth/authentication.service';
 import { mockHttpProviderService } from './mock-http-provider.service';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBars, faCalendar, faCalendarAlt, faClock, faHeart, faHome, faIdCard, faNewspaper, faRobot, faSearch, faSignInAlt, faSignOutAlt, faUser, faWindowClose } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faBell, faCalendarAlt, faClock, faComment, faHeart, faHome, faIdCard, faNewspaper, faRobot, faSearch, faSignInAlt, faSignOutAlt, faTasks, faUser, faVideo, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
 import { SymptomsSectionComponent } from './sections/symptoms-section/symptoms-section.component';
 import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onetwothree-section.component';
@@ -37,6 +37,8 @@ import { TitleBarSectionComponent } from './sections/title-bar-section/title-bar
 import { ProviderEligibilityFormComponent } from './form/provider-eligibility-form/provider-eligibility-form.component';
 import { ProviderCardControlComponent } from './control/provider-card-control/provider-card-control.component';
 import { SubProvidersSectionComponent } from './sections/sub-providers-section/sub-providers-section.component';
+import { AppointmentCardControlComponent } from './control/appointment-card-control/appointment-card-control.component';
+import { ChatControlComponent } from './control/chat-control/chat-control.component';
 
 @NgModule({
   imports: [
@@ -76,6 +78,8 @@ import { SubProvidersSectionComponent } from './sections/sub-providers-section/s
     ProviderEligibilityFormComponent,
     ProviderCardControlComponent,
     SubProvidersSectionComponent,
+    AppointmentCardControlComponent,
+    ChatControlComponent,
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],
@@ -92,12 +96,15 @@ export class AppModule {
       faSearch,
       faHome,
       faHeart,
-      faCalendar,
       faNewspaper,
       faUser,
       faIdCard,
       faClock,
-      faCalendarAlt
+      faCalendarAlt,
+      faComment,
+      faBell,
+      faVideo,
+      faTasks
     );
   }
 }

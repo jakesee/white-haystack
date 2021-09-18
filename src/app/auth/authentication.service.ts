@@ -33,8 +33,8 @@ export class AuthenticationService implements CanActivate {
     } else if (path == 'provider/:pid/journey/:jid') {
       const journeyId = route.params.jid;
       const providerId = route.params.pid;
-      return this._dataService.getProvider(providerId).pipe(map(data => {
-        if (data.journeys[journeyId].auth) {
+      return this._dataService.getProvider(providerId).pipe(map(response => {
+        if (response.data.journey[journeyId].auth) {
           return this._activateAuth(route, state);
         } else {
           return true;

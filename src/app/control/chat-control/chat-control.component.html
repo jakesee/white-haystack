@@ -1,0 +1,57 @@
+<div class="chat-window">
+    <div class="chat-header">
+        <h1>Live Chat</h1>
+        <fa-icon class="button" (click)="onClose($event)" [icon]="['fas', 'window-close']"></fa-icon>
+    </div>
+    <div class="chat-target-selector">
+        <button [ngClass]="isDoctorTarget ? 'active' : ''" (click)="isDoctorTarget = true">{{episode.doctorName}}</button>
+        <button [ngClass]="!isDoctorTarget ? 'active' : ''" (click)="isDoctorTarget = false">Concierge Support</button>
+    </div>
+    <div class="chat-view">
+        <div class="chat-message-others">
+            <div class="chat-message">Enchiladas shaved almonds roasted peanuts cool red curry tofu noodles falafel bites cranberry spritzer walnut mushroom
+            tart</div>
+        </div>
+        <div class="chat-message-me">
+            <div class="chat-message">Thai dragon pepper almond milk</div>
+        </div>
+        <div class="chat-message-others">
+            <div class="chat-message">Comforting pumpkin spice latte mediterranean vegetables apples tabasco pepper peanut butter hazelnut shiitake maple orange</div>
+        </div>
+        <div class="chat-message-me">
+            <div class="chat-message">Chilies candy cane winter roasted butternut squash plums a delicious meal lime grapefruit sweet potato oranges citrusy cozy butternut mangos mint lime taco salsa lemonade zest mushroom risotto garlic</div>
+        </div>
+        <div class="chat-message-others">
+            <div class="chat-message">Crumbled lentils shallots kale crunchy coriander</div>
+        </div>
+        <div class="chat-message-me">
+            <div class="chat-message">Lentils lemongrass one bowl lemon red</div>
+        </div>
+        <div class="chat-message-others">
+            <div class="chat-message">Enchiladas shaved almonds roasted peanuts cool red curry tofu noodles falafel bites
+                cranberry spritzer walnut mushroom
+                tart</div>
+        </div>
+        <div class="chat-message-me">
+            <div class="chat-message">Thai dragon pepper almond milk</div>
+        </div>
+        <div class="chat-message-others">
+            <div class="chat-message">Comforting pumpkin spice latte mediterranean vegetables apples tabasco pepper peanut
+                butter hazelnut shiitake maple orange</div>
+        </div>
+        <div class="chat-message-me">
+            <div class="chat-message">Chilies candy cane winter roasted butternut squash plums a delicious meal lime grapefruit
+                sweet potato oranges citrusy cozy butternut mangos mint lime taco salsa lemonade zest mushroom risotto garlic
+            </div>
+        </div>
+        <div class="chat-message-others">
+            <div class="chat-message">Crumbled lentils shallots kale crunchy coriander</div>
+        </div>
+        <div class="chat-message-me">
+            <div class="chat-message">Lentils lemongrass one bowl lemon red</div>
+        </div>
+    </div>
+    <div class="chat-input">
+        <div><input /></div>
+    </div>
+</div>
