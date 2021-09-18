@@ -39,6 +39,10 @@ html {
   }
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .theme {
   background-color: $theme-color;
   color: $theme-color;
@@ -133,7 +137,6 @@ div.card { padding: 20px; }
 @media only screen and (min-width: $size-md) {
     div.card {
         margin: 20px auto 0 auto;
-        width: $size-md;
     }
 }
 @media only screen and (min-width: $size-lg) {

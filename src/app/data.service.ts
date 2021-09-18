@@ -17,7 +17,7 @@ import { Observable } from 'rxjs';
 import { TitleBarSectionComponent } from './sections/title-bar-section/title-bar-section.component';
 import { ProviderEligibilityFormComponent } from './form/provider-eligibility-form/provider-eligibility-form.component';
 import * as _ from 'lodash';
-import { SubProvidersSectionComponent } from './sub-providers-section/sub-providers-section.component';
+import { SubProvidersSectionComponent } from './sections/sub-providers-section/sub-providers-section.component';
 
 
 export const REGISTRY = new Map<string, Type<any>>();
@@ -58,7 +58,7 @@ export class DataService {
   }
 
   getProvider(id: number): Observable<any> {
-    return this._http.get<any>(`${environment.apiUrl}/provider`, { params: { id: id } }).pipe(map(response => response.data));
+    return this._http.get<any>(`${environment.apiUrl}/provider`, { params: { id: id } });
   }
 
   getProvidersByParent(id: number) {
@@ -103,7 +103,7 @@ export class DataService {
             subText:
               'Operational Hours: 0800H - 2200H, including weekend and holidays',
             buttonText: 'Talk to Doctor Now!',
-            command: ['journey']
+            command: ['journey', 'start']
           }
         },
         { component: SymptomsSectionComponent, config: {} },

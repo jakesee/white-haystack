@@ -1,8 +1,7 @@
 import { ChangeDetectorRef, Component, ComponentFactoryResolver, OnInit, QueryList, ViewChildren, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '@app/data.service';
-import { ComponentData, DefinitionSection, ProviderData, Section } from '@app/interfaces';
-import { map, take } from 'rxjs/operators';
+import { ProviderData, Section } from '@app/interfaces';
 
 @Component({
   selector: 'app-provider',
@@ -23,13 +22,15 @@ export class ProviderComponent implements OnInit {
     private _componentFactoryResolver: ComponentFactoryResolver,
     private _changeDetectorRef: ChangeDetectorRef
   ) {
-    this._constructor();
+    this._route.params.subscribe((params) => {
+      this._buildPage();
+    });
   }
 
-  private async _constructor() {
+  private async _buildPage() {
     let providerId = this._route.snapshot.params.pid;
-    await this._dataService.getProvider(providerId).toPromise().then((data) => {
-      this.provider = data;
+    await this._dataService.getProvider(providerId).toPromise().then((response) => {
+      this.provider = response.data;
       this._changeDetectorRef.detectChanges();
       this._loadSections();
     });

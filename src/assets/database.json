@@ -51,7 +51,7 @@
                         "title": "Awesome Co. Virtual Teleheath",
                         "subText": "Operational Hours: 0800H - 2200H, including weekend and holidays",
                         "buttonText": "Talk to Doctor Now!",
-                        "command": ["journey", 0]
+                        "command": ["journey", "start"]
                     }
                 },
                 {
@@ -67,9 +67,10 @@
                     "config": {}
                 }
             ],
-            "journeys": [
-                {
+            "journey": {
+                "start": {
                     "auth": true,
+                    "ctaLabel": "Talk to a doctor now!",
                     "cmdCancel": ["../.."],
                     "cmdSuccess": ["/waiting-room"],
                     "sequence": [
@@ -109,7 +110,7 @@
                         }
                     ]
                 }
-            ]
+            }
         },
         {
             "id": 1,
@@ -164,7 +165,7 @@
             "logoImage": "logo-baoviet.png",
             "description": "Morning smoothie bowl tofu soy milk lentils dessert raspberry fizz naga viper main course Thai basil curry blueberry chia seed jam leek bento box.",
             "category": "Insurer",
-            "isMemberRequired": true,
+            "isMemberRequired": false,
             "sections": [
                 {
                     "component": "BannerSectionComponent",
@@ -191,10 +192,44 @@
                         "title": "Awesome Co. Virtual Teleheath",
                         "subText": "Operational Hours: 0800H - 2200H, including weekend and holidays",
                         "buttonText": "Talk to Doctor Now!",
-                        "command": ["journey", 0]
+                        "command": ["journey", "start"]
                     }
                 }
-            ]
+            ],
+            "journey": {
+                "start": {
+                    "auth": true,
+                    "ctaLabel": "Book appointment with GP!",
+                    "cmdCancel": ["../.."],
+                    "cmdSuccess": ["/waiting-room"],
+                    "sequence": [
+                        {
+                            "stepName": "Emergency Notice",
+                            "component": "EmergencyFormComponent",
+                            "config": {}
+                        },
+                        {
+                            "stepName": "Triage",
+                            "component": "TriageFormComponent",
+                            "config": {
+                                "questionText": "What complaints do you have today?"
+                            }
+                        },
+                        {
+                            "stepName": "Confirm Personal Info",
+                            "component": "CollectPersonalInfoFormComponent",
+                            "config": {
+                                "title": "Please provide your personal info."
+                            }
+                        },
+                        {
+                            "stepName": "Request Appointment",
+                            "component": "RequestAppointmentFormComponent",
+                            "config": {}
+                        }
+                    ]
+                }
+            }
         },
         {
             "id": 3,
@@ -293,12 +328,13 @@
             "parentId": 8,
             "title": "Mental Health",
             "description": "Kung pao pepper green pepper springtime strawberry hemp seeds bruschetta tahini drizzle red amazon pepper potato fig arugula cashew salad artichoke hearts cool cucumbers blackberries raspberry fizz dragon fruit portobello mushrooms.",
-            "logoImage": "logo-watsons.png",
+            "logoImage": "logo-mental-health.png",
             "isMemberRequired": true,
             "category": "Specialists",
-            "journeys": [
-                {
+            "journey": {
+                "start": {
                     "auth": true,
+                    "ctaLabel": "Find a Counsellor",
                     "cmdCancel": ["../.."],
                     "cmdSuccess": ["/waiting-room"],
                     "sequence": [
@@ -338,19 +374,20 @@
                         }
                     ]
                 }
-            ]
+            }
         },
         {
             "id": 12,
             "parentId": 8,
             "title": "Women's Clinic",
             "description": "Peanut butter cozy cinnamon oatmeal lemon lime minty winter Bulgarian carrot sweet potato black bean burrito lemon red lentil soup red curry tofu noodles crispy spicy.",
-            "logoImage": "logo-watsons.png",
+            "logoImage": "logo-womens-health.png",
             "isMemberRequired": true,
             "category": "Specialists",
-            "journeys": [
-                {
+            "journey": {
+                "start": {
                     "auth": true,
+                    "ctaLabel": "Wellness starts here.",
                     "cmdCancel": ["../.."],
                     "cmdSuccess": ["/waiting-room"],
                     "sequence": [
@@ -390,7 +427,7 @@
                         }
                     ]
                 }
-            ]
+            }
         }
     ]
 }

@@ -1,15 +1,13 @@
-<div class="container">
-    <div class="card">
-        <h1>How long is the queue?</h1>
-        <div>
-        <p>Currently, the earliest available appointment time is estimated at <strong>{{appointmentStartDateTime}}</strong>.</p>
+<div class="card">
+    <h1>How long is the queue?</h1>
+    <div>
+        <p>Currently, the earliest available appointment time is estimated at
+            <strong>{{appointmentStartDateTime}}</strong>.</p>
         <p>Do you want to continue the journey?</p>
-        </div>
-        <div>
-            <button (click)="onNext($event)" class="default">Yes</button>
-            <button (click)="onBack($event)">Back</button>
-            <button (click)="onCancel($event)">Cancel</button>
-        </div>
+    </div>
+    <div>
+        <button (click)="onNext($event)" class="default">Yes</button>
+        <button (click)="onBack($event)">Back</button>
+        <button (click)="onCancel($event)">Cancel</button>
     </div>
 </div>
-
