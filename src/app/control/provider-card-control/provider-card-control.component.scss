@@ -26,11 +26,13 @@
         }
 
         .property {
+
             fa-icon {
                 font-size: 120%;
                 display: inline-block;
                 margin: 5px 5px 5px 0;
                 color: $theme-color-light;
+                vertical-align: middle;
             }
 
             fa-icon.member {

@@ -42,16 +42,16 @@ export class CollectPersonalInfoFormComponent implements Form, OnInit {
   }
 
   ngOnInit() {
-    console.log(this.user);
-     this.form = new FormGroup({
-       firstName: new FormControl(this.user.firstName),
-       lastName: new FormControl(this.user.lastName),
-       gender: new FormControl(this.user.gender),
-       birthdate: new FormControl(this.user.birthdate),
 
-       medicalCondition: new FormControl(this.user.medicalCondition),
-       medication: new FormControl(this.user.medication),
-       allergies: new FormControl(this.user.allergies),
+     this.form = new FormGroup({
+       firstName: new FormControl(this.user ? this.user.firstName : ''),
+       lastName: new FormControl(this.user ? this.user.lastName : ''),
+       gender: new FormControl(this.user ? this.user.gender : ''),
+       birthdate: new FormControl(this.user ? this.user.birthdate : ''),
+
+       medicalCondition: new FormControl(this.user ? this.user.medicalCondition : ''),
+       medication: new FormControl(this.user ? this.user.medication : ''),
+       allergies: new FormControl(this.user ? this.user.allergies : ''),
      });
   }
 

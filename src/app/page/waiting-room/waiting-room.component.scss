@@ -1,0 +1,51 @@
+@import '../../../variables.scss';
+
+
+.appointments {
+    padding: 20px;
+
+    .appointment-nav {
+
+        background-color: $theme-border-color;
+        padding: 10px;
+        border-radius: 20px;
+
+
+        button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            font-weight: 700;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background-color: $theme-border-color;
+        }
+
+        button.active, button:hover {
+            background-color: $theme-color;
+            color: white;
+        }
+    }
+}
+
+
+
+@media screen and (min-width: $size-sm) {
+    .appointments {
+
+        .appointment-nav {
+
+            display: flex;
+            gap: 10px;
+
+            padding: 10px;
+            border-radius: 25px;
+
+            button {
+                flex: 1 1 33%;
+                margin: 0;
+            }
+        }
+    }
+}

@@ -18,7 +18,7 @@ export class EmergencyFormComponent implements Form, OnInit {
   cancelHandler: EventEmitter<FormEvent> = new EventEmitter<FormEvent>();
 
   evaluate(config: any): boolean {
-    return true;
+    return false;
   }
 
   ngOnInit(): void {

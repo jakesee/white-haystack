@@ -1,0 +1,25 @@
+<div class="section">
+    <div class="content">
+        <h1>Services</h1>
+        <p>Jalapeño cumin lemon lime minty creamy cauliflower alfredo Indian spiced hemp seeds refreshing cucumber splash toasted
+        hazelnuts plums dragon fruit edamame cilantro</p>
+    </div>
+    <div class="provider-list">
+        <div *ngFor="let provider of providers" class="provider">
+            <div class="logo"><img src="assets/{{provider.logoImage}}" /></div>
+            <div class="metadata">
+                <div class="title">{{provider.title}}</div>
+                <div class="property">
+                    <fa-icon [ngClass]="provider.isMemberRequired ? 'member' : ''" [icon]="['fas', 'id-card']"></fa-icon>
+                    <fa-icon [icon]="['fas', 'heart']"></fa-icon>
+                    <span>$25 - $100</span>
+                    <div class="journey-button">
+                        <button (click)="onJourneyStart($event, provider)">{{provider.journey.start.ctaLabel}}</button>
+                    </div>
+                </div>
+                <div class="description">{{provider.description}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+

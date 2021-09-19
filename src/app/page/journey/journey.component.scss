@@ -1,6 +1,7 @@
 @import '../../../variables.scss';
 
 .journey-line {
+
     margin: 20px 0 0 30px;
     padding: 0;
     border-left: 3px solid $theme-border-color;
@@ -33,10 +34,69 @@
     }
 }
 
+.provider {
+
+    display: flex;
+    margin: 20px;
+    gap: 10px;
+
+    .logo {
+        flex: 0 0 120px;
+
+        img {
+            width: px;
+            max-width: 100%;
+            border-radius: 5px;
+        }
+    }
+
+    .metadata {
+
+        .title {
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .property {
+            margin-bottom: 10px;
+
+            fa-icon {
+                font-size: 120%;
+                margin-right: 5px;
+            }
+        }
+
+        .journey-button {
+            display: inline-block;
+
+            button {
+                display: inline-block;
+                padding: 6px 12px;
+                border-radius: 5px;
+                border: none;
+                background-color: #cccccc;
+                color: black;
+            }
+        }
+    }
+
+}
+
+
+
 
 
 @media screen and (min-width: $size-sm) {
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+
     .journey-line {
+        flex: 1 1 100%;
+
         display: flex;
         gap: 10px;
         padding: 0 20px 0 20px;
@@ -61,5 +121,16 @@
                 margin-top: 10px;
             }
         }
+    }
+
+    .provider {
+        flex: 0 1 200px;
+        order: 2;
+
+        display: block;
+    }
+
+    .form {
+        flex: 1 1 100px;
     }
 }

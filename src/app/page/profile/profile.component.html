@@ -1,48 +1,58 @@
 <app-header></app-header>
 <div class="container">
-    <div class="card">
-        <h1>Profile</h1>
-        <h2>Security</h2>
-        <div class="row">
-            <div class="col-xs-4 col-field">
-                <div>Email</div>
-                <div>2FA with Google Authenticator</div>
+    <div class="settings-page">
+        <ul class="settings-page-nav">
+            <li>My Care Network</li>
+            <li>My Health Trackers</li>
+            <li>Data Insights</li>
+            <li>Profile Information</li>
+            <li>My Sharing</li>
+            <li>Dependants</li>
+        </ul>
+        <div class="card">
+            <h1>Profile</h1>
+            <h2>Security</h2>
+            <div class="row">
+                <div class="col-xs-4 col-field">
+                    <div>Email</div>
+                    <div>2FA with Google Authenticator</div>
+                </div>
+                <div class="col-xs-8 col-value">
+                    <div>jake.see@my-doc.com</div>
+                    <div><app-switch-control [state]="false" (onToggle)="on2FAToggle($event)"></app-switch-control></div>
+                </div>
             </div>
-            <div class="col-xs-8 col-value">
-                <div>jake.see@my-doc.com</div>
-                <div><app-switch-control [state]="false" (onToggle)="on2FAToggle($event)"></app-switch-control></div>
+            <h2>Personal Record</h2>
+            <div class="row">
+                <div class="col-xs-4 col-field">
+                    <div>First Name</div>
+                    <div>Last Name</div>
+                    <div>Address</div>
+                    <div>Country</div>
+                    <div>City</div>
+                    <div>State</div>
+                </div>
+                <div class="col-xs-8 col-value">
+                    <div>{{user.firstName}}</div>
+                    <div>{{user.lastName}}</div>
+                    <div>{{user.firstName}}</div>
+                    <div>Singapore</div>
+                    <div>Singapore</div>
+                    <div>Singapore</div>
+                </div>
             </div>
-        </div>
-        <h2>Personal Record</h2>
-        <div class="row">
-            <div class="col-xs-4 col-field">
-                <div>First Name</div>
-                <div>Last Name</div>
-                <div>Address</div>
-                <div>Country</div>
-                <div>City</div>
-                <div>State</div>
-            </div>
-            <div class="col-xs-8 col-value">
-                <div>{{user.firstName}}</div>
-                <div>{{user.lastName}}</div>
-                <div>{{user.firstName}}</div>
-                <div>Singapore</div>
-                <div>Singapore</div>
-                <div>Singapore</div>
-            </div>
-        </div>
-        <h2>Medical Record</h2>
-        <div class="row">
-            <div class="col-xs-4 col-field">
-                <div>Existing Conditions</div>
-                <div>Current Medications</div>
-                <div>Allergies</div>
-            </div>
-            <div class="col-xs-8 col-value">
-                <div>Gout, High Cholestrol</div>
-                <div>Alluprinol 100mg</div>
-                <div>None</div>
+            <h2>Medical Record</h2>
+            <div class="row">
+                <div class="col-xs-4 col-field">
+                    <div>Existing Conditions</div>
+                    <div>Current Medications</div>
+                    <div>Allergies</div>
+                </div>
+                <div class="col-xs-8 col-value">
+                    <div>Gout, High Cholestrol</div>
+                    <div>Alluprinol 100mg</div>
+                    <div>None</div>
+                </div>
             </div>
         </div>
     </div>

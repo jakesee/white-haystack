@@ -1,0 +1,34 @@
+<div class="appointment-card">
+    <div class="episode">
+        <div class="portrait"><img src="{{episode.doctorImgUrl}}" /></div>
+        <div class="content">
+            <div class="metadata">
+                <div class="doctor-name">{{episode.doctorName}}</div>
+                <div><fa-icon [icon]="['fas', 'calendar-alt']"></fa-icon> {{episode.startAt | date: 'fullDate'}}</div>
+                <div><fa-icon [icon]="['fas', 'clock']"></fa-icon> {{episode.startAt | date: 'shortTime'}} - {{episode.endAt | date: 'shortTime'}}</div>
+            </div>
+            <div class="action">
+                <div><fa-icon [ngClass]="isVideoAvailable(episode.startAt, episode.endAt) ? 'active' : ''" class="button" (click)="onVideoClick($event)" [icon]="['fas', 'video']"></fa-icon></div>
+                <div><fa-icon [ngClass]="isChatAvailable(episode.endAt) ? 'active' : ''" class="button" (click)="onChatClick($event)" [icon]="['fas', 'comment']"></fa-icon></div>
+                <div><fa-icon class="button" [icon]="['fas', 'file-prescription']"></fa-icon></div>
+                <div><fa-icon class="button" [icon]="['fas', 'money-bill-alt']"></fa-icon></div>
+
+                <div><fa-icon class="button active" (click)="onTaskClick($event)" [icon]="['fas', 'tasks']"></fa-icon></div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isShowDetail" class="detail">
+        <h1>Patient Records</h1>
+        <ul>
+            <li>Case Note</li>
+            <li>Medical Certificate</li>
+            <li>Referral Letter</li>
+            <li>Prescription</li>
+        </ul>
+        <h1>Billing</h1>
+        <ul>
+            <li>Reciept</li>
+            <li>Invoice</li>
+        </ul>
+    </div>
+</div>

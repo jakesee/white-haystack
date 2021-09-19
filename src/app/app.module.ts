@@ -19,7 +19,7 @@ import { DataService } from './data.service';
 import { AuthenticationService } from './auth/authentication.service';
 import { mockHttpProviderService } from './mock-http-provider.service';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBars, faCalendar, faHeart, faHome, faIdCard, faNewspaper, faRobot, faSearch, faSignInAlt, faSignOutAlt, faUser, faWindowClose } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDoubleDown, faBars, faBell, faCalendarAlt, faClinicMedical, faClock, faComment, faComments, faFilePrescription, faHeart, faHome, faIdCard, faMoneyBillAlt, faNewspaper, faRobot, faSearch, faSignInAlt, faSignOutAlt, faTasks, faUser, faVideo, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
 import { SymptomsSectionComponent } from './sections/symptoms-section/symptoms-section.component';
 import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onetwothree-section.component';
@@ -36,6 +36,14 @@ import { FooterComponent } from './page/footer/footer.component';
 import { TitleBarSectionComponent } from './sections/title-bar-section/title-bar-section.component';
 import { ProviderEligibilityFormComponent } from './form/provider-eligibility-form/provider-eligibility-form.component';
 import { ProviderCardControlComponent } from './control/provider-card-control/provider-card-control.component';
+import { SubProvidersSectionComponent } from './sections/sub-providers-section/sub-providers-section.component';
+import { AppointmentCardControlComponent } from './control/appointment-card-control/appointment-card-control.component';
+import { ChatControlComponent } from './control/chat-control/chat-control.component';
+import { TourComponent } from './page/tour/tour.component';
+import { TagControlComponent } from './control/tag-control/tag-control.component';
+import { AutofocusDirective } from './shared/autofocus.directive';
+import database from '../assets/database.json';
+
 
 @NgModule({
   imports: [
@@ -74,13 +82,19 @@ import { ProviderCardControlComponent } from './control/provider-card-control/pr
     TitleBarSectionComponent,
     ProviderEligibilityFormComponent,
     ProviderCardControlComponent,
+    SubProvidersSectionComponent,
+    AppointmentCardControlComponent,
+    ChatControlComponent,
+    TourComponent,
+    TagControlComponent,
+    AutofocusDirective,
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],
 
 })
 export class AppModule {
-  constructor(private library: FaIconLibrary) {
+  constructor(library: FaIconLibrary, dataService: DataService) {
     library.addIcons(
       faBars,
       faSignInAlt,
@@ -90,10 +104,22 @@ export class AppModule {
       faSearch,
       faHome,
       faHeart,
-      faCalendar,
       faNewspaper,
       faUser,
-      faIdCard
+      faIdCard,
+      faClock,
+      faCalendarAlt,
+      faComment,
+      faComments,
+      faBell,
+      faVideo,
+      faTasks,
+      faFilePrescription,
+      faClinicMedical,
+      faMoneyBillAlt,
+      faAngleDoubleDown
     );
+
+    localStorage.setItem('database', JSON.stringify(database));
   }
 }

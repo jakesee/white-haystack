@@ -1,8 +1,8 @@
 <app-header></app-header>
 <div class="container">
-    <div class="card">
+    <div *ngIf="isLogin" class="card">
         <h1>Login</h1>
-        <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+        <form [formGroup]="form" (ngSubmit)="onLogin($event)">
             <div><label>Username</label><input formControlName="username" /></div>
             <div *ngIf="f.username.errors" class="invalid-feedback">
                 <div *ngIf="f.username.errors.required" class="error">Username is required</div>
@@ -11,7 +11,28 @@
             <div *ngIf="f.password.errors" class="invalid-feedback">
                 <div *ngIf="f.password.errors.required" class="error">Password is required</div>
             </div>
-            <input type="submit" value="Log In" />
+            <div class="button-list">
+                <input type="submit" value="Log In" />
+                <button (click)="onToggleForm($event)">New User?</button>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="!isLogin" class="card">
+        <h1>Register New User</h1>
+        <form [formGroup]="form" (ngSubmit)="onRegister($event)">
+            <div><label>Username</label><input formControlName="username" /></div>
+            <div *ngIf="f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required" class="error">Username is required</div>
+            </div>
+            <div><label>Password</label><input formControlName="password" type="password" /></div>
+            <div *ngIf="f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required" class="error">Password is required</div>
+            </div>
+            <div class="button-list">
+                <input type="submit" value="Register" />
+                <button (click)="onToggleForm($event)">Existing User?</button>
+            </div>
         </form>
     </div>
 </div>

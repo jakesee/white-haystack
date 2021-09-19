@@ -1,34 +1,32 @@
-<div class="container">
-  <div class="card">
-    <h1>Personal Particulars</h1>
-    {{title}}
-    <form [formGroup]="form">
-      <h2>Basic Personal Info</h2>
-      <div><label>First Name</label><input formControlName="firstName" /></div>
-      <div><label>Last Name</label><input formControlName="lastName" /></div>
-      <div>
-        <label>Gender</label>
-        <select formControlName="gender">
-          <option>Male</option>
-          <option>Female</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div>
-        <label>Birthdate</label>
-        <input formControlName="birthdate" matInput [matDatepicker]="picker" />
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </div>
-      <h2>Current Health Condition</h2>
-      <div><label>Medical Condition</label><textarea formControlName="medicalCondition"></textarea></div>
-      <div><label>Medication</label><textarea formControlName="medication"></textarea></div>
-      <div><label>Allergies</label><textarea formControlName="allergies"></textarea></div>
-      <div>
-        <button (click)="onNext($event)" class="default">Next</button>
-        <button (click)="onBack($event)">Back</button>
-        <button (click)="onCancel($event)">Cancel</button>
-      </div>
-    </form>
-  </div>
+<div class="card">
+  <h1>Personal Particulars</h1>
+  {{title}}
+  <form [formGroup]="form">
+    <h2>Basic Personal Info</h2>
+    <div><label>First Name</label><input formControlName="firstName" /></div>
+    <div><label>Last Name</label><input formControlName="lastName" /></div>
+    <div>
+      <label>Gender</label>
+      <select formControlName="gender">
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div>
+      <label>Birthdate</label>
+      <input formControlName="birthdate" matInput [matDatepicker]="picker" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </div>
+    <h2>Current Health Condition</h2>
+    <div><label>Medical Condition</label><textarea formControlName="medicalCondition"></textarea></div>
+    <div><label>Medication</label><textarea formControlName="medication"></textarea></div>
+    <div><label>Allergies</label><textarea formControlName="allergies"></textarea></div>
+    <div>
+      <button (click)="onNext($event)" class="default">Next</button>
+      <button (click)="onBack($event)">Back</button>
+      <button (click)="onCancel($event)">Cancel</button>
+    </div>
+  </form>
 </div>

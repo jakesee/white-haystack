@@ -27,15 +27,14 @@ export class AuthenticationService implements CanActivate {
     console.log(path);
 
     if (this.currentUser) {
-      console.log('current user valid');
       return true; // logged in so can proceed to activate route
     } else if (path == 'provider/:pid') {
       return true;
     } else if (path == 'provider/:pid/journey/:jid') {
       const journeyId = route.params.jid;
       const providerId = route.params.pid;
-      return this._dataService.getProvider(providerId).pipe(map(data => {
-        if (data.journeys[journeyId].auth) {
+      return this._dataService.getProvider(providerId).pipe(map(response => {
+        if (response.data.journey[journeyId].auth) {
           return this._activateAuth(route, state);
         } else {
           return true;
@@ -52,19 +51,27 @@ export class AuthenticationService implements CanActivate {
     return false;
   }
 
-  logIn(username: string, password: string): Promise<any> {
-    return this._http.post<any>(`${environment.apiUrl}/user/authenticate`, { username, password }).toPromise().then(
-      user => {
-        console.log(user);
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        this._currentUser.next(User.create(user));
-      }
-    );
+  logIn(username: string, password: string) {
+    return this._http.post<any>(`${environment.apiUrl}/user/authenticate`, { username, password }).pipe(map((response) => {
+      let user = response.data;
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      this._currentUser.next(User.create(user));
+      return response;
+    }));
   }
 
   logOut(): void {
     localStorage.removeItem('currentUser');
     this._currentUser.next(null);
+  }
+
+  register(username: string, password: string) {
+    return this._http.post<any>(`${environment.apiUrl}/user/register`, { username, password }).pipe(map((response) => {
+      let user = response.data;
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      this._currentUser.next(User.create(user));
+      return response;
+    }));
   }
 
   getReturnUrl(): string {

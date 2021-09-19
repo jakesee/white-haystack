@@ -1,8 +1,7 @@
 import { ChangeDetectorRef, Component, ComponentFactoryResolver, OnInit, QueryList, ViewChildren, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '@app/data.service';
-import { ComponentData, DefinitionSection, ProviderData, Section } from '@app/interfaces';
-import { map, take } from 'rxjs/operators';
+import { ProviderData, Section } from '@app/interfaces';
 
 @Component({
   selector: 'app-provider',
@@ -23,14 +22,15 @@ export class ProviderComponent implements OnInit {
     private _componentFactoryResolver: ComponentFactoryResolver,
     private _changeDetectorRef: ChangeDetectorRef
   ) {
-    this._constructor();
+    this._route.params.subscribe((params) => {
+      this._buildPage();
+    });
   }
 
-  private async _constructor() {
+  private async _buildPage() {
     let providerId = this._route.snapshot.params.pid;
-    await this._dataService.getProvider(providerId).toPromise().then((data) => {
-      this.provider = data;
-      console.log(data);
+    await this._dataService.getProvider(providerId).toPromise().then((response) => {
+      this.provider = response.data;
       this._changeDetectorRef.detectChanges();
       this._loadSections();
     });
@@ -46,17 +46,15 @@ export class ProviderComponent implements OnInit {
 
   private _loadSections() {
     if (this.containers !== null && this.containers !== undefined) {
-      console.log('this.containers.toArray().length:' + this.containers.toArray().length);
       for (let i = 0; i < this.containers.toArray().length; i++) {
         const section = this.provider.sections[i];
-        console.log('load ' + section.component)
         const componentType = this._dataService.resolveComponent(section.component);
         if (componentType) {
           const container = this.containers.toArray()[i];
           const factory = this._componentFactoryResolver.resolveComponentFactory<any>(componentType);
           const refComponent = container.createComponent(factory);
           let instance: Section = refComponent.instance;
-          instance.init(section.config);
+          instance.init(section.config, this.provider);
         }
       }
     }

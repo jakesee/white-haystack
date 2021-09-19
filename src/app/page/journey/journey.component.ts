@@ -1,14 +1,7 @@
-import {
-  AfterViewInit,
-  Component,
-  ComponentFactoryResolver,
-  OnInit,
-  ViewChild,
-  ViewContainerRef
-} from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '@app/data.service';
-import { Form, FormEvent, ProviderData } from '@app/interfaces';
+import { Form, FormEvent } from '@app/interfaces';
 
 @Component({
   selector: 'app-journey',
@@ -16,13 +9,15 @@ import { Form, FormEvent, ProviderData } from '@app/interfaces';
   styleUrls: ['./journey.component.scss']
 })
 export class JourneyComponent implements OnInit {
-  @ViewChild('container', { read: ViewContainerRef })
-  container: ViewContainerRef;
+  @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
+
+  // provider
+  provider: any = {};
 
   // sequence of forms
   sequence: Array<any>;
-  progress: number = 0;
-  farthest: number = 0;
+  progress: number = -1; // index
+  farthest: number = -1; // index
 
   // router.navigate commands
   cmdCancel: [];
@@ -40,8 +35,10 @@ export class JourneyComponent implements OnInit {
   private async _construct() {
     const journeyId: number = this._route.snapshot.params.jid;
     const providerId: number = this._route.snapshot.params.pid;
-    await this._dataService.getProvider(providerId).toPromise().then((data) => {
-      const journey = data.journeys[journeyId];
+    await this._dataService.getProvider(providerId).toPromise().then((response) => {
+      this.provider = response.data;
+
+      const journey = this.provider.journey[journeyId];
       this.cmdCancel = journey.cmdCancel;
       this.cmdSuccess = journey.cmdSuccess;
       this.sequence = journey.sequence;
@@ -58,8 +55,10 @@ export class JourneyComponent implements OnInit {
 
       const complete = this._loadForm(this.progress);
 
+      console.log('complete?', complete);
+
       // skip the form if already complete
-      if (complete && this.progress > this.farthest) this._next(event);
+      if (complete && (this.progress > this.farthest)) this._next(event);
 
     } else {
       this._router.navigate(this.cmdSuccess);
@@ -86,6 +85,9 @@ export class JourneyComponent implements OnInit {
 
   private _loadForm(progress: number): boolean {
     const step: any = this.sequence[progress];
+
+    console.log('loading', step.component);
+
     this.container.clear();
     const componentType = this._dataService.resolveComponent(step.component);
     const factory = this._componentFactoryResolver.resolveComponentFactory(componentType);

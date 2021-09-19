@@ -1,0 +1,4 @@
+<div>
+<input #checkbox type="checkbox" class="checkbox" value={{value}}>
+<label class="tag" [ngClass]="isChecked ? 'checked' : ''" (click)="onChange($event)">{{label}}</label>
+</div>

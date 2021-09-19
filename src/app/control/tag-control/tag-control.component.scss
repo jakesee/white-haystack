@@ -1,0 +1,16 @@
+@import "../../../variables.scss";
+.checkbox {
+    display: none;
+}
+
+.tag {
+    cursor: pointer;
+    background: $theme-border-color;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.tag.checked {
+    background: $theme-color;
+    color: white;
+}

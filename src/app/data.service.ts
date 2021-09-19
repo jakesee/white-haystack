@@ -1,9 +1,8 @@
-import { Injectable, TestabilityRegistry, Type } from '@angular/core';
+import { Injectable, Type } from '@angular/core';
 import { CollectPersonalInfoFormComponent } from './form/collect-personal-info-form/collect-personal-info-form.component';
 import { ConsultNowComponent } from './sections/consult-now/consult-now.component';
 import { TriageFormComponent } from './form/triage-form/triage-form.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from './interfaces';
 import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
 import { SymptomsSectionComponent } from './sections/symptoms-section/symptoms-section.component';
 import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onetwothree-section.component';
@@ -17,6 +16,8 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { TitleBarSectionComponent } from './sections/title-bar-section/title-bar-section.component';
 import { ProviderEligibilityFormComponent } from './form/provider-eligibility-form/provider-eligibility-form.component';
+import { SubProvidersSectionComponent } from './sections/sub-providers-section/sub-providers-section.component';
+import * as _ from 'lodash';
 
 
 export const REGISTRY = new Map<string, Type<any>>();
@@ -27,6 +28,8 @@ REGISTRY.set("OnetwothreeSectionComponent", OnetwothreeSectionComponent);
 REGISTRY.set("BannerSectionComponent", BannerSectionComponent);
 REGISTRY.set("NeedAssistanceSectionComponent", NeedAssistanceSectionComponent);
 REGISTRY.set("TitleBarSectionComponent", TitleBarSectionComponent);
+REGISTRY.set("SubProvidersSectionComponent", SubProvidersSectionComponent);
+
 // Forms
 REGISTRY.set("ProviderEligibilityFormComponent", ProviderEligibilityFormComponent);
 REGISTRY.set("TriageFormComponent", TriageFormComponent);
@@ -55,25 +58,43 @@ export class DataService {
   }
 
   getProvider(id: number): Observable<any> {
-    return this._http.get<any>(`${environment.apiUrl}/provider`, { params: { id: id } }).pipe(map(response => response.data));
+    return this._http.get<any>(`${environment.apiUrl}/provider`, { params: { id: id } });
   }
 
-  getProviders() {
-    return this._http.get<any>(`${environment.apiUrl}/providers`).toPromise();
+  getProvidersByParent(id: number) {
+    return this._getProviders().pipe(map((val) => {
+      val.data = _.filter(val.data, (p) => p.parentId == id);
+      return val;
+    }));
+  }
+
+  getProviders():Observable<any> {
+    return this._getProviders().pipe(map((val) => {
+      val.data = _.filter(val.data, (p) => p.parentId == -1);
+      return val;
+    }));
+  }
+
+  private _getProviders():Observable<any> {
+    return this._http.get<any>(`${environment.apiUrl}/providers`);
   }
 
   private _loadConfig() {
     this.config = {
+      providerId: 13,
       HeaderComponent: {
         imgURL:
           'https://my-doc.com/wp-content/uploads/2019/11/mydoc-logo-@2x.png',
         menuItems: [
-          { text: 'Home', routerLink: '/home' },
-          { text: 'Explore', routerLink: '/explore', icon: ['fas', 'home'] },
-          { text: 'Care Network', routerLink: '/care-network', icon: ['fas', 'heart'] },
-          { text: 'Feeds', routerLink: '/feeds', icon: ['fas', 'newspaper'] },
-          { text: 'Appointments', routerLink: '/waiting-room', icon: ['fas', 'calendar'] },
-          { text: 'Settings', routerLink: '/profile', icon: ['fas', 'user'] },
+          //{ text: 'Home', routerLink: '/home', icon: ['fas', 'home'] },
+          { text: 'Home', routerLink: '/explore', icon: ['fas', 'home'], isPublic: true },
+          { text: 'Care Network', routerLink: '/care-network', icon: ['fas', 'heart'], isPublic: true },
+          { text: 'Feeds', routerLink: '/feeds', icon: ['fas', 'newspaper'], isPublic: true },
+          // { text: 'Appointments', routerLink: '/public/waiting-room', icon: ['fas', 'calendar-alt'], isPublic: true },
+          { text: 'MyDoc Tour', routerLink: '/public/tour', icon: ['fas', 'user'], isPublic: true },
+
+          { text: 'Appointments', routerLink: '/waiting-room', icon: ['fas', 'calendar-alt'], isPublic: false },
+          { text: 'Settings', routerLink: '/profile', icon: ['fas', 'user'], isPublic: false },
         ]
       },
       HomeComponent: [
@@ -86,7 +107,7 @@ export class DataService {
             subText:
               'Operational Hours: 0800H - 2200H, including weekend and holidays',
             buttonText: 'Talk to Doctor Now!',
-            command: ['journey']
+            command: ['/provider', 13, 'journey', 'start']
           }
         },
         { component: SymptomsSectionComponent, config: {} },
@@ -97,17 +118,17 @@ export class DataService {
             content: "<p>Need any assistance? Call us at</p><p><b>Dai-ichi Life Vietnam<br /> (028) 38100888</b><br /> 08: 00 - 17: 30, Mon - Fri and 08: 00 - 12: 00, Sat </p><p><b>MyDoc <br /> 0707150628</b><br /> 8: 00 to 22: 00, incl.weekend & holidays </p>"
           }
         },
-        { component: BannerSectionComponent, config: {} }
+        { component: SubProvidersSectionComponent, config: {} }
       ],
-      JourneyComponent: [
-        {
+      journey: {
+        start: {
           auth: true,
           cmdCancel: ['/home'], // route navigate command
           cmdSuccess: ['/waiting-room'], // route navigate command
           sequence: [
             {
               component: EmergencyFormComponent,
-              config: { }
+              config: {}
             },
             {
               component: NextAppointmentInfoFormComponent,
@@ -126,27 +147,8 @@ export class DataService {
               config: {}
             }
           ]
-        },
-        {
-          auth: false,
-          cmdCancel: ['/home'], // route navigate command
-          cmdSuccess: ['/waiting-room'], // route navigate command
-          sequence: [
-            {
-              component: CollectPersonalInfoFormComponent,
-              config: { title: '请输入您的个人信息。' }
-            },
-            {
-              component: TriageFormComponent,
-              config: { questionText: "Health Screening is fun, isn't it?" }
-            },
-            {
-              component: TriageFormComponent,
-              config: { questionText: 'last step for health screening' }
-            }
-          ]
         }
-      ]
+      }
     };
   }
 }
