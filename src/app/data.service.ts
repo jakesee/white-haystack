@@ -90,7 +90,7 @@ export class DataService {
           { text: 'Home', routerLink: '/explore', icon: ['fas', 'home'], isPublic: true },
           { text: 'Care Network', routerLink: '/care-network', icon: ['fas', 'heart'], isPublic: true },
           { text: 'Feeds', routerLink: '/feeds', icon: ['fas', 'newspaper'], isPublic: true },
-          { text: 'Appointments', routerLink: '/public/waiting-room', icon: ['fas', 'calendar-alt'], isPublic: true },
+          // { text: 'Appointments', routerLink: '/public/waiting-room', icon: ['fas', 'calendar-alt'], isPublic: true },
           { text: 'MyDoc Tour', routerLink: '/public/tour', icon: ['fas', 'user'], isPublic: true },
 
           { text: 'Appointments', routerLink: '/waiting-room', icon: ['fas', 'calendar-alt'], isPublic: false },
