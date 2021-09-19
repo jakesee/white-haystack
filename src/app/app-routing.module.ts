@@ -9,6 +9,7 @@ import { JourneyComponent } from './page/journey/journey.component';
 import { ProfileComponent } from './page/profile/profile.component';
 import { ProviderComponent } from './page/provider/provider.component';
 import { WaitingRoomComponent } from './page/waiting-room/waiting-room.component';
+import { TourComponent } from './page/tour/tour.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -16,6 +17,8 @@ const routes: Routes = [
   { path: 'explore', component: ExploreComponent },
   { path: 'care-network', component: CareNetworkComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthenticationService] },
+  { path: 'public/profile', component: ProfileComponent },
+  { path: 'public/tour', component: TourComponent },
   { path: 'provider/:pid/journey/:jid', component: JourneyComponent, canActivate: [AuthenticationService] },
   { path: 'provider/:pid', component: ProviderComponent, canActivate: [AuthenticationService] },
   { path: 'waiting-room', component: WaitingRoomComponent, canActivate: [AuthenticationService] },

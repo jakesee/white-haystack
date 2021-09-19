@@ -1,0 +1,308 @@
+<app-header></app-header>
+<div class="tour-greeting">
+    <h1>Welcome to MyDoc, {{name}}.</h1>
+    <p class="cta"><fa-icon [icon]="['fas', 'comments']"></fa-icon> Hello, my name is <input appAutofocus type="text" placeholder="{{name}}" (blur)="onBlur($event)" (input)="onChange($event)" [(ngModel)]="inputName"></p>
+</div>
+<app-banner-section imgSrc="assets/banner-mydoc.jpg"></app-banner-section>
+<div class="tour-section-telehealth">
+    <div class="tour-section-telehealth-intro">
+        <h1>Video call with a doctor to get hassel-free treatment at your own comfort.</h1>
+        <p>70% of outpatients can be treated virtually. Video call with our doctors regularly for early preventive care and a wide range of common illnesses</p>
+        <ul>
+            <li>
+                <img src="https://app.qa.my-doc.com/dai-ichi/assets/images/icon_flu.png" />
+                <span>Flu</span>
+            </li>
+            <li>
+                <img src="https://app.qa.my-doc.com/dai-ichi/assets/images/icon_sorethroat.png" />
+                <span>Sore throat</span>
+            </li>
+            <li>
+                <img src="https://app.qa.my-doc.com/dai-ichi/assets/images/icon_headache.png" />
+                <span>Headache</span>
+            </li>
+            <li>
+                <img src="https://app.qa.my-doc.com/dai-ichi/assets/images/icon_moredisease.png" />
+                <span>...and more</span>
+            </li>
+        </ul>
+    </div>
+    <div class="tour-section-telehealth-banner">
+        <app-banner-section imgSrc="assets/banner-telehealth.png"></app-banner-section>
+    </div>
+</div>
+<div class="tour-outcome">
+    <h1>Creating value across Asia’s healthcare ecosystem</h1>
+    <p>We are empowering employers, insurers, providers to improve quality of care at lower cost.</p>
+    <div class="outcome-list">
+        <div class="outcome">
+            <div><img src="assets/tour/tour-icon-24-7-access.png"></div>
+            <h2>Spend less to achieve better health</h2>
+            <div><p>MyDoc helps patients recover from illnesses more quickly and avoid chronic lifestyle diseases. As a result, patients
+            face fewer doctor’s visits, medical tests, and procedures, and spend less money on prescription medication as both
+            near-term and long-term health improve.</p>
+            </div>
+        </div>
+        <div class="outcome">
+            <div><img src="assets/tour/tour-icon-24-7-access.png"></div>
+            <h2>Achieve efficiency and greater patient satisfaction</h2>
+            <div>
+                <p>Preventative care services let providers spend less time managing chronic diseases. Quality and patient engagement
+                measures improve when the focus is on value of care and health outcomes. With MyDoc, providers reduce the financial risk
+                that comes with capitated payment plans.</p>
+            </div>
+        </div>
+        <div class="outcome">
+            <div><img src="assets/tour/tour-icon-24-7-access.png"></div>
+            <h2>Spend less to achieve better health</h2>
+            <div>
+                <p>Healthier populations with fewer claims translates into less drain on payers’ premium pools and investments. Value-based
+                payment also allows payers to increase efficiency by bundling payments that cover the patient’s full care cycle, or for
+                chronic conditions.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tour-care-network">
+    <div>
+        <p class="cta">
+            <fa-icon [icon]="['fas', 'comments']"></fa-icon> I am located in
+            <select [(ngModel)]="country" placeholder="my current location">
+                <option value="Singapore">Singapore</option>
+                <option value="Vietnam">Vietnam</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Hong Kong">Hong Kong</option>
+                <option value="Malaysia">Malaysia</option>
+                <option value="Phillipines">Phillipines</option>
+                <option value="Taiwan">Taiwan</option>
+            </select>
+        </p>
+    </div>
+    <div class="care-network-intro">
+        <h1>Through the MyDoc {{country}} Care Network, our Healthcare Partners are empowered to bring teleconsulation services to you.</h1>
+        <p>We work with clinics and pharmacies to provide professional healthcare and medicine delivery services, and coordinate with insurers to provide ease of benefits and claims.</p>
+        <div class="care-network-providers">
+            <div class="mydoc"><img src="assets/logo-my-doc.png"></div>
+            <div class="partners">
+                <ul>
+                    <li><fa-icon [icon]="['fas', 'heart']"></fa-icon><img src="assets/logo-prudential.png"></li>
+                    <li><fa-icon [icon]="['fas', 'heart']"></fa-icon><img src="assets/logo-mount-elizabeth.png"></li>
+                    <li><fa-icon [icon]="['fas', 'heart']"></fa-icon><img src="assets/logo-allianz.png"></li>
+                    <li><fa-icon [icon]="['fas', 'heart']"></fa-icon><img src="assets/logo-guardian.png"></li>
+                    <li><fa-icon [icon]="['fas', 'heart']"></fa-icon><img src="assets/logo-watsons.png"></li>
+                </ul>
+            </div>
+        </div>
+        <h2>Click <fa-icon [icon]="['fas', 'heart']"></fa-icon> to add providers to your own Care Network.</h2>
+    </div>
+</div>
+<div class="tour-medicine-delivery">
+    <div>
+        <h1>We deliver medicine to your door-step through our pharmacy and logistic network.</h1>
+    </div>
+    <div>
+        <p class="cta">
+            <fa-icon [icon]="['fas', 'comments']"></fa-icon> I have the following medical conditions...
+        </p>
+        <div class="common-illness-list tag-cloud">
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Arthritis" label="Arthritis"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Asthma" label="Asthma"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Blindness" label="Blindness"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Cancer" label="Cancer"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Chronic Bronchitis" label="Chronic Bronchitis"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Chronic Kidney Disease" label="Chronic Kidney Disease"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Coronary Heart Disease" label="Coronary Heart Disease"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Deep Vein Thrombosis" label="Deep Vein Thrombosis"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Dementia" label="Dementia"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Diabetes" label="Diabetes"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Epilepsy" label="Epilepsy"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="High Cholesterol" label="High Cholesterol"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Hypertension" label="Hypertension"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Motor Neurone Disease" label="Motor Neurone Disease"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Multiple Sclerosis" label="Multiple Sclerosis"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Osteoporosis" label="Osteoporosis"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Paget’s Disease of Bone" label="Paget’s Disease of Bone"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Parkinson’s Disease" label="Parkinson’s Disease"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Shingles" label="Shingles"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Stroke" label="Stroke"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Arthritis" label="Arthritis"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Asthma" label="Asthma"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Blindness" label="Blindness"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Cancer" label="Cancer"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Chronic Bronchitis" label="Chronic Bronchitis"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Chronic Kidney Disease" label="Chronic Kidney Disease"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Coronary Heart Disease" label="Coronary Heart Disease"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Deep Vein Thrombosis" label="Deep Vein Thrombosis"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Dementia" label="Dementia"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Diabetes" label="Diabetes"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Epilepsy" label="Epilepsy"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="High Cholesterol" label="High Cholesterol"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Hypertension" label="Hypertension"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Motor Neurone Disease" label="Motor Neurone Disease"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Multiple Sclerosis" label="Multiple Sclerosis"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Osteoporosis" label="Osteoporosis"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Paget’s Disease of Bone" label="Paget’s Disease of Bone"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Parkinson’s Disease" label="Parkinson’s Disease"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Shingles" label="Shingles"></app-tag-control>
+            <app-tag-control class="tag" #medicalCondition (change)="onMedicalConditionChange($event)" value="Stroke" label="Stroke"></app-tag-control>
+        </div>
+    </div>
+    <div>
+        <p class="cta">
+            <fa-icon [icon]="['fas', 'comments']"></fa-icon> I am currently on these medication...
+        </p>
+        <div class="common-recommended-drugs tag-cloud">
+            <app-tag-control *ngFor="let drug of recommendedDrugs" class="tag" value="{{drug}}" label="{{drug}}"></app-tag-control>
+        </div>
+    </div>
+</div>
+<div class="tour-preventive-care">
+    <div class="tour-preventive-care-intro">
+        <h1>{{researchStatement}}</h1>
+        <p>Prevention is better than cure. Treat your body well to go the extra mile. You can find various preventive care programmes such as Health Screening, Women's Clinic, Nutrition, Diet and Weight Loss on MyDoc Care Network.</p>
+        <p class="cta">
+            <fa-icon [icon]="['fas', 'comments']"></fa-icon> I want to know more about benefits. I am
+            <select name="gender" (change)="onGenderAgeChange($event)" [(ngModel)]="gender">
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+            and my birth date is
+            <select name="birthDay" (change)="onGenderAgeChange($event)" [(ngModel)]="birthDay">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
+            <select name="birthMonth" (change)="onGenderAgeChange($event)" [(ngModel)]="birthMonth">
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+            <input name="birthYear" (change)="onGenderAgeChange($event)" [(ngModel)]="birthYear" placeholder="YYYY">
+        </p>
+    </div>
+</div>
+<div class="tour-register-now">
+    <h1>Your body matters. Keep it healthy.</h1>
+    <p>Sign Up now to gain access and curate your own Care Network.</p>
+    <div class="register-now-form-container">
+        <h2>Register New User</h2>
+        <form>
+            <div class="label">First Name</div><div class="input"><input name="firstName" [(ngModel)]="firstName"></div>
+            <div class="label">Last Name</div><div class="input"><input name="lastName" [(ngModel)]="lastName"></div>
+            <div class="label">Phone</div>
+            <div class="input">
+                <select>
+                    <option selected>+65</option>
+                    <option>+86</option>
+                    <option>+84</option>
+                    <option>+66</option>
+                </select>
+                <input name="phone" [(ngModel)]="phone">
+            </div>
+            <div class="label">Password</div><div class="input"><input name="password" type="password" [(ngModel)]="password"></div>
+            <div class="register-now-form-toggle"><a (click)="isShowOptional = !isShowOptional">Toggle Optional Fields <fa-icon [icon]="['fas', 'angle-double-down']"></fa-icon></a></div>
+            <div *ngIf="isShowOptional">
+                <div class="label">Gender</div>
+                <div class="input">
+                    <select name="gender" (change)="onGenderAgeChange($event)" [(ngModel)]="gender">
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+                <div class="label">Date of Birth</div>
+                <div class="input">
+                    <select name="birthDay" (change)="onGenderAgeChange($event)" [(ngModel)]="birthDay">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                    </select>
+                    <select name="birthMonth" (change)="onGenderAgeChange($event)" [(ngModel)]="birthMonth">
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <input name="birthYear" (change)="onGenderAgeChange($event)" [(ngModel)]="birthYear" placeholder="YYYY">
+                </div>
+                <div class="label">Existing Medical Condition</div><div class="input"><textarea name="medicalConditions" [(ngModel)]="medicalConditions"></textarea></div>
+                <div class="label">Existing Medications</div><div class="input"><textarea></textarea></div>
+            </div>
+            <button class="default">Create Account</button>
+        </form>
+        Existing User? <a href="#">Log In</a> now.
+    </div>
+</div>
+<app-footer></app-footer>

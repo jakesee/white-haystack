@@ -1,0 +1,325 @@
+@import '../../../variables.scss';
+
+
+h1, h2, h3 {
+    color: #0F1A50
+}
+
+p.cta {
+    font-size: 180%;
+    fa-icon {
+        color: $theme-color;
+        font-size: 180%;
+        vertical-align: middle;
+    }
+
+    input, select {
+        display: inline-block;
+
+        font-size: 100%;
+        font-weight: 300;
+        padding: 5px;
+        background-color: none;
+        border: none;
+        border-bottom: 1px solid black;
+        margin-left: 10px;
+        outline-color : $theme-color !important;
+    }
+}
+
+.tour-greeting {
+    padding: 20px;
+    text-align: center;
+
+    p {
+        input {
+            max-width: 100%;
+
+            text-align: center;
+
+        }
+    }
+
+
+}
+
+.tour-section-telehealth {
+
+    text-align: center;
+    background-color: white;
+
+    .tour-section-telehealth-intro {
+        padding: 20px;
+
+        ul {
+            margin: 0;
+            padding: 0;
+
+            li {
+                display: inline-block;
+                margin: 5px;
+                img, span {
+                    display: block;
+                };
+            }
+        }
+    }
+}
+
+.tour-outcome {
+
+    padding: 20px 50px;
+    text-align: center;
+
+    .outcome-list {
+
+        .outcome {
+
+            padding: 20px;;
+
+            img {
+                width: 60px;
+            }
+        }
+    }
+}
+
+.tour-care-network {
+    background-color: #C8D0E2;
+
+    text-align: center;
+    padding: 20px;
+
+    P {
+        select {
+            max-width: 100%;
+            font-size: 100%;
+            font-weight: 300;
+            padding: 5px;
+            background-color: none;
+            border: none;
+            border-bottom: 1px solid black;
+            margin-left: 10px;
+            outline-color : $theme-color !important;
+        }
+    }
+
+    .care-network-intro {
+
+        h2 fa-icon {
+            color: red;
+        }
+
+
+        .care-network-providers {
+
+            img {
+                display: inline-block;
+                border-radius: 10px;
+                border: 1px solid $theme-border-color;
+                vertical-align: middle;
+                margin: 10px;
+            }
+            .mydoc img {
+                width: 180px;
+            }
+            .partners img {
+                width: 120px;
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+
+                li {
+                    margin: 0;
+                    display: inline-block;
+
+                    fa-icon {
+                        display: none;
+                    }
+                }
+
+                li:hover {
+                    cursor: pointer;
+                    position: relative;
+
+                    fa-icon {
+                        display: inline-block;
+                        text-align: center;
+                        vertical-align: middle;
+                        position: absolute;
+                        top: 30px;
+                        right: 35px;
+                        font-size: 500%;
+                        color: red;
+                    }
+                }
+            }
+
+
+
+        }
+    }
+}
+
+.tour-medicine-delivery {
+
+    padding: 20px;
+    margin: auto;
+
+    h1 { text-align: center; }
+
+    .tag-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        align-content: space-around;
+        justify-content: center;
+        gap: 20px 10px;
+
+        text-align: center;
+        padding: 20px;
+        margin: 20px;
+
+        .tag {
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+    }
+}
+
+.tour-preventive-care {
+
+    background: white;
+
+    .tour-preventive-care-intro {
+        padding: 20px;
+    }
+}
+
+.tour-register-now {
+
+    padding: 50px 0;
+
+    h1, p {
+        text-align: center;
+        margin: auto;
+    }
+
+    .register-now-form-container {
+        padding: 20px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        width: 80%;
+        max-width: 700px;
+        margin: auto;
+        margin-top: 20px;
+        border-radius: 10px;
+        background-color: #f7f7f7;
+
+        .register-now-form-toggle {
+            a {
+                display: inline-block;
+                padding: 10px 0;
+                cursor: pointer;
+            }
+        }
+
+        .label {
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .input {
+            display: flex;
+            gap: 10px;
+
+            input {
+                flex: 1 1 100%;
+                border: 1px solid $theme-border-color;
+                padding: 10px;
+                margin-bottom: 15px;
+                outline-color: $theme-color;
+            }
+
+            select {
+                flex: 0 0 30px;
+                border: 1px solid $theme-border-color;
+                padding: 10px;
+                margin-bottom: 15px;
+                outline-color: $theme-color;
+            }
+
+            textarea {
+                border: 1px solid $theme-border-color;
+                padding: 10px;
+                margin-bottom: 15px;
+                outline-color: $theme-color;
+                width: 100%;
+            }
+        }
+
+        button {
+            background-color: $theme-color;
+            color: white;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            border: none;
+        }
+    }
+}
+
+
+@media screen and (min-width: $size-md) {
+    .outcome-list {
+        display: flex;
+        gap: 10px;
+
+        width: 80%;
+        margin: auto;
+
+        .outcome {
+            flex: 1 1 33%;
+
+            text-align: left;
+        }
+    }
+}
+
+@media screen and (min-width: $size-md) {
+    .tour-section-telehealth {
+
+        display: flex;
+        align-items: center;
+
+        .tour-section-telehealth-intro,
+        .tour-section-telehealth-banner {
+            flex: 1 1 50%;
+        }
+
+        .tour-section-telehealth-banner {
+            padding: 50px;
+        }
+    }
+
+    .care-network-intro {
+
+        h1 { width: 80%; margin: auto;}
+
+        .care-network-providers {
+            align-content: center;
+            width: 80%;
+            margin: auto;
+        }
+    }
+
+    .tour-medicine-delivery {
+        width: 80%;
+        margin: auto;
+    }
+
+    .tour-preventive-care-intro {
+        width: 80%;
+        margin: auto;
+    }
+}

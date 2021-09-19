@@ -19,7 +19,7 @@ import { DataService } from './data.service';
 import { AuthenticationService } from './auth/authentication.service';
 import { mockHttpProviderService } from './mock-http-provider.service';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBars, faBell, faCalendarAlt, faClinicMedical, faClock, faComment, faFilePrescription, faHeart, faHome, faIdCard, faMoneyBillAlt, faNewspaper, faRobot, faSearch, faSignInAlt, faSignOutAlt, faTasks, faUser, faVideo, faWindowClose } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDoubleDown, faBars, faBell, faCalendarAlt, faClinicMedical, faClock, faComment, faComments, faFilePrescription, faHeart, faHome, faIdCard, faMoneyBillAlt, faNewspaper, faRobot, faSearch, faSignInAlt, faSignOutAlt, faTasks, faUser, faVideo, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
 import { SymptomsSectionComponent } from './sections/symptoms-section/symptoms-section.component';
 import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onetwothree-section.component';
@@ -39,6 +39,9 @@ import { ProviderCardControlComponent } from './control/provider-card-control/pr
 import { SubProvidersSectionComponent } from './sections/sub-providers-section/sub-providers-section.component';
 import { AppointmentCardControlComponent } from './control/appointment-card-control/appointment-card-control.component';
 import { ChatControlComponent } from './control/chat-control/chat-control.component';
+import { TourComponent } from './page/tour/tour.component';
+import { TagControlComponent } from './control/tag-control/tag-control.component';
+import { AutofocusDirective } from './shared/autofocus.directive';
 import database from '../assets/database.json';
 
 
@@ -82,6 +85,9 @@ import database from '../assets/database.json';
     SubProvidersSectionComponent,
     AppointmentCardControlComponent,
     ChatControlComponent,
+    TourComponent,
+    TagControlComponent,
+    AutofocusDirective,
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],
@@ -104,12 +110,14 @@ export class AppModule {
       faClock,
       faCalendarAlt,
       faComment,
+      faComments,
       faBell,
       faVideo,
       faTasks,
       faFilePrescription,
       faClinicMedical,
-      faMoneyBillAlt
+      faMoneyBillAlt,
+      faAngleDoubleDown
     );
 
     localStorage.setItem('database', JSON.stringify(database));

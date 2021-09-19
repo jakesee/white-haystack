@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Section } from '@app/interfaces';
 
 @Component({
@@ -8,7 +8,7 @@ import { Section } from '@app/interfaces';
 })
 export class BannerSectionComponent extends Section implements OnInit {
 
-  imgSrc: string = 'https://app.qa.my-doc.com/dai-ichi/assets/images/Banner_footer_english.png';
+  @Input() imgSrc: string = 'https://app.qa.my-doc.com/dai-ichi/assets/images/Banner_footer_english.png';
 
   constructor() {
     super();
