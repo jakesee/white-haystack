@@ -1,7 +1,9 @@
 <div *ngIf="isVisible" class="fluid-container">
     <ul>
-        <li *ngFor="let item of menuItems">
-            <a routerLink="{{item.routerLink}}" href="#"><fa-icon [icon]="item.icon"></fa-icon></a>
-        </li>
+        <ng-template ngFor let-item [ngForOf]="menuItems">
+            <li *ngIf="(isLoggedIn && item.display.private) || (!isLoggedIn && item.display.public)">
+                <a routerLink="{{item.routerLink}}" href="#"><fa-icon [icon]="item.icon"></fa-icon></a>
+            </li>
+        </ng-template>
     </ul>
 </div>

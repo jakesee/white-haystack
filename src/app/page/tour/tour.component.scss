@@ -7,9 +7,11 @@ h1, h2, h3 {
 
 p.cta {
     font-size: 180%;
+    line-height: 180%;
+
     fa-icon {
         color: $theme-color;
-        font-size: 180%;
+        font-size: 150%;
         vertical-align: middle;
     }
 
@@ -18,7 +20,9 @@ p.cta {
 
         font-size: 100%;
         font-weight: 300;
-        padding: 5px;
+        padding: 3px;
+
+
         background-color: none;
         border: none;
         border-bottom: 1px solid black;
@@ -93,9 +97,6 @@ p.cta {
     P {
         select {
             max-width: 100%;
-            font-size: 100%;
-            font-weight: 300;
-            padding: 5px;
             background-color: none;
             border: none;
             border-bottom: 1px solid black;
@@ -109,51 +110,52 @@ p.cta {
         h2 fa-icon {
             color: red;
         }
-
-
         .care-network-providers {
-
-            img {
+            .mydoc img,
+            .partner img {
+                max-width: 100%;
+                width: 100%;
                 display: inline-block;
-                border-radius: 10px;
-                border: 1px solid $theme-border-color;
                 vertical-align: middle;
-                margin: 10px;
+                border-radius: 10px;
             }
-            .mydoc img {
-                width: 180px;
-            }
-            .partners img {
-                width: 120px;
+            .mydoc { max-width: 240px; }
+            .partner { max-width: 200px; }
+
+            .mydoc {
+                width: 100%;
+                padding: 5px;
+                margin: auto;
             }
 
             ul {
                 margin: 0;
                 padding: 0;
 
-                li {
-                    margin: 0;
+                li.partner {
+                    list-style: none;
                     display: inline-block;
+                    width: 50%;
+                    margin: 0;
+                    padding: 5px;
 
-                    fa-icon {
-                        display: none;
-                    }
-                }
-
-                li:hover {
-                    cursor: pointer;
                     position: relative;
 
                     fa-icon {
+                        cursor: pointer;
                         display: inline-block;
                         text-align: center;
                         vertical-align: middle;
                         position: absolute;
-                        top: 30px;
-                        right: 35px;
-                        font-size: 500%;
-                        color: red;
+                        top: 10px;
+                        right: 10px;
+                        font-size: 200%;
+                        color: grey;
                     }
+                }
+
+                li.active fa-icon {
+                    color: red;
                 }
             }
 
@@ -191,10 +193,15 @@ p.cta {
 
 .tour-preventive-care {
 
-    background: white;
+    background-color: #C8D0E2;
 
     .tour-preventive-care-intro {
         padding: 20px;
+    }
+
+    .research-result {
+        font-size: 120%;
+        font-weight: 700;
     }
 }
 
@@ -209,9 +216,6 @@ p.cta {
 
     .register-now-form-container {
         padding: 20px;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-        width: 80%;
-        max-width: 700px;
         margin: auto;
         margin-top: 20px;
         border-radius: 10px;
@@ -232,7 +236,7 @@ p.cta {
 
         .input {
             display: flex;
-            gap: 10px;
+            gap: 5px;
 
             input {
                 flex: 1 1 100%;
@@ -243,7 +247,7 @@ p.cta {
             }
 
             select {
-                flex: 0 0 30px;
+                flex: 0 0 auto;
                 border: 1px solid $theme-border-color;
                 padding: 10px;
                 margin-bottom: 15px;
@@ -270,6 +274,21 @@ p.cta {
 }
 
 
+@media screen and (min-width: $size-sm) {
+    // .tour-care-network{
+    //     .care-network-intro {
+    //         .care-network-providers {
+    //             .mydoc {
+    //                 margin: auto;
+    //             }
+    //             .partner {
+    //                 width: 180px;
+    //             }
+    //         }
+    //     }
+    // }
+}
+
 @media screen and (min-width: $size-md) {
     .outcome-list {
         display: flex;
@@ -284,9 +303,7 @@ p.cta {
             text-align: left;
         }
     }
-}
 
-@media screen and (min-width: $size-md) {
     .tour-section-telehealth {
 
         display: flex;
@@ -321,5 +338,11 @@ p.cta {
     .tour-preventive-care-intro {
         width: 80%;
         margin: auto;
+    }
+
+    .register-now-form-container {
+        max-width: 700px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        width: 80%;
     }
 }

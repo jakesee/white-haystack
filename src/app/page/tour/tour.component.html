@@ -1,7 +1,11 @@
 <app-header></app-header>
 <div class="tour-greeting">
+    <p class="cta">
+        <fa-icon [icon]="['fas', 'comments']"></fa-icon> Hello, my name is <input appAutofocus type="text"
+            placeholder="{{name}}" (blur)="onBlur($event)" (keyup.enter)="onBlur($event)" (input)="onChange($event)"
+            [(ngModel)]="inputName">
+    </p>
     <h1>Welcome to MyDoc, {{name}}.</h1>
-    <p class="cta"><fa-icon [icon]="['fas', 'comments']"></fa-icon> Hello, my name is <input appAutofocus type="text" placeholder="{{name}}" (blur)="onBlur($event)" (input)="onChange($event)" [(ngModel)]="inputName"></p>
 </div>
 <app-banner-section imgSrc="assets/banner-mydoc.jpg"></app-banner-section>
 <div class="tour-section-telehealth">
@@ -83,17 +87,17 @@
         <p>We work with clinics and pharmacies to provide professional healthcare and medicine delivery services, and coordinate with insurers to provide ease of benefits and claims.</p>
         <div class="care-network-providers">
             <div class="mydoc"><img src="assets/logo-my-doc.png"></div>
-            <div class="partners">
+            <div>
                 <ul>
-                    <li><fa-icon [icon]="['fas', 'heart']"></fa-icon><img src="assets/logo-prudential.png"></li>
-                    <li><fa-icon [icon]="['fas', 'heart']"></fa-icon><img src="assets/logo-mount-elizabeth.png"></li>
-                    <li><fa-icon [icon]="['fas', 'heart']"></fa-icon><img src="assets/logo-allianz.png"></li>
-                    <li><fa-icon [icon]="['fas', 'heart']"></fa-icon><img src="assets/logo-guardian.png"></li>
-                    <li><fa-icon [icon]="['fas', 'heart']"></fa-icon><img src="assets/logo-watsons.png"></li>
+                    <li #partner1 class="partner"><fa-icon (click)="partner1.classList.toggle('active')" [icon]="['fas', 'heart']"></fa-icon><img src="assets/logo-prudential.png"></li>
+                    <li #partner2 class="partner"><fa-icon (click)="partner2.classList.toggle('active')" [icon]="['fas', 'heart']"></fa-icon><img src="assets/logo-mount-elizabeth.png"></li>
+                    <li #partner3 class="partner"><fa-icon (click)="partner3.classList.toggle('active')" [icon]="['fas', 'heart']"></fa-icon><img src="assets/logo-allianz.png"></li>
+                    <li #partner4 class="partner"><fa-icon (click)="partner4.classList.toggle('active')" [icon]="['fas', 'heart']"></fa-icon><img src="assets/logo-guardian.png"></li>
+                    <li #partner5 class="partner"><fa-icon (click)="partner5.classList.toggle('active')" [icon]="['fas', 'heart']"></fa-icon><img src="assets/logo-watsons.png"></li>
                 </ul>
             </div>
         </div>
-        <h2>Click <fa-icon [icon]="['fas', 'heart']"></fa-icon> to add providers to your own Care Network.</h2>
+        <h2>Add <fa-icon [icon]="['fas', 'heart']"></fa-icon> to personalize your Care Network.</h2>
     </div>
 </div>
 <div class="tour-medicine-delivery">
@@ -158,7 +162,8 @@
 </div>
 <div class="tour-preventive-care">
     <div class="tour-preventive-care-intro">
-        <h1>{{researchStatement}}</h1>
+        <h1>Our research shows that people of various gender and age group can benefit from preventive care, in terms of health and
+        costs benefits.</h1>
         <p>Prevention is better than cure. Treat your body well to go the extra mile. You can find various preventive care programmes such as Health Screening, Women's Clinic, Nutrition, Diet and Weight Loss on MyDoc Care Network.</p>
         <p class="cta">
             <fa-icon [icon]="['fas', 'comments']"></fa-icon> I want to know more about benefits. I am
@@ -214,8 +219,11 @@
                 <option value="11">November</option>
                 <option value="12">December</option>
             </select>
-            <input name="birthYear" (change)="onGenderAgeChange($event)" [(ngModel)]="birthYear" placeholder="YYYY">
+            <select name="birthYear" (change)="onGenderAgeChange($event)" [(ngModel)]="birthYear">
+                <option *ngFor="let year of optionListBirthYear" value="{{year}}">{{year}}</option>
+            </select>
         </p>
+        <p class="research-result">{{researchStatement}}</p>
     </div>
 </div>
 <div class="tour-register-now">
@@ -295,10 +303,12 @@
                         <option value="11">November</option>
                         <option value="12">December</option>
                     </select>
-                    <input name="birthYear" (change)="onGenderAgeChange($event)" [(ngModel)]="birthYear" placeholder="YYYY">
+                    <select name="birthYear" (change)="onGenderAgeChange($event)" [(ngModel)]="birthYear">
+                        <option *ngFor="let year of optionListBirthYear" value="{{year}}">{{year}}</option>
+                    </select>
                 </div>
                 <div class="label">Existing Medical Condition</div><div class="input"><textarea name="medicalConditions" [(ngModel)]="medicalConditions"></textarea></div>
-                <div class="label">Existing Medications</div><div class="input"><textarea></textarea></div>
+                <div class="label">Existing Medications</div><div class="input"><textarea name="existingMedications"></textarea></div>
             </div>
             <button class="default">Create Account</button>
         </form>

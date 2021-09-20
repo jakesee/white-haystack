@@ -54,8 +54,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onToggleForm($event: any): void {
+  onToggleForm($event: any): boolean {
     this.isLogin = !this.isLogin;
 
+    return false;
   }
 }

@@ -296,7 +296,7 @@
             "description": "Balsamic vinaigrette green onions macadamia nut cookies cremini mushrooms cherry bomb pepper green papaya salad crunchy chai tea crispy iceberg lettuce.",
             "logoImage": "logo-mount-elizabeth.png",
             "isMemberRequired": true,
-            "category": "Specialists",
+            "category": "Specialist",
             "sections": [
                 {
                     "component": "BannerSectionComponent",
@@ -346,7 +346,7 @@
             "description": "Kung pao pepper green pepper springtime strawberry hemp seeds bruschetta tahini drizzle red amazon pepper potato fig arugula cashew salad artichoke hearts cool cucumbers blackberries raspberry fizz dragon fruit portobello mushrooms.",
             "logoImage": "logo-mental-health.png",
             "isMemberRequired": true,
-            "category": "Specialists",
+            "category": "Specialist",
             "journey": {
                 "start": {
                     "auth": true,
@@ -400,7 +400,7 @@
             "description": "Peanut butter cozy cinnamon oatmeal lemon lime minty winter Bulgarian carrot sweet potato black bean burrito lemon red lentil soup red curry tofu noodles crispy spicy.",
             "logoImage": "logo-womens-health.png",
             "isMemberRequired": true,
-            "category": "Specialists",
+            "category": "Specialist",
             "journey": {
                 "start": {
                     "auth": true,

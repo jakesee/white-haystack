@@ -13,8 +13,8 @@
             </div>
             <div class="button-list">
                 <input type="submit" value="Log In" />
-                <button (click)="onToggleForm($event)">New User?</button>
             </div>
+            <p>New User? <a href="#" (click)="onToggleForm($event)">Register</a> or <a routerLink="/public/tour">visit MyDoc Tour</a>.</p>
         </form>
     </div>
 
@@ -33,6 +33,7 @@
                 <input type="submit" value="Register" />
                 <button (click)="onToggleForm($event)">Existing User?</button>
             </div>
+            <p>Not sure? <a routerLink="/public/tour">Take the MyDoc Tour</a>.</p>
         </form>
     </div>
 </div>

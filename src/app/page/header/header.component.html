@@ -14,12 +14,12 @@
       <div *ngIf="hasNavigation" [ngClass]="{'navbar-collapse': isHideMenu}" class="navbar-menu">
         <ul class="navbar-nav">
           <ng-template ngFor let-item [ngForOf]="menuItems">
-            <li class="nav-item" *ngIf="item.isPublic || (isLoggedIn && currentUser)">
+            <li class="nav-item" *ngIf="(isLoggedIn && item.display.private) || (!isLoggedIn && item.display.public)">
               <a class="nav-link active" aria-current="page" routerLink="{{item.routerLink}}">{{item.text}}</a>
             </li>
           </ng-template>
           <li class="navbar-divider"><hr class="dropdown-divider"></li>
-          <li class="nav-item align-right" *ngIf="isLoggedIn && currentUser"><fa-icon [icon]="['fas', 'user']"></fa-icon>&nbsp;<a class="nav-link active" aria-current="page" (click)="onLogOut($event)">Log Out {{ currentUser.name }}</a></li>
+          <li class="nav-item align-right" *ngIf="isLoggedIn"><fa-icon [icon]="['fas', 'user']"></fa-icon>&nbsp;<a class="nav-link active" aria-current="page" (click)="onLogOut($event)">Log Out {{ currentUser?.name }}</a></li>
           <li class="nav-item align-right" *ngIf="!isLoggedIn"><fa-icon [icon]="['fas', 'user']"></fa-icon>&nbsp;<a class="nav-link active" aria-current="page" routerLink="/login" [queryParams]="{returnUrl: returnUrl}">Log In</a></li>
         </ul>
       </div>
