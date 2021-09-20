@@ -81,10 +81,10 @@ export class DataService {
 
   private _loadConfig() {
     this.config = {
-      providerId: 13,
+      providerId: 0,
       HeaderComponent: {
         imgURL:
-          'https://my-doc.com/wp-content/uploads/2019/11/mydoc-logo-@2x.png',
+          'https://app.qa.my-doc.com/dai-ichi/assets/images/logo_vn_01.svg',
         menuItems: [
           { text: 'Home', routerLink: '/home', icon: ['fas', 'home'], display: { public: true, private: true } },
           { text: 'Dashboard', routerLink: '/dashboard', icon: ['fas', 'home'], display: { public: true, private: true } },
@@ -103,7 +103,7 @@ export class DataService {
             subText:
               'Operational Hours: 0800H - 2200H, including weekend and holidays',
             buttonText: 'Talk to Doctor Now!',
-            command: ['/provider', 13, 'journey', 'start']
+            command: ['/provider', 0, 'journey', 'start']
           }
         },
         { component: SymptomsSectionComponent, config: {} },
@@ -118,36 +118,7 @@ export class DataService {
           component: BannerSectionComponent,
           "config": {}
         }
-      ],
-      journey: {
-        start: {
-          auth: true,
-          cmdCancel: ['/home'], // route navigate command
-          cmdSuccess: ['/waiting-room'], // route navigate command
-          sequence: [
-            {
-              component: EmergencyFormComponent,
-              config: {}
-            },
-            {
-              component: NextAppointmentInfoFormComponent,
-              config: {}
-            },
-            {
-              component: TriageFormComponent,
-              config: { questionText: 'What complaints do you have today?' }
-            },
-            {
-              component: CollectPersonalInfoFormComponent,
-              config: { title: 'Please provide your personal info.' }
-            },
-            {
-              component: RequestAppointmentFormComponent,
-              config: {}
-            }
-          ]
-        }
-      }
+      ]
     };
   }
 }
