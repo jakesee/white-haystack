@@ -86,13 +86,11 @@ export class DataService {
         imgURL:
           'https://my-doc.com/wp-content/uploads/2019/11/mydoc-logo-@2x.png',
         menuItems: [
-          //{ text: 'Home', routerLink: '/home', icon: ['fas', 'home'] },
-          { text: 'Home', routerLink: '/explore', icon: ['fas', 'home'], display: { public: true, private: true } },
-          { text: 'MyDoc Tour', routerLink: '/public/tour', icon: ['fas', 'route'], display: { public: true, private: false } },
-          { text: 'Care Network', routerLink: '/care-network', icon: ['fas', 'heart'], display: { public: true, private: true } },
-          { text: 'Appointments', routerLink: '/waiting-room', icon: ['fas', 'calendar-alt'], display: { public: false, private: true } },
-          { text: 'Feeds', routerLink: '/feeds', icon: ['fas', 'newspaper'], display: { public: true, private: true } },
-          { text: 'Settings', routerLink: '/profile', icon: ['fas', 'user'], display: { public: false, private: true } },
+          { text: 'Home', routerLink: '/home', icon: ['fas', 'home'], display: { public: true, private: true } },
+          { text: 'Dashboard', routerLink: '/dashboard', icon: ['fas', 'home'], display: { public: true, private: true } },
+          // { text: 'Care Network', routerLink: '/care-network', icon: ['fas', 'heart'], display: { public: true, private: true } },
+          { text: 'Waiting Room', routerLink: '/waiting-room', icon: ['fas', 'calendar-alt'], display: { public: true, private: true } },
+          { text: 'Profile', routerLink: '/profile', icon: ['fas', 'user'], display: { public: true, private: true } },
         ]
       },
       HomeComponent: [
@@ -116,7 +114,10 @@ export class DataService {
             content: "<p>Need any assistance? Call us at</p><p><b>Dai-ichi Life Vietnam<br /> (028) 38100888</b><br /> 08: 00 - 17: 30, Mon - Fri and 08: 00 - 12: 00, Sat </p><p><b>MyDoc <br /> 0707150628</b><br /> 8: 00 to 22: 00, incl.weekend & holidays </p>"
           }
         },
-        { component: SubProvidersSectionComponent, config: {} }
+        {
+          component: BannerSectionComponent,
+          "config": {}
+        }
       ],
       journey: {
         start: {
