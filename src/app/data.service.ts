@@ -87,14 +87,12 @@ export class DataService {
           'https://my-doc.com/wp-content/uploads/2019/11/mydoc-logo-@2x.png',
         menuItems: [
           //{ text: 'Home', routerLink: '/home', icon: ['fas', 'home'] },
-          { text: 'Home', routerLink: '/explore', icon: ['fas', 'home'], isPublic: true },
-          { text: 'Care Network', routerLink: '/care-network', icon: ['fas', 'heart'], isPublic: true },
-          { text: 'Feeds', routerLink: '/feeds', icon: ['fas', 'newspaper'], isPublic: true },
-          // { text: 'Appointments', routerLink: '/public/waiting-room', icon: ['fas', 'calendar-alt'], isPublic: true },
-          { text: 'MyDoc Tour', routerLink: '/public/tour', icon: ['fas', 'user'], isPublic: true },
-
-          { text: 'Appointments', routerLink: '/waiting-room', icon: ['fas', 'calendar-alt'], isPublic: false },
-          { text: 'Settings', routerLink: '/profile', icon: ['fas', 'user'], isPublic: false },
+          { text: 'Home', routerLink: '/explore', icon: ['fas', 'home'], display: { public: true, private: true } },
+          { text: 'MyDoc Tour', routerLink: '/public/tour', icon: ['fas', 'route'], display: { public: true, private: false } },
+          { text: 'Care Network', routerLink: '/care-network', icon: ['fas', 'heart'], display: { public: true, private: true } },
+          { text: 'Appointments', routerLink: '/waiting-room', icon: ['fas', 'calendar-alt'], display: { public: false, private: true } },
+          { text: 'Feeds', routerLink: '/feeds', icon: ['fas', 'newspaper'], display: { public: true, private: true } },
+          { text: 'Settings', routerLink: '/profile', icon: ['fas', 'user'], display: { public: false, private: true } },
         ]
       },
       HomeComponent: [

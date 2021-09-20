@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { TagControlComponent } from '@app/control/tag-control/tag-control.component';
 
 @Component({
@@ -6,7 +6,7 @@ import { TagControlComponent } from '@app/control/tag-control/tag-control.compon
   templateUrl: './tour.component.html',
   styleUrls: ['./tour.component.scss']
 })
-export class TourComponent implements OnInit {
+export class TourComponent implements OnInit, AfterViewInit {
 
   @ViewChildren('medicalCondition', { read: TagControlComponent }) tagMedicalConditions: QueryList<TagControlComponent>;
 
@@ -19,11 +19,12 @@ export class TourComponent implements OnInit {
 
 
   researchStatement:string = '';
-  defaultResearchStatement:string = 'Our research shows that people of various gender and age group can benefit from preventive care, in terms of health and costs benefits.'
+
+  optionListBirthYear: Array<number> = [];
 
 
   // create account fields
-  isShowOptional: boolean = false;
+  isShowOptional: boolean = true;
 
   firstName: string;
   lastName: string;
@@ -38,29 +39,41 @@ export class TourComponent implements OnInit {
   medicalConditions: string;
 
   constructor() {
-    const adjectives: Array < string > =[
-      "Adventurous",
-      "Ambitious",
-      "Courageous",
-      "Adaptable",
-      "Exuberant",
-      "Gregarious",
-      "Inquisitive",
-      "Curious",
-      "Diligent",
-      "Generous",
-      "Rational",
-      "Reliable",
-      "Resourceful",
-      "Inventive",
-      "Practical",
-      "Intuitive",
-    ]
 
-    var index = ((Math.random() * adjectives.length) % adjectives.length).toFixed(0);
-    this.generatedName = adjectives[index] + ' Guest';
-    this.name = this.generatedName;
-    this.researchStatement = this.defaultResearchStatement;
+  }
+  ngAfterViewInit(): void {
+
+    setTimeout(() => {
+      const adjectives: Array<string> = [
+        "Adventurous",
+        "Ambitious",
+        "Courageous",
+        "Adaptable",
+        "Exuberant",
+        "Gregarious",
+        "Inquisitive",
+        "Curious",
+        "Diligent",
+        "Generous",
+        "Rational",
+        "Reliable",
+        "Resourceful",
+        "Inventive",
+        "Practical",
+        "Intuitive",
+      ]
+
+      var index = ((Math.random() * adjectives.length) % adjectives.length).toFixed(0);
+      this.generatedName = adjectives[index] + ' Guest';
+      this.name = this.generatedName;
+
+      //option years
+      this.optionListBirthYear = [];
+      for (var i = 2021; i >= 1921; i--) {
+        this.optionListBirthYear.push(i);
+      }
+    }, 500);
+
   }
 
   onBlur($event) {
@@ -70,7 +83,8 @@ export class TourComponent implements OnInit {
     this.lastName = nameParts.join(' ');
 
     let data = Date.now().toString();
-    console.log(data);
+
+    $event.target.blur();
   }
 
   onChange($event) {
@@ -98,18 +112,20 @@ export class TourComponent implements OnInit {
     console.log(this.gender, this.birthDay, this.birthMonth, this.birthYear);
 
     if (this.gender == '' || this.birthDay == null || this.birthMonth == null || this.birthYear == null) {
-      this.researchStatement = this.defaultResearchStatement;
+      this.researchStatement = "";
       return;
     }
 
-    var age = 2021 - this.birthYear;
-    var lowAge = age - 5;
-    var highAge = age + 5;
     var spend = (Math.random() * 2000).toFixed(2);
     var saving = (Math.random() * 5 + 10).toFixed(1);
+    var age = 2021 - this.birthYear;
+    var lowAge = 10, highAge = 90
     if (age > 10 && age < 90) {
-      this.researchStatement = `Our research shows that ${this.gender}s age between ${lowAge} and ${highAge} on average spend $${spend} annually on healthcare; those who are on a long term preventive care programme can save up to ${saving}%.`;
+      lowAge = age - 5;
+      highAge = age + 5;
     }
+
+    this.researchStatement = `Our research shows that ${this.gender}s age between ${lowAge} and ${highAge} on average spend $${spend} annually on healthcare; those who are on a long term preventive care programme can save up to ${saving}%.`;
   }
 
   ngOnInit(): void {
