@@ -1,4 +1,26 @@
 import { EventEmitter, Type } from '@angular/core';
+import { HomeComponent } from './page/home/home.component';
+
+export interface IAppConfig {
+  providerId: number;
+  theme: { [key: string]: any };
+  logoUrl: string,
+  menuItems: Array<IMenuItem>;
+  sections: Array<ISection>;
+}
+
+export interface IMenuItem {
+  text: string,
+  routerLink: string,
+  icon: Array<string>,
+  display: { public: boolean, private: boolean };
+}
+
+export interface ISection {
+  component: string;
+  config: any;
+}
+
 
 export interface Form {
 
@@ -23,10 +45,7 @@ export class Section {
   }
 }
 
-export interface DefinitionSection {
-  component: Type<any>;
-  config: any;
-}
+
 
 export interface ProviderData {
   id: number;

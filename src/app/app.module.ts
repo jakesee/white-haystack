@@ -42,7 +42,6 @@ import { ChatControlComponent } from './control/chat-control/chat-control.compon
 import { TourComponent } from './page/tour/tour.component';
 import { TagControlComponent } from './control/tag-control/tag-control.component';
 import { AutofocusDirective } from './shared/autofocus.directive';
-import database from '../assets/database.json';
 import { FeedsComponent } from './page/feeds/feeds.component';
 
 
@@ -96,7 +95,7 @@ import { FeedsComponent } from './page/feeds/feeds.component';
 
 })
 export class AppModule {
-  constructor(library: FaIconLibrary, dataService: DataService) {
+  constructor(library: FaIconLibrary) {
     library.addIcons(
       faBars,
       faSignInAlt,
@@ -122,7 +121,5 @@ export class AppModule {
       faAngleDoubleDown,
       faRoute
     );
-
-    localStorage.setItem('database', JSON.stringify(database));
   }
 }

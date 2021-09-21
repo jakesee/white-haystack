@@ -1,4 +1,4 @@
-@import '../../../variables.scss';
+
 
 li {
     margin: 0 10px 10px 0;
@@ -8,12 +8,12 @@ li {
     a.timeslot {
         display: inline-block;
         padding: 5px 8px;
-        background-color: $theme-border-color;
+        background-color: var(--theme-border-color);
         text-decoration: none;
         color: black;
     }
     a.timeslot:hover {
-        background-color: $theme-color;
+        background-color: var(--theme-button-primary-background-color);
         color: white;
     }
 }
@@ -30,7 +30,6 @@ form {
     input, select {
         display: block;
         border: none;
-        border-radius: 5px;
         background: #EEEEEE;
         padding: 6px 9px;
         width: 100%;
@@ -40,11 +39,9 @@ form {
 button {
     border: none;
     padding: 6px 9px;
-    border-radius: 5px;
-    //float: left;
     margin-right: 5px;
 }
 button.default {
-    background-color: $theme-color;
+    background-color: var(--theme-button-primary-background-color);
     color: white;
 }

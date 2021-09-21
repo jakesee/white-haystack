@@ -18,7 +18,9 @@ import { TitleBarSectionComponent } from './sections/title-bar-section/title-bar
 import { ProviderEligibilityFormComponent } from './form/provider-eligibility-form/provider-eligibility-form.component';
 import { SubProvidersSectionComponent } from './sections/sub-providers-section/sub-providers-section.component';
 import * as _ from 'lodash';
-
+import { IAppConfig } from './interfaces';
+import { Daiichi } from 'src/partner/theme-daiichi';
+import Database from '../assets/database.json';
 
 export const REGISTRY = new Map<string, Type<any>>();
 // Sections
@@ -44,13 +46,13 @@ REGISTRY.set("RequestAppointmentFormComponent", RequestAppointmentFormComponent)
 export class DataService {
 
   // store services
-  config: any;
+  appConfig: IAppConfig;
   state: Array<any> = [];
 
   isShowMobileDownloadBar: boolean = true;
 
   constructor(private _router: Router, private _http: HttpClient, private _route: ActivatedRoute) {
-    this._loadConfig();
+    this.init(Database, Daiichi);
   }
 
   resolveComponent(component: string): Type<any> {
@@ -75,78 +77,21 @@ export class DataService {
     }));
   }
 
-  private _getProviders():Observable<any> {
-    return this._http.get<any>(`${environment.apiUrl}/providers`);
+  init(database: any, appConfig: any) {
+    // store database in local storage
+    localStorage.setItem('database', JSON.stringify(database));
+
+    this.appConfig = appConfig;
+    this._setTheme(appConfig.theme);
   }
 
-  private _loadConfig() {
-    this.config = {
-      providerId: 13,
-      HeaderComponent: {
-        imgURL:
-          'https://my-doc.com/wp-content/uploads/2019/11/mydoc-logo-@2x.png',
-        menuItems: [
-          //{ text: 'Home', routerLink: '/home', icon: ['fas', 'home'] },
-          { text: 'Home', routerLink: '/explore', icon: ['fas', 'home'], display: { public: true, private: true } },
-          //{ text: 'MyDoc Tour', routerLink: '/public/tour', icon: ['fas', 'route'], display: { public: true, private: false } },
-          { text: 'Care Network', routerLink: '/care-network', icon: ['fas', 'heart'], display: { public: true, private: true } },
-          { text: 'Appointments', routerLink: '/waiting-room', icon: ['fas', 'calendar-alt'], display: { public: true, private: true } },
-          { text: 'Feeds', routerLink: '/feeds', icon: ['fas', 'newspaper'], display: { public: true, private: true } },
-          { text: 'Profile', routerLink: '/profile', icon: ['fas', 'user'], display: { public: true, private: true } },
-        ]
-      },
-      HomeComponent: [
-        {
-          component: ConsultNowComponent,
-          config: {
-            imgSource:
-              'https://app.qa.my-doc.com/dai-ichi/assets/images/Banner_happy_family.png',
-            title: 'Awesome Co. Virtual Teleheath',
-            subText:
-              'Operational Hours: 0800H - 2200H, including weekend and holidays',
-            buttonText: 'Talk to Doctor Now!',
-            command: ['/provider', 13, 'journey', 'start']
-          }
-        },
-        { component: SymptomsSectionComponent, config: {} },
-        { component: OnetwothreeSectionComponent, config: {} },
-        {
-          component: NeedAssistanceSectionComponent,
-          config: {
-            content: "<p>Need any assistance? Call us at</p><p><b>Dai-ichi Life Vietnam<br /> (028) 38100888</b><br /> 08: 00 - 17: 30, Mon - Fri and 08: 00 - 12: 00, Sat </p><p><b>MyDoc <br /> 0707150628</b><br /> 8: 00 to 22: 00, incl.weekend & holidays </p>"
-          }
-        },
-        { component: SubProvidersSectionComponent, config: {} }
-      ],
-      journey: {
-        start: {
-          auth: true,
-          cmdCancel: ['/home'], // route navigate command
-          cmdSuccess: ['/waiting-room'], // route navigate command
-          sequence: [
-            {
-              component: EmergencyFormComponent,
-              config: {}
-            },
-            {
-              component: NextAppointmentInfoFormComponent,
-              config: {}
-            },
-            {
-              component: TriageFormComponent,
-              config: { questionText: 'What complaints do you have today?' }
-            },
-            {
-              component: CollectPersonalInfoFormComponent,
-              config: { title: 'Please provide your personal info.' }
-            },
-            {
-              component: RequestAppointmentFormComponent,
-              config: {}
-            }
-          ]
-        }
-      }
-    };
+  private _setTheme(theme):void {
+    Object.keys(theme).forEach((prop) => {
+      document.documentElement.style.setProperty(prop, theme[prop]);
+    });
+  }
+
+  private _getProviders():Observable<any> {
+    return this._http.get<any>(`${environment.apiUrl}/providers`);
   }
 }
