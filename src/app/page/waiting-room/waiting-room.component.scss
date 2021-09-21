@@ -1,12 +1,11 @@
 @import '../../../variables.scss';
 
-
 .appointments {
     padding: 20px;
 
     .appointment-nav {
 
-        background-color: $theme-border-color;
+        background-color: var(--theme-border-color);
         padding: 10px;
         border-radius: 20px;
 
@@ -19,12 +18,12 @@
             border: none;
             padding: 5px 10px;
             border-radius: 20px;
-            background-color: $theme-border-color;
+            background-color: var(--theme-border-color);
         }
 
         button.active, button:hover {
-            background-color: $theme-color;
-            color: white;
+            background-color: var(--theme-button-primary-background-color);
+            color: var(--theme-button-primary-foreground-color);
         }
     }
 }

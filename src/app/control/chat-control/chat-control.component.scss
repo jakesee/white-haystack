@@ -1,4 +1,4 @@
-@import "../../../variables.scss";
+@import '../../../variables.scss';
 
 .chat-window {
     position: fixed;
@@ -13,8 +13,8 @@
 
     .chat-header {
         padding: 20px;
-        background-color: $theme-color;
-        color: white;
+        background-color: var(--theme-button-primary-background-color);
+        color: var(--theme-button-primary-foreground-color);
 
         display: flex;
         justify-content: flex-end;
@@ -41,11 +41,12 @@
             flex: 1 1 50%;
             padding: 10px;
             border: none;
+            border-radius: 0;
             font-weight: 700;
         }
 
         button.active {
-            background-color: $theme-background-color;
+            background-color: var(--theme-primary-background-color);
             color: black;
         }
     }
@@ -54,13 +55,13 @@
         flex: 1 1 auto;
 
         padding: 20px;
-        background-color: $theme-background-color;
+        background-color: var(--theme-primary-background-color);
 
         overflow-y: scroll;
 
         .chat-message {
             display: inline-block;
-            background-color: $theme-border-color;
+            background-color: var(--theme-border-color);
             width: 60%;
             padding: 20px;
             border-radius: 10px;
@@ -80,7 +81,7 @@
 
     .chat-input {
         padding: 20px;
-        background-color: $theme-color;
+        background-color: var(--theme-button-primary-background-color);
 
         input {
             width: 100%;

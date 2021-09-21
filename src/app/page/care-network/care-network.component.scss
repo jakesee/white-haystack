@@ -1,4 +1,4 @@
-@import '../../../variables.scss';
+
 
 
 .search-bar {
@@ -8,10 +8,10 @@
         display: flex;
         width: auto;
         row-gap: 10px;
-        background: $theme-color-light;
+        background: var(--theme-border-color);
         padding: 10px;
         margin: 0 10px 0 10px;
-        border-radius: 10px;
+        border-radius: var(--theme-button-border-radius);
         align-items: baseline;
 
         .search-input {
@@ -30,12 +30,11 @@
     }
 }
 
-
-
 h1 {
     font-weight: 300;
     padding: 10px 10px 10px 20px;
-    background: $theme-background-color;
+    background-color: var(--theme-button-primary-background-color);
+    color: var(--theme-button-primary-foreground-color);
 }
 
 

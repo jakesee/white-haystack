@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
 
   @Input() hasNavigation = true;
 
-  imgURL: string = 'https://placekitten.com/200/80';
+  logoUrl: string = 'https://placekitten.com/200/80';
   menuItems: Array<any> = [];
   currentUser: User;
   isHideMenu: boolean = true;
@@ -22,10 +22,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(private _dataService: DataService, private _auth: AuthenticationService, private _router: Router) {
 
-    let config = this._dataService.config.HeaderComponent;
-    this.imgURL = config.imgURL;
-    this.menuItems = config.menuItems;
-    console.log(this.menuItems);
+    this.logoUrl = this._dataService.appConfig.logoUrl;
+    this.menuItems = this._dataService.appConfig.menuItems;
     this.currentUser = null;
     this.returnUrl = _router.routerState.snapshot.url;
   }

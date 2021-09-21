@@ -18,13 +18,12 @@ form {
     input, select {
         display: block;
         border: none;
-        border-radius: 5px;
         background: #EEEEEE;
         padding: 6px 9px;
         width: 100%;
     }
     input[type=submit] {
-        background-color: $theme-color;
+        background-color: var(--theme-button-primary-background-color);
         width: auto;
         color: #ffffff;
     }
@@ -42,18 +41,15 @@ form {
 button {
     border: none;
     padding: 6px 9px;
-    border-radius: 5px;
-    //float: left;
     margin-right: 5px;
 }
 button.default {
-    background-color: $theme-color;
+    background-color: var(--theme-button-primary-background-color);
     color: white;
 }
 
 @media only screen and (min-width: $size-lg) {
     div.card {
-        background-color: #ffffff;
-        border: 1px solid $theme-border-color;
+        border: 1px solid var(--theme-border-color);
     }
 }

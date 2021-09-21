@@ -4,7 +4,7 @@
 
     margin: 20px 0 0 30px;
     padding: 0;
-    border-left: 3px solid $theme-border-color;
+    border-left: 3px solid var(--theme-border-color);
 
     li {
         margin: 0 0 15px 0;
@@ -13,7 +13,7 @@
 
         .journey-stop-number {
             border-radius: 10px;
-            background-color: $theme-border-color;
+            background-color: var(--theme-border-color);
             display: inline-block;
             width: 20px;
             line-height: 20px;
@@ -23,7 +23,7 @@
         }
 
         .journey-stop-number.active {
-            background-color: $theme-color;
+            background-color: var(--theme-button-primary-background-color);
             color: white;
         }
 
@@ -72,7 +72,6 @@
             button {
                 display: inline-block;
                 padding: 6px 12px;
-                border-radius: 5px;
                 border: none;
                 background-color: #cccccc;
                 color: black;
@@ -101,7 +100,7 @@
         gap: 10px;
         padding: 0 20px 0 20px;
         border: 0px;
-        border-top: 3px solid $theme-border-color;
+        border-top: 3px solid var(--theme-border-color);
         margin: 30px 0 0 0;
 
 

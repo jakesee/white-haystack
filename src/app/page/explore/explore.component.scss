@@ -1,6 +1,5 @@
 @import '../../../variables.scss';
 
-
 .banner {
     img {
         max-width: 100%;
@@ -20,7 +19,7 @@
         list-style: none;
         margin: 0;
         padding: 10px;
-        background-color: $theme-border-color;
+        background-color: var(--theme-border-color);
         border-radius: 15px;
         flex-grow: 1;
         flex-basis: 100px;
@@ -33,7 +32,7 @@
     }
 
     li:hover {
-        background-color: $theme-color;
+        background-color: var(--theme-button-primary-background-color);
         a { color: white; }
     }
 }
@@ -42,7 +41,7 @@
 h1 {
     font-weight: 300;
     padding: 10px 10px 10px 20px;
-    background: $theme-background-color;
+    background: var(--theme-primary-background-color);
 }
 
 div.provider {
@@ -55,7 +54,7 @@ div.provider {
         img {
             max-width: 100%;
             border-radius: 5px 5px 5px 5px;
-            border: 1px solid $theme-border-color;
+            border: 1px solid var(--theme-border-color);
         }
 
     }
@@ -97,14 +96,14 @@ div.provider {
                 display: block;
                 width: 100%;
                 border-radius: 10px 10px 0 0;
-                border: 1px solid $theme-border-color;
+                border: 1px solid var(--theme-border-color);
             }
         }
 
         .metadata {
             padding: 10px;
             width: 100%;
-            border: 1px solid $theme-border-color;
+            border: 1px solid var(--theme-border-color);
             border-top: none;
             border-radius: 0 0 10px 10px;
         }

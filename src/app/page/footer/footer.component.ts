@@ -16,8 +16,7 @@ export class FooterComponent implements OnInit {
   menuItems:Array<any> = [];
 
   constructor(private _dataService: DataService, private _auth: AuthenticationService) {
-    let config = this._dataService.config.HeaderComponent;
-    this.menuItems = config.menuItems;
+    this.menuItems = this._dataService.appConfig.menuItems;
   }
 
   @HostListener("window:scroll", ['$event']) onScroll($event): void {

@@ -27,7 +27,8 @@ li.one::before, li.two::before, li.three::before  {
 }
 
 ul {
-    margin: 0;
+    max-width: $size-sm;
+    margin: auto;
     padding: 0 30px 0 30px;
     vertical-align: middle;
     text-align: left;
@@ -52,6 +53,10 @@ li::after {
 }
 
 @media only screen and (min-width: $size-md) {
+
+    ul {
+        max-width: $size-md;
+    }
 
     li {
         display: inline-block;
@@ -81,6 +86,8 @@ li::after {
 }
 
 @media only screen and (min-width: $size-lg) {
+
+    ul { max-width: $size-lg; }
 
     li {
         text-align: left;

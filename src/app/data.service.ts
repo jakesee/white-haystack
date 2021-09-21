@@ -18,6 +18,10 @@ import { TitleBarSectionComponent } from './sections/title-bar-section/title-bar
 import { ProviderEligibilityFormComponent } from './form/provider-eligibility-form/provider-eligibility-form.component';
 import { SubProvidersSectionComponent } from './sections/sub-providers-section/sub-providers-section.component';
 import * as _ from 'lodash';
+import { IAppConfig } from './interfaces';
+import { Daiichi } from 'src/partner/theme-daiichi';
+import Database from '../assets/database.json';
+
 
 
 export const REGISTRY = new Map<string, Type<any>>();
@@ -44,13 +48,13 @@ REGISTRY.set("RequestAppointmentFormComponent", RequestAppointmentFormComponent)
 export class DataService {
 
   // store services
-  config: any;
+  appConfig: IAppConfig;
   state: Array<any> = [];
 
   isShowMobileDownloadBar: boolean = true;
 
   constructor(private _router: Router, private _http: HttpClient, private _route: ActivatedRoute) {
-    this._loadConfig();
+    this.init(Database, Daiichi);
   }
 
   resolveComponent(component: string): Type<any> {
@@ -75,50 +79,21 @@ export class DataService {
     }));
   }
 
-  private _getProviders():Observable<any> {
-    return this._http.get<any>(`${environment.apiUrl}/providers`);
+  init(database: any, appConfig: any) {
+    // store database in local storage
+    localStorage.setItem('database', JSON.stringify(database));
+
+    this.appConfig = appConfig;
+    this._setTheme(appConfig.theme);
   }
 
-  private _loadConfig() {
-    this.config = {
-      providerId: 0,
-      HeaderComponent: {
-        imgURL:
-          'https://app.qa.my-doc.com/dai-ichi/assets/images/logo_vn_01.svg',
-        menuItems: [
-          { text: 'Home', routerLink: '/home', icon: ['fas', 'home'], display: { public: true, private: true } },
-          { text: 'Dashboard', routerLink: '/dashboard', icon: ['fas', 'home'], display: { public: true, private: true } },
-          // { text: 'Care Network', routerLink: '/care-network', icon: ['fas', 'heart'], display: { public: true, private: true } },
-          { text: 'Waiting Room', routerLink: '/waiting-room', icon: ['fas', 'calendar-alt'], display: { public: true, private: true } },
-          { text: 'Profile', routerLink: '/profile', icon: ['fas', 'user'], display: { public: true, private: true } },
-        ]
-      },
-      HomeComponent: [
-        {
-          component: ConsultNowComponent,
-          config: {
-            imgSource:
-              'https://app.qa.my-doc.com/dai-ichi/assets/images/Banner_happy_family.png',
-            title: 'Awesome Co. Virtual Teleheath',
-            subText:
-              'Operational Hours: 0800H - 2200H, including weekend and holidays',
-            buttonText: 'Talk to Doctor Now!',
-            command: ['/provider', 0, 'journey', 'start']
-          }
-        },
-        { component: SymptomsSectionComponent, config: {} },
-        { component: OnetwothreeSectionComponent, config: {} },
-        {
-          component: NeedAssistanceSectionComponent,
-          config: {
-            content: "<p>Need any assistance? Call us at</p><p><b>Dai-ichi Life Vietnam<br /> (028) 38100888</b><br /> 08: 00 - 17: 30, Mon - Fri and 08: 00 - 12: 00, Sat </p><p><b>MyDoc <br /> 0707150628</b><br /> 8: 00 to 22: 00, incl.weekend & holidays </p>"
-          }
-        },
-        {
-          component: BannerSectionComponent,
-          "config": {}
-        }
-      ]
-    };
+  private _setTheme(theme):void {
+    Object.keys(theme).forEach((prop) => {
+      document.documentElement.style.setProperty(prop, theme[prop]);
+    });
+  }
+
+  private _getProviders():Observable<any> {
+    return this._http.get<any>(`${environment.apiUrl}/providers`);
   }
 }

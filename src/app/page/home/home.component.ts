@@ -8,7 +8,7 @@ import {
   ViewContainerRef
 } from '@angular/core';
 import { DataService } from '@app/data.service';
-import { DefinitionSection, Section } from '@app/interfaces';
+import { ISection, Section } from '@app/interfaces';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +18,7 @@ import { DefinitionSection, Section } from '@app/interfaces';
 export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChildren('section', { read: ViewContainerRef }) containers: QueryList<ViewContainerRef>;
 
-  sections: Array<DefinitionSection>;
+  sections: Array<ISection>;
 
   provider: any;
 
@@ -26,8 +26,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     private _dataService: DataService,
     private _componentFactoryResolver: ComponentFactoryResolver
   ) {
-    this.sections = _dataService.config.HomeComponent;
-    this._dataService.getProvider(this._dataService.config.providerId).toPromise().then((response) => {
+    this.sections = _dataService.appConfig.sections;
+    this._dataService.getProvider(this._dataService.appConfig.providerId).toPromise().then((response) => {
       this.provider = response.data;
       this._loadSections();
     });
@@ -46,12 +46,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
     if (this.containers !== null && this.containers !== undefined) {
       for (let i = 0; i < this.containers.toArray().length; i++) {
         const section = this.sections[i];
-        const component = section.component;
+        const component = this._dataService.resolveComponent(section.component);
         if (component) {
           const container = this.containers.toArray()[i];
-          const factory = this._componentFactoryResolver.resolveComponentFactory<
-            any
-          >(component);
+          const factory = this._componentFactoryResolver.resolveComponentFactory<any>(component);
           const refComponent = container.createComponent(factory);
           let instance: Section = refComponent.instance;
           instance.init(section.config, this.provider);
