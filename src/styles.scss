@@ -75,6 +75,10 @@ button, input, select, textarea {
 }
 
 // buttons
+button {
+  background-color: var(--theme-button-secondary-background-color);
+  color: var(--theme-button-secondary-foreground-color);
+}
 button:hover, fa-icon.button:hover {
   cursor: pointer;
 }

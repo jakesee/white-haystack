@@ -5,9 +5,9 @@
             <strong>{{appointmentStartDateTime}}</strong>.</p>
         <p>Do you want to continue the journey?</p>
     </div>
-    <div>
-        <button (click)="onNext($event)" class="default">Yes</button>
+    <div class="button-list">
         <button (click)="onBack($event)">Back</button>
         <button (click)="onCancel($event)">Cancel</button>
+        <button (click)="onNext($event)" class="default">Yes</button>
     </div>
 </div>

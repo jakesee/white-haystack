@@ -9,10 +9,9 @@
                     href="#">{{timeslot|date:'medium'}}</a></li>
         </ul>
     </div>
-    <div>
-        <button (click)="onRequestAppointment($event)" class="default">Request:
-            {{selectedTimeslot|date:'medium'}}</button>
+    <div class="button-list">
         <button (click)="onBack($event)">Back</button>
         <button (click)="onCancel($event)">Cancel</button>
+        <button (click)="onRequestAppointment($event)" class="default">Request: {{selectedTimeslot|date:'medium'}}</button>
     </div>
 </div>

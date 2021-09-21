@@ -23,10 +23,10 @@
     <div><label>Medical Condition</label><textarea formControlName="medicalCondition"></textarea></div>
     <div><label>Medication</label><textarea formControlName="medication"></textarea></div>
     <div><label>Allergies</label><textarea formControlName="allergies"></textarea></div>
-    <div>
-      <button (click)="onNext($event)" class="default">Next</button>
+    <div class="button-list">
       <button (click)="onBack($event)">Back</button>
       <button (click)="onCancel($event)">Cancel</button>
+      <button (click)="onNext($event)" class="default">Next</button>
     </div>
   </form>
 </div>

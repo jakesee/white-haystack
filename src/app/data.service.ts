@@ -19,7 +19,7 @@ import { ProviderEligibilityFormComponent } from './form/provider-eligibility-fo
 import { SubProvidersSectionComponent } from './sections/sub-providers-section/sub-providers-section.component';
 import * as _ from 'lodash';
 import { IAppConfig } from './interfaces';
-import { Daiichi } from 'src/partner/theme-daiichi';
+import { MyDoc as Partner } from 'src/partner/theme-mydoc';
 import Database from '../assets/database.json';
 
 export const REGISTRY = new Map<string, Type<any>>();
@@ -52,7 +52,7 @@ export class DataService {
   isShowMobileDownloadBar: boolean = true;
 
   constructor(private _router: Router, private _http: HttpClient, private _route: ActivatedRoute) {
-    this.init(Database, Daiichi);
+    this.init(Database, Partner);
   }
 
   resolveComponent(component: string): Type<any> {

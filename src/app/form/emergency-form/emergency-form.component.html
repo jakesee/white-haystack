@@ -20,11 +20,11 @@
             <p>Please visit the nearest hospital immediately or call 995.</p>
             <p><a href="http://map.google.com">Find on Google Map</a></p>
         </div>
-        <div>
-            <button (click)="onNext($event)" class="default">No, proceed.</button>
+        <div class="button-list">
             <button (click)="onShowEmergencyHelp($event)">Yes</button>
             <button (click)="onBack($event)">Back</button>
             <button (click)="onCancel($event)">Cancel</button>
+            <button (click)="onNext($event)" class="default">No, proceed.</button>
         </div>
     </form>
 </div>
