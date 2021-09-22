@@ -1,4 +1,4 @@
-import { Injectable, Type } from '@angular/core';
+import { ComponentFactoryResolver, Injectable, Type, ViewContainerRef } from '@angular/core';
 import { CollectPersonalInfoFormComponent } from './form/collect-personal-info-form/collect-personal-info-form.component';
 import { ConsultNowComponent } from './sections/consult-now/consult-now.component';
 import { TriageFormComponent } from './form/triage-form/triage-form.component';
@@ -22,6 +22,8 @@ import { IAppConfig } from './interfaces';
 import { MyDoc as Partner } from 'src/partner/theme-mydoc';
 import { Database } from '../assets/database';
 import { MedicalProfileFormComponent } from './form/medical-profile-form/medical-profile-form.component';
+import { FooterComponent } from './page/footer/footer.component';
+import { HeaderComponent } from './page/header/header.component';
 
 export const REGISTRY = new Map<string, Type<any>>();
 // Sections
@@ -32,6 +34,8 @@ REGISTRY.set("BannerSectionComponent", BannerSectionComponent);
 REGISTRY.set("NeedAssistanceSectionComponent", NeedAssistanceSectionComponent);
 REGISTRY.set("TitleBarSectionComponent", TitleBarSectionComponent);
 REGISTRY.set("SubProvidersSectionComponent", SubProvidersSectionComponent);
+REGISTRY.set("HeaderComponent", HeaderComponent);
+REGISTRY.set("FooterComponent", FooterComponent);
 
 // Forms
 REGISTRY.set("ProviderEligibilityFormComponent", ProviderEligibilityFormComponent);
@@ -53,7 +57,7 @@ export class DataService {
 
   isShowMobileDownloadBar: boolean = true;
 
-  constructor(private _router: Router, private _http: HttpClient, private _route: ActivatedRoute) {
+  constructor(private _router: Router, private _http: HttpClient, private _route: ActivatedRoute, private _componentFactoryResolver: ComponentFactoryResolver) {
     this.init(Database, Partner);
   }
 
@@ -95,5 +99,18 @@ export class DataService {
 
   private _getProviders():Observable<any> {
     return this._http.get<any>(`${environment.apiUrl}/providers`);
+  }
+
+  loadComponent<T>(container: ViewContainerRef, componentName:string, callback?:(instance:T)=>void) {
+    let component = this.resolveComponent(componentName);
+    if (component) {
+      const factory = this._componentFactoryResolver.resolveComponentFactory(component);
+      console.log(componentName, container);
+      const refComponent = container.createComponent(factory);
+      let instance = refComponent.instance;
+      if (callback) callback(instance);
+    } else {
+      console.log('cannot resolve ', componentName);
+    }
   }
 }

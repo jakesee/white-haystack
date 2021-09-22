@@ -1,4 +1,3 @@
-<app-header></app-header>
 <div class="container">
     <div class="search-bar">
         <div class="search-control">
@@ -9,16 +8,6 @@
 <div *ngFor="let category of categories" class="container">
     <h1>{{category}}</h1>
     <div class="row">
-        <app-provider-card-control *ngFor="let p of getProvidersByCategory(category)" [provider]="p">
-            <!-- <div class="logo"><img src="assets/{{p.logoImage}}" /></div>
-            <div class="metadata">
-                <div class="title"><a [routerLink]="['/provider', p.id]">{{p.title}}</a></div>
-                <div class="property">
-                    <fa-icon [ngClass]="p.isMemberRequired ? 'member' : ''" [icon]="['fas', 'id-card']"></fa-icon> <fa-icon [icon]="['fas', 'heart']"></fa-icon>
-                </div>
-                <div class="description">{{p.description}}</div>
-            </div> -->
-        </app-provider-card-control>
+        <app-provider-card-control *ngFor="let p of getProvidersByCategory(category)" [provider]="p"></app-provider-card-control>
     </div>
 </div>
-<app-footer></app-footer>

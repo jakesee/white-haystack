@@ -44,16 +44,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   private _loadSections() {
     if (this.containers !== null && this.containers !== undefined) {
-      for (let i = 0; i < this.containers.toArray().length; i++) {
+      const containers = this.containers.toArray();
+      for (let i = 0; i < containers.length; i++) {
+        const container = containers[i];
         const section = this.sections[i];
-        const component = this._dataService.resolveComponent(section.component);
-        if (component) {
-          const container = this.containers.toArray()[i];
-          const factory = this._componentFactoryResolver.resolveComponentFactory<any>(component);
-          const refComponent = container.createComponent(factory);
-          let instance: Section = refComponent.instance;
-          instance.init(section.config, this.provider);
-        }
+        this._dataService.loadComponent(container, section.component, (instance) => {
+          let sectionInstance = instance as Section;
+          sectionInstance.init(section.config, this.provider)
+        });
       }
     }
   }

@@ -1,11 +1,12 @@
-import { EventEmitter, Type } from '@angular/core';
-import { HomeComponent } from './page/home/home.component';
+import { EventEmitter } from '@angular/core';
 
 export interface IAppConfig {
   providerId: number;
   theme: { [key: string]: any };
   logoUrl: string,
   menuItems: Array<IMenuItem>;
+  header: ISection;
+  footer: ISection;
   sections: Array<ISection>;
 }
 

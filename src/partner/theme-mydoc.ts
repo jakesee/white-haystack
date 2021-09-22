@@ -39,6 +39,8 @@ export const MyDoc: IAppConfig = {
         { "text": "Feeds", "routerLink": "/feeds", "icon": ["fas", "newspaper"], "display": { "public": true, "private": true } },
         { "text": "Settings", "routerLink": "/profile", "icon": ["fas", "user"], "display": { "public": false, "private": true } }
     ],
+    header: { component: "HeaderComponent", "config": {} },
+    footer: { component: "FooterComponent", "config": {} },
     sections: [
         {
             component: "ConsultNowComponent",
