@@ -1,0 +1,26 @@
+<div class="card">
+    <form>
+        <div><p>Medical Checklist</p></div>
+        <div><input name="condition" type="radio" />I do not have medical condition(s)</div>
+        <div><input name="condition" type="radio" />I have a medical condition(s)</div>
+
+        <div><p>Medications</p></div>
+        <div><input name="medication" type="radio" />I am not on medication</div>
+        <div><input name="medication" type="radio" />I am on medication</div>
+
+        <div><p>Allergies</p></div>
+        <div><input name="allergy" type="radio" />I do not have allergies and reactions</div>
+        <div><input name="allergy" type="radio" />I have allergies and reactions</div>
+
+        <div><p>Emergency Contact</p></div>
+        <div><label>Name</label> <div class="input-name"><input type="type" placeholder="Name" /> <fa-icon [icon]="['fas', 'address-book']"></fa-icon></div></div>
+        <div><label>Contact</label> <input type="type" placeholder="Phone number or email"/></div>
+        <div><span><fa-icon [icon]="['fas', 'info-circle']"></fa-icon> Your emergency contact(s) may be notified in the event of an emergency.</span></div>
+
+        <div class="button-list">
+            <button (click)="onCancel($event)">Cancel</button>
+            <button (click)="onBack($event)">Back</button>
+            <button (click)="onNext($event)" class="default">Done</button>
+        </div>
+    </form>
+</div>

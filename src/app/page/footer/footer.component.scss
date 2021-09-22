@@ -4,7 +4,7 @@ ul {
     display: flex;
     margin: 0;
     padding: 10px;
-    border-top: 1px solid $theme-border-color;
+    border-top: 1px solid var(--theme-border-color);
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -21,7 +21,7 @@ ul {
         }
 
         a:hover {
-            color: $theme-color;
+            color: var(--theme-button-primary-background-color);
         }
     }
 }

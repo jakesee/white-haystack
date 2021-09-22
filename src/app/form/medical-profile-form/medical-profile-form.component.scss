@@ -1,8 +1,13 @@
 @import '../../../variables.scss';
 
 form {
+
+    p {
+        font-weight: 700;
+    }
+
     div {
-        padding: 10px;
+        margin-bottom: 6px;
     }
 
     label {
@@ -11,16 +16,40 @@ form {
     }
     input, select {
         display: block;
-        border: none;
-        background: #EEEEEE;
         padding: 6px 9px;
         width: 100%;
+        border: none;
+
+        border-bottom: 1px solid black;
+        border-radius: 0;
+
+        // background: #EEEEEE;
+    }
+    input[type=radio] {
+        display: inline;
+        width: auto;
+    }
+    span {
+        color: var(--theme-font-inactive-color);
+    }
+
+    .input-name {
+        display: flex;
+
+        input {
+            flex: 1 1 100%;
+        }
+
+        fa-icon {
+            flex: 0 0 auto;
+        }
     }
 }
 
 .button-list {
 
     display: flex;
+    margin-top: 20px;
 
     button {
         border: none;

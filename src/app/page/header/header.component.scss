@@ -87,11 +87,6 @@ div.fluid-container {
 
       li { list-style: none; }
 
-
-      .nav-item:hover {
-        //background-color: #B7BDCF;
-      }
-
       .nav-item {
 
         padding: 6px;
@@ -102,12 +97,12 @@ div.fluid-container {
         }
 
         a:link, a:visited {
-          color: black;
+          color: var(--theme-font-primary-color);
           text-decoration: none;
         }
 
         a:hover {
-          color: $theme-color;
+          color: var(--theme-button-primary-background-color);
           text-decoration: none;
         }
       }
@@ -164,7 +159,7 @@ div.fluid-container {
 
 @media only screen and (min-width: $size-lg) {
   div.fluid-container {
-      border-bottom: 1px solid $theme-border-color;
+      border-bottom: 1px solid var(--theme-border-color);
       margin-bottom: 10px;
     }
 }

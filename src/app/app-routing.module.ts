@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'provider/:pid', component: ProviderComponent, canActivate: [AuthenticationService] },
   { path: 'waiting-room', component: WaitingRoomComponent, canActivate: [AuthenticationService] },
   { path: 'home', component: HomeComponent },
-  { path: '**', component: ExploreComponent }
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({

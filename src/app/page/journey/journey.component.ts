@@ -37,7 +37,6 @@ export class JourneyComponent implements OnInit {
     const providerId: number = this._route.snapshot.params.pid;
     await this._dataService.getProvider(providerId).toPromise().then((response) => {
       this.provider = response.data;
-
       const journey = this.provider.journey[journeyId];
       this.cmdCancel = journey.cmdCancel;
       this.cmdSuccess = journey.cmdSuccess;

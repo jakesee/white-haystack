@@ -1,6 +1,5 @@
 @import '../../../variables.scss';
 
-
 h1, h2, h3 {
     color: #0F1A50
 }
@@ -10,7 +9,7 @@ p.cta {
     line-height: 180%;
 
     fa-icon {
-        color: $theme-color;
+        color: var(--theme-button-primary-background-color);
         font-size: 150%;
         vertical-align: middle;
     }
@@ -27,7 +26,7 @@ p.cta {
         border: none;
         border-bottom: 1px solid black;
         margin-left: 10px;
-        outline-color : $theme-color !important;
+        outline-color : var(--theme-button-primary-background-color) !important;
     }
 }
 
@@ -101,7 +100,7 @@ p.cta {
             border: none;
             border-bottom: 1px solid black;
             margin-left: 10px;
-            outline-color : $theme-color !important;
+            outline-color : var(--theme-button-primary-background-color) !important;
         }
     }
 
@@ -218,7 +217,7 @@ p.cta {
         padding: 20px;
         margin: auto;
         margin-top: 20px;
-        border-radius: 10px;
+        border-radius: var(--theme-button-border-radius);
         background-color: #f7f7f7;
 
         .register-now-form-toggle {
@@ -240,53 +239,37 @@ p.cta {
 
             input {
                 flex: 1 1 100%;
-                border: 1px solid $theme-border-color;
+                border: 1px solid var(--theme-border-color);
                 padding: 10px;
                 margin-bottom: 15px;
-                outline-color: $theme-color;
+                outline-color: var(--theme-button-primary-background-color);
             }
 
             select {
                 flex: 0 0 auto;
-                border: 1px solid $theme-border-color;
+                border: 1px solid var(--theme-border-color);
                 padding: 10px;
                 margin-bottom: 15px;
-                outline-color: $theme-color;
+                outline-color: var(--theme-button-primary-background-color);
             }
 
             textarea {
-                border: 1px solid $theme-border-color;
+                border: 1px solid var(--theme-border-color);
                 padding: 10px;
                 margin-bottom: 15px;
-                outline-color: $theme-color;
+                outline-color: var(--theme-button-primary-background-color);
                 width: 100%;
             }
         }
 
         button {
-            background-color: $theme-color;
+            background-color: var(--theme-button-primary-background-color);
             color: white;
             padding: 10px 20px;
             margin-bottom: 20px;
             border: none;
         }
     }
-}
-
-
-@media screen and (min-width: $size-sm) {
-    // .tour-care-network{
-    //     .care-network-intro {
-    //         .care-network-providers {
-    //             .mydoc {
-    //                 margin: auto;
-    //             }
-    //             .partner {
-    //                 width: 180px;
-    //             }
-    //         }
-    //     }
-    // }
 }
 
 @media screen and (min-width: $size-md) {

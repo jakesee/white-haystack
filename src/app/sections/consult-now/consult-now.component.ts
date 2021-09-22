@@ -11,6 +11,7 @@ export class ConsultNowComponent extends Section implements OnInit {
   imgSource: string = '';
   title: string = 'Title';
   subText: string = '';
+  body: string = '';
   buttonText: string = 'Consult Now';
   command: [];
 

@@ -4,10 +4,10 @@
     <div><label>What are your symptoms?</label><input formControlName="answer"></div>
     <div><label>How long have your symptoms persisted?</label><input formControlName="answer"></div>
     <div><label>Any other complaints?</label><input formControlName="answer"></div>
-    <div>
-      <button (click)="next($event)" class="default">Next</button>
+    <div class="button-list">
       <button (click)="back($event)">Back</button>
       <button (click)="cancel($event)">Cancel</button>
+      <button (click)="next($event)" class="default">Next</button>
     </div>
   </form>
 </div>

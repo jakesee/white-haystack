@@ -2,10 +2,10 @@
     <h1>Member Validation</h1>
     <form [formGroup]="form">
         <div><label>Policy Number</label><input formControlName="policyNumber" /></div>
-        <div>
-            <button (click)="onNext($event)" class="default">Next</button>
+        <div class="button-list">
             <button (click)="onBack($event)">Back</button>
             <button (click)="onCancel($event)">Cancel</button>
+            <button (click)="onNext($event)" class="default">Next</button>
         </div>
     </form>
 </div>
