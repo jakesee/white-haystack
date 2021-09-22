@@ -48,7 +48,7 @@ export const MyDoc: IAppConfig = {
                 body: "Speak to an experienced GP within minutes",
                 subText: "Operational Hours: 0800H - 2200H, including weekend and holidays",
                 buttonText: "SPEAK WITH A DOCTOR NOW",
-                command: ["/provider", 0, "journey", "start"]
+                command: ["/provider", 13, "journey", "start"]
             }
         },
         { component: "SymptomsSectionComponent", "config": {} },

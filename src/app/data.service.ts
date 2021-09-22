@@ -20,7 +20,8 @@ import { SubProvidersSectionComponent } from './sections/sub-providers-section/s
 import * as _ from 'lodash';
 import { IAppConfig } from './interfaces';
 import { MyDoc as Partner } from 'src/partner/theme-mydoc';
-import Database from '../assets/database.json';
+import { Database } from '../assets/database';
+import { MedicalProfileFormComponent } from './form/medical-profile-form/medical-profile-form.component';
 
 export const REGISTRY = new Map<string, Type<any>>();
 // Sections
@@ -39,6 +40,7 @@ REGISTRY.set("CollectPersonalInfoFormComponent", CollectPersonalInfoFormComponen
 REGISTRY.set("EmergencyFormComponent", EmergencyFormComponent);
 REGISTRY.set("NextAppointmentInfoFormComponent", NextAppointmentInfoFormComponent);
 REGISTRY.set("RequestAppointmentFormComponent", RequestAppointmentFormComponent);
+REGISTRY.set("MedicalProfileFormComponent", MedicalProfileFormComponent);
 
 @Injectable({
   providedIn: 'root'

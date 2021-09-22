@@ -53,7 +53,7 @@
   -webkit-box-sizing: border-box;
 }
 html, body { padding: 0; margin: 0; }
-html, body, input, select, textarea, button {
+html, body, input, select, textarea, button, label, span {
   color: var(--theme-font-primary-color);
   font-family: var(--theme-font-family);
   font-weight: 400;

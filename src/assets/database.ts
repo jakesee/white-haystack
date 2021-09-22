@@ -1,4 +1,4 @@
-{
+export const Database = {
     "users": [
         {
             "id": 1,
@@ -473,7 +473,47 @@
                     "config": {}
                 }
             ],
-            "journey": {}
+            "journey": {
+                "start": {
+                    "auth": true,
+                    "ctaLabel": "Talk to a doctor now!",
+                    "cmdCancel": ["../.."],
+                    "cmdSuccess": ["/waiting-room"],
+                    "sequence": [
+                        {
+                            "stepName": "Medical Profile",
+                            "component": "MedicalProfileFormComponent",
+                            "config": {
+                                "title": "Please confirm your medical profile"
+                            }
+                        },
+                        {
+                            "stepName": "Emergency Notice",
+                            "component": "EmergencyFormComponent",
+                            "config": {}
+                        },
+                        {
+                            "stepName": "Triage",
+                            "component": "TriageFormComponent",
+                            "config": {
+                                "questionText": "What complaints do you have today?"
+                            }
+                        },
+                        {
+                            "stepName": "Confirm Personal Info",
+                            "component": "CollectPersonalInfoFormComponent",
+                            "config": {
+                                "title": "Please provide your personal info."
+                            }
+                        },
+                        {
+                            "stepName": "Request Appointment",
+                            "component": "RequestAppointmentFormComponent",
+                            "config": {}
+                        }
+                    ]
+                }
+            }
         },
         {
             "id": 14,
@@ -489,12 +529,8 @@
                 "start": {
                     "auth": true,
                     "ctaLabel": "Talk to a doctor now!",
-                    "cmdCancel": [
-                        "../.."
-                    ],
-                    "cmdSuccess": [
-                        "/waiting-room"
-                    ],
+                    "cmdCancel": ["../.."],
+                    "cmdSuccess": ["/waiting-room"],
                     "sequence": [
                         {
                             "stepName": "Emergency Notice",
@@ -513,6 +549,13 @@
                             "component": "CollectPersonalInfoFormComponent",
                             "config": {
                                 "title": "Please provide your personal info."
+                            }
+                        },
+                        {
+                            "stepName": "Medical Profile",
+                            "component": "MedicalProfileFormComponent",
+                            "config": {
+                                "title": "Please confirm your medical profile"
                             }
                         },
                         {

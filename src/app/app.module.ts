@@ -19,7 +19,7 @@ import { DataService } from './data.service';
 import { AuthenticationService } from './auth/authentication.service';
 import { mockHttpProviderService } from './mock-http-provider.service';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faAngleDoubleDown, faBars, faBell, faCalendarAlt, faClinicMedical, faClock, faComment, faComments, faFilePrescription, faGlobeAsia, faHeart, faHome, faIdCard, faMoneyBillAlt, faNewspaper, faRobot, faRoute, faSearch, faSignInAlt, faSignOutAlt, faTasks, faUser, faVideo, faWindowClose } from '@fortawesome/free-solid-svg-icons';
+import { faAddressBook, faAngleDoubleDown, faBars, faBell, faCalendarAlt, faClinicMedical, faClock, faComment, faComments, faFilePrescription, faGlobeAsia, faHeart, faHome, faIdCard, faInfoCircle, faMoneyBillAlt, faNewspaper, faRobot, faRoute, faSearch, faSignInAlt, faSignOutAlt, faTasks, faUser, faVideo, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { EmergencyFormComponent } from './form/emergency-form/emergency-form.component';
 import { SymptomsSectionComponent } from './sections/symptoms-section/symptoms-section.component';
 import { OnetwothreeSectionComponent } from './sections/onetwothree-section/onetwothree-section.component';
@@ -43,6 +43,7 @@ import { TourComponent } from './page/tour/tour.component';
 import { TagControlComponent } from './control/tag-control/tag-control.component';
 import { AutofocusDirective } from './shared/autofocus.directive';
 import { FeedsComponent } from './page/feeds/feeds.component';
+import { MedicalProfileFormComponent } from './form/medical-profile-form/medical-profile-form.component';
 
 
 @NgModule({
@@ -89,6 +90,7 @@ import { FeedsComponent } from './page/feeds/feeds.component';
     TagControlComponent,
     AutofocusDirective,
     FeedsComponent,
+    MedicalProfileFormComponent,
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],
@@ -120,7 +122,9 @@ export class AppModule {
       faMoneyBillAlt,
       faAngleDoubleDown,
       faRoute,
-      faGlobeAsia
+      faGlobeAsia,
+      faInfoCircle,
+      faAddressBook
     );
   }
 }
