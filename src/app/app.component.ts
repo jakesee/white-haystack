@@ -19,7 +19,7 @@ export class AppComponent extends PageBase implements AfterViewInit {
   ngAfterViewInit(): void {
     setTimeout(() => {
       this._loadComponents();
-    }, 1);
+    }, 0);
   }
 
   private _loadComponents() {

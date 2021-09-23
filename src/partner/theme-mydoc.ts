@@ -1,7 +1,7 @@
 import { IAppConfig, PageStyleContainerEnum, PageStyleContentEnum } from "@app/interfaces";
 
 export const MyDoc: IAppConfig = {
-    providerId: 13,
+    providerId: 0,
     theme: {
         // body
         "--theme-font-family": "'Roboto', sans-serif",
@@ -16,7 +16,7 @@ export const MyDoc: IAppConfig = {
 
         // background
         "--theme-primary-background-color": "#ffffff",
-        "--theme-secondary-background-color": "#fafafa", // applies to pageStyle.container
+        "--theme-secondary-background-color": "#ffffff", // applies to pageStyle.container
 
         // errors and warnings
         "--theme-error-background-color": "#ED0225",
@@ -43,7 +43,8 @@ export const MyDoc: IAppConfig = {
     },
     logoUrl: "https://my-doc.com/wp-content/uploads/2019/12/logo-mydoc-1.png",
     menuItems: [
-        { "text": "Home", "routerLink": "/explore", "icon": ["fas", "globe-asia"], "display": { "public": true, "private": true } },
+        { "text": "Home", "routerLink": "/home", "icon": ["fas", "home"], "display": { "public": true, "private": true } },
+        // { "text": "Explore", "routerLink": "/home", "icon": ["fas", "globe-asia"], "display": { "public": true, "private": true } },
         { "text": "MyDoc Tour", "routerLink": "/public/tour", "icon": ["fas", "route"], "display": { "public": true, "private": false } },
         { "text": "Care Network", "routerLink": "/care-network", "icon": ["fas", "heart"], "display": { "public": true, "private": true } },
         { "text": "Appointment", "routerLink": "/waiting-room", "icon": ["fas", "calendar-alt"], "display": { "public": false, "private": true } },
@@ -55,27 +56,11 @@ export const MyDoc: IAppConfig = {
     footer: { component: "FooterComponent", "config": { } },
     sections: [
         {
-            component: "ConsultNowComponent",
-            config: {
-                imgSource: "https://app.qa.my-doc.com/dai-ichi/assets/images/Banner_happy_family.png",
-                title: "Welcome to MyDoc Virtual Consultation!",
-                body: "Speak to an experienced GP within minutes",
-                subText: "Operational Hours: 0800H - 2200H, including weekend and holidays",
-                buttonText: "SPEAK WITH A DOCTOR NOW",
-                command: ["/provider", 13, "journey", "start"]
-            }
-        },
-        { component: "SymptomsSectionComponent", "config": {} },
-        { component: "OnetwothreeSectionComponent", "config": {} },
-        {
-            component: "NeedAssistanceSectionComponent",
-            config: {
-                content: "<p>Need any assistance? Call us at</p><p><b>MyDoc Pte Ltd<br /> (028) 38100888</b><br /> 08: 00 - 17: 30, Mon - Fri and 08: 00 - 12: 00, Sat </p><p><b>MyDoc <br /> 0707150628</b><br /> 8: 00 to 22: 00, incl.weekend & holidays </p>"
-            }
-        },
-        {
             component: "BannerSectionComponent",
-            config: {}
-        }
+            config: { imgSrc: "assets/banner-mydoc.jpg" }
+        },
+        { component: "CategorySectionComponent", "config": {} },
+        { component: "RecentProvidersSectionComponent", "config": {} },
+        { component: "RecentFeedsSectionComponent", "config": {} },
     ]
 }

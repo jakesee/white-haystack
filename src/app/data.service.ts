@@ -26,9 +26,14 @@ import { MyDoc as Partner } from 'src/partner/theme-mydoc';
 //import { Daiichi as Partner } from 'src/partner/theme-daiichi';
 //import { Bowtie as Partner } from 'src/partner/theme-bowtie';
 import * as _ from 'lodash';
+import { RecentFeedsSectionComponent } from './sections/recent-feeds-section/recent-feeds-section.component';
+import { RecentProvidersSectionComponent } from './sections/recent-providers-section/recent-providers-section.component';
+import { CategorySectionComponent } from './sections/category-section/category-section.component';
 
 export const REGISTRY = new Map<string, Type<any>>();
 // Sections
+REGISTRY.set("HeaderComponent", HeaderComponent);
+REGISTRY.set("FooterComponent", FooterComponent);
 REGISTRY.set("ConsultNowComponent", ConsultNowComponent);
 REGISTRY.set("SymptomsSectionComponent", SymptomsSectionComponent);
 REGISTRY.set("OnetwothreeSectionComponent", OnetwothreeSectionComponent);
@@ -36,8 +41,10 @@ REGISTRY.set("BannerSectionComponent", BannerSectionComponent);
 REGISTRY.set("NeedAssistanceSectionComponent", NeedAssistanceSectionComponent);
 REGISTRY.set("TitleBarSectionComponent", TitleBarSectionComponent);
 REGISTRY.set("SubProvidersSectionComponent", SubProvidersSectionComponent);
-REGISTRY.set("HeaderComponent", HeaderComponent);
-REGISTRY.set("FooterComponent", FooterComponent);
+REGISTRY.set("RecentFeedsSectionComponent", RecentFeedsSectionComponent);
+REGISTRY.set("RecentProvidersSectionComponent", RecentProvidersSectionComponent);
+REGISTRY.set("CategorySectionComponent", CategorySectionComponent);
+
 
 // Forms
 REGISTRY.set("ProviderEligibilityFormComponent", ProviderEligibilityFormComponent);
@@ -71,9 +78,9 @@ export class DataService {
     return this._http.get<any>(`${environment.apiUrl}/provider`, { params: { id: id } });
   }
 
-  getProvidersByParent(id: number) {
+  getProvidersByParent(parentId: number) {
     return this._getProviders().pipe(map((val) => {
-      val.data = _.filter(val.data, (p) => p.parentId == id);
+      val.data = _.filter(val.data, (p) => p.parentId == parentId);
       return val;
     }));
   }
@@ -103,16 +110,32 @@ export class DataService {
     return this._http.get<any>(`${environment.apiUrl}/providers`);
   }
 
-  loadComponent<T>(container: ViewContainerRef, componentName:string, callback?:(instance:T)=>void) {
+  loadComponent<T>(container: ViewContainerRef, componentName: string): T {
     let component = this.resolveComponent(componentName);
     if (component) {
       const factory = this._componentFactoryResolver.resolveComponentFactory(component);
-      console.log(componentName, container);
+      console.log(componentName);
       const refComponent = container.createComponent(factory);
-      let instance = refComponent.instance;
-      if (callback) callback(instance);
+      return refComponent.instance;
     } else {
       console.log('cannot resolve ', componentName);
+      return null;
     }
+  }
+
+  any(source: any[], count: number) {
+    var result = [];
+
+    for (var i = 0; i < source.length; i++) {
+
+      if (result.length >= count) break;
+
+      var need = count - result.length;
+      if (Math.floor(Math.random() * (source.length - i - need)) == 0) {
+        result.push(source[i]);
+      }
+    }
+
+    return result;
   }
 }

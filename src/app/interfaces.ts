@@ -3,9 +3,9 @@ import { EventEmitter } from '@angular/core';
 export interface IAppConfig {
   providerId: number;
   theme: ITheme;
-  logoUrl: string,
+  logoUrl: string;
   menuItems: Array<IMenuItem>;
-  pageStyle: IPageStyle,
+  pageStyle: IPageStyle;
   header: ISection;
   footer: ISection;
   sections: Array<ISection>;
@@ -13,48 +13,48 @@ export interface IAppConfig {
 
 export interface ITheme {
   // body
-  "--theme-font-family": string,
-  "--theme-font-primary-color": string,
-  "--theme-font-secondary-color": string,
-  "--theme-font-inactive-color": string,
-  "--theme-box-border-color": string,
+  "--theme-font-family": string;
+  "--theme-font-primary-color": string;
+  "--theme-font-secondary-color": string;
+  "--theme-font-inactive-color": string;
+  "--theme-box-border-color": string;
 
   // header/footer
-  "--theme-header-background-color": string,
-  "--theme-footer-background-color": string,
+  "--theme-header-background-color": string;
+  "--theme-footer-background-color": string;
 
   // background
-  "--theme-primary-background-color": string,
-  "--theme-secondary-background-color": string,
+  "--theme-primary-background-color": string;
+  "--theme-secondary-background-color": string;
 
   // errors and warnings
-  "--theme-error-background-color": string,
-  "--theme-error-foreground-color": string,
+  "--theme-error-background-color": string;
+  "--theme-error-foreground-color": string;
 
   // buttons
-  "--theme-button-border-radius": string,
+  "--theme-button-border-radius": string;
 
-  "--theme-button-primary-border-color": string,
-  "--theme-button-primary-background-color": string,
-  "--theme-button-primary-foreground-color": string,
+  "--theme-button-primary-border-color": string;
+  "--theme-button-primary-background-color": string;
+  "--theme-button-primary-foreground-color": string;
 
-  "--theme-button-secondary-border-color": string,
-  "--theme-button-secondary-background-color": string,
-  "--theme-button-secondary-foreground-color": string,
+  "--theme-button-secondary-border-color": string;
+  "--theme-button-secondary-background-color": string;
+  "--theme-button-secondary-foreground-color": string;
 
-  "--theme-button-primary-inactive-border-color": string,
-  "--theme-button-primary-inactive-background-color": string,
-  "--theme-button-primary-inactive-foreground-color": string,
+  "--theme-button-primary-inactive-border-color": string;
+  "--theme-button-primary-inactive-background-color": string;
+  "--theme-button-primary-inactive-foreground-color": string;
 
-  "--theme-button-secondary-inactive-border-color": string,
-  "--theme-button-secondary-inactive-background-color": string,
-  "--theme-button-secondary-inactive-foreground-color": string
+  "--theme-button-secondary-inactive-border-color": string;
+  "--theme-button-secondary-inactive-background-color": string;
+  "--theme-button-secondary-inactive-foreground-color": string;
 }
 
 export interface IMenuItem {
-  text: string,
-  routerLink: string,
-  icon: Array<string>,
+  text: string;
+  routerLink: string;
+  icon: Array<string>;
   display: { public: boolean, private: boolean };
 }
 
@@ -92,38 +92,65 @@ export class FormEvent {
 
 export class Section {
 
-  provider: any;
+  provider: IProvider;
 
-  init(config: any, provider: any): void {
+  init(config: any, provider: IProvider): void {
     Object.assign(this, config);
     this.provider = provider;
   }
 }
 
-
-
-export interface ProviderData {
+export interface IProvider {
   id: number;
+  parentId: number,
+  order: 0,
   title: string;
+  logoUrl: string,
   description: string;
-  logoImage: string;
-  sections: Array<ComponentData>;
-  journeys: Array<JourneyData>;
+  category: string;
+  isMemberRequired: boolean,
+  sections?: Array<ISection>;
+  journey?: {
+    start: IJourney,
+    [key:string]: IJourney
+  };
 }
 
-export interface JourneyData {
-  auth: boolean;
+export interface IJourney {
+  auth: boolean
+  label: string,
   cmdCancel: any;
   cmdSuccess: any;
-  sequence: Array<ComponentData>;
+  sequence: Array<ISequenceItem>;
 }
 
-export interface ComponentData {
+export interface ISequenceItem {
+  stepName: string;
   component: string;
   config: any;
 }
 
-export class User {
+export interface IDatabase {
+  users: IUser[];
+  providers: IProvider[];
+}
+
+export class IUser {
+  id: number;
+  username: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  gender: string;
+  birthdate: string;
+  episodes: IEpisode[];
+}
+
+export class User implements IUser {
+  id: number;
+  username: string;
+  password: string;
+  episodes: any[];
 
   firstName: string;
   lastName: string;
@@ -146,4 +173,11 @@ export class User {
   get name(): string {
     return this.firstName + " " + this.lastName;
   }
+}
+
+export interface IEpisode {
+  doctorName: string;
+  doctorImgUrl: string;
+  startAt: number;
+  endAt: number;
 }

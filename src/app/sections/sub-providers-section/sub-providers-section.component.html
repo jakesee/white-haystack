@@ -6,7 +6,7 @@
     </div>
     <div class="provider-list">
         <div *ngFor="let provider of providers" class="provider">
-            <div class="logo"><img src="assets/{{provider.logoImage}}" /></div>
+            <div class="logo"><img src="assets/{{provider.logoUrl}}" /></div>
             <div class="metadata">
                 <div class="title">{{provider.title}}</div>
                 <div class="property">
@@ -14,7 +14,7 @@
                     <fa-icon [icon]="['fas', 'heart']"></fa-icon>
                     <span>$25 - $100</span>
                     <div class="journey-button">
-                        <button (click)="onJourneyStart($event, provider)">{{provider.journey.start.ctaLabel}}</button>
+                        <button (click)="onJourneyStart($event, provider)" class="wh-secondary">{{provider.journey.start.label}}</button>
                     </div>
                 </div>
                 <div class="description">{{provider.description}}</div>

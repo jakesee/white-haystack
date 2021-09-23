@@ -12,7 +12,6 @@
             border-radius: 5px 5px 5px 5px;
             border: 1px solid var(--theme-box-border-color);
         }
-
     }
 
     .metadata {
@@ -22,7 +21,7 @@
         a {
             font-weight: 700;
             text-decoration: none;
-            color: black;
+            color: var(--theme-font-primary-color);
         }
 
         .property {
@@ -31,7 +30,6 @@
                 font-size: 120%;
                 display: inline-block;
                 margin: 5px 5px 5px 0;
-                color: var(--theme-button-primary-background-color);
                 vertical-align: middle;
             }
 

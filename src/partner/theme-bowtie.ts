@@ -1,7 +1,7 @@
 import { IAppConfig, PageStyleContainerEnum, PageStyleContentEnum } from "@app/interfaces";
 
 export const Bowtie: IAppConfig = {
-    providerId: 0,
+    providerId: 2,
     theme: {
         // body
         "--theme-font-family": "'Roboto', sans-serif",
@@ -60,7 +60,7 @@ export const Bowtie: IAppConfig = {
                 body: "Speak to an experienced GP within minutes",
                 subText: "Operational Hours: 0800H - 2200H, including weekend and holidays",
                 buttonText: "SPEAK WITH A DOCTOR NOW",
-                command: ["/provider", 0, "journey", "start"]
+                command: ["/provider", 2, "journey", "start"]
             }
         },
         { component: "SymptomsSectionComponent", "config": {} },

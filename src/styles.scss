@@ -84,28 +84,31 @@ button, input, select, textarea {
 
 // buttons
 button:hover,
-button, input[type=submit],
-fa-icon.wh-primary:hover,
-fa-icon.wh-secondary:hover,
-fa-icon.wh-inactive:hover {
+button, input[type=submit] {
   cursor: pointer;
   border-radius: var(--theme-button-border-radius);
 }
-button.wh-primary, fa-icon.wh-primary, input[type=submit].wh-primary {
+button.wh-primary, input[type=submit].wh-primary {
   background-color: var(--theme-button-primary-background-color) !important;
   color: var(--theme-button-primary-foreground-color) !important;
   border: 1px solid var(--theme-button-primary-border-color) !important;
 }
-button.wh-secondary, fa-icon.wh-secondary, input[type=submit].wh-secondary {
+button.wh-secondary, input[type=submit].wh-secondary {
   background-color: var(--theme-button-secondary-background-color) !important;
   color: var(--theme-button-secondary-foreground-color) !important;
   border: 1px solid var(--theme-button-secondary-border-color) !important;
 }
-button.wh-inactive, fa-icon.wh-inactive, input[type=submit].wh-inactive {
-  background-color: var(--theme-button-secondary-background-color) !important;
-  color: var(--theme-button-secondary-foreground-color) !important;
-  border: 1px solid var(--theme-button-secondary-border-color) !important;
+button.wh-inactive, input[type=submit].wh-inactive {
+  background-color: var(--theme-button-inactive-background-color) !important;
+  color: var(--theme-button-inactive-foreground-color) !important;
+  border: 1px solid var(--theme-button-inactive-border-color) !important;
 }
+fa-icon.wh-primary { color: var(--theme-button-primary-foreground-color) !important; }
+fa-icon.wh-secondary { color: var(--theme-button-secondary-foreground-color) !important; }
+fa-icon.wh-inactive { color: var(--theme-button-inactive-foreground-color) !important; }
+fa-icon.wh-primary:hover,
+fa-icon.wh-secondary:hover,
+fa-icon.wh-inactive:hover { cursor: pointer; }
 
 .wh-row::after {
   content: "";

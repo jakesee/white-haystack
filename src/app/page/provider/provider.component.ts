@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, ComponentFactoryResolver, OnInit, QueryList, ViewChildren, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '@app/data.service';
-import { ProviderData, Section } from '@app/interfaces';
+import { IProvider, Section } from '@app/interfaces';
 
 @Component({
   selector: 'app-provider',
@@ -12,14 +12,13 @@ export class ProviderComponent implements OnInit {
 
   @ViewChildren('section', { read: ViewContainerRef }) containers: QueryList<ViewContainerRef>;
 
-  provider: ProviderData = {} as ProviderData;
+  provider: IProvider = {} as IProvider;
 
   logoImage: string = "";
 
   constructor(
     private _dataService: DataService,
     private _route: ActivatedRoute,
-    private _componentFactoryResolver: ComponentFactoryResolver,
     private _changeDetectorRef: ChangeDetectorRef
   ) {
     this._route.params.subscribe((params) => {
@@ -40,20 +39,14 @@ export class ProviderComponent implements OnInit {
 
   }
 
-  ngAfterViewInit(): void {
-
-  }
-
   private _loadSections() {
     if (this.containers !== null && this.containers !== undefined) {
       const containers = this.containers.toArray();
       for (let i = 0; i < containers.length; i++) {
         const container = containers[i];
         const section = this.provider.sections[i];
-        this._dataService.loadComponent(container, section.component, (instance) => {
-          let sectionInstance = instance as Section;
-          sectionInstance.init(section.config, this.provider)
-        });
+        let instance: Section = this._dataService.loadComponent(container, section.component);
+        instance.init(section.config, this.provider);
       }
     }
   }
