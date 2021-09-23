@@ -234,7 +234,7 @@ export const Database: IDatabase = {
                 {
                     "component": "BannerSectionComponent",
                     "config": {
-                        "imgSrc": "https://scontent.fsin7-1.fna.fbcdn.net/v/t1.6435-9/s960x960/137550068_5172103752830461_72185124487826374_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=e3f864&_nc_ohc=DQ9Fbs6y304AX_KIeok&_nc_ht=scontent.fsin7-1.fna&oh=99e8f4340f624ac3f3d727d9b5c9325d&oe=61682178"
+                        "imgSrc": "assets/banner-aetna.jpg"
                     }
                 },
                 {
@@ -277,7 +277,23 @@ export const Database: IDatabase = {
             "description": "Delightful blueberry scones quinoa flatbread couscous cozy butternut green pepper cool off garlic sriracha noodles grapefruit peanut butter crunch spicy miso dressing hearts of palm summer fruit salad.",
             "logoUrl": "logo-allianz.png",
             "isMemberRequired": true,
-            "category": "Insurer"
+            "category": "Insurer",
+            "sections": [
+                {
+                    "component": "BannerSectionComponent",
+                    "config": {
+                        "imgSrc": "assets/banner-allianz.jpg"
+                    }
+                },
+                {
+                    "component": "TitleBarSectionComponent",
+                    "config": {
+                        "logoImgSrc": "assets/logo-allianz.png",
+                        "title": "Allianz Partners",
+                        "blob": "Bananas strawberry spinach salad cozy butternut leek edamame hummus garlic sriracha noodles green papaya salad tofu quinoa flatbread zesty tofu pad thai spicy smoked tofu burritos roasted brussel sprouts blood orange smash lime mango crisp Bolivian rainbow pepper. Crispy ghost pepper Chinese five-spice powder salty cherry bomb tahini drizzle miso turmeric glazed aubergine shiitake mushrooms dill red curry tofu noodles morning smoothie bowl. Thai dragon pepper red pepper cool cucumbers crumbled lentils bento box avocado basil pesto seitan lemon tahini dressing banana bread hemp seeds macadamia nut cookies red lentil curry sandwiches Thai curry sesame soba noodles lingonberry."
+                    }
+                },
+            ]
         },
         {
             "id": 5,
@@ -287,7 +303,23 @@ export const Database: IDatabase = {
             "description": "Hazelnut shiitake mediterranean roasted brussel sprouts hummus falafel bowl bite sized heat couscous cherry bomb cherries Thai curry mangos basil hearts of palm cinnamon mediterranean vegetables shiitake mushrooms lychee.",
             "logoUrl": "logo-prudential.png",
             "isMemberRequired": true,
-            "category": "Insurer"
+            "category": "Insurer",
+            "sections": [
+                {
+                    "component": "BannerSectionComponent",
+                    "config": {
+                        "imgSrc": "assets/banner-prudential.jpg"
+                    }
+                },
+                {
+                    "component": "TitleBarSectionComponent",
+                    "config": {
+                        "logoImgSrc": "assets/logo-prudential.png",
+                        "title": "Prudential",
+                        "blob": "Bananas strawberry spinach salad cozy butternut leek edamame hummus garlic sriracha noodles green papaya salad tofu quinoa flatbread zesty tofu pad thai spicy smoked tofu burritos roasted brussel sprouts blood orange smash lime mango crisp Bolivian rainbow pepper. Crispy ghost pepper Chinese five-spice powder salty cherry bomb tahini drizzle miso turmeric glazed aubergine shiitake mushrooms dill red curry tofu noodles morning smoothie bowl. Thai dragon pepper red pepper cool cucumbers crumbled lentils bento box avocado basil pesto seitan lemon tahini dressing banana bread hemp seeds macadamia nut cookies red lentil curry sandwiches Thai curry sesame soba noodles lingonberry."
+                    }
+                },
+            ]
         },
         {
             "id": 6,
@@ -297,7 +329,23 @@ export const Database: IDatabase = {
             "description": "Italian linguine puttanesca Thai super chili burritos summer fruit salad enchiladas farro platter winter quinoa flatbread basmati banana bread simmer peaches.",
             "logoUrl": "logo-nutriwell.png",
             "isMemberRequired": false,
-            "category": "Clinic"
+            "category": "Clinic",
+            "sections": [
+                {
+                    "component": "BannerSectionComponent",
+                    "config": {
+                        "imgSrc": "assets/banner-allianz.jpg"
+                    }
+                },
+                {
+                    "component": "TitleBarSectionComponent",
+                    "config": {
+                        "logoImgSrc": "assets/logo-allianz.png",
+                        "title": "Allianz Partners",
+                        "blob": "Bananas strawberry spinach salad cozy butternut leek edamame hummus garlic sriracha noodles green papaya salad tofu quinoa flatbread zesty tofu pad thai spicy smoked tofu burritos roasted brussel sprouts blood orange smash lime mango crisp Bolivian rainbow pepper. Crispy ghost pepper Chinese five-spice powder salty cherry bomb tahini drizzle miso turmeric glazed aubergine shiitake mushrooms dill red curry tofu noodles morning smoothie bowl. Thai dragon pepper red pepper cool cucumbers crumbled lentils bento box avocado basil pesto seitan lemon tahini dressing banana bread hemp seeds macadamia nut cookies red lentil curry sandwiches Thai curry sesame soba noodles lingonberry."
+                    }
+                },
+            ]
         },
         {
             "id": 7,
@@ -307,7 +355,23 @@ export const Database: IDatabase = {
             "description": "Arugula salad red pepper coconut chili pepper cocoa lime ginger lemongrass agave green tea paprika elderberry vegan eating together tahini drizzle portobello mushrooms entree pesto figs double dark chocolate avocado blackberries with Mexican fiesta.",
             "logoUrl": "logo-dtap.png",
             "isMemberRequired": false,
-            "category": "Clinic"
+            "category": "Clinic",
+            "sections": [
+                {
+                    "component": "BannerSectionComponent",
+                    "config": {
+                        "imgSrc": "assets/banner-dtap.jpg"
+                    }
+                },
+                {
+                    "component": "TitleBarSectionComponent",
+                    "config": {
+                        "logoImgSrc": "assets/logo-dtap.png",
+                        "title": "Allianz Partners",
+                        "blob": "Arugula salad red pepper coconut chili pepper cocoa lime ginger lemongrass agave green tea paprika elderberry vegan eating together tahini drizzle portobello mushrooms entree pesto figs double dark chocolate avocado blackberries with Mexican fiesta."
+                    }
+                },
+            ]
         },
         {
             "id": 8,
@@ -317,7 +381,23 @@ export const Database: IDatabase = {
             "description": "Veggie burgers smoky maple tempeh glaze samosa Italian pepperoncini Caribbean red habanero plums tabasco pepper ginger carrot spiced juice cherry lingonberry appetizer sweet potato.",
             "logoUrl": "logo-raffles-medical-group.png",
             "isMemberRequired": true,
-            "category": "Clinic"
+            "category": "Clinic",
+            "sections": [
+                {
+                    "component": "BannerSectionComponent",
+                    "config": {
+                        "imgSrc": "assets/banner-dtap.jpg"
+                    }
+                },
+                {
+                    "component": "TitleBarSectionComponent",
+                    "config": {
+                        "logoImgSrc": "assets/logo-raffles-medical-group.png",
+                        "title": "Allianz Partners",
+                        "blob": "Arugula salad red pepper coconut chili pepper cocoa lime ginger lemongrass agave green tea paprika elderberry vegan eating together tahini drizzle portobello mushrooms entree pesto figs double dark chocolate avocado blackberries with Mexican fiesta."
+                    }
+                },
+            ]
         },
         {
             "id": 9,
@@ -357,7 +437,23 @@ export const Database: IDatabase = {
             "description": "Chinese five-spice powder red amazon pepper lemon maple orange tempeh dark and stormy cinnamon toast thyme grapefruit.",
             "logoUrl": "logo-guardian.png",
             "isMemberRequired": false,
-            "category": "Pharmacy"
+            "category": "Pharmacy",
+            "sections": [
+                {
+                    "component": "BannerSectionComponent",
+                    "config": {
+                        "imgSrc": "assets/banner-dtap.jpg"
+                    }
+                },
+                {
+                    "component": "TitleBarSectionComponent",
+                    "config": {
+                        "logoImgSrc": "assets/logo-guardian.png",
+                        "title": "Guardian",
+                        "blob": "Chinese five-spice powder red amazon pepper lemon maple orange tempeh dark and stormy cinnamon toast thyme grapefruit."
+                    }
+                },
+            ]
         },
         {
             "id": 11,
@@ -367,7 +463,23 @@ export const Database: IDatabase = {
             "description": "Almond milk avocado dressing drizzle black beans banana lavender lemonade oranges tasty crispy seitan cool cucumbers.",
             "logoUrl": "logo-watsons.png",
             "isMemberRequired": false,
-            "category": "Pharmacy"
+            "category": "Pharmacy",
+            "sections": [
+                {
+                    "component": "BannerSectionComponent",
+                    "config": {
+                        "imgSrc": "assets/banner-watsons.jpg"
+                    }
+                },
+                {
+                    "component": "TitleBarSectionComponent",
+                    "config": {
+                        "logoImgSrc": "assets/logo-watsons.png",
+                        "title": "Guardian",
+                        "blob": "Almond milk avocado dressing drizzle black beans banana lavender lemonade oranges tasty crispy seitan cool cucumbers."
+                    }
+                },
+            ]
         },
         {
             "id": 12,
@@ -378,6 +490,7 @@ export const Database: IDatabase = {
             "logoUrl": "logo-mental-health.png",
             "isMemberRequired": true,
             "category": "Specialist",
+            "sections": [],
             "journey": {
                 "start": {
                     "auth": true,
@@ -432,6 +545,7 @@ export const Database: IDatabase = {
             "logoUrl": "logo-womens-health.png",
             "isMemberRequired": true,
             "category": "Specialist",
+            "sections": [],
             "journey": {
                 "start": {
                     "auth": true,

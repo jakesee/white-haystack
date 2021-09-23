@@ -109,7 +109,7 @@ export interface IProvider {
   description: string;
   category: string;
   isMemberRequired: boolean,
-  sections?: Array<ISection>;
+  sections: Array<ISection>;
   journey?: {
     start: IJourney,
     [key:string]: IJourney
