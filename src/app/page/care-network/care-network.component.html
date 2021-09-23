@@ -1,7 +1,7 @@
 <div>
     <div class="search-bar">
         <div class="search-control">
-            <input class="search-input" type="search" value="" placeholder="Search"/> <fa-icon [icon]="['fas', 'search']"></fa-icon>
+            <input class="search-input" type="search" value="" placeholder="Search" (keyup)="search($event)" /> <fa-icon [icon]="['fas', 'search']"></fa-icon>
         </div>
     </div>
 </div>

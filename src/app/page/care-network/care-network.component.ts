@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '@app/data.service';
+import { IProvider } from '@app/interfaces';
 import * as _ from 'lodash';
 
 @Component({
@@ -9,7 +10,9 @@ import * as _ from 'lodash';
 })
 export class CareNetworkComponent implements OnInit {
 
-  providers: any;
+  providers: IProvider[] = [];
+
+  results: { [key:string]: IProvider[] } = {};
 
   constructor(private _dataService: DataService) {
     this._construct();
@@ -19,7 +22,7 @@ export class CareNetworkComponent implements OnInit {
     await this._dataService.getProvidersByParent(this._dataService.appConfig.providerId).toPromise().then((response) => {
       this.providers = response.data;
 
-      this.providers = _.groupBy(this.providers, (p) => p.category);
+      this.results = _.groupBy(this.providers, (p) => p.category);
     });
   }
 
@@ -27,11 +30,21 @@ export class CareNetworkComponent implements OnInit {
   }
 
   get categories(): string[] {
-    return Object.keys(this.providers ?? {});
+    return Object.keys(this.results ?? {});
   }
 
   public getProvidersByCategory(category: string): any {
-    return this.providers[category];
+    return this.results[category];
+  }
+
+  public search($event: any) {
+    let filtered = _.filter(this.providers, (p) => {
+      const keyword: string = ($event.target.value as string).toLowerCase();
+      const found = p.category.toLowerCase().includes(keyword) || p.description.toLowerCase().includes(keyword) || p.title.toLowerCase().includes(keyword);
+      return found;
+    });
+
+    this.results = _.groupBy(filtered, (p) => p.category)
   }
 
 }
