@@ -239,7 +239,7 @@ p.cta {
 
             input {
                 flex: 1 1 100%;
-                border: 1px solid var(--theme-border-color);
+                border: 1px solid var(--theme-box-border-color);
                 padding: 10px;
                 margin-bottom: 15px;
                 outline-color: var(--theme-button-primary-background-color);
@@ -247,14 +247,14 @@ p.cta {
 
             select {
                 flex: 0 0 auto;
-                border: 1px solid var(--theme-border-color);
+                border: 1px solid var(--theme-box-border-color);
                 padding: 10px;
                 margin-bottom: 15px;
                 outline-color: var(--theme-button-primary-background-color);
             }
 
             textarea {
-                border: 1px solid var(--theme-border-color);
+                border: 1px solid var(--theme-box-border-color);
                 padding: 10px;
                 margin-bottom: 15px;
                 outline-color: var(--theme-button-primary-background-color);

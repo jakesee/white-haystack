@@ -27,7 +27,6 @@ import { BannerSectionComponent } from './sections/banner-section/banner-section
 import { NeedAssistanceSectionComponent } from './sections/need-assistance-section/need-assistance-section.component';
 import { NextAppointmentInfoFormComponent } from './form/next-appointment-info-form/next-appointment-info-form.component';
 import { RequestAppointmentFormComponent } from './form/request-appointment-form/request-appointment-form.component';
-import { ExploreComponent } from './page/explore/explore.component';
 import { ProviderComponent } from './page/provider/provider.component';
 import { ProfileComponent } from './page/profile/profile.component';
 import { SwitchControlComponent } from './control/switch-control/switch-control.component';
@@ -44,6 +43,9 @@ import { TagControlComponent } from './control/tag-control/tag-control.component
 import { AutofocusDirective } from './shared/autofocus.directive';
 import { FeedsComponent } from './page/feeds/feeds.component';
 import { MedicalProfileFormComponent } from './form/medical-profile-form/medical-profile-form.component';
+import { CategorySectionComponent } from './sections/category-section/category-section.component';
+import { RecentProvidersSectionComponent } from './sections/recent-providers-section/recent-providers-section.component';
+import { RecentFeedsSectionComponent } from './sections/recent-feeds-section/recent-feeds-section.component';
 
 
 @NgModule({
@@ -74,7 +76,6 @@ import { MedicalProfileFormComponent } from './form/medical-profile-form/medical
     NeedAssistanceSectionComponent,
     NextAppointmentInfoFormComponent,
     RequestAppointmentFormComponent,
-    ExploreComponent,
     ProviderComponent,
     ProfileComponent,
     SwitchControlComponent,
@@ -91,6 +92,9 @@ import { MedicalProfileFormComponent } from './form/medical-profile-form/medical
     AutofocusDirective,
     FeedsComponent,
     MedicalProfileFormComponent,
+    CategorySectionComponent,
+    RecentProvidersSectionComponent,
+    RecentFeedsSectionComponent,
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],

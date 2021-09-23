@@ -1,18 +1,22 @@
-import { IAppConfig } from "@app/interfaces";
+import { IAppConfig, PageStyleContainerEnum, PageStyleContentEnum } from "@app/interfaces";
 
 export const Daiichi: IAppConfig = {
-    providerId: 0,
+    providerId: 1,
     theme: {
         // body
         "--theme-font-family": "'Roboto', sans-serif",
         "--theme-font-primary-color": "#000000",
         "--theme-font-secondary-color": "#ED0225",
         "--theme-font-inactive-color": "#AAAAAA",
-        "--theme-border-color": "#DBDBDB",
+        "--theme-box-border-color": "#CCCCCC",
+
+        // header/footer
+        "--theme-header-background-color": "#ffffff",
+        "--theme-footer-background-color": "#ffffff",
 
         // background
         "--theme-primary-background-color": "#ffffff",
-        "--theme-secondary-background-color": "#FAFAFA",
+        "--theme-secondary-background-color": "#ffffff",
 
         // errors and warnings
         "--theme-error-background-color": "#ED0225",
@@ -20,12 +24,20 @@ export const Daiichi: IAppConfig = {
 
         //buttons
         "--theme-button-border-radius": "5px",
+
+        "--theme-button-primary-border-color": "none",
         "--theme-button-primary-background-color": "#ED0225",
         "--theme-button-primary-foreground-color": "#ffffff",
+
+        "--theme-button-secondary-border-color": "none",
         "--theme-button-secondary-background-color": "#EFEFEF",
         "--theme-button-secondary-foreground-color": "#000000",
+
+        "--theme-button-primary-inactive-border-color": "none",
         "--theme-button-primary-inactive-background-color": "#DBDBDB",
         "--theme-button-primary-inactive-foreground-color": "#EFEFEF",
+
+        "--theme-button-secondary-inactive-border-color": "none",
         "--theme-button-secondary-inactive-background-color": "#FAFAFA",
         "--theme-button-secondary-inactive-foreground-color": "#EFEFEF",
     },
@@ -36,6 +48,9 @@ export const Daiichi: IAppConfig = {
         { "text": "Waiting Room", "routerLink": "/waiting-room", "icon": ["fas", "calendar-alt"], "display": { "public": true, "private": true } },
         { "text": "Profile", "routerLink": "/profile", "icon": ["fas", "user"], "display": { "public": true, "private": true } }
     ],
+    pageStyle: { container: PageStyleContainerEnum.fluidContainer, content: PageStyleContentEnum.contentLeft },
+    header: { component: "HeaderComponent", "config": {} },
+    footer: { component: "FooterComponent", "config": {} },
     sections: [
         {
             component: "ConsultNowComponent",
@@ -45,7 +60,7 @@ export const Daiichi: IAppConfig = {
                 body: "Speak to an experienced GP within minutes",
                 subText: "Operational Hours: 0800H - 2200H, including weekend and holidays",
                 buttonText: "SPEAK WITH A DOCTOR NOW",
-                command: ["/provider", 0, "journey", "start"]
+                command: ["/provider", 1, "journey", "start"]
             }
         },
         { component: "SymptomsSectionComponent", "config": {} },

@@ -1,13 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AuthenticationService } from '@app/auth/authentication.service';
+import { DataService } from '@app/data.service';
 import * as _ from 'lodash';
+import { PageBase } from '../page-base';
 
 @Component({
   selector: 'app-waiting-room',
   templateUrl: './waiting-room.component.html',
   styleUrls: ['./waiting-room.component.scss']
 })
-export class WaitingRoomComponent implements OnInit {
+export class WaitingRoomComponent extends PageBase implements OnInit {
 
   user: any;
   chatEpisode: any;
@@ -20,7 +22,9 @@ export class WaitingRoomComponent implements OnInit {
   future: Array<any> = [];
   past: Array<any> = [];
 
-  constructor(auth: AuthenticationService) {
+  constructor(auth: AuthenticationService, protected _dataService: DataService) {
+    super(_dataService);
+
     this.user = auth.currentUser;
 
     this.user.episodes = _.orderBy(this.user.episodes, ['startAt'], ['desc']);

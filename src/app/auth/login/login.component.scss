@@ -18,14 +18,12 @@ form {
     input, select {
         display: block;
         border: none;
-        background: #EEEEEE;
+        background-color: #EEEEEE;
         padding: 6px 9px;
         width: 100%;
     }
     input[type=submit] {
-        background-color: var(--theme-button-primary-background-color);
         width: auto;
-        color: #ffffff;
     }
 
     .error {
@@ -38,18 +36,8 @@ form {
     gap: 10px;
 }
 
-button {
-    border: none;
-    padding: 6px 9px;
-    margin-right: 5px;
-}
-button.default {
-    background-color: var(--theme-button-primary-background-color);
-    color: white;
-}
-
 @media only screen and (min-width: $size-lg) {
     div.card {
-        border: 1px solid var(--theme-border-color);
+        border: 1px solid var(--theme-box-border-color);
     }
 }

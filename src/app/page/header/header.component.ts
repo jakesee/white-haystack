@@ -3,13 +3,14 @@ import { Router, RouterStateSnapshot } from '@angular/router';
 import { AuthenticationService } from '@app/auth/authentication.service';
 import { User } from '@app/interfaces';
 import { DataService } from '@app/data.service';
+import { PageBase } from '../page-base';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent extends PageBase implements OnInit {
 
   @Input() hasNavigation = true;
 
@@ -20,7 +21,8 @@ export class HeaderComponent implements OnInit {
 
   returnUrl: string = '/';
 
-  constructor(private _dataService: DataService, private _auth: AuthenticationService, private _router: Router) {
+  constructor(protected _dataService: DataService, private _auth: AuthenticationService, private _router: Router) {
+    super(_dataService);
 
     this.logoUrl = this._dataService.appConfig.logoUrl;
     this.menuItems = this._dataService.appConfig.menuItems;

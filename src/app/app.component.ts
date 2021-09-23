@@ -1,26 +1,25 @@
 import { AfterViewInit, Component, VERSION, ViewChild, ViewContainerRef, ViewRef } from '@angular/core';
 import { DataService } from './data.service';
+import { PageBase } from './page/page-base';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent extends PageBase implements AfterViewInit {
 
   @ViewChild('header', { read: ViewContainerRef }) viewHeader: ViewContainerRef;
   @ViewChild('footer', { read: ViewContainerRef }) viewFooter: ViewContainerRef;
 
-  name = 'Angular ' + VERSION.major;
-
-  constructor(private _dataService: DataService) {
-
+  constructor(protected _dataService: DataService) {
+    super(_dataService);
   }
 
   ngAfterViewInit(): void {
     setTimeout(() => {
       this._loadComponents();
-    }, 1);
+    }, 0);
   }
 
   private _loadComponents() {

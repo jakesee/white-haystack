@@ -1,7 +1,7 @@
-import { Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import { AfterViewInit, Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '@app/data.service';
-import { Form, FormEvent } from '@app/interfaces';
+import { IForm, FormEvent, IProvider, ISequenceItem } from '@app/interfaces';
 
 @Component({
   selector: 'app-journey',
@@ -12,10 +12,10 @@ export class JourneyComponent implements OnInit {
   @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
 
   // provider
-  provider: any = {};
+  provider: IProvider = {} as IProvider;
 
   // sequence of forms
-  sequence: Array<any>;
+  sequence: ISequenceItem[];
   progress: number = -1; // index
   farthest: number = -1; // index
 
@@ -26,8 +26,7 @@ export class JourneyComponent implements OnInit {
   constructor(
     private _dataService: DataService,
     private _router: Router,
-    private _route: ActivatedRoute,
-    private _componentFactoryResolver: ComponentFactoryResolver
+    private _route: ActivatedRoute
   ) {
     this._construct();
   }
@@ -53,8 +52,6 @@ export class JourneyComponent implements OnInit {
     if (this.progress < this.sequence.length) {
 
       const complete = this._loadForm(this.progress);
-
-      console.log('complete?', complete);
 
       // skip the form if already complete
       if (complete && (this.progress > this.farthest)) this._next(event);
@@ -83,26 +80,16 @@ export class JourneyComponent implements OnInit {
   }
 
   private _loadForm(progress: number): boolean {
-    const step: any = this.sequence[progress];
+    const step = this.sequence[progress];
 
     console.log('loading', step.component);
 
     this.container.clear();
-    const componentType = this._dataService.resolveComponent(step.component);
-    const factory = this._componentFactoryResolver.resolveComponentFactory(componentType);
-    const compRef = this.container.createComponent(factory);
-    const instance: Form = compRef.instance as Form;
 
-    instance.backHandler.subscribe(event => {
-      this._back(event);
-    });
-    instance.nextHandler.subscribe(event => {
-      this._next(event);
-    });
-    instance.cancelHandler.subscribe(event => {
-      this._cancel(event);
-    });
-
+    let instance: IForm = this._dataService.loadComponent(this.container, step.component);
+    instance.backHandler.subscribe(event => { this._back(event); });
+    instance.nextHandler.subscribe(event => { this._next(event); });
+    instance.cancelHandler.subscribe(event => { this._cancel(event); });
     return instance.evaluate(step.config);
   }
 

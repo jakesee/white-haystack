@@ -52,13 +52,10 @@ form {
     margin-top: 20px;
 
     button {
-        border: none;
         padding: 6px 9px;
         margin-right: 5px;
     }
     button.default {
-        background-color: var(--theme-button-primary-background-color);
-        color: white;
         margin-left: auto;
         align-self: flex-end;
     }

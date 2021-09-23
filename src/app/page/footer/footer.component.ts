@@ -1,13 +1,14 @@
-import { Component, HostListener, Inject, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { AuthenticationService } from '@app/auth/authentication.service';
 import { DataService } from '@app/data.service';
+import { PageBase } from '../page-base';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent extends PageBase implements OnInit {
 
   @Input() hasNavigation = true;
 
@@ -15,7 +16,8 @@ export class FooterComponent implements OnInit {
 
   menuItems:Array<any> = [];
 
-  constructor(private _dataService: DataService, private _auth: AuthenticationService) {
+  constructor(protected _dataService: DataService, private _auth: AuthenticationService) {
+    super(_dataService);
     this.menuItems = this._dataService.appConfig.menuItems;
   }
 

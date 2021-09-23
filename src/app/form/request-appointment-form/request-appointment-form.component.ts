@@ -1,12 +1,12 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
-import { Form, FormEvent } from '@app/interfaces';
+import { IForm, FormEvent } from '@app/interfaces';
 
 @Component({
   selector: 'app-request-appointment-form',
   templateUrl: './request-appointment-form.component.html',
   styleUrls: ['./request-appointment-form.component.scss']
 })
-export class RequestAppointmentFormComponent implements Form, OnInit {
+export class RequestAppointmentFormComponent implements IForm, OnInit {
 
 
   timeslots: Array<number> = [];

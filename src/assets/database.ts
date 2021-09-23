@@ -1,5 +1,7 @@
-export const Database = {
-    "users": [
+import { IDatabase } from "@app/interfaces";
+
+export const Database: IDatabase = {
+    users: [
         {
             "id": 1,
             "username": "bill.gates@my-doc.com",
@@ -38,13 +40,41 @@ export const Database = {
             ]
         }
     ],
-    "providers": [
+    providers: [
         {
             "id": 0,
             "parentId": -1,
             "order": 0,
+            "title": "MyDoc",
+            "logoUrl": "logo-my-doc.png",
+            "description": "Hemp seeds Thai soba noodles candy cane winter crunchy seaweed blueberry pops Southern Italian sweet potato black bean burrito green tea lime apricot instant pot dark chocolate green pepper",
+            "category": "Clinic",
+            "isMemberRequired": false,
+            "sections": [
+                {
+                    "component": "BannerSectionComponent",
+                    "config": {}
+                },
+                {
+                    "component": "TitleBarSectionComponent",
+                    "config": {
+                        "logoImgSrc": "assets/logo-my-doc.png",
+                        "title": "MyDoc",
+                        "blob": "Broccoli avocado basil pesto mediterranean vegetables crumbled lentils sriracha pecans seeds Thai butternut mix cool cucumbers fresh burritos samosa sparkling pomegranate punch habanero golden coriander."
+                    }
+                },
+                {
+                    "component": "SubProvidersSectionComponent",
+                    "config": {}
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "parentId": -1,
+            "order": 0,
             "title": "Dai-ichi Life",
-            "logoImage": "logo-daiichi-life.png",
+            "logoUrl": "logo-daiichi-life.png",
             "description": "Hemp seeds Thai soba noodles candy cane winter crunchy seaweed blueberry pops Southern Italian sweet potato black bean burrito green tea lime apricot instant pot dark chocolate green pepper",
             "category": "Insurer",
             "isMemberRequired": true,
@@ -75,7 +105,7 @@ export const Database = {
             "journey": {
                 "start": {
                     "auth": true,
-                    "ctaLabel": "Talk to a doctor now!",
+                    "label": "Talk to a doctor now!",
                     "cmdCancel": ["../.."],
                     "cmdSuccess": ["/waiting-room"],
                     "sequence": [
@@ -118,12 +148,86 @@ export const Database = {
             }
         },
         {
-            "id": 1,
+            "id": 2,
             "parentId": -1,
+            "order": 0,
+            "title": "BaoViet Virtual Clinic",
+            "logoUrl": "logo-baoviet.png",
+            "description": "Morning smoothie bowl tofu soy milk lentils dessert raspberry fizz naga viper main course Thai basil curry blueberry chia seed jam leek bento box.",
+            "category": "Insurer",
+            "isMemberRequired": false,
+            "sections": [
+                {
+                    "component": "BannerSectionComponent",
+                    "config": {
+                        "imgSrc": "https://scontent.fsin7-1.fna.fbcdn.net/v/t1.6435-9/s960x960/232491861_6805028339523453_4862348356804023918_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=e3f864&_nc_ohc=PxtG7PqIciYAX8Mnal7&_nc_ht=scontent.fsin7-1.fna&oh=d0bb9734911911fe017ef3300e7fdce5&oe=6168CDC9"
+                    }
+                },
+                {
+                    "component": "TitleBarSectionComponent",
+                    "config": {
+                        "logoImgSrc": "assets/logo-baoviet.png",
+                        "title": "BaoViet Life Insurance",
+                        "blob": "Morning smoothie bowl tofu soy milk lentils dessert raspberry fizz naga viper main course Thai basil curry blueberry chia seed jam leek bento box."
+                    }
+                },
+                {
+                    "component": "OnetwothreeSectionComponent",
+                    "config": {}
+                },
+                {
+                    "component": "ConsultNowComponent",
+                    "config": {
+                        "imgSource": "https://app.qa.my-doc.com/dai-ichi/assets/images/Banner_happy_family.png",
+                        "title": "Awesome Co. Virtual Teleheath",
+                        "subText": "Operational Hours: 0800H - 2200H, including weekend and holidays",
+                        "buttonText": "Talk to Doctor Now!",
+                        "command": ["journey", "start"]
+                    }
+                }
+            ],
+            "journey": {
+                "start": {
+                    "auth": true,
+                    "label": "Book appointment with GP!",
+                    "cmdCancel": ["../.."],
+                    "cmdSuccess": ["/waiting-room"],
+                    "sequence": [
+                        {
+                            "stepName": "Emergency Notice",
+                            "component": "EmergencyFormComponent",
+                            "config": {}
+                        },
+                        {
+                            "stepName": "Triage",
+                            "component": "TriageFormComponent",
+                            "config": {
+                                "questionText": "What complaints do you have today?"
+                            }
+                        },
+                        {
+                            "stepName": "Confirm Personal Info",
+                            "component": "CollectPersonalInfoFormComponent",
+                            "config": {
+                                "title": "Please provide your personal info."
+                            }
+                        },
+                        {
+                            "stepName": "Request Appointment",
+                            "component": "RequestAppointmentFormComponent",
+                            "config": {}
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 3,
+            "parentId": 0,
             "order": 0,
             "title": "Aetna International",
             "description": "Sicilian pistachio pesto spiced pumpkin chili. Tabasco pepper apricot plums basil portobello mushrooms spring peanut butter peach strawberry mango sparkling.",
-            "logoImage": "logo-aetna.png",
+            "logoUrl": "logo-aetna.png",
             "category": "Insurer",
             "isMemberRequired": true,
             "sections": [
@@ -164,144 +268,71 @@ export const Database = {
                 }
             ]
         },
+
         {
-            "id": 2,
-            "parentId": -1,
-            "order": 0,
-            "title": "BaoViet Virtual Clinic",
-            "logoImage": "logo-baoviet.png",
-            "description": "Morning smoothie bowl tofu soy milk lentils dessert raspberry fizz naga viper main course Thai basil curry blueberry chia seed jam leek bento box.",
-            "category": "Insurer",
-            "isMemberRequired": false,
-            "sections": [
-                {
-                    "component": "BannerSectionComponent",
-                    "config": {
-                        "imgSrc": "https://scontent.fsin7-1.fna.fbcdn.net/v/t1.6435-9/s960x960/232491861_6805028339523453_4862348356804023918_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=e3f864&_nc_ohc=PxtG7PqIciYAX8Mnal7&_nc_ht=scontent.fsin7-1.fna&oh=d0bb9734911911fe017ef3300e7fdce5&oe=6168CDC9"
-                    }
-                },
-                {
-                    "component": "TitleBarSectionComponent",
-                    "config": {
-                        "logoImgSrc": "assets/logo-baoviet.png",
-                        "title": "BaoViet Life Insurance",
-                        "blob": "Morning smoothie bowl tofu soy milk lentils dessert raspberry fizz naga viper main course Thai basil curry blueberry chia seed jam leek bento box."
-                    }
-                },
-                {
-                    "component": "OnetwothreeSectionComponent",
-                    "config": {}
-                },
-                {
-                    "component": "ConsultNowComponent",
-                    "config": {
-                        "imgSource": "https://app.qa.my-doc.com/dai-ichi/assets/images/Banner_happy_family.png",
-                        "title": "Awesome Co. Virtual Teleheath",
-                        "subText": "Operational Hours: 0800H - 2200H, including weekend and holidays",
-                        "buttonText": "Talk to Doctor Now!",
-                        "command": ["journey", "start"]
-                    }
-                }
-            ],
-            "journey": {
-                "start": {
-                    "auth": true,
-                    "ctaLabel": "Book appointment with GP!",
-                    "cmdCancel": ["../.."],
-                    "cmdSuccess": ["/waiting-room"],
-                    "sequence": [
-                        {
-                            "stepName": "Emergency Notice",
-                            "component": "EmergencyFormComponent",
-                            "config": {}
-                        },
-                        {
-                            "stepName": "Triage",
-                            "component": "TriageFormComponent",
-                            "config": {
-                                "questionText": "What complaints do you have today?"
-                            }
-                        },
-                        {
-                            "stepName": "Confirm Personal Info",
-                            "component": "CollectPersonalInfoFormComponent",
-                            "config": {
-                                "title": "Please provide your personal info."
-                            }
-                        },
-                        {
-                            "stepName": "Request Appointment",
-                            "component": "RequestAppointmentFormComponent",
-                            "config": {}
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "id": 3,
-            "parentId": -1,
+            "id": 4,
+            "parentId": 0,
             "order": 0,
             "title": "Allianz Partners",
             "description": "Delightful blueberry scones quinoa flatbread couscous cozy butternut green pepper cool off garlic sriracha noodles grapefruit peanut butter crunch spicy miso dressing hearts of palm summer fruit salad.",
-            "logoImage": "logo-allianz.png",
-            "isMemberRequired": true,
-            "category": "Insurer"
-        },
-        {
-            "id": 4,
-            "parentId": -1,
-            "order": 0,
-            "title": "Prudential",
-            "description": "Hazelnut shiitake mediterranean roasted brussel sprouts hummus falafel bowl bite sized heat couscous cherry bomb cherries Thai curry mangos basil hearts of palm cinnamon mediterranean vegetables shiitake mushrooms lychee.",
-            "logoImage": "logo-prudential.png",
+            "logoUrl": "logo-allianz.png",
             "isMemberRequired": true,
             "category": "Insurer"
         },
         {
             "id": 5,
-            "parentId": -1,
+            "parentId": 0,
             "order": 0,
-            "title": "Nutriwell",
-            "description": "Italian linguine puttanesca Thai super chili burritos summer fruit salad enchiladas farro platter winter quinoa flatbread basmati banana bread simmer peaches.",
-            "logoImage": "logo-nutriwell.png",
-            "isMemberRequired": false,
-            "category": "Clinic"
+            "title": "Prudential",
+            "description": "Hazelnut shiitake mediterranean roasted brussel sprouts hummus falafel bowl bite sized heat couscous cherry bomb cherries Thai curry mangos basil hearts of palm cinnamon mediterranean vegetables shiitake mushrooms lychee.",
+            "logoUrl": "logo-prudential.png",
+            "isMemberRequired": true,
+            "category": "Insurer"
         },
         {
             "id": 6,
-            "parentId": -1,
+            "parentId": 0,
             "order": 0,
-            "title": "Dr. Tan and Partners",
-            "description": "Arugula salad red pepper coconut chili pepper cocoa lime ginger lemongrass agave green tea paprika elderberry vegan eating together tahini drizzle portobello mushrooms entree pesto figs double dark chocolate avocado blackberries with Mexican fiesta.",
-            "logoImage": "logo-dtap.png",
+            "title": "Nutriwell",
+            "description": "Italian linguine puttanesca Thai super chili burritos summer fruit salad enchiladas farro platter winter quinoa flatbread basmati banana bread simmer peaches.",
+            "logoUrl": "logo-nutriwell.png",
             "isMemberRequired": false,
             "category": "Clinic"
         },
         {
             "id": 7,
-            "parentId": -1,
+            "parentId": 0,
             "order": 0,
-            "title": "Raffles Medical Group",
-            "description": "Veggie burgers smoky maple tempeh glaze samosa Italian pepperoncini Caribbean red habanero plums tabasco pepper ginger carrot spiced juice cherry lingonberry appetizer sweet potato.",
-            "logoImage": "logo-raffles-medical-group.png",
-            "isMemberRequired": true,
+            "title": "Dr. Tan and Partners",
+            "description": "Arugula salad red pepper coconut chili pepper cocoa lime ginger lemongrass agave green tea paprika elderberry vegan eating together tahini drizzle portobello mushrooms entree pesto figs double dark chocolate avocado blackberries with Mexican fiesta.",
+            "logoUrl": "logo-dtap.png",
+            "isMemberRequired": false,
             "category": "Clinic"
         },
         {
             "id": 8,
-            "parentId": -1,
+            "parentId": 0,
+            "order": 0,
+            "title": "Raffles Medical Group",
+            "description": "Veggie burgers smoky maple tempeh glaze samosa Italian pepperoncini Caribbean red habanero plums tabasco pepper ginger carrot spiced juice cherry lingonberry appetizer sweet potato.",
+            "logoUrl": "logo-raffles-medical-group.png",
+            "isMemberRequired": true,
+            "category": "Clinic"
+        },
+        {
+            "id": 9,
+            "parentId": 0,
             "order": 0,
             "title": "Mount Elizabeth",
             "description": "Balsamic vinaigrette green onions macadamia nut cookies cremini mushrooms cherry bomb pepper green papaya salad crunchy chai tea crispy iceberg lettuce.",
-            "logoImage": "logo-mount-elizabeth.png",
+            "logoUrl": "logo-mount-elizabeth.png",
             "isMemberRequired": true,
             "category": "Specialist",
             "sections": [
                 {
                     "component": "BannerSectionComponent",
                     "config": {
-                        "imgSrc": "https://scontent.fsin7-1.fna.fbcdn.net/v/t39.30808-6/173879007_4271270556257949_7674623402266558705_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=e3f864&_nc_ohc=cEEGLuf2mv0AX-RWrrP&_nc_ht=scontent.fsin7-1.fna&oh=dcb269557e15ac7751983f8f8b87e0ac&oe=6148A93E"
+                        "imgSrc": "assets/banner-mount-elizabeth.jpg"
                     }
                 },
                 {
@@ -319,92 +350,38 @@ export const Database = {
             ]
         },
         {
-            "id": 9,
-            "parentId": -1,
+            "id": 10,
+            "parentId": 0,
             "order": 0,
             "title": "Guardian",
             "description": "Chinese five-spice powder red amazon pepper lemon maple orange tempeh dark and stormy cinnamon toast thyme grapefruit.",
-            "logoImage": "logo-guardian.png",
-            "isMemberRequired": false,
-            "category": "Pharmacy"
-        },
-        {
-            "id": 10,
-            "parentId": -1,
-            "order": 0,
-            "title": "Watsons",
-            "description": "Almond milk avocado dressing drizzle black beans banana lavender lemonade oranges tasty crispy seitan cool cucumbers.",
-            "logoImage": "logo-watsons.png",
+            "logoUrl": "logo-guardian.png",
             "isMemberRequired": false,
             "category": "Pharmacy"
         },
         {
             "id": 11,
-            "parentId": 8,
+            "parentId": 0,
             "order": 0,
-            "title": "Mental Health",
-            "description": "Kung pao pepper green pepper springtime strawberry hemp seeds bruschetta tahini drizzle red amazon pepper potato fig arugula cashew salad artichoke hearts cool cucumbers blackberries raspberry fizz dragon fruit portobello mushrooms.",
-            "logoImage": "logo-mental-health.png",
-            "isMemberRequired": true,
-            "category": "Specialist",
-            "journey": {
-                "start": {
-                    "auth": true,
-                    "ctaLabel": "Find a Counsellor",
-                    "cmdCancel": ["../.."],
-                    "cmdSuccess": ["/waiting-room"],
-                    "sequence": [
-                        {
-                            "stepName": "Validate Membership",
-                            "component": "ProviderEligibilityFormComponent",
-                            "config": {}
-                        },
-                        {
-                            "stepName": "Emergency Notice",
-                            "component": "EmergencyFormComponent",
-                            "config": {}
-                        },
-                        {
-                            "stepName": "Check Time",
-                            "component": "NextAppointmentInfoFormComponent",
-                            "config": {}
-                        },
-                        {
-                            "stepName": "Triage",
-                            "component": "TriageFormComponent",
-                            "config": {
-                                "questionText": "What complaints do you have today?"
-                            }
-                        },
-                        {
-                            "stepName": "Confirm Personal Info",
-                            "component": "CollectPersonalInfoFormComponent",
-                            "config": {
-                                "title": "Please provide your personal info."
-                            }
-                        },
-                        {
-                            "stepName": "Request Appointment",
-                            "component": "RequestAppointmentFormComponent",
-                            "config": {}
-                        }
-                    ]
-                }
-            }
+            "title": "Watsons",
+            "description": "Almond milk avocado dressing drizzle black beans banana lavender lemonade oranges tasty crispy seitan cool cucumbers.",
+            "logoUrl": "logo-watsons.png",
+            "isMemberRequired": false,
+            "category": "Pharmacy"
         },
         {
             "id": 12,
-            "parentId": 8,
+            "parentId": 9,
             "order": 0,
-            "title": "Women's Clinic",
-            "description": "Peanut butter cozy cinnamon oatmeal lemon lime minty winter Bulgarian carrot sweet potato black bean burrito lemon red lentil soup red curry tofu noodles crispy spicy.",
-            "logoImage": "logo-womens-health.png",
+            "title": "Mental Health",
+            "description": "Kung pao pepper green pepper springtime strawberry hemp seeds bruschetta tahini drizzle red amazon pepper potato fig arugula cashew salad artichoke hearts cool cucumbers blackberries raspberry fizz dragon fruit portobello mushrooms.",
+            "logoUrl": "logo-mental-health.png",
             "isMemberRequired": true,
             "category": "Specialist",
             "journey": {
                 "start": {
                     "auth": true,
-                    "ctaLabel": "Wellness starts here.",
+                    "label": "Find a Counsellor",
                     "cmdCancel": ["../.."],
                     "cmdSuccess": ["/waiting-room"],
                     "sequence": [
@@ -448,48 +425,33 @@ export const Database = {
         },
         {
             "id": 13,
-            "parentId": -1,
+            "parentId": 9,
             "order": 0,
-            "title": "MyDoc",
-            "logoImage": "logo-my-doc.png",
-            "description": "Hemp seeds Thai soba noodles candy cane winter crunchy seaweed blueberry pops Southern Italian sweet potato black bean burrito green tea lime apricot instant pot dark chocolate green pepper",
-            "category": "Clinic",
-            "isMemberRequired": false,
-            "sections": [
-                {
-                    "component": "BannerSectionComponent",
-                    "config": {}
-                },
-                {
-                    "component": "TitleBarSectionComponent",
-                    "config": {
-                        "logoImgSrc": "assets/logo-my-doc.png",
-                        "title": "MyDoc",
-                        "blob": "Broccoli avocado basil pesto mediterranean vegetables crumbled lentils sriracha pecans seeds Thai butternut mix cool cucumbers fresh burritos samosa sparkling pomegranate punch habanero golden coriander."
-                    }
-                },
-                {
-                    "component": "SubProvidersSectionComponent",
-                    "config": {}
-                }
-            ],
+            "title": "Women's Clinic",
+            "description": "Peanut butter cozy cinnamon oatmeal lemon lime minty winter Bulgarian carrot sweet potato black bean burrito lemon red lentil soup red curry tofu noodles crispy spicy.",
+            "logoUrl": "logo-womens-health.png",
+            "isMemberRequired": true,
+            "category": "Specialist",
             "journey": {
                 "start": {
                     "auth": true,
-                    "ctaLabel": "Talk to a doctor now!",
+                    "label": "Wellness starts here.",
                     "cmdCancel": ["../.."],
                     "cmdSuccess": ["/waiting-room"],
                     "sequence": [
                         {
-                            "stepName": "Medical Profile",
-                            "component": "MedicalProfileFormComponent",
-                            "config": {
-                                "title": "Please confirm your medical profile"
-                            }
+                            "stepName": "Validate Membership",
+                            "component": "ProviderEligibilityFormComponent",
+                            "config": {}
                         },
                         {
                             "stepName": "Emergency Notice",
                             "component": "EmergencyFormComponent",
+                            "config": {}
+                        },
+                        {
+                            "stepName": "Check Time",
+                            "component": "NextAppointmentInfoFormComponent",
                             "config": {}
                         },
                         {
@@ -517,10 +479,38 @@ export const Database = {
         },
         {
             "id": 14,
-            "parentId": 13,
+            "parentId": 0,
+            "order": 0,
+            "title": "MyDoc",
+            "logoUrl": "logo-my-doc.png",
+            "description": "Hemp seeds Thai soba noodles candy cane winter crunchy seaweed blueberry pops Southern Italian sweet potato black bean burrito green tea lime apricot instant pot dark chocolate green pepper",
+            "category": "Clinic",
+            "isMemberRequired": false,
+            "sections": [
+                {
+                    "component": "BannerSectionComponent",
+                    "config": {}
+                },
+                {
+                    "component": "TitleBarSectionComponent",
+                    "config": {
+                        "logoImgSrc": "assets/logo-my-doc.png",
+                        "title": "MyDoc",
+                        "blob": "Broccoli avocado basil pesto mediterranean vegetables crumbled lentils sriracha pecans seeds Thai butternut mix cool cucumbers fresh burritos samosa sparkling pomegranate punch habanero golden coriander."
+                    }
+                },
+                {
+                    "component": "SubProvidersSectionComponent",
+                    "config": {}
+                }
+            ]
+        },
+        {
+            "id": 15,
+            "parentId": 14,
             "order": 0,
             "title": "MyDoc GP Clinic",
-            "logoImage": "logo-my-doc.png",
+            "logoUrl": "logo-my-doc.png",
             "description": "Hemp seeds Thai soba noodles candy cane winter crunchy seaweed blueberry pops Southern Italian sweet potato black bean burrito green tea lime apricot instant pot dark chocolate green pepper",
             "category": "Clinic",
             "isMemberRequired": false,
@@ -528,7 +518,7 @@ export const Database = {
             "journey": {
                 "start": {
                     "auth": true,
-                    "ctaLabel": "Talk to a doctor now!",
+                    "label": "Talk to a doctor now!",
                     "cmdCancel": ["../.."],
                     "cmdSuccess": ["/waiting-room"],
                     "sequence": [
@@ -568,11 +558,11 @@ export const Database = {
             }
         },
         {
-            "id": 15,
-            "parentId": 13,
+            "id": 16,
+            "parentId": 14,
             "order": 0,
             "title": "MyDoc Health Screening",
-            "logoImage": "logo-my-doc.png",
+            "logoUrl": "logo-my-doc.png",
             "description": "Hemp seeds Thai soba noodles candy cane winter crunchy seaweed blueberry pops Southern Italian sweet potato black bean burrito green tea lime apricot instant pot dark chocolate green pepper",
             "category": "Clinic",
             "isMemberRequired": false,
@@ -580,7 +570,7 @@ export const Database = {
             "journey": {
                 "start": {
                     "auth": true,
-                    "ctaLabel": "Book Health Screening Appointment",
+                    "label": "Book Health Screening Appointment",
                     "cmdCancel": [
                         "../.."
                     ],

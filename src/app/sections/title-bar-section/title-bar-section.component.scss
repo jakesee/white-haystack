@@ -1,6 +1,6 @@
 @import '../../../variables.scss';
 
-.row {
+.section {
     background: white;
     .logo {
         width: 150px;
@@ -20,7 +20,7 @@
 
 
 @media screen and (min-width: $size-md) {
-    .row {
+    .section {
         display: flex;
         min-height: 190px;
 

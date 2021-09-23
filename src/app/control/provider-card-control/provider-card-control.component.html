@@ -1,10 +1,10 @@
-<div class="col-sm-4 col-md-3 provider">
-    <div class="logo"><a [routerLink]="['/provider', provider.id]"><img src="assets/{{provider.logoImage}}" /></a></div>
+<div class="wh-col-sm-4 wh-col-md-3 provider">
+    <div class="logo"><a [routerLink]="['/provider', provider.id]"><img src="assets/{{provider.logoUrl}}" /></a></div>
     <div class="metadata">
         <div class="title"><a [routerLink]="['/provider', provider.id]">{{provider.title}}</a></div>
         <div class="property">
-            <fa-icon [ngClass]="provider.isMemberRequired ? 'member' : ''" [icon]="['fas', 'id-card']"></fa-icon>
-            <fa-icon [icon]="['fas', 'heart']"></fa-icon>
+            <fa-icon [ngClass]="provider.isMemberRequired ? 'member' : 'wh-inactive'" [icon]="['fas', 'id-card']"></fa-icon>
+            <fa-icon [icon]="['fas', 'heart']" class="wh-inactive"></fa-icon>
         </div>
         <div class="description">{{provider.description}}</div>
     </div>

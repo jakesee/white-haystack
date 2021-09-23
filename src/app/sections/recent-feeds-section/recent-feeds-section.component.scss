@@ -1,0 +1,26 @@
+@import '../../../variables.scss';
+
+h1 {
+    font-weight: 300;
+    padding: 10px 10px 10px 20px;
+    background: var(--theme-primary-background-color);
+}
+
+.insight {
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+
+    img {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (min-width: $size-sm) {
+    .insight {
+
+        img {
+            max-width: 100%;
+        }
+    }
+}

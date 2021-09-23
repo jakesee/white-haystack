@@ -16,7 +16,7 @@ export class CareNetworkComponent implements OnInit {
   }
 
   private async _construct() {
-    await this._dataService.getProviders().toPromise().then((response) => {
+    await this._dataService.getProvidersByParent(this._dataService.appConfig.providerId).toPromise().then((response) => {
       this.providers = response.data;
 
       this.providers = _.groupBy(this.providers, (p) => p.category);

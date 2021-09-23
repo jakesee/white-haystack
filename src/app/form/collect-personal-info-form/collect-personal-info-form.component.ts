@@ -2,14 +2,14 @@ import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthenticationService } from '@app/auth/authentication.service';
 import { DataService } from '@app/data.service';
-import { Form, FormEvent, User } from '@app/interfaces';
+import { IForm, FormEvent, User } from '@app/interfaces';
 
 @Component({
   selector: 'app-collect-personal-info-form',
   templateUrl: './collect-personal-info-form.component.html',
   styleUrls: ['./collect-personal-info-form.component.scss']
 })
-export class CollectPersonalInfoFormComponent implements Form, OnInit {
+export class CollectPersonalInfoFormComponent implements IForm, OnInit {
   progress: number = 0;
   progressMax: number = 0;
   nextHandler: EventEmitter<FormEvent> = new EventEmitter<FormEvent>();

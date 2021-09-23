@@ -1,12 +1,12 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
-import { Form, FormEvent } from '@app/interfaces';
+import { IForm, FormEvent } from '@app/interfaces';
 
 @Component({
   selector: 'app-emergency-form',
   templateUrl: './emergency-form.component.html',
   styleUrls: ['./emergency-form.component.scss']
 })
-export class EmergencyFormComponent implements Form, OnInit {
+export class EmergencyFormComponent implements IForm, OnInit {
 
   isShowEmergencyHelp: boolean = false;
 

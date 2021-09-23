@@ -2,15 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '@app/auth/authentication.service';
 import { DataService } from '@app/data.service';
 import { User } from '@app/interfaces';
+import { PageBase } from '../page-base';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent extends PageBase implements OnInit {
 
-  constructor(private _dataService: DataService, private _auth:AuthenticationService) { }
+  constructor(_dataService: DataService, private _auth: AuthenticationService) {
+    super(_dataService)
+   }
 
   ngOnInit(): void {
   }

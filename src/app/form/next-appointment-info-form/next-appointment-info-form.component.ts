@@ -1,12 +1,12 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
-import { Form, FormEvent } from '@app/interfaces';
+import { IForm, FormEvent } from '@app/interfaces';
 
 @Component({
   selector: 'app-next-appointment-info-form',
   templateUrl: './next-appointment-info-form.component.html',
   styleUrls: ['./next-appointment-info-form.component.scss']
 })
-export class NextAppointmentInfoFormComponent implements Form, OnInit {
+export class NextAppointmentInfoFormComponent implements IForm, OnInit {
 
 
   appointmentStartDateTime: string;

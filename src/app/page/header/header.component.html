@@ -1,28 +1,30 @@
-<div class="fluid-container">
-  <div *ngIf="isShowMobileDownloadBar" class="container row download-mobile-prompt">
-    <img src="assets/mydoc-mobile-app-icon.png"/><strong><a href="#">Download MyDoc Mobile App</a></strong>
-    <div><a (click)="onCloseMobileDownloadBar($event)" href="#"><fa-icon [icon]="['fas', 'window-close']"></fa-icon></a></div>
-  </div>
-  <div class="container">
-    <nav class="navbar row">
-      <div class="navbar-brand"><a routerLink="/home"><img src="{{logoUrl}}" /></a></div>
+<div class="wh-header">
+  <div [ngClass]="pageStyle.container">
+    <div *ngIf="isShowMobileDownloadBar" class="download-mobile-prompt">
+      <img src="assets/mydoc-mobile-app-icon.png"/><strong><a href="#">Download MyDoc Mobile App</a></strong>
+      <div><a (click)="onCloseMobileDownloadBar($event)" href="#"><fa-icon [icon]="['fas', 'window-close']"></fa-icon></a></div>
+    </div>
+    <div>
+      <nav class="navbar wh-row">
+        <div class="navbar-brand"><a routerLink="/home"><img src="{{logoUrl}}" /></a></div>
 
-      <button *ngIf="hasNavigation" class="navbar-toggler" type="button" (click)="onToggleMenu($event)">
-        <fa-icon [icon]="['fas', 'bars']"></fa-icon>
-      </button>
+        <button *ngIf="hasNavigation" class="navbar-toggler" type="button" (click)="onToggleMenu($event)">
+          <fa-icon [icon]="['fas', 'bars']"></fa-icon>
+        </button>
 
-      <div *ngIf="hasNavigation" [ngClass]="{'navbar-collapse': isHideMenu}" class="navbar-menu">
-        <ul class="navbar-nav">
-          <ng-template ngFor let-item [ngForOf]="menuItems">
-            <li class="nav-item" *ngIf="(isLoggedIn && item.display.private) || (!isLoggedIn && item.display.public)">
-              <a class="nav-link active" aria-current="page" routerLink="{{item.routerLink}}">{{item.text}}</a>
-            </li>
-          </ng-template>
-          <li class="navbar-divider"><hr class="dropdown-divider"></li>
-          <li class="nav-item align-right" *ngIf="isLoggedIn"><fa-icon [icon]="['fas', 'user']"></fa-icon>&nbsp;<a class="nav-link active" aria-current="page" (click)="onLogOut($event)">Log Out {{ currentUser?.name }}</a></li>
-          <li class="nav-item align-right" *ngIf="!isLoggedIn"><fa-icon [icon]="['fas', 'user']"></fa-icon>&nbsp;<a class="nav-link active" aria-current="page" routerLink="/login" [queryParams]="{returnUrl: returnUrl}">Log In</a></li>
-        </ul>
-      </div>
-    </nav>
+        <div *ngIf="hasNavigation" [ngClass]="{'navbar-collapse': isHideMenu}" class="navbar-menu">
+          <ul class="navbar-nav">
+            <ng-template ngFor let-item [ngForOf]="menuItems">
+              <li class="nav-item" *ngIf="(isLoggedIn && item.display.private) || (!isLoggedIn && item.display.public)">
+                <a class="nav-link active" aria-current="page" routerLink="{{item.routerLink}}">{{item.text}}</a>
+              </li>
+            </ng-template>
+            <li class="navbar-divider"><hr class="dropdown-divider"></li>
+            <li class="nav-item align-right" *ngIf="isLoggedIn"><fa-icon [icon]="['fas', 'user']"></fa-icon>&nbsp;<a class="nav-link active" aria-current="page" (click)="onLogOut($event)">Log Out {{ currentUser?.name }}</a></li>
+            <li class="nav-item align-right" *ngIf="!isLoggedIn"><fa-icon [icon]="['fas', 'user']"></fa-icon>&nbsp;<a class="nav-link active" aria-current="page" routerLink="/login" [queryParams]="{returnUrl: returnUrl}">Log In</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
   </div>
 </div>
