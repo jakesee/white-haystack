@@ -1,11 +1,11 @@
 import { IAppConfig, PageStyleContainerEnum, PageStyleContentEnum } from "@app/interfaces";
 
-export const Daiichi: IAppConfig = {
+export const Bowtie: IAppConfig = {
     providerId: 0,
     theme: {
         // body
         "--theme-font-family": "'Roboto', sans-serif",
-        "--theme-font-primary-color": "#000000",
+        "--theme-font-primary-color": "#333333",
         "--theme-font-secondary-color": "#ED0225",
         "--theme-font-inactive-color": "#AAAAAA",
         "--theme-box-border-color": "#CCCCCC",
@@ -23,25 +23,25 @@ export const Daiichi: IAppConfig = {
         "--theme-error-foreground-color": "#FAFAFA",
 
         //buttons
-        "--theme-button-border-radius": "5px",
+        "--theme-button-border-radius": "20px",
 
         "--theme-button-primary-border-color": "none",
-        "--theme-button-primary-background-color": "#ED0225",
+        "--theme-button-primary-background-color": "#FF0068",
         "--theme-button-primary-foreground-color": "#ffffff",
 
-        "--theme-button-secondary-border-color": "none",
-        "--theme-button-secondary-background-color": "#EFEFEF",
-        "--theme-button-secondary-foreground-color": "#000000",
+        "--theme-button-secondary-border-color": "#FF0068",
+        "--theme-button-secondary-background-color": "#ffffff",
+        "--theme-button-secondary-foreground-color": "#FF0068",
 
         "--theme-button-primary-inactive-border-color": "none",
-        "--theme-button-primary-inactive-background-color": "#DBDBDB",
-        "--theme-button-primary-inactive-foreground-color": "#EFEFEF",
+        "--theme-button-primary-inactive-background-color": "#CCCCCC",
+        "--theme-button-primary-inactive-foreground-color": "#AAAAAA",
 
         "--theme-button-secondary-inactive-border-color": "none",
         "--theme-button-secondary-inactive-background-color": "#FAFAFA",
         "--theme-button-secondary-inactive-foreground-color": "#EFEFEF",
     },
-    logoUrl: "https://app.qa.my-doc.com/dai-ichi/assets/images/logo_vn_01.svg",
+    logoUrl: "https://assets.bowtie.com.hk/5ee7a33b5edf8fb0bcb51fdd/5ee7a33b5edf8fbf3eb522ed_Logo%20(Original)%20(RGB)%403x.png",
     menuItems: [
         { "text": "Home", "routerLink": "/home", "icon": ["fas", "home"], "display": { "public": true, "private": true } },
         { "text": "Dashboard", "routerLink": "/dashboard", "icon": ["fas", "home"], "display": { "public": true, "private": true } },

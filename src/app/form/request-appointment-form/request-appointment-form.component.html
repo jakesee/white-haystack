@@ -10,8 +10,8 @@
         </ul>
     </div>
     <div class="button-list">
-        <button (click)="onBack($event)">Back</button>
-        <button (click)="onCancel($event)">Cancel</button>
-        <button (click)="onRequestAppointment($event)" class="default">Request: {{selectedTimeslot|date:'medium'}}</button>
+        <button (click)="onBack($event)" class="wh-secondary">Back</button>
+        <button (click)="onCancel($event)" class="wh-secondary">Cancel</button>
+        <button (click)="onRequestAppointment($event)" class="wh-primary default">Request: {{selectedTimeslot|date:'medium'}}</button>
     </div>
 </div>

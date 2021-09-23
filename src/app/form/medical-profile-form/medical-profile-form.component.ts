@@ -1,12 +1,12 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
-import { Form, FormEvent } from '@app/interfaces';
+import { IForm, FormEvent } from '@app/interfaces';
 
 @Component({
   selector: 'app-medical-profile-form',
   templateUrl: './medical-profile-form.component.html',
   styleUrls: ['./medical-profile-form.component.scss']
 })
-export class MedicalProfileFormComponent implements Form, OnInit {
+export class MedicalProfileFormComponent implements IForm, OnInit {
 
   constructor() { }
   nextHandler: EventEmitter<FormEvent> = new EventEmitter<FormEvent>();

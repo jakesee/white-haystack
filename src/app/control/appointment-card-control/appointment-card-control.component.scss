@@ -2,7 +2,7 @@
 
 .appointment-card {
     background-color: white;
-    border: 1px solid var(--theme-border-color);
+    border: 1px solid var(--theme-box-border-color);
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 10px;
@@ -42,7 +42,7 @@
 
             fa-icon {
                 font-size: 180%;
-                color: var(--theme-border-color);
+                color: var(--theme-button-primary-inactive-background-color);
                 cursor: auto;
             }
 

@@ -1,9 +1,9 @@
 @import '../../../variables.scss';
 
-.row {
+.settings-section {
 
   margin-bottom: 12px;
-  border-bottom: 1px solid var(--theme-border-color);
+  border-bottom: 1px solid var(--theme-box-border-color);
 
 
   .col-field div,
@@ -27,11 +27,11 @@
       margin: 0;
       padding: 10px;
       background-color: white;
-      border-bottom: 1px solid var(--theme-border-color);
-      border-left: 1px solid var(--theme-border-color);
+      border-bottom: 1px solid var(--theme-box-border-color);
+      border-left: 1px solid var(--theme-box-border-color);
     }
     li:first-child {
-       border-top: 1px solid var(--theme-border-color);
+       border-top: 1px solid var(--theme-box-border-color);
     }
   }
 }
@@ -50,11 +50,11 @@
         margin: 0;
         padding: 10px;
         background-color: white;
-        border-bottom: 1px solid var(--theme-border-color);
-        border-left: 1px solid var(--theme-border-color);
+        border-bottom: 1px solid var(--theme-box-border-color);
+        border-left: 1px solid var(--theme-box-border-color);
       }
       li:first-child {
-        border-top: 1px solid var(--theme-border-color);
+        border-top: 1px solid var(--theme-box-border-color);
       }
     }
 

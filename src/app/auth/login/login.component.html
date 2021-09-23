@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <div *ngIf="isLogin" class="card">
         <h1>Login</h1>
         <form [formGroup]="form" (ngSubmit)="onLogin($event)">
@@ -11,7 +11,7 @@
                 <div *ngIf="f.password.errors.required" class="error">Password is required</div>
             </div>
             <div class="button-list">
-                <input type="submit" value="Log In" />
+                <input type="submit" value="Log In" class="wh-primary" />
             </div>
             <p>New User? <a href="#" (click)="onToggleForm($event)">Register</a> or <a routerLink="/public/tour">visit MyDoc Tour</a>.</p>
         </form>
@@ -29,8 +29,8 @@
                 <div *ngIf="f.password.errors.required" class="error">Password is required</div>
             </div>
             <div class="button-list">
-                <input type="submit" value="Register" />
-                <button (click)="onToggleForm($event)">Existing User?</button>
+                <input type="submit" value="Register" class="wh-primary" />
+                <button (click)="onToggleForm($event)" class="wh-secondary">Existing User?</button>
             </div>
             <p>Not sure? <a routerLink="/public/tour">Take the MyDoc Tour</a>.</p>
         </form>

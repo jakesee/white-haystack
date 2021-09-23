@@ -157,12 +157,5 @@ div.fluid-container {
   }
 }
 
-@media only screen and (min-width: $size-lg) {
-  div.fluid-container {
-      border-bottom: 1px solid var(--theme-border-color);
-      margin-bottom: 10px;
-    }
-}
-
 
 

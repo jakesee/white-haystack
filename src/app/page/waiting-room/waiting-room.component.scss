@@ -4,11 +4,12 @@
     padding: 20px;
 
     .appointment-nav {
+        background-color: var(--theme-button-secondary-background-color);
+        color: var(--theme-button-secondary-foreground-color);
+        border-radius: var(--theme-button-border-radius);
+        border: 1px solid var(--theme-button-border-color);
 
-        background-color: var(--theme-border-color);
         padding: 10px;
-        border-radius: 20px;
-
 
         button {
             display: block;
@@ -17,8 +18,8 @@
             font-weight: 700;
             border: none;
             padding: 5px 10px;
-            border-radius: 20px;
-            background-color: var(--theme-border-color);
+            border-radius: var(--theme-button-border-radius);
+            background-color: var(--theme-button-secondary-background-color);
         }
 
         button.active, button:hover {
@@ -27,8 +28,6 @@
         }
     }
 }
-
-
 
 @media screen and (min-width: $size-sm) {
     .appointments {
@@ -39,7 +38,6 @@
             gap: 10px;
 
             padding: 10px;
-            border-radius: 25px;
 
             button {
                 flex: 1 1 33%;

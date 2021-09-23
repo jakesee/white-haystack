@@ -4,7 +4,7 @@
 
     margin: 20px 0 0 30px;
     padding: 0;
-    border-left: 3px solid var(--theme-border-color);
+    border-left: 3px solid var(--theme-box-border-color);
 
     li {
         margin: 0 0 15px 0;
@@ -13,7 +13,7 @@
 
         .journey-stop-number {
             border-radius: 10px;
-            background-color: var(--theme-border-color);
+            background-color: var(--theme-box-border-color);
             display: inline-block;
             width: 20px;
             line-height: 20px;
@@ -100,7 +100,7 @@
         gap: 10px;
         padding: 0 20px 0 20px;
         border: 0px;
-        border-top: 3px solid var(--theme-border-color);
+        border-top: 3px solid var(--theme-box-border-color);
         margin: 30px 0 0 0;
 
 

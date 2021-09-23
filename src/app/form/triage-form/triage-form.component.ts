@@ -1,14 +1,14 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { DataService } from '@app/data.service';
-import { Form, FormEvent } from '@app/interfaces';
+import { IForm, FormEvent } from '@app/interfaces';
 
 @Component({
   selector: 'app-triage-form',
   templateUrl: './triage-form.component.html',
   styleUrls: ['./triage-form.component.scss']
 })
-export class TriageFormComponent implements Form, OnInit {
+export class TriageFormComponent implements IForm, OnInit {
 
   nextHandler: EventEmitter<FormEvent> = new EventEmitter<FormEvent>();
   backHandler: EventEmitter<FormEvent> = new EventEmitter<FormEvent>();

@@ -10,7 +10,7 @@
         img {
             max-width: 100%;
             border-radius: 5px 5px 5px 5px;
-            border: 1px solid var(--theme-border-color);
+            border: 1px solid var(--theme-box-border-color);
         }
 
     }
@@ -31,7 +31,7 @@
                 font-size: 120%;
                 display: inline-block;
                 margin: 5px 5px 5px 0;
-                color: var(--theme-button-primary-background-color)-light;
+                color: var(--theme-button-primary-background-color);
                 vertical-align: middle;
             }
 
@@ -57,14 +57,14 @@
                 display: block;
                 width: 100%;
                 border-radius: 10px 10px 0 0;
-                border: 1px solid var(--theme-border-color);
+                border: 1px solid var(--theme-box-border-color);
             }
         }
 
         .metadata {
             padding: 10px;
             width: 100%;
-            border: 1px solid var(--theme-border-color);
+            border: 1px solid var(--theme-box-border-color);
             border-top: none;
             border-radius: 0 0 10px 10px;
             background: white;

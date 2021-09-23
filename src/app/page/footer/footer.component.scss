@@ -1,10 +1,14 @@
 @import '../../../variables.scss';
 
+.fixed-margin {
+    height: 50px;
+}
+
 ul {
     display: flex;
     margin: 0;
     padding: 10px;
-    border-top: 1px solid var(--theme-border-color);
+    border-top: 1px solid var(--theme-box-border-color);
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -27,7 +31,7 @@ ul {
 }
 
 @media screen and (min-width: $size-md) {
-    ul {
+    .footer-nav {
         display: none;
     }
 }

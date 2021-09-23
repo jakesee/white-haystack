@@ -17,13 +17,15 @@ import { Observable } from 'rxjs';
 import { TitleBarSectionComponent } from './sections/title-bar-section/title-bar-section.component';
 import { ProviderEligibilityFormComponent } from './form/provider-eligibility-form/provider-eligibility-form.component';
 import { SubProvidersSectionComponent } from './sections/sub-providers-section/sub-providers-section.component';
-import * as _ from 'lodash';
 import { IAppConfig } from './interfaces';
-import { MyDoc as Partner } from 'src/partner/theme-mydoc';
 import { Database } from '../assets/database';
 import { MedicalProfileFormComponent } from './form/medical-profile-form/medical-profile-form.component';
 import { FooterComponent } from './page/footer/footer.component';
 import { HeaderComponent } from './page/header/header.component';
+import { MyDoc as Partner } from 'src/partner/theme-mydoc';
+//import { Daiichi as Partner } from 'src/partner/theme-daiichi';
+//import { Bowtie as Partner } from 'src/partner/theme-bowtie';
+import * as _ from 'lodash';
 
 export const REGISTRY = new Map<string, Type<any>>();
 // Sections

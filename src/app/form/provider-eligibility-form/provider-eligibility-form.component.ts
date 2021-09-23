@@ -2,14 +2,14 @@ import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '@app/data.service';
-import { Form, FormEvent } from '@app/interfaces';
+import { IForm, FormEvent } from '@app/interfaces';
 
 @Component({
   selector: 'app-provider-eligibility-form',
   templateUrl: './provider-eligibility-form.component.html',
   styleUrls: ['./provider-eligibility-form.component.scss']
 })
-export class ProviderEligibilityFormComponent implements Form, OnInit {
+export class ProviderEligibilityFormComponent implements IForm, OnInit {
 
 
   form: FormGroup;

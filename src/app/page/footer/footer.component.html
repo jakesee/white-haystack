@@ -1,9 +1,12 @@
-<div *ngIf="isVisible" class="fluid-container">
-    <ul>
-        <ng-template ngFor let-item [ngForOf]="menuItems">
-            <li *ngIf="(isLoggedIn && item.display.private) || (!isLoggedIn && item.display.public)">
-                <a routerLink="{{item.routerLink}}" href="#"><fa-icon [icon]="item.icon"></fa-icon></a>
-            </li>
-        </ng-template>
-    </ul>
+<div class="wh-footer">
+    <div *ngIf="isVisible" [ngClass]="pageStyle.container" class="footer-nav">
+        <div class="fixed-margin"></div>
+        <ul>
+            <ng-template ngFor let-item [ngForOf]="menuItems">
+                <li *ngIf="(isLoggedIn && item.display.private) || (!isLoggedIn && item.display.public)">
+                    <a routerLink="{{item.routerLink}}" href="#"><fa-icon [icon]="item.icon"></fa-icon></a>
+                </li>
+            </ng-template>
+        </ul>
+    </div>
 </div>

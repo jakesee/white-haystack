@@ -1,7 +1,7 @@
 import { Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '@app/data.service';
-import { Form, FormEvent } from '@app/interfaces';
+import { IForm, FormEvent } from '@app/interfaces';
 
 @Component({
   selector: 'app-journey',
@@ -91,7 +91,7 @@ export class JourneyComponent implements OnInit {
     const componentType = this._dataService.resolveComponent(step.component);
     const factory = this._componentFactoryResolver.resolveComponentFactory(componentType);
     const compRef = this.container.createComponent(factory);
-    const instance: Form = compRef.instance as Form;
+    const instance: IForm = compRef.instance as IForm;
 
     instance.backHandler.subscribe(event => {
       this._back(event);
