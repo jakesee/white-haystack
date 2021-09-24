@@ -29,6 +29,8 @@ import * as _ from 'lodash';
 import { RecentFeedsSectionComponent } from './sections/recent-feeds-section/recent-feeds-section.component';
 import { RecentProvidersSectionComponent } from './sections/recent-providers-section/recent-providers-section.component';
 import { CategorySectionComponent } from './sections/category-section/category-section.component';
+import { HtmlFormComponent } from './form/html-form/html-form.component';
+import { SelectAccountFormComponent } from './form/select-account-form/select-account-form.component';
 
 export const REGISTRY = new Map<string, Type<any>>();
 // Sections
@@ -54,6 +56,9 @@ REGISTRY.set("EmergencyFormComponent", EmergencyFormComponent);
 REGISTRY.set("NextAppointmentInfoFormComponent", NextAppointmentInfoFormComponent);
 REGISTRY.set("RequestAppointmentFormComponent", RequestAppointmentFormComponent);
 REGISTRY.set("MedicalProfileFormComponent", MedicalProfileFormComponent);
+REGISTRY.set("HtmlFormComponent", HtmlFormComponent);
+REGISTRY.set("SelectAccountFormComponent", SelectAccountFormComponent);
+
 
 @Injectable({
   providedIn: 'root'

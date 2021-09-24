@@ -1,0 +1,36 @@
+form {
+    div.label { margin-bottom: 5px;}
+    div.input {
+        margin-bottom: 10px;
+    }
+
+    input, select, textarea {
+        display: block;
+        border: none;
+        background: #EEEEEE;
+        padding: 6px 9px;
+        width: 100%;
+    }
+    input[type=submit] {
+        width: auto;
+    }
+}
+
+div.login-form {
+    border: 1px solid var(--theme-box-border-color);
+    padding: 20px;
+}
+
+.button-list {
+
+    display: flex;
+
+    button {
+        padding: 6px 9px;
+        margin-right: 5px;
+    }
+    button.default {
+        margin-left: auto;
+        align-self: flex-end;
+    }
+}

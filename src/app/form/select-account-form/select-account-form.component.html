@@ -1,0 +1,38 @@
+<div class="card">
+    <div *ngIf="!isLoggedIn" class="login-form">
+        <p>Existing User? Log In to retrieve your information.</p>
+        <form (submit)="logIn($event)">
+            <div class="label">Username</div>
+            <div class="input"><input type="text" name="username" [(ngModel)]="username"></div>
+
+            <div class="label">Password</div>
+            <div class="input"><input type="password" name="password" [(ngModel)]="password"></div>
+            <div class="button-list">
+                <input type="submit" value="Retrieve Info" class="wh-primary"/>
+            </div>
+        </form>
+    </div>
+
+    <h1>Please confirm your personal particulars</h1>
+    <form>
+        <div class="label">First Name</div>
+        <div class="input"><input type="text" name="firstName" [(ngModel)]="firstName"></div>
+        <div class="label">Last Name</div>
+        <div class="input"><input type="text" name="lastName" [(ngModel)]="lastName"></div>
+        <div class="label">Contact</div>
+        <div class="input"><input type="text" name="contact" [(ngModel)]="contact"></div>
+        <div class="label">Email</div>
+        <div class="input"><input type="text" name="email" [(ngModel)]="email"></div>
+        <div class="label">Gender</div>
+        <div class="input"><input type="text" name="gender" [(ngModel)]="gender"></div>
+        <div class="label">Date of Birth</div>
+        <div class="input"><input type="text" name="birthdate" [(ngModel)]="birthdate"></div>
+        <div class="label">NRIC/FIN</div>
+        <div class="input"><input type="text" name="nationalId" [(ngModel)]="nationalId"></div>
+    </form>
+    <div class="button-list">
+        <button (click)="onBack($event)" class="wh-secondary">Back</button>
+        <button (click)="onCancel($event)" class="wh-secondary">Cancel</button>
+        <button (click)="onNext($event)" class="wh-primary default">Next</button>
+    </div>
+</div>

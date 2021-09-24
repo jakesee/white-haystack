@@ -30,6 +30,9 @@ export const Database: IDatabase = {
             "lastName": "See",
             "gender": "Male",
             "birthdate": "01/22/1985",
+            "email": "jake.see@my-doc.com",
+            "contact": "90889411",
+            "nationalId": "S7865248H",
             "episodes": [
                 { "doctorName": "Dr Kim Lee Yong", "doctorImgUrl": "https://randomuser.me/api/portraits/men/75.jpg", "startAt": 1631893316000, "endAt": 1631893316000 },
                 { "doctorName": "Dr Eileen Fox", "doctorImgUrl": "https://randomuser.me/api/portraits/women/65.jpg", "startAt": 1631893316000, "endAt": 1631893316000 },
@@ -318,6 +321,10 @@ export const Database: IDatabase = {
                         "title": "Prudential",
                         "blob": "Bananas strawberry spinach salad cozy butternut leek edamame hummus garlic sriracha noodles green papaya salad tofu quinoa flatbread zesty tofu pad thai spicy smoked tofu burritos roasted brussel sprouts blood orange smash lime mango crisp Bolivian rainbow pepper. Crispy ghost pepper Chinese five-spice powder salty cherry bomb tahini drizzle miso turmeric glazed aubergine shiitake mushrooms dill red curry tofu noodles morning smoothie bowl. Thai dragon pepper red pepper cool cucumbers crumbled lentils bento box avocado basil pesto seitan lemon tahini dressing banana bread hemp seeds macadamia nut cookies red lentil curry sandwiches Thai curry sesame soba noodles lingonberry."
                     }
+                },
+                {
+                    "component": "SubProvidersSectionComponent",
+                    "config": { }
                 },
             ]
         },
@@ -685,6 +692,99 @@ export const Database: IDatabase = {
                 "start": {
                     "auth": true,
                     "label": "Book Health Screening Appointment",
+                    "cmdCancel": [
+                        "../.."
+                    ],
+                    "cmdSuccess": [
+                        "/waiting-room"
+                    ],
+                    "sequence": [
+                        {
+                            "stepName": "Confirm Personal Info",
+                            "component": "CollectPersonalInfoFormComponent",
+                            "config": {
+                                "title": "Please provide your personal info."
+                            }
+                        },
+                        {
+                            "stepName": "Request Appointment",
+                            "component": "RequestAppointmentFormComponent",
+                            "config": {}
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 17,
+            "parentId": 5,
+            "order": 0,
+            "title": "Health Screening Appointment",
+            "logoUrl": "logo-my-doc.png",
+            "description": "Arugula salad sweet potato delightful blueberry scones chai tea Caribbean red habanero chilies hummus falafel bowl coconut salty cilantro bruschetta",
+            "category": "Clinic",
+            "isMemberRequired": false,
+            "sections": [],
+            "journey": {
+                "start": {
+                    "auth": false,
+                    "label": "Book Appointment",
+                    "cmdCancel": [
+                        "../.."
+                    ],
+                    "cmdSuccess": [
+                        "/waiting-room"
+                    ],
+                    "sequence": [
+                        {
+                            stepName: "Terms & Conditions",
+                            component: "HtmlFormComponent",
+                            config: {
+                                title: "Terms and Conditions",
+                                html: `<p>As a Prudential PRUExtra Premier, PRUExtra Premier CoPay or PRUExtra Preferred CoPay policyholder, you can easily book your MyDoc Health Screening appointment without leaving the comfort of your home.</p>
+<p>Please fill in your details and our team will get in touch with you soon</p>
+<p>Do note that you are only allowed to register once. If you have any questions or encounter issues, please contact us at <strong>support@my-doc.com</strong> for assistance.
+<ul><strong>Terms and Conditions</strong>
+	<li>Please present your PRUPanel Connect eCard and Identity card for verification and identification.</li>
+	<li>Full payment is required via Credit Card, PayNow or Bank transfer to MyDoc at least five (5) working days prior to the date of health screening/vaccination appointment.</li>
+	<li>Each patient is allowed to reschedule their appointment up to two (2) times within the validity period. The request must be made at least three (3) working days before the date of appointment by emailing to MyDoc at support@my-doc.com.</li>
+	<li>The health screening package is valid for three (3) months from the date that payment is received by MyDoc</li>
+	<li>Patients may cancel their booking if payment has not been made to MyDoc. No refund is allowed in case of cancellation of appointment after payment is made to MyDoc or in case of a "No Show" on the date/time of appointment.</li>
+	<li>All prices are inclusive of GST</li>
+</ul>
+
+<p><strong>Disclaimer</strong></p>
+<p>Prudential makes no warranty or representation regarding the quality or fitness for purpose of the services provided by MyDoc. Any questions about the aforementioned must be addressed directly with MyDoc. Please contact MyDoc at support@my-doc.com for any questions regarding its content.</p>`
+                            }
+                        },
+                        {
+                            "stepName": "Confirm Personal Info",
+                            "component": "SelectAccountFormComponent",
+                            "config": {}
+                        },
+                        {
+                            "stepName": "Request Appointment",
+                            "component": "RequestAppointmentFormComponent",
+                            "config": {}
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": 18,
+            "parentId": 5,
+            "order": 0,
+            "title": "Health Report Consultation",
+            "logoUrl": "logo-my-doc.png",
+            "description": "Fig arugula cashew salad almond milk guacamole lemon picnic salad macadamia nut cookies seeds dessert smoky maple tempeh glaze street style Thai basil tacos summer fruit salad",
+            "category": "Clinic",
+            "isMemberRequired": false,
+            "sections": [],
+            "journey": {
+                "start": {
+                    "auth": true,
+                    "label": "Book Report Review Appointment",
                     "cmdCancel": [
                         "../.."
                     ],
