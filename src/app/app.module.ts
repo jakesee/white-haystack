@@ -46,6 +46,8 @@ import { MedicalProfileFormComponent } from './form/medical-profile-form/medical
 import { CategorySectionComponent } from './sections/category-section/category-section.component';
 import { RecentProvidersSectionComponent } from './sections/recent-providers-section/recent-providers-section.component';
 import { RecentFeedsSectionComponent } from './sections/recent-feeds-section/recent-feeds-section.component';
+import { HtmlFormComponent } from './form/html-form/html-form.component';
+import { SelectAccountFormComponent } from './form/select-account-form/select-account-form.component';
 
 
 @NgModule({
@@ -95,6 +97,8 @@ import { RecentFeedsSectionComponent } from './sections/recent-feeds-section/rec
     CategorySectionComponent,
     RecentProvidersSectionComponent,
     RecentFeedsSectionComponent,
+    HtmlFormComponent,
+    SelectAccountFormComponent,
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],

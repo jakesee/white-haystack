@@ -1,0 +1,13 @@
+.button-list {
+
+    display: flex;
+
+    button {
+        padding: 6px 9px;
+        margin-right: 5px;
+    }
+    button.default {
+        margin-left: auto;
+        align-self: flex-end;
+    }
+}

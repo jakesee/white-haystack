@@ -143,6 +143,9 @@ export class IUser {
   lastName: string;
   gender: string;
   birthdate: string;
+  contact?: string;
+  email?: string;
+  nationalId?: string;
   episodes: IEpisode[];
 }
 
