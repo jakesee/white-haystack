@@ -48,6 +48,7 @@ import { RecentProvidersSectionComponent } from './sections/recent-providers-sec
 import { RecentFeedsSectionComponent } from './sections/recent-feeds-section/recent-feeds-section.component';
 import { HtmlFormComponent } from './form/html-form/html-form.component';
 import { SelectAccountFormComponent } from './form/select-account-form/select-account-form.component';
+import { ThemesGuideComponent } from './page/themes-guide/themes-guide.component';
 
 
 @NgModule({
@@ -99,6 +100,7 @@ import { SelectAccountFormComponent } from './form/select-account-form/select-ac
     RecentFeedsSectionComponent,
     HtmlFormComponent,
     SelectAccountFormComponent,
+    ThemesGuideComponent,
   ],
   providers: [DataService, AuthenticationService, mockHttpProviderService],
   bootstrap: [AppComponent],

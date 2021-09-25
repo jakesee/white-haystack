@@ -24,22 +24,18 @@ export const Bowtie: IAppConfig = {
 
         //buttons
         "--theme-button-border-radius": "20px",
-
-        "--theme-button-primary-border-color": "none",
+        "--theme-button-primary-border-color": "#FF0068",
         "--theme-button-primary-background-color": "#FF0068",
         "--theme-button-primary-foreground-color": "#ffffff",
-
         "--theme-button-secondary-border-color": "#FF0068",
-        "--theme-button-secondary-background-color": "#ffffff",
+        "--theme-button-secondary-background-color": "#FFFFFF",
         "--theme-button-secondary-foreground-color": "#FF0068",
-
-        "--theme-button-primary-inactive-border-color": "none",
+        "--theme-button-primary-inactive-border-color": "#CCCCCC",
         "--theme-button-primary-inactive-background-color": "#CCCCCC",
-        "--theme-button-primary-inactive-foreground-color": "#AAAAAA",
-
-        "--theme-button-secondary-inactive-border-color": "none",
-        "--theme-button-secondary-inactive-background-color": "#FAFAFA",
-        "--theme-button-secondary-inactive-foreground-color": "#EFEFEF",
+        "--theme-button-primary-inactive-foreground-color": "#888888",
+        "--theme-button-secondary-inactive-border-color": "#CCCCCC",
+        "--theme-button-secondary-inactive-background-color": "#FFFFFF",
+        "--theme-button-secondary-inactive-foreground-color": "#CCCCCC"
     },
     logoUrl: "https://assets.bowtie.com.hk/5ee7a33b5edf8fb0bcb51fdd/5ee7a33b5edf8fbf3eb522ed_Logo%20(Original)%20(RGB)%403x.png",
     menuItems: [

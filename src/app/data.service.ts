@@ -17,14 +17,14 @@ import { Observable } from 'rxjs';
 import { TitleBarSectionComponent } from './sections/title-bar-section/title-bar-section.component';
 import { ProviderEligibilityFormComponent } from './form/provider-eligibility-form/provider-eligibility-form.component';
 import { SubProvidersSectionComponent } from './sections/sub-providers-section/sub-providers-section.component';
-import { IAppConfig } from './interfaces';
+import { IAppConfig, ITheme } from './interfaces';
 import { Database } from '../assets/database';
 import { MedicalProfileFormComponent } from './form/medical-profile-form/medical-profile-form.component';
 import { FooterComponent } from './page/footer/footer.component';
 import { HeaderComponent } from './page/header/header.component';
-import { MyDoc as Partner } from 'src/partner/theme-mydoc';
+//import { MyDoc as Partner } from 'src/partner/theme-mydoc';
 //import { Daiichi as Partner } from 'src/partner/theme-daiichi';
-//import { Bowtie as Partner } from 'src/partner/theme-bowtie';
+import { Bowtie as Partner } from 'src/partner/theme-bowtie';
 import * as _ from 'lodash';
 import { RecentFeedsSectionComponent } from './sections/recent-feeds-section/recent-feeds-section.component';
 import { RecentProvidersSectionComponent } from './sections/recent-providers-section/recent-providers-section.component';
@@ -102,10 +102,10 @@ export class DataService {
     localStorage.setItem('database', JSON.stringify(database));
 
     this.appConfig = appConfig;
-    this._setTheme(appConfig.theme);
+    this.setTheme(appConfig.theme);
   }
 
-  private _setTheme(theme):void {
+  setTheme(theme: ITheme):void {
     Object.keys(theme).forEach((prop) => {
       document.documentElement.style.setProperty(prop, theme[prop]);
     });

@@ -93,16 +93,22 @@ button.wh-primary, input[type=submit].wh-primary {
   color: var(--theme-button-primary-foreground-color) !important;
   border: 1px solid var(--theme-button-primary-border-color) !important;
 }
+button.wh-primary.wh-inactive, input[type=submit].wh-primary.wh-inactive {
+  background-color: var(--theme-button-primary-inactive-background-color) !important;
+  color: var(--theme-button-primary-inactive-foreground-color) !important;
+  border: 1px solid var(--theme-button-primary-inactive-border-color) !important;
+}
 button.wh-secondary, input[type=submit].wh-secondary {
   background-color: var(--theme-button-secondary-background-color) !important;
   color: var(--theme-button-secondary-foreground-color) !important;
   border: 1px solid var(--theme-button-secondary-border-color) !important;
 }
-button.wh-inactive, input[type=submit].wh-inactive {
-  background-color: var(--theme-button-inactive-background-color) !important;
-  color: var(--theme-button-inactive-foreground-color) !important;
-  border: 1px solid var(--theme-button-inactive-border-color) !important;
+button.wh-secondary.wh-inactive, input[type=submit].wh-secondary.wh-inactive {
+  background-color: var(--theme-button-secondary-inactive-background-color) !important;
+  color: var(--theme-button-secondary-inactive-foreground-color) !important;
+  border: 1px solid var(--theme-button-secondary-inactive-border-color) !important;
 }
+
 fa-icon.wh-primary { color: var(--theme-button-primary-foreground-color) !important; }
 fa-icon.wh-secondary { color: var(--theme-button-secondary-foreground-color) !important; }
 fa-icon.wh-inactive { color: var(--theme-button-inactive-foreground-color) !important; }

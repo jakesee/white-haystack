@@ -10,6 +10,7 @@ import { ProviderComponent } from './page/provider/provider.component';
 import { WaitingRoomComponent } from './page/waiting-room/waiting-room.component';
 import { TourComponent } from './page/tour/tour.component';
 import { FeedsComponent } from './page/feeds/feeds.component';
+import { ThemesGuideComponent } from './page/themes-guide/themes-guide.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'provider/:pid/journey/:jid', component: JourneyComponent, canActivate: [AuthenticationService] },
   { path: 'provider/:pid', component: ProviderComponent, canActivate: [AuthenticationService] },
   { path: 'waiting-room', component: WaitingRoomComponent, canActivate: [AuthenticationService] },
+  { path: 'themes-guide', component: ThemesGuideComponent },
   { path: 'home', component: HomeComponent },
   { path: '**', component: HomeComponent }
 ];

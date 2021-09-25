@@ -27,19 +27,16 @@ export const MyDoc: IAppConfig = {
 
         "--theme-button-primary-border-color": "#4F85F1",
         "--theme-button-primary-background-color": "#4F85F1",
-        "--theme-button-primary-foreground-color": "#ffffff",
-
+        "--theme-button-primary-foreground-color": "#FFFFFF",
         "--theme-button-secondary-border-color": "#DBDBDB",
-        "--theme-button-secondary-background-color": "rgb(239, 239, 239)",
+        "--theme-button-secondary-background-color": "#DBDBDB",
         "--theme-button-secondary-foreground-color": "#000000",
-
-        "--theme-button-primary-inactive-border-color": "#DBDBDB",
-        "--theme-button-primary-inactive-background-color": "#DBDBDB",
-        "--theme-button-primary-inactive-foreground-color": "#EFEFEF",
-
+        "--theme-button-primary-inactive-border-color": "#4F85F1",
+        "--theme-button-primary-inactive-background-color": "#4F85F1",
+        "--theme-button-primary-inactive-foreground-color": "#84adea",
         "--theme-button-secondary-inactive-border-color": "#DBDBDB",
-        "--theme-button-secondary-inactive-background-color": "#FAFAFA",
-        "--theme-button-secondary-inactive-foreground-color": "#EFEFEF",
+        "--theme-button-secondary-inactive-background-color": "#DBDBDB",
+        "--theme-button-secondary-inactive-foreground-color": "#AAAAAA"
     },
     logoUrl: "https://my-doc.com/wp-content/uploads/2019/12/logo-mydoc-1.png",
     menuItems: [
