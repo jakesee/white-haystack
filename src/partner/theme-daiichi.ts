@@ -8,7 +8,6 @@ export const Daiichi: IAppConfig = {
         "--theme-font-primary-color": "#000000",
         "--theme-font-secondary-color": "#ED0225",
         "--theme-font-inactive-color": "#AAAAAA",
-        "--theme-box-border-color": "#CCCCCC",
 
         // header/footer
         "--theme-header-background-color": "#ffffff",
@@ -18,28 +17,44 @@ export const Daiichi: IAppConfig = {
         "--theme-primary-background-color": "#ffffff",
         "--theme-secondary-background-color": "#ffffff",
 
-        // errors and warnings
-        "--theme-error-background-color": "#ED0225",
-        "--theme-error-foreground-color": "#FAFAFA",
+        // box
+        "--theme-box-border-radius": "5px",
+        "--theme-error-border-color": "#FFEBE6",
+        "--theme-error-background-color": "#FFEBE6",
+        "--theme-error-foreground-color": "#333333",
+        "--theme-warning-border-color": "#FFF9E7",
+        "--theme-warning-background-color": "#FFF9E7",
+        "--theme-warning-foreground-color": "#333333",
+        "--theme-info-border-color": "#DEECFE",
+        "--theme-info-background-color": "#DEECFE",
+        "--theme-info-foreground-color": "#333333",
+        "--theme-note-border-color": "#EAE7FE",
+        "--theme-note-background-color": "#EAE7FE",
+        "--theme-note-foreground-color": "#333333",
+        "--theme-success-border-color": "#E3FCEF",
+        "--theme-success-background-color": "#E3FCEF",
+        "--theme-success-foreground-color": "#333333",
 
         //buttons
-        "--theme-button-border-radius": "5px",
-
-        "--theme-button-primary-border-color": "none",
+        "--theme-button-border-radius": "unset",
+        "--theme-button-primary-border-color": "unset",
         "--theme-button-primary-background-color": "#ED0225",
         "--theme-button-primary-foreground-color": "#ffffff",
-
-        "--theme-button-secondary-border-color": "none",
+        "--theme-button-secondary-border-color": "unset",
         "--theme-button-secondary-background-color": "#EFEFEF",
         "--theme-button-secondary-foreground-color": "#000000",
-
-        "--theme-button-primary-inactive-border-color": "none",
+        "--theme-button-primary-inactive-border-color": "unset",
         "--theme-button-primary-inactive-background-color": "#DBDBDB",
         "--theme-button-primary-inactive-foreground-color": "#EFEFEF",
-
-        "--theme-button-secondary-inactive-border-color": "none",
+        "--theme-button-secondary-inactive-border-color": "unset",
         "--theme-button-secondary-inactive-background-color": "#FAFAFA",
         "--theme-button-secondary-inactive-foreground-color": "#EFEFEF",
+
+        // icons
+        "--theme-icon-color": "#FFFFFF",
+        "--theme-icon-background-color": "#ED0225",
+        "--theme-icon-inactive-color": "#333333",
+        "--theme-icon-inactive-background-color": "#DBDBDB",
     },
     logoUrl: "https://app.qa.my-doc.com/dai-ichi/assets/images/logo_vn_01.svg",
     menuItems: [

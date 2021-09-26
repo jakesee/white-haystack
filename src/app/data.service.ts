@@ -17,7 +17,7 @@ import { Observable } from 'rxjs';
 import { TitleBarSectionComponent } from './sections/title-bar-section/title-bar-section.component';
 import { ProviderEligibilityFormComponent } from './form/provider-eligibility-form/provider-eligibility-form.component';
 import { SubProvidersSectionComponent } from './sections/sub-providers-section/sub-providers-section.component';
-import { IAppConfig } from './interfaces';
+import { IAppConfig, ITheme } from './interfaces';
 import { Database } from '../assets/database';
 import { MedicalProfileFormComponent } from './form/medical-profile-form/medical-profile-form.component';
 import { FooterComponent } from './page/footer/footer.component';
@@ -102,10 +102,10 @@ export class DataService {
     localStorage.setItem('database', JSON.stringify(database));
 
     this.appConfig = appConfig;
-    this._setTheme(appConfig.theme);
+    this.setTheme(appConfig.theme);
   }
 
-  private _setTheme(theme):void {
+  setTheme(theme: ITheme):void {
     Object.keys(theme).forEach((prop) => {
       document.documentElement.style.setProperty(prop, theme[prop]);
     });

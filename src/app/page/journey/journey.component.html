@@ -1,7 +1,7 @@
 <div class="container">
     <ul class="journey-line">
         <li *ngFor="let seq of sequence; index as i" class="journey-stop">
-            <div [ngClass]="{'active': i == progress}" class="journey-stop-number">{{i + 1}}</div>
+            <div [ngClass]="{'wh-inactive': i != progress}" class="wh-icon journey-stop-number">{{i + 1}}</div>
             <div class="journey-stop-name">{{seq.stepName}}</div>
         </li>
     </ul>

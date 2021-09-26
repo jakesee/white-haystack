@@ -1,9 +1,9 @@
 <div>
   <div class="appointments" [ngClass]="pageStyle.content">
     <div class="appointment-nav">
-      <button (click)="onSelectPeriod('today')" [ngClass]="selectedPeriod == 'today' ? 'active' : ''">Today</button>
-      <button (click)="onSelectPeriod('future')" [ngClass]="selectedPeriod == 'future' ? 'active' : ''">Upcoming Appointments</button>
-      <button (click)="onSelectPeriod('past')" [ngClass]="selectedPeriod == 'past' ? 'active' : ''">Past Appointments</button>
+      <button class="wh-button" (click)="onSelectPeriod('today')" [ngClass]="selectedPeriod == 'today' ? 'active' : ''">Today</button>
+      <button class="wh-button" (click)="onSelectPeriod('future')" [ngClass]="selectedPeriod == 'future' ? 'active' : ''">Upcoming Appointments</button>
+      <button class="wh-button" (click)="onSelectPeriod('past')" [ngClass]="selectedPeriod == 'past' ? 'active' : ''">Past Appointments</button>
     </div>
 
     <div *ngIf="selectedPeriod == 'today'">

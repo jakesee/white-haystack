@@ -8,7 +8,7 @@ export const MyDoc: IAppConfig = {
         "--theme-font-primary-color": "#0E194E",
         "--theme-font-secondary-color": "#828FB7",
         "--theme-font-inactive-color": "#C7D2E1",
-        "--theme-box-border-color": "#DBDBDB",
+
 
         // header/footer
         "--theme-header-background-color": "#ffffff",
@@ -19,27 +19,43 @@ export const MyDoc: IAppConfig = {
         "--theme-secondary-background-color": "#ffffff", // applies to pageStyle.container
 
         // errors and warnings
-        "--theme-error-background-color": "#ED0225",
-        "--theme-error-foreground-color": "#FAFAFA",
+        "--theme-box-border-radius": "5px",
+        "--theme-error-border-color": "#FFEBE6",
+        "--theme-error-background-color": "#FFEBE6",
+        "--theme-error-foreground-color": "#333333",
+        "--theme-warning-border-color": "#FFF9E7",
+        "--theme-warning-background-color": "#FFF9E7",
+        "--theme-warning-foreground-color": "#333333",
+        "--theme-info-border-color": "#DEECFE",
+        "--theme-info-background-color": "#DEECFE",
+        "--theme-info-foreground-color": "#333333",
+        "--theme-note-border-color": "#EAE7FE",
+        "--theme-note-background-color": "#EAE7FE",
+        "--theme-note-foreground-color": "#333333",
+        "--theme-success-border-color": "#E3FCEF",
+        "--theme-success-background-color": "#E3FCEF",
+        "--theme-success-foreground-color": "#333333",
 
         // buttons
         "--theme-button-border-radius": "5px",
-
         "--theme-button-primary-border-color": "#4F85F1",
         "--theme-button-primary-background-color": "#4F85F1",
-        "--theme-button-primary-foreground-color": "#ffffff",
-
+        "--theme-button-primary-foreground-color": "#FFFFFF",
         "--theme-button-secondary-border-color": "#DBDBDB",
-        "--theme-button-secondary-background-color": "rgb(239, 239, 239)",
+        "--theme-button-secondary-background-color": "#DBDBDB",
         "--theme-button-secondary-foreground-color": "#000000",
-
-        "--theme-button-primary-inactive-border-color": "#DBDBDB",
-        "--theme-button-primary-inactive-background-color": "#DBDBDB",
-        "--theme-button-primary-inactive-foreground-color": "#EFEFEF",
-
+        "--theme-button-primary-inactive-border-color": "#4F85F1",
+        "--theme-button-primary-inactive-background-color": "#4F85F1",
+        "--theme-button-primary-inactive-foreground-color": "#84adea",
         "--theme-button-secondary-inactive-border-color": "#DBDBDB",
-        "--theme-button-secondary-inactive-background-color": "#FAFAFA",
-        "--theme-button-secondary-inactive-foreground-color": "#EFEFEF",
+        "--theme-button-secondary-inactive-background-color": "#DBDBDB",
+        "--theme-button-secondary-inactive-foreground-color": "#AAAAAA",
+
+        // icons
+        "--theme-icon-color": "#FFFFFF",
+        "--theme-icon-background-color": "#4F85F1",
+        "--theme-icon-inactive-color": "#333333",
+        "--theme-icon-inactive-background-color": "#DBDBDB",
     },
     logoUrl: "https://my-doc.com/wp-content/uploads/2019/12/logo-mydoc-1.png",
     menuItems: [

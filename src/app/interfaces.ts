@@ -17,7 +17,6 @@ export interface ITheme {
   "--theme-font-primary-color": string;
   "--theme-font-secondary-color": string;
   "--theme-font-inactive-color": string;
-  "--theme-box-border-color": string;
 
   // header/footer
   "--theme-header-background-color": string;
@@ -27,28 +26,49 @@ export interface ITheme {
   "--theme-primary-background-color": string;
   "--theme-secondary-background-color": string;
 
-  // errors and warnings
+  // box
+  "--theme-box-border-radius": string;
+
+  "--theme-error-border-color": string,
   "--theme-error-background-color": string;
   "--theme-error-foreground-color": string;
 
+  "--theme-warning-border-color": string,
+  "--theme-warning-background-color": string;
+  "--theme-warning-foreground-color": string;
+
+  "--theme-info-border-color": string,
+  "--theme-info-background-color": string;
+  "--theme-info-foreground-color": string;
+
+  "--theme-note-border-color": string,
+  "--theme-note-background-color": string;
+  "--theme-note-foreground-color": string;
+
+  "--theme-success-border-color": string,
+  "--theme-success-background-color": string;
+  "--theme-success-foreground-color": string;
+
   // buttons
   "--theme-button-border-radius": string;
-
   "--theme-button-primary-border-color": string;
   "--theme-button-primary-background-color": string;
   "--theme-button-primary-foreground-color": string;
-
   "--theme-button-secondary-border-color": string;
   "--theme-button-secondary-background-color": string;
   "--theme-button-secondary-foreground-color": string;
-
   "--theme-button-primary-inactive-border-color": string;
   "--theme-button-primary-inactive-background-color": string;
   "--theme-button-primary-inactive-foreground-color": string;
-
   "--theme-button-secondary-inactive-border-color": string;
   "--theme-button-secondary-inactive-background-color": string;
   "--theme-button-secondary-inactive-foreground-color": string;
+
+  //icons
+  "--theme-icon-color": string;
+  "--theme-icon-background-color": string;
+  "--theme-icon-inactive-color": string;
+  "--theme-icon-inactive-background-color": string;
 }
 
 export interface IMenuItem {
