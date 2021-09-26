@@ -8,7 +8,6 @@ export const Bowtie: IAppConfig = {
         "--theme-font-primary-color": "#333333",
         "--theme-font-secondary-color": "#ED0225",
         "--theme-font-inactive-color": "#AAAAAA",
-        "--theme-box-border-color": "#CCCCCC",
 
         // header/footer
         "--theme-header-background-color": "#ffffff",
@@ -18,9 +17,23 @@ export const Bowtie: IAppConfig = {
         "--theme-primary-background-color": "#ffffff",
         "--theme-secondary-background-color": "#ffffff",
 
-        // errors and warnings
-        "--theme-error-background-color": "#ED0225",
-        "--theme-error-foreground-color": "#FAFAFA",
+        // box
+        "--theme-box-border-radius": "5px",
+        "--theme-error-border-color": "#FFEBE6",
+        "--theme-error-background-color": "#FFEBE6",
+        "--theme-error-foreground-color": "#333333",
+        "--theme-warning-border-color": "#FFF9E7",
+        "--theme-warning-background-color": "#FFF9E7",
+        "--theme-warning-foreground-color": "#333333",
+        "--theme-info-border-color": "#DEECFE",
+        "--theme-info-background-color": "#DEECFE",
+        "--theme-info-foreground-color": "#333333",
+        "--theme-note-border-color": "#EAE7FE",
+        "--theme-note-background-color": "#EAE7FE",
+        "--theme-note-foreground-color": "#333333",
+        "--theme-success-border-color": "#E3FCEF",
+        "--theme-success-background-color": "#E3FCEF",
+        "--theme-success-foreground-color": "#333333",
 
         //buttons
         "--theme-button-border-radius": "20px",
@@ -35,9 +48,15 @@ export const Bowtie: IAppConfig = {
         "--theme-button-primary-inactive-foreground-color": "#888888",
         "--theme-button-secondary-inactive-border-color": "#CCCCCC",
         "--theme-button-secondary-inactive-background-color": "#FFFFFF",
-        "--theme-button-secondary-inactive-foreground-color": "#CCCCCC"
+        "--theme-button-secondary-inactive-foreground-color": "#CCCCCC",
+
+        // icons
+        "--theme-icon-color": "#FFFFFF",
+        "--theme-icon-background-color": "#FF0068",
+        "--theme-icon-inactive-color": "#333333",
+        "--theme-icon-inactive-background-color": "#DBDBDB",
     },
-    logoUrl: "https://assets.bowtie.com.hk/5ee7a33b5edf8fb0bcb51fdd/5ee7a33b5edf8fbf3eb522ed_Logo%20(Original)%20(RGB)%403x.png",
+    logoUrl: "assets/home/logo-bowtie.png",
     menuItems: [
         { "text": "Home", "routerLink": "/home", "icon": ["fas", "home"], "display": { "public": true, "private": true } },
         { "text": "Dashboard", "routerLink": "/dashboard", "icon": ["fas", "home"], "display": { "public": true, "private": true } },

@@ -4,7 +4,7 @@
 
     margin: 20px 0 0 30px;
     padding: 0;
-    border-left: 3px solid var(--theme-box-border-color);
+    border-left: 3px solid var(--theme-icon-inactive-background-color);
 
     li {
         margin: 0 0 15px 0;
@@ -13,18 +13,12 @@
 
         .journey-stop-number {
             border-radius: 10px;
-            background-color: var(--theme-box-border-color);
             display: inline-block;
             width: 20px;
             line-height: 20px;
             text-align: center;
             position: relative;
             left: -12px;
-        }
-
-        .journey-stop-number.active {
-            background-color: var(--theme-button-primary-background-color);
-            color: white;
         }
 
         .journey-stop-name {
@@ -81,10 +75,6 @@
 
 }
 
-
-
-
-
 @media screen and (min-width: $size-sm) {
 
     .container {
@@ -100,7 +90,7 @@
         gap: 10px;
         padding: 0 20px 0 20px;
         border: 0px;
-        border-top: 3px solid var(--theme-box-border-color);
+        border-top: 3px solid var(--theme-icon-inactive-background-color);
         margin: 30px 0 0 0;
 
 

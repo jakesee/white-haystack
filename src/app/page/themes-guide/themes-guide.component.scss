@@ -18,12 +18,12 @@
                 display: block;
                 list-style: none;
                 padding: 2px;
-                
+
                 label {
                     display: inline-block;
                     width: 200px;
                 }
-                .input { 
+                .input {
                     flex: 1 1 100%;
 
                     display: inline-flex;
@@ -46,4 +46,9 @@
 
 button {
     padding: 5px 10px;
+}
+
+.wh-box-error, .wh-box-warning, .wh-box-success, .wh-box-info, .wh-box-note {
+    padding: 10px;
+    width: 300px;
 }
