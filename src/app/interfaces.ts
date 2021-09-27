@@ -14,17 +14,52 @@ export interface IAppConfig {
 export interface ITheme {
   // body
   "--theme-font-family": string;
-  "--theme-font-primary-color": string;
-  "--theme-font-secondary-color": string;
-  "--theme-font-inactive-color": string;
+
+  "--theme-color-background": string;
+  "--theme-color-on-background": string;
+  "--theme-color-surface": string;
+  "--theme-color-on-surface": string;
+
+  // theme colors
+  "--theme-color-neutral--2": string;
+  "--theme-color-neutral--1": string;
+  "--theme-color-neutral-0": string;
+  "--theme-color-neutral-1": string;
+  "--theme-color-neutral-2": string;
+
+  "--theme-color-on-neutral--2": string;
+  "--theme-color-on-neutral--1": string;
+  "--theme-color-on-neutral-0": string;
+  "--theme-color-on-neutral-1": string;
+  "--theme-color-on-neutral-2": string;
+
+  "--theme-color-primary--2": string;
+  "--theme-color-primary--1": string;
+  "--theme-color-primary-0": string;
+  "--theme-color-primary-1": string;
+  "--theme-color-primary-2": string;
+
+  "--theme-color-on-primary--2": string;
+  "--theme-color-on-primary--1": string;
+  "--theme-color-on-primary-0": string;
+  "--theme-color-on-primary-1": string;
+  "--theme-color-on-primary-2": string;
+
+  "--theme-color-secondary--2": string;
+  "--theme-color-secondary--1": string;
+  "--theme-color-secondary-0": string;
+  "--theme-color-secondary-1": string;
+  "--theme-color-secondary-2": string;
+
+  "--theme-color-on-secondary--2": string;
+  "--theme-color-on-secondary--1": string;
+  "--theme-color-on-secondary-0": string;
+  "--theme-color-on-secondary-1": string;
+  "--theme-color-on-secondary-2": string;
 
   // header/footer
   "--theme-header-background-color": string;
   "--theme-footer-background-color": string;
-
-  // background
-  "--theme-primary-background-color": string;
-  "--theme-secondary-background-color": string;
 
   // box
   "--theme-box-border-radius": string;

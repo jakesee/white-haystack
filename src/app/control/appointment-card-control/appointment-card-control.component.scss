@@ -1,8 +1,8 @@
 @import '../../../variables.scss';
 
 .appointment-card {
-    background-color: white;
-    border: 1px solid var(--theme-info-border-color);
+    background-color: var(--theme-color-neutral--2);
+    color: var(--theme-color-on-neutral--2);
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 10px;

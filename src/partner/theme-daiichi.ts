@@ -5,9 +5,8 @@ export const Daiichi: IAppConfig = {
     theme: {
         // body
         "--theme-font-family": "'Roboto', sans-serif",
-        "--theme-font-primary-color": "#000000",
-        "--theme-font-secondary-color": "#ED0225",
-        "--theme-font-inactive-color": "#AAAAAA",
+        "--theme-color-on-background": "#000000",
+        "--theme-font-secondary-color": "#FFFFFF",
 
         // header/footer
         "--theme-header-background-color": "#ffffff",

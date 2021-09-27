@@ -3,22 +3,43 @@ import { IAppConfig, PageStyleContainerEnum, PageStyleContentEnum } from "@app/i
 export const MyDoc: IAppConfig = {
     providerId: 0,
     theme: {
-        // body
         "--theme-font-family": "'Roboto', sans-serif",
-        "--theme-font-primary-color": "#0E194E",
-        "--theme-font-secondary-color": "#828FB7",
-        "--theme-font-inactive-color": "#C7D2E1",
-
-
-        // header/footer
+        "--theme-color-background": "#FAFAFA",
+        "--theme-color-on-background": "#000000",
+        "--theme-color-surface": "#ffffff",
+        "--theme-color-on-surface": "#000000",
+        "--theme-color-neutral--2": "#f3f3f3",
+        "--theme-color-neutral--1": "#eaeaea",
+        "--theme-color-neutral-0": "#DBDBDB",
+        "--theme-color-neutral-1": "#b7b7b7",
+        "--theme-color-neutral-2": "#989898",
+        "--theme-color-on-neutral--2": "#000000",
+        "--theme-color-on-neutral--1": "#000000",
+        "--theme-color-on-neutral-0": "#000000",
+        "--theme-color-on-neutral-1": "#ffffff",
+        "--theme-color-on-neutral-2": "#ffffff",
+        "--theme-color-primary--2": "#e5f2ff",
+        "--theme-color-primary--1": "#74b4ff",
+        "--theme-color-primary-0": "#4f85f1",
+        "--theme-color-primary-1": "#4861ca",
+        "--theme-color-primary-2": "#4141a9",
+        "--theme-color-on-primary--2": "#000000",
+        "--theme-color-on-primary--1": "#000000",
+        "--theme-color-on-primary-0": "#ffffff",
+        "--theme-color-on-primary-1": "#ffffff",
+        "--theme-color-on-primary-2": "#ffffff",
+        "--theme-color-secondary--2": "#EAE7FE",
+        "--theme-color-secondary--1": "#a4a0e8",
+        "--theme-color-secondary-0": "#5d5fd3",
+        "--theme-color-secondary-1": "#2441c4",
+        "--theme-color-secondary-2": "#0029a4",
+        "--theme-color-on-secondary--2": "#000000",
+        "--theme-color-on-secondary--1": "#000000",
+        "--theme-color-on-secondary-0": "#ffffff",
+        "--theme-color-on-secondary-1": "#ffffff",
+        "--theme-color-on-secondary-2": "#ffffff",
         "--theme-header-background-color": "#ffffff",
         "--theme-footer-background-color": "#ffffff",
-
-        // background
-        "--theme-primary-background-color": "#ffffff",
-        "--theme-secondary-background-color": "#ffffff", // applies to pageStyle.container
-
-        // errors and warnings
         "--theme-box-border-radius": "5px",
         "--theme-error-border-color": "#FFEBE6",
         "--theme-error-background-color": "#FFEBE6",
@@ -35,8 +56,6 @@ export const MyDoc: IAppConfig = {
         "--theme-success-border-color": "#E3FCEF",
         "--theme-success-background-color": "#E3FCEF",
         "--theme-success-foreground-color": "#333333",
-
-        // buttons
         "--theme-button-border-radius": "5px",
         "--theme-button-primary-border-color": "#4F85F1",
         "--theme-button-primary-background-color": "#4F85F1",
@@ -50,12 +69,10 @@ export const MyDoc: IAppConfig = {
         "--theme-button-secondary-inactive-border-color": "#DBDBDB",
         "--theme-button-secondary-inactive-background-color": "#DBDBDB",
         "--theme-button-secondary-inactive-foreground-color": "#AAAAAA",
-
-        // icons
         "--theme-icon-color": "#FFFFFF",
         "--theme-icon-background-color": "#4F85F1",
         "--theme-icon-inactive-color": "#333333",
-        "--theme-icon-inactive-background-color": "#DBDBDB",
+        "--theme-icon-inactive-background-color": "#DBDBDB"
     },
     logoUrl: "https://my-doc.com/wp-content/uploads/2019/12/logo-mydoc-1.png",
     menuItems: [

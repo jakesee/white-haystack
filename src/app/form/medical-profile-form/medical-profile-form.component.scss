@@ -30,7 +30,9 @@ form {
         width: auto;
     }
     span {
-        color: var(--theme-font-inactive-color);
+        padding: 5px 10px;
+        background-color: var(--theme-note-background-color);;
+        color: var(--theme-note-foreground-color);
     }
 
     .input-name {
