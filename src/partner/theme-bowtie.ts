@@ -3,21 +3,48 @@ import { IAppConfig, PageStyleContainerEnum, PageStyleContentEnum } from "@app/i
 export const Bowtie: IAppConfig = {
     providerId: 2,
     theme: {
-        // body
         "--theme-font-family": "'Roboto', sans-serif",
-        "--theme-font-primary-color": "#333333",
-        "--theme-font-secondary-color": "#ED0225",
-        "--theme-font-inactive-color": "#AAAAAA",
+        "--theme-color-background": "#ffffff",
+        "--theme-color-on-background": "#000000",
+        "--theme-color-surface": "#ffffff",
+        "--theme-color-on-surface": "#000000",
 
-        // header/footer
+        "--theme-color-neutral--2": "#f3f3f3",
+        "--theme-color-neutral--1": "#eaeaea",
+        "--theme-color-neutral-0": "#DBDBDB",
+        "--theme-color-neutral-1": "#b7b7b7",
+        "--theme-color-neutral-2": "#989898",
+        "--theme-color-on-neutral--2": "#000000",
+        "--theme-color-on-neutral--1": "#000000",
+        "--theme-color-on-neutral-0": "#000000",
+        "--theme-color-on-neutral-1": "#ffffff",
+        "--theme-color-on-neutral-2": "#ffffff",
+
+        "--theme-color-primary--2": "#fff5f8",
+        "--theme-color-primary--1": "#ff6196",
+        "--theme-color-primary-0": "#ff0066",
+        "--theme-color-primary-1": "#d7005f",
+        "--theme-color-primary-2": "#9e0057",
+        "--theme-color-on-primary--2": "#000000",
+        "--theme-color-on-primary--1": "#000000",
+        "--theme-color-on-primary-0": "#ffffff",
+        "--theme-color-on-primary-1": "#ffffff",
+        "--theme-color-on-primary-2": "#ffffff",
+
+        "--theme-color-secondary--2": "#ffe0b2",
+        "--theme-color-secondary--1": "#ffb84d",
+        "--theme-color-secondary-0": "#ff9900",
+        "--theme-color-secondary-1": "#f57d00",
+        "--theme-color-secondary-2": "#e65200",
+        "--theme-color-on-secondary--2": "#000000",
+        "--theme-color-on-secondary--1": "#000000",
+        "--theme-color-on-secondary-0": "#000000",
+        "--theme-color-on-secondary-1": "#000000",
+        "--theme-color-on-secondary-2": "#ffffff",
+
+
         "--theme-header-background-color": "#ffffff",
         "--theme-footer-background-color": "#ffffff",
-
-        // background
-        "--theme-primary-background-color": "#ffffff",
-        "--theme-secondary-background-color": "#ffffff",
-
-        // box
         "--theme-box-border-radius": "5px",
         "--theme-error-border-color": "#FFEBE6",
         "--theme-error-background-color": "#FFEBE6",
@@ -34,8 +61,6 @@ export const Bowtie: IAppConfig = {
         "--theme-success-border-color": "#E3FCEF",
         "--theme-success-background-color": "#E3FCEF",
         "--theme-success-foreground-color": "#333333",
-
-        //buttons
         "--theme-button-border-radius": "20px",
         "--theme-button-primary-border-color": "#FF0068",
         "--theme-button-primary-background-color": "#FF0068",
@@ -48,13 +73,7 @@ export const Bowtie: IAppConfig = {
         "--theme-button-primary-inactive-foreground-color": "#888888",
         "--theme-button-secondary-inactive-border-color": "#CCCCCC",
         "--theme-button-secondary-inactive-background-color": "#FFFFFF",
-        "--theme-button-secondary-inactive-foreground-color": "#CCCCCC",
-
-        // icons
-        "--theme-icon-color": "#FFFFFF",
-        "--theme-icon-background-color": "#FF0068",
-        "--theme-icon-inactive-color": "#333333",
-        "--theme-icon-inactive-background-color": "#DBDBDB",
+        "--theme-button-secondary-inactive-foreground-color": "#CCCCCC"
     },
     logoUrl: "assets/home/logo-bowtie.png",
     menuItems: [

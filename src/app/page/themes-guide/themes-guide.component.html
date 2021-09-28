@@ -1,7 +1,278 @@
-<div class="style-button content">
-    <h1>Buttons</h1>
-    <div class="panel">
-        <div class="panel-variables">
+<div class="container">
+    <div class="navigation">
+        <h1 (click)="showNav('general')">General</h1>
+        <div *ngIf="currentNav == 'general'" class="panel-variables">
+            <p>Body</p>
+            <ul class="variable-list">
+                <li class="variable">
+                    <label>font-family</label>
+                    <div class="input">
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-font-family']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>color-background</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-background']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-background']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>color-on-background</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-background']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-background']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>color-surface</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-surface']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-surface']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>color-on-surface</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-surface']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-surface']" />
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <h1 (click)="showNav('theme')">Theme</h1>
+        <div *ngIf="currentNav == 'theme'" class="panel-variables">
+            <p>Neutral Color Set</p>
+            <ul class="variable-list">
+                <li class="variable">
+                    <label>neutral--2</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-neutral--2']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-neutral--2']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>neutral--1</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-neutral--1']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-neutral--1']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>neutral-0</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-neutral-0']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-neutral-0']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>neutral-1</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-neutral-1']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-neutral-1']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>neutral-2</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-neutral-2']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-neutral-2']" />
+                    </div>
+                </li>
+            </ul>
+            <p>On Neutral Color Set</p>
+            <ul class="variable-list">
+                <li class="variable">
+                    <label>on-neutral--2</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-neutral--2']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-neutral--2']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>on-neutral--1</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-neutral--1']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-neutral--1']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>on-neutral-0</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-neutral-0']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-neutral-0']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>on-neutral-1</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-neutral-1']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-neutral-1']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>on-neutral-2</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-neutral-2']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-neutral-2']" />
+                    </div>
+                </li>
+            </ul>
+            <p>primary Color Set</p>
+            <ul class="variable-list">
+                <li class="variable">
+                    <label>primary--2</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-primary--2']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-primary--2']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>primary--1</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-primary--1']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-primary--1']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>primary-0</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-primary-0']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-primary-0']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>primary-1</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-primary-1']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-primary-1']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>primary-2</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-primary-2']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-primary-2']" />
+                    </div>
+                </li>
+            </ul>
+            <p>On Primary Color Set</p>
+            <ul class="variable-list">
+                <li class="variable">
+                    <label>on-primary--2</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-primary--2']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-primary--2']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>on-primary--1</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-primary--1']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-primary--1']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>on-primary-0</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-primary-0']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-primary-0']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>on-primary-1</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-primary-1']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-primary-1']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>on-primary-2</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-primary-2']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-primary-2']" />
+                    </div>
+                </li>
+            </ul>
+            <p>Secondary Color Set</p>
+            <ul class="variable-list">
+                <li class="variable">
+                    <label>secondary--2</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-secondary--2']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-secondary--2']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>secondary--1</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-secondary--1']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-secondary--1']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>secondary-0</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-secondary-0']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-secondary-0']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>secondary-1</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-secondary-1']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-secondary-1']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>secondary-2</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-secondary-2']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-secondary-2']" />
+                    </div>
+                </li>
+            </ul>
+            <p>On Secondary Color Set</p>
+            <ul class="variable-list">
+                <li class="variable">
+                    <label>on-secondary--2</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-secondary--2']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-secondary--2']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>on-secondary--1</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-secondary--1']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-secondary--1']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>on-secondary-0</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-secondary-0']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-secondary-0']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>on-secondary-1</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-secondary-1']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-secondary-1']" />
+                    </div>
+                </li>
+                <li class="variable">
+                    <label>on-secondary-2</label>
+                    <div class="input">
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-secondary-2']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-color-on-secondary-2']" />
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <h1 (click)="showNav('button')">Buttons</h1>
+        <div *ngIf="currentNav == 'button'" class="panel-variables">
             <p>Common</p>
             <ul class="variable-list">
                 <li class="variable">
@@ -13,7 +284,7 @@
                 <li class="variable">
                     <label>border-radius</label>
                     <div class="input">
-                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-border-radius']"/>
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-border-radius']" />
                     </div>
                 </li>
             </ul>
@@ -22,22 +293,28 @@
                 <li class="variable">
                     <label>border-color</label>
                     <div class="input">
-                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-primary-border-color']"/>
-                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-primary-border-color']"/>
+                        <input type="color" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-primary-border-color']" />
+                        <input type="text" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-primary-border-color']" />
                     </div>
                 </li>
                 <li class="variable">
                     <label>background-color</label>
                     <div class="input">
-                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-primary-background-color']"/>
-                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-primary-background-color']"/>
+                        <input type="color" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-primary-background-color']" />
+                        <input type="text" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-primary-background-color']" />
                     </div>
                 </li>
                 <li class="variable">
                     <label>foreground-color</label>
                     <div class="input">
-                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-primary-foreground-color']"/>
-                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-primary-foreground-color']"/>
+                        <input type="color" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-primary-foreground-color']" />
+                        <input type="text" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-primary-foreground-color']" />
                     </div>
                 </li>
             </ul>
@@ -46,22 +323,28 @@
                 <li class="variable">
                     <label>border-color</label>
                     <div class="input">
-                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-primary-inactive-border-color']"/>
-                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-primary-inactive-border-color']"/>
+                        <input type="color" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-primary-inactive-border-color']" />
+                        <input type="text" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-primary-inactive-border-color']" />
                     </div>
                 </li>
                 <li class="variable">
                     <label>background-color</label>
                     <div class="input">
-                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-primary-inactive-background-color']"/>
-                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-primary-inactive-background-color']"/>
+                        <input type="color" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-primary-inactive-background-color']" />
+                        <input type="text" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-primary-inactive-background-color']" />
                     </div>
                 </li>
                 <li class="variable">
                     <label>foreground-color</label>
                     <div class="input">
-                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-primary-inactive-foreground-color']"/>
-                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-primary-inactive-foreground-color']"/>
+                        <input type="color" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-primary-inactive-foreground-color']" />
+                        <input type="text" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-primary-inactive-foreground-color']" />
                     </div>
                 </li>
             </ul>
@@ -70,22 +353,28 @@
                 <li class="variable">
                     <label>border-color</label>
                     <div class="input">
-                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-secondary-border-color']"/>
-                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-secondary-border-color']"/>
+                        <input type="color" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-secondary-border-color']" />
+                        <input type="text" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-secondary-border-color']" />
                     </div>
                 </li>
                 <li class="variable">
                     <label>background-color</label>
                     <div class="input">
-                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-secondary-background-color']"/>
-                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-secondary-background-color']"/>
+                        <input type="color" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-secondary-background-color']" />
+                        <input type="text" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-secondary-background-color']" />
                     </div>
                 </li>
                 <li class="variable">
                     <label>foreground-color</label>
                     <div class="input">
-                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-secondary-foreground-color']"/>
-                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-secondary-foreground-color']"/>
+                        <input type="color" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-secondary-foreground-color']" />
+                        <input type="text" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-secondary-foreground-color']" />
                     </div>
                 </li>
             </ul>
@@ -94,36 +383,34 @@
                 <li class="variable">
                     <label>border-color</label>
                     <div class="input">
-                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-secondary-inactive-border-color']"/>
-                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-secondary-inactive-border-color']"/>
+                        <input type="color" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-secondary-inactive-border-color']" />
+                        <input type="text" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-secondary-inactive-border-color']" />
                     </div>
                 </li>
                 <li class="variable">
                     <label>background-color</label>
                     <div class="input">
-                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-secondary-inactive-background-color']"/>
-                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-secondary-inactive-background-color']"/>
+                        <input type="color" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-secondary-inactive-background-color']" />
+                        <input type="text" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-secondary-inactive-background-color']" />
                     </div>
                 </li>
                 <li class="variable">
                     <label>foreground-color</label>
                     <div class="input">
-                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-secondary-inactive-foreground-color']"/>
-                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-button-secondary-inactive-foreground-color']"/>
+                        <input type="color" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-secondary-inactive-foreground-color']" />
+                        <input type="text" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-button-secondary-inactive-foreground-color']" />
                     </div>
                 </li>
             </ul>
         </div>
-        <div class="panel-sample">
-            <div><p>Primary Button</p><button class="wh-button wh-primary">{{sample.buttonText}}</button></div>
-            <div><p>Primary Inactive Button</p><button class="wh-button wh-primary wh-inactive">{{sample.buttonText}}</button></div>
-            <div><p>Secondary Button</p><button class="wh-button wh-secondary">{{sample.buttonText}}</button></div>
-            <div><p>Secondary Inactive Button</p><button class="wh-button wh-secondary wh-inactive">{{sample.buttonText}}</button></div>
-        </div>
-    </div>
-    <h1>Box</h1>
-    <div class="panel">
-        <div class="panel-variables">
+        <h1 (click)="showNav('box')">Box</h1>
+        <div *ngIf="currentNav == 'box'" class="panel-variables">
             <p>Common</p>
             <ul class="variable-list">
                 <li class="variable">
@@ -135,7 +422,7 @@
                 <li class="variable">
                     <label>border-radius</label>
                     <div class="input">
-                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-box-border-radius']"/>
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-box-border-radius']" />
                     </div>
                 </li>
             </ul>
@@ -144,15 +431,15 @@
                 <li class="variable">
                     <label>border-color</label>
                     <div class="input">
-                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-info-border-color']"/>
-                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-info-border-color']"/>
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-info-border-color']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-info-border-color']" />
                     </div>
                 </li>
                 <li class="variable">
                     <label>background-color</label>
                     <div class="input">
-                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-info-background-color']"/>
-                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-info-background-color']"/>
+                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-info-background-color']" />
+                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-info-background-color']" />
                     </div>
                 </li>
                 <li class="variable">
@@ -223,15 +510,19 @@
                 <li class="variable">
                     <label>background-color</label>
                     <div class="input">
-                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-warning-background-color']" />
-                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-warning-background-color']" />
+                        <input type="color" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-warning-background-color']" />
+                        <input type="text" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-warning-background-color']" />
                     </div>
                 </li>
                 <li class="variable">
                     <label>foreground-color</label>
                     <div class="input">
-                        <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-warning-foreground-color']" />
-                        <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-warning-foreground-color']" />
+                        <input type="color" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-warning-foreground-color']" />
+                        <input type="text" (change)="onChange($event)"
+                            [(ngModel)]="theme['--theme-warning-foreground-color']" />
                     </div>
                 </li>
                 <p>Success</p>
@@ -239,26 +530,40 @@
                     <li class="variable">
                         <label>border-color</label>
                         <div class="input">
-                            <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-success-border-color']" />
-                            <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-success-border-color']" />
+                            <input type="color" (change)="onChange($event)"
+                                [(ngModel)]="theme['--theme-success-border-color']" />
+                            <input type="text" (change)="onChange($event)"
+                                [(ngModel)]="theme['--theme-success-border-color']" />
                         </div>
                     </li>
                     <li class="variable">
                         <label>background-color</label>
                         <div class="input">
-                            <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-success-background-color']" />
-                            <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-success-background-color']" />
+                            <input type="color" (change)="onChange($event)"
+                                [(ngModel)]="theme['--theme-success-background-color']" />
+                            <input type="text" (change)="onChange($event)"
+                                [(ngModel)]="theme['--theme-success-background-color']" />
                         </div>
                     </li>
                     <li class="variable">
                         <label>foreground-color</label>
                         <div class="input">
-                            <input type="color" (change)="onChange($event)" [(ngModel)]="theme['--theme-success-foreground-color']" />
-                            <input type="text" (change)="onChange($event)" [(ngModel)]="theme['--theme-success-foreground-color']" />
+                            <input type="color" (change)="onChange($event)"
+                                [(ngModel)]="theme['--theme-success-foreground-color']" />
+                            <input type="text" (change)="onChange($event)"
+                                [(ngModel)]="theme['--theme-success-foreground-color']" />
                         </div>
                     </li>
                 </ul>
             </ul>
+        </div>
+    </div>
+    <div class="content">
+        <div class="panel-sample">
+            <div><p>Primary Button</p><button class="wh-button wh-primary">{{sample.buttonText}}</button></div>
+            <div><p>Primary Inactive Button</p><button class="wh-button wh-primary wh-inactive">{{sample.buttonText}}</button></div>
+            <div><p>Secondary Button</p><button class="wh-button wh-secondary">{{sample.buttonText}}</button></div>
+            <div><p>Secondary Inactive Button</p><button class="wh-button wh-secondary wh-inactive">{{sample.buttonText}}</button></div>
         </div>
         <div class="panel-sample">
             <div><p>Error</p><div class="wh-box-error">{{sample.boxText}}</div></div>
@@ -267,8 +572,8 @@
             <div><p>Info</p><div class="wh-box-info">{{sample.boxText}}</div></div>
             <div><p>Note</p><div class="wh-box-note">{{sample.boxText}}</div></div>
         </div>
+        <div class="panel-sample">
+            <textarea class="output">{{output}}</textarea>
+        </div>
     </div>
-</div>
-<div class="content">
-    <textarea class="output">{{output}}</textarea>
 </div>

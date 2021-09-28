@@ -1,47 +1,59 @@
-.content {
-    padding: 20px;
-}
-
-.panel {
+.container {
     display: flex;
-    //gap: 50px;
+    padding: 20px;
 
-    .panel-variables {
-        flex: 1 1 auto;
+    .navigation {
 
-        .variable-list {
-            margin: 0 0 10px 0; padding: 0;
-            display: block;
-            width: 500px;
+        flex: 0 0 300px;
 
-            .variable {
+        h1 {
+            border: 1px solid #CCCCCC;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .panel-variables {
+
+
+            .variable-list {
+                margin: 0 0 10px 0; padding: 0;
                 display: block;
-                list-style: none;
-                padding: 2px;
+                width: 500px;
 
-                label {
-                    display: inline-block;
-                    width: 200px;
-                }
-                .input {
-                    flex: 1 1 100%;
+                .variable {
+                    display: block;
+                    list-style: none;
+                    padding: 2px;
 
-                    display: inline-flex;
-                    gap: 5px;
+                    label {
+                        display: inline-block;
+                        width: 200px;
+                    }
+                    .input {
+                        flex: 1 1 100%;
+
+                        display: inline-flex;
+                        gap: 5px;
+                    }
                 }
             }
         }
     }
 
-    .panel-sample {
+    .content {
         flex: 1 1 100%;
-        margin-right: auto;
-    }
-}
+        padding: 20px;
 
-.output {
-    width: 100%;
-    height: 500px;
+        .panel-sample {
+            flex: 1 1 100%;
+            margin-right: auto;
+        }
+
+        .output {
+            width: 100%;
+            height: 500px;
+        }
+    }
 }
 
 button {
@@ -51,4 +63,9 @@ button {
 .wh-box-error, .wh-box-warning, .wh-box-success, .wh-box-info, .wh-box-note {
     padding: 10px;
     width: 300px;
+}
+
+
+textarea {
+    white-space: nowrap;
 }

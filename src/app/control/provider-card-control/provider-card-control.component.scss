@@ -10,7 +10,7 @@
         img {
             max-width: 100%;
             border-radius: 5px 5px 5px 5px;
-            border: 1px solid var(--theme-info-border-color);
+            border: 1px solid var(--theme-color-neutral-0);
         }
     }
 
@@ -21,7 +21,7 @@
         a {
             font-weight: 700;
             text-decoration: none;
-            color: var(--theme-font-primary-color);
+            color: var(--theme-color-on-background);
         }
 
         .property {
@@ -31,10 +31,11 @@
                 display: inline-block;
                 margin: 5px 5px 5px 0;
                 vertical-align: middle;
+                color: var(--theme-color-neutral-0);
             }
 
             fa-icon.member {
-                color: var(--theme-icon-background-color);
+                color: var(--theme-color-primary-0);
             }
         }
     }
@@ -55,14 +56,13 @@
                 display: block;
                 width: 100%;
                 border-radius: 10px 10px 0 0;
-                border: 1px solid var(--theme-info-border-color);
             }
         }
 
         .metadata {
             padding: 10px;
             width: 100%;
-            border: 1px solid var(--theme-info-border-color);
+            border: 1px solid var(--theme-color-neutral-0);
             border-top: none;
             border-radius: 0 0 10px 10px;
             background: white;

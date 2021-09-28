@@ -8,11 +8,11 @@
                 <div><fa-icon [icon]="['fas', 'clock']"></fa-icon> {{episode.startAt | date: 'shortTime'}} - {{episode.endAt | date: 'shortTime'}}</div>
             </div>
             <div class="action">
-                <div><fa-icon [ngClass]="isVideoAvailable(episode.startAt, episode.endAt) ? '' : 'wh-inactive'" class="wh-icon wh-button" (click)="onVideoClick($event)" [icon]="['fas', 'video']"></fa-icon></div>
-                <div><fa-icon [ngClass]="isChatAvailable(episode.endAt) ? '' : 'wh-inactive'" class="wh-icon wh-button" (click)="onChatClick($event)" [icon]="['fas', 'comment']"></fa-icon></div>
-                <div><fa-icon class="wh-icon wh-button wh-inactive" [icon]="['fas', 'file-prescription']"></fa-icon></div>
-                <div><fa-icon class="wh-icon wh-button wh-inactive" [icon]="['fas', 'money-bill-alt']"></fa-icon></div>
-                <div><fa-icon class="wh-icon wh-button" (click)="onTaskClick($event)" [icon]="['fas', 'tasks']"></fa-icon></div>
+                <div><fa-icon [ngClass]="isVideoAvailable(episode.startAt, episode.endAt) ? 'active' : ''" (click)="onVideoClick($event)" [icon]="['fas', 'video']"></fa-icon></div>
+                <div><fa-icon [ngClass]="isChatAvailable(episode.endAt) ? 'active' : ''" (click)="onChatClick($event)" [icon]="['fas', 'comment']"></fa-icon></div>
+                <div><fa-icon [icon]="['fas', 'file-prescription']"></fa-icon></div>
+                <div><fa-icon [icon]="['fas', 'money-bill-alt']"></fa-icon></div>
+                <div><fa-icon class="active" (click)="onTaskClick($event)" [icon]="['fas', 'tasks']"></fa-icon></div>
             </div>
         </div>
     </div>

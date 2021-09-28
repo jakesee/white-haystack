@@ -9,6 +9,8 @@ import { ITheme } from '@app/interfaces';
 })
 export class ThemesGuideComponent implements OnInit {
 
+  currentNav = 'general';
+
   theme: ITheme = {} as ITheme;
 
   sample = {
@@ -29,5 +31,9 @@ export class ThemesGuideComponent implements OnInit {
 
   get output():string {
     return JSON.stringify(this.theme, undefined, 4);
+  }
+
+  showNav(currentNav: string): void {
+    this.currentNav = currentNav;
   }
 }
