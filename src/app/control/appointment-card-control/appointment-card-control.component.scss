@@ -41,6 +41,12 @@
 
             fa-icon {
                 font-size: 180%;
+                color: var(--theme-color-neutral-0);
+            }
+
+            fa-icon.active {
+                color: var(--theme-color-primary-0);
+                cursor: pointer;
             }
         }
     }

@@ -1,11 +1,11 @@
 <div class="chat-window">
     <div class="chat-header">
         <h1>Live Chat</h1>
-        <div class="chat-header-close-button"><fa-icon class="button" (click)="onClose($event)" [icon]="['fas', 'window-close']"></fa-icon></div>
+        <div class="chat-header-close-button"><fa-icon class="wh-button" (click)="onClose($event)" [icon]="['fas', 'window-close']"></fa-icon></div>
     </div>
     <div class="chat-target-selector">
-        <button [ngClass]="isDoctorTarget ? 'active' : ''" (click)="isDoctorTarget = true">{{episode.doctorName}}</button>
-        <button [ngClass]="!isDoctorTarget ? 'active' : ''" (click)="isDoctorTarget = false">Concierge Support</button>
+        <button class="wh-button" [ngClass]="isDoctorTarget ? 'active' : ''" (click)="isDoctorTarget = true">{{episode.doctorName}}</button>
+        <button class="wh-button" [ngClass]="!isDoctorTarget ? 'active' : ''" (click)="isDoctorTarget = false">Concierge Support</button>
     </div>
     <div class="chat-view">
         <div class="chat-message-others">

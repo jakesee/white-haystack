@@ -4,7 +4,7 @@ export const MyDoc: IAppConfig = {
     providerId: 0,
     theme: {
         "--theme-font-family": "'Roboto', sans-serif",
-        "--theme-color-background": "#FAFAFA",
+        "--theme-color-background": "#ffffff",
         "--theme-color-on-background": "#000000",
         "--theme-color-surface": "#ffffff",
         "--theme-color-on-surface": "#000000",
@@ -68,11 +68,7 @@ export const MyDoc: IAppConfig = {
         "--theme-button-primary-inactive-foreground-color": "#84adea",
         "--theme-button-secondary-inactive-border-color": "#DBDBDB",
         "--theme-button-secondary-inactive-background-color": "#DBDBDB",
-        "--theme-button-secondary-inactive-foreground-color": "#AAAAAA",
-        "--theme-icon-color": "#FFFFFF",
-        "--theme-icon-background-color": "#4F85F1",
-        "--theme-icon-inactive-color": "#333333",
-        "--theme-icon-inactive-background-color": "#DBDBDB"
+        "--theme-button-secondary-inactive-foreground-color": "#AAAAAA"
     },
     logoUrl: "https://my-doc.com/wp-content/uploads/2019/12/logo-mydoc-1.png",
     menuItems: [

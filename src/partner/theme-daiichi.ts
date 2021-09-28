@@ -3,20 +3,43 @@ import { IAppConfig, PageStyleContainerEnum, PageStyleContentEnum } from "@app/i
 export const Daiichi: IAppConfig = {
     providerId: 1,
     theme: {
-        // body
         "--theme-font-family": "'Roboto', sans-serif",
+        "--theme-color-background": "#ffffff",
         "--theme-color-on-background": "#000000",
-        "--theme-font-secondary-color": "#FFFFFF",
-
-        // header/footer
+        "--theme-color-surface": "#ffffff",
+        "--theme-color-on-surface": "#000000",
+        "--theme-color-neutral--2": "#f3f3f3",
+        "--theme-color-neutral--1": "#eaeaea",
+        "--theme-color-neutral-0": "#DBDBDB",
+        "--theme-color-neutral-1": "#b7b7b7",
+        "--theme-color-neutral-2": "#989898",
+        "--theme-color-on-neutral--2": "#000000",
+        "--theme-color-on-neutral--1": "#000000",
+        "--theme-color-on-neutral-0": "#000000",
+        "--theme-color-on-neutral-1": "#ffffff",
+        "--theme-color-on-neutral-2": "#ffffff",
+        "--theme-color-primary--2": "#ffe9ed",
+        "--theme-color-primary--1": "#f59294",
+        "--theme-color-primary-0": "#ED0225",
+        "--theme-color-primary-1": "#db0020",
+        "--theme-color-primary-2": "#c10007",
+        "--theme-color-on-primary--2": "#000000",
+        "--theme-color-on-primary--1": "#000000",
+        "--theme-color-on-primary-0": "#ffffff",
+        "--theme-color-on-primary-1": "#ffffff",
+        "--theme-color-on-primary-2": "#ffffff",
+        "--theme-color-secondary--2": "#ffe9ed",
+        "--theme-color-secondary--1": "#f59294",
+        "--theme-color-secondary-0": "#ED0225",
+        "--theme-color-secondary-1": "#db0020",
+        "--theme-color-secondary-2": "#c10007",
+        "--theme-color-on-secondary--2": "#000000",
+        "--theme-color-on-secondary--1": "#000000",
+        "--theme-color-on-secondary-0": "#ffffff",
+        "--theme-color-on-secondary-1": "#ffffff",
+        "--theme-color-on-secondary-2": "#ffffff",
         "--theme-header-background-color": "#ffffff",
         "--theme-footer-background-color": "#ffffff",
-
-        // background
-        "--theme-primary-background-color": "#ffffff",
-        "--theme-secondary-background-color": "#ffffff",
-
-        // box
         "--theme-box-border-radius": "5px",
         "--theme-error-border-color": "#FFEBE6",
         "--theme-error-background-color": "#FFEBE6",
@@ -33,8 +56,6 @@ export const Daiichi: IAppConfig = {
         "--theme-success-border-color": "#E3FCEF",
         "--theme-success-background-color": "#E3FCEF",
         "--theme-success-foreground-color": "#333333",
-
-        //buttons
         "--theme-button-border-radius": "unset",
         "--theme-button-primary-border-color": "unset",
         "--theme-button-primary-background-color": "#ED0225",
@@ -47,13 +68,7 @@ export const Daiichi: IAppConfig = {
         "--theme-button-primary-inactive-foreground-color": "#EFEFEF",
         "--theme-button-secondary-inactive-border-color": "unset",
         "--theme-button-secondary-inactive-background-color": "#FAFAFA",
-        "--theme-button-secondary-inactive-foreground-color": "#EFEFEF",
-
-        // icons
-        "--theme-icon-color": "#FFFFFF",
-        "--theme-icon-background-color": "#ED0225",
-        "--theme-icon-inactive-color": "#333333",
-        "--theme-icon-inactive-background-color": "#DBDBDB",
+        "--theme-button-secondary-inactive-foreground-color": "#EFEFEF"
     },
     logoUrl: "https://app.qa.my-doc.com/dai-ichi/assets/images/logo_vn_01.svg",
     menuItems: [

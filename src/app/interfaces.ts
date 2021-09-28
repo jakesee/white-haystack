@@ -98,12 +98,6 @@ export interface ITheme {
   "--theme-button-secondary-inactive-border-color": string;
   "--theme-button-secondary-inactive-background-color": string;
   "--theme-button-secondary-inactive-foreground-color": string;
-
-  //icons
-  "--theme-icon-color": string;
-  "--theme-icon-background-color": string;
-  "--theme-icon-inactive-color": string;
-  "--theme-icon-inactive-background-color": string;
 }
 
 export interface IMenuItem {

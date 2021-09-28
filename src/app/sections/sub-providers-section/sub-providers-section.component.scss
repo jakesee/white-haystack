@@ -1,7 +1,7 @@
 @import '../../../variables.scss';
 
 .section {
-    background-color: white;
+    background-color: var(--theme-color-surface);
 }
 
 .content {
@@ -24,7 +24,6 @@
             flex: 0 0 120px;
 
             img {
-                width: px;
                 max-width: 100%;
                 border-radius: 5px;
             }
@@ -57,9 +56,6 @@
                         padding: 6px 12px;
                         margin: 5px 5px 5px 0;
                         border: none;
-                        background-color: #cccccc;
-                        color: black;
-                        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
                     }
                 }
 
