@@ -11,9 +11,11 @@ import { WaitingRoomComponent } from './page/waiting-room/waiting-room.component
 import { TourComponent } from './page/tour/tour.component';
 import { FeedsComponent } from './page/feeds/feeds.component';
 import { ThemesGuideComponent } from './page/themes-guide/themes-guide.component';
+import { RegisterComponent } from './page/register/register.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'public', component: JourneyComponent },
   { path: 'care-network', component: CareNetworkComponent },
   { path: 'feeds', component: FeedsComponent },

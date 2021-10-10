@@ -20,7 +20,6 @@ export class SubProvidersSectionComponent extends Section implements OnInit {
     super.init(config, provider);
     this._dataService.getProvidersByParent(this.provider.id).toPromise().then((response) => {
       this.providers = response.data;
-      console.log('SubProvidersSectionComponent', this.providers);
     });
   }
 

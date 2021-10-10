@@ -119,7 +119,6 @@ export class DataService {
     let component = this.resolveComponent(componentName);
     if (component) {
       const factory = this._componentFactoryResolver.resolveComponentFactory(component);
-      console.log(componentName);
       const refComponent = container.createComponent(factory);
       return refComponent.instance;
     } else {

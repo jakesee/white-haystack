@@ -1,13 +1,13 @@
 <div class="section" [ngClass]="pageStyle.container">
     <div class="wh-container">
         <div class="cta">
-            <p>Connect to <span class="bold">MyDoc</span> Care Network and start your digital health journey.</p>
+            <p>Your digital health journey with <span class="bold">MyDoc</span> is about to begin.</p>
         </div>
         <mat-card class="form-container">
-            <form [formGroup]="form" (ngSubmit)="onLogin($event)">
+            <form [formGroup]="form" (ngSubmit)="onRegister($event)">
                 <mat-form-field *ngIf="isEmailLogin">
                     <mat-label>Email</mat-label>
-                    <input matInput type="text" formControlName="username" required/>
+                    <input matInput type="text" formControlName="username" required />
                     <mat-error *ngIf="f.username.invalid">Username is required.</mat-error>
                     <button mat-icon-button matSuffix matTooltip="Use phone number" (click)="isEmailLogin = false">
                         <mat-icon>phone_android</mat-icon>
@@ -26,8 +26,8 @@
                 <mat-form-field appearance="fill">
                     <mat-label>Password</mat-label>
                     <input matInput [type]="isShowPassword ? 'text' : 'password'" formControlName="password" required>
-                    <button mat-icon-button matSuffix (click)="isShowPassword = !isShowPassword" [attr.aria-label]="'Hide password'"
-                        [attr.aria-pressed]="isShowPassword">
+                    <button mat-icon-button matSuffix (click)="isShowPassword = !isShowPassword"
+                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="isShowPassword">
                         <mat-icon>{{isShowPassword ? 'visibility' : 'visibility_off'}}</mat-icon>
                     </button>
                     <mat-hint>At least 8 characters.</mat-hint>
@@ -35,7 +35,7 @@
                 </mat-form-field>
 
                 <div class="button-list">
-                    <button mat-flat-button type="submit" color="primary">Log In</button>
+                    <button mat-flat-button type="submit" color="primary">Register Now</button>
                 </div>
 
                 <div class="forgot-password-links">
@@ -45,7 +45,7 @@
                 <mat-divider></mat-divider>
 
                 <div class="new-user-links">
-                    <p>New User? <a routerLink="/register">Register</a> or <a routerLink="/public/tour">visit MyDoc Tour</a>.</p>
+                    <p>Not sure? <a routerLink="/public/tour">Take the MyDoc Tour</a>. Existing User? <a routerLink="/login">Login now.</a></p>
                 </div>
             </form>
         </mat-card>

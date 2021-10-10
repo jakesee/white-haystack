@@ -2,19 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '@app/data.service';
 import { IProvider } from '@app/interfaces';
 import * as _ from 'lodash';
+import { PageBase } from '../page-base';
 
 @Component({
   selector: 'app-care-network',
   templateUrl: './care-network.component.html',
   styleUrls: ['./care-network.component.scss']
 })
-export class CareNetworkComponent implements OnInit {
+export class CareNetworkComponent extends PageBase implements OnInit {
 
   providers: IProvider[] = [];
 
   results: { [key:string]: IProvider[] } = {};
 
-  constructor(private _dataService: DataService) {
+  constructor(protected _dataService: DataService) {
+    super(_dataService);
+
     this._construct();
   }
 

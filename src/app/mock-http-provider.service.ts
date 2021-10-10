@@ -68,8 +68,6 @@ export class MockHttpProviderService implements HttpInterceptor {
     function post_user_register() {
       const { username, password } = body;
 
-      console.log('post_user_register', database.users);
-
       const newUser = {
         "id": database.users.length,
         "username": username,

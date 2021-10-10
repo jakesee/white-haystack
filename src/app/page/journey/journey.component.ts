@@ -82,8 +82,6 @@ export class JourneyComponent implements OnInit {
   private _loadForm(progress: number): boolean {
     const step = this.sequence[progress];
 
-    console.log('loading', step.component);
-
     this.container.clear();
 
     let instance: IForm = this._dataService.loadComponent(this.container, step.component);

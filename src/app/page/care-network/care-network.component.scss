@@ -1,31 +1,15 @@
+@import '../../../variables.scss';
+
 .search-bar {
-    width: 100%;
 
-    .search-control {
-        display: flex;
-        width: auto;
-        row-gap: 10px;
-        background: var(--theme-color-neutral-0);
-        padding: 10px;
-        margin: 0 10px 0 10px;
-        border-radius: var(--theme-button-border-radius);
-        align-items: baseline;
+    padding: 10px 20px 20px 20px;
 
-        .search-input {
-            flex-grow: 1;
-            width: 100%;
-            border: none;
-            padding: 5px;
-            background: none;
-        }
-
-        fa-icon {
-            flex-basis: 40px;
-            width: 40px;
-            font-size: 120%;
-        }
+    mat-form-field {
+        width: 100%;
+        box-sizing: border-box;
     }
 }
+
 
 h1 {
     font-weight: 300;
@@ -35,6 +19,10 @@ h1 {
 }
 
 
-
+@media screen and (min-width: $size-lg) {
+    .search-bar {
+        padding: 10px 0 20px 0;
+    }
+}
 
 

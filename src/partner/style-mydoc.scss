@@ -1,0 +1,50 @@
+@import '../variables.scss';
+
+/* proximanova font */
+@font-face {
+  font-family: 'proximanova-regular';
+  src: url('../assets/font/191231065943proximanova-regular.woff2') format('woff2'),
+  url('../assets/font/191231065943proximanova-regular.woff') format('woff');
+  font-display: auto;
+}
+
+.proximanova-regular{font-family: 'proximanova-regular' !important;}
+
+@font-face {
+  font-family: 'proximanova-semibold';
+  src: url('../assets/font/191231070004proximanova-semibold.woff2') format('woff2'),
+  url('../assets/font/191231070004proximanova-semibold.woff') format('woff');
+  font-display: auto;
+}
+
+.proximanova-semibold{font-family: 'proximanova-semibold' !important;}
+
+@font-face {
+  font-family: 'proximanova-bold';
+  src: url('../assets/font/191231070017proximanova-bold.woff2') format('woff2'),
+  url('../assets/font/191231070017proximanova-bold.woff') format('woff');
+  font-display: auto;
+}
+
+.proximanova-bold{font-family: 'proximanova-bold' !important;}
+
+@font-face {
+  font-family: 'proximanova-black';
+  src: url('../assets/font/191231070030proximanova-black.woff2') format('woff2'),
+  url('../assets/font/191231070030proximanova-black.woff') format('woff');
+  font-display: auto;
+}
+
+.proximanova-black{font-family: 'proximanova-black' !important;}
+
+
+
+html {
+    background-color: var(--theme-color-background);
+    background-image: url('/../../assets/art/lineart-healthcare-10.png');
+    //background-position: center;
+    background-repeat: repeat;
+}
+
+
+
