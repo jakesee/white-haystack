@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Appointment, AppointmentControllerService } from '@app/appointment-controller.service';
 import { AuthenticationService } from '@app/auth/authentication.service';
 import { DataService } from '@app/data.service';
+import { IUser } from '@app/interfaces';
 import * as _ from 'lodash';
 import { PageBase } from '../page-base';
 
@@ -11,25 +13,24 @@ import { PageBase } from '../page-base';
 })
 export class WaitingRoomComponent extends PageBase implements OnInit {
 
-  user: any;
+  user: IUser;
   chatEpisode: any;
 
   @Input() isShowTodayFirst = false;
 
   selectedPeriod: "today" | "future" | "past" = "today";
 
-  today: Array<any> = [];
-  future: Array<any> = [];
-  past: Array<any> = [];
+  today: Array<Appointment> = [];
+  future: Array<Appointment> = [];
+  past: Array<Appointment> = [];
 
-  constructor(auth: AuthenticationService, protected _dataService: DataService) {
+  constructor(auth: AuthenticationService, protected _dataService: DataService, private appointmentController: AppointmentControllerService) {
     super(_dataService);
 
-    this.user = auth.currentUser;
-
-    this.user.episodes = _.orderBy(this.user.episodes, ['startAt'], ['desc']);
-
-    this.user.episodes.forEach(e => {
+    this.user = auth.currentUser as IUser;
+    let appointments = appointmentController.getAppointmentsByPatient(this.user.id);
+    appointments = _.orderBy(appointments, ['startAt'], ['desc']);
+    appointments.forEach(e => {
       let now = new Date();
       let apptDate = new Date(e.endAt);
       if (apptDate >= now) {
@@ -43,7 +44,6 @@ export class WaitingRoomComponent extends PageBase implements OnInit {
       if (today == apptDay) {
         this.today.push(e);
       }
-
     });
 
     this._selectInitialPeriod();

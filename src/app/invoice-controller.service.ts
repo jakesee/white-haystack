@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
+import { AppointmentStatus, BenefitScheme, FeeSystemType, FeeType, IInvoiceStatus } from './interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -52,7 +53,7 @@ export class InvoiceControllerService {
       },
       "invoiceDate": new Date(),
       "isPaymentMethodCollected": false,
-      "status": ConsultationStatus.Closed,
+      "status": AppointmentStatus.Closed,
     };
 
     return metadata;
@@ -275,45 +276,7 @@ export interface DB {
   result<T>(): T;
 }
 
-export enum IInvoiceStatus {
-  New, // no payment method
-  Pending, // has payment method, waiting to be executeced
-  Void, // invoice is cancelled
-  Paid, // invoice payment is successful
-  FailedPayment // payment is not successful; Failed Payment may have another payment method applied and status becomes pending.
-}
 
-export enum FeeType {
-  Payment = "Payment",
-  Consult = "Consultation",
-  Prescription = "Prescription",
-  Delivery = "Delivery",
-  Applicable = "Applicable Fees",
-  DrugsInjections = "Drugs and Injections",
-  MedicalProcedure = "Medical Procedure",
-  Consumables = "Consumables",
-  Others = "Others",
-}
-
-export enum FeeSystemType {
-  Default = 0,
-  Voucher = 1,
-  Benefit = 2
-}
-
-export enum BenefitScheme {
-  // default line items
-  NOT_APPLICABLE = 0,
-  APPLICABLE = 1,
-
-  // benefit line items
-  LIMIT = 2,
-  POOL = 3,
-  DEDUCTIBLE_RATE = 4,
-  DEDUCTIBLE_AMOUNT = 5,
-  COPAY_RATE = 6,
-  COPAY_AMOUNT = 7
-}
 
 export class InvoiceLineItem {
 
@@ -334,15 +297,14 @@ export class InvoiceLineItem {
     public copay: number = -1,
   ) { this.amount = unitPrice * quantity }
 }
-export enum ConsultationStatus {
-  Open = 'Open',
-  Closed = 'Closed'
-}
+
+
+
 
 export interface IInvoiceMetadata {
   episodeId: number,
   invoiceId: number,
-  status: ConsultationStatus,
+  status: AppointmentStatus,
   isPaymentMethodCollected: boolean,
   invoiceDate: Date,
   group: {

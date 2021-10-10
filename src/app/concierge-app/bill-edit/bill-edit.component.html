@@ -144,7 +144,107 @@
                 </mat-form-field>
             </div>
 
-            <mat-action-row><button mat-raised-button type="submit" color="primary">Add Item</button></mat-action-row>
+            <mat-action-row><button mat-raised-button type="submit" color="accent">Add Item</button></mat-action-row>
+        </form>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Add Discount
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <form (submit)="onAddNewItem($event)">
+            <div class="form-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Fee Type</mat-label>
+                    <select matNativeControl #feeType name="feeType" required>
+                        <option value="Payment">Payment</option>
+                        <option value="Consultation">Consultation</option>
+                        <option value="Prescription">Prescription</option>
+                        <option value="Delivery">Delivery</option>
+                        <option value="Applicable Fees">Applicable Fees</option>
+                        <option value="Drugs and Injections">Drugs and Injections</option>
+                        <option value="Medical Procedure">Medical Procedure</option>
+                        <option value="Consumables">Consumables</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </mat-form-field>
+            </div>
+            <div class="form-container">
+                <mat-form-field appearance="fill" class="form-description">
+                    <mat-label>Description</mat-label>
+                    <input matInput name="description">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" *ngIf="feeType.value == 'Payment'">
+                    <mat-label>Code</mat-label>
+                    <input matInput name="code">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Quantity</mat-label>
+                    <input matInput name="quantity" value="1">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Unit Price</mat-label>
+                    <input matInput name="unitPrice">
+                </mat-form-field>
+            </div>
+
+            <mat-action-row><button mat-raised-button type="submit" color="accent">Add Item</button></mat-action-row>
+        </form>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Add Payments
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <form (submit)="onAddNewItem($event)">
+            <div class="form-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Fee Type</mat-label>
+                    <select matNativeControl #feeType name="feeType" required>
+                        <option value="Payment">Payment</option>
+                        <option value="Consultation">Consultation</option>
+                        <option value="Prescription">Prescription</option>
+                        <option value="Delivery">Delivery</option>
+                        <option value="Applicable Fees">Applicable Fees</option>
+                        <option value="Drugs and Injections">Drugs and Injections</option>
+                        <option value="Medical Procedure">Medical Procedure</option>
+                        <option value="Consumables">Consumables</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </mat-form-field>
+            </div>
+            <div class="form-container">
+                <mat-form-field appearance="fill" class="form-description">
+                    <mat-label>Description</mat-label>
+                    <input matInput name="description">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" *ngIf="feeType.value == 'Payment'">
+                    <mat-label>Code</mat-label>
+                    <input matInput name="code">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Quantity</mat-label>
+                    <input matInput name="quantity" value="1">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Unit Price</mat-label>
+                    <input matInput name="unitPrice">
+                </mat-form-field>
+            </div>
+
+            <mat-action-row><button mat-raised-button type="submit" color="accent">Add Item</button></mat-action-row>
         </form>
     </mat-expansion-panel>
 </mat-accordion>

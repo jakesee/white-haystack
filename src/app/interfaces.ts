@@ -182,6 +182,7 @@ export interface ISequenceItem {
 export interface IDatabase {
   users: IUser[];
   providers: IProvider[];
+  appointments: IAppointment[];
 }
 
 export class IUser {
@@ -191,14 +192,27 @@ export class IUser {
   firstName: string;
   lastName: string;
   gender: string;
-  birthdate: string;
+  birthdate: Date;
   contact?: string;
   email?: string;
+  imgUrl?: string;
   nationalId?: string;
-  episodes: IEpisode[];
+  role: UserRole
+}
+
+export enum UserRole {
+  patient = 1,
+  doctor = 2,
+  concierge = 4,
+  admin = 8
 }
 
 export class User implements IUser {
+  contact?: string;
+  email?: string;
+  imgUrl?: string;
+  nationalId?: string;
+  role: UserRole;
   id: number;
   username: string;
   password: string;
@@ -207,7 +221,7 @@ export class User implements IUser {
   firstName: string;
   lastName: string;
   gender: string;
-  birthdate: string;
+  birthdate: Date;
 
   medicalCondition: string;
   medication: string;
@@ -232,4 +246,60 @@ export interface IEpisode {
   doctorImgUrl: string;
   startAt: number;
   endAt: number;
+}
+
+export interface IAppointment {
+  id: number;
+  episodeId: number;
+  providerId: number;
+  doctorId: number;
+  patientId: number;
+  startAt: Date;
+  endAt: Date;
+  status: AppointmentStatus
+}
+
+export enum IInvoiceStatus {
+  New, // no payment method
+  Pending, // has payment method, waiting to be executeced
+  Void, // invoice is cancelled
+  Paid, // invoice payment is successful
+  FailedPayment // payment is not successful; Failed Payment may have another payment method applied and status becomes pending.
+}
+
+export enum FeeType {
+  Payment = "Payment",
+  Consult = "Consultation",
+  Prescription = "Prescription",
+  Delivery = "Delivery",
+  Applicable = "Applicable Fees",
+  DrugsInjections = "Drugs and Injections",
+  MedicalProcedure = "Medical Procedure",
+  Consumables = "Consumables",
+  Others = "Others",
+}
+
+export enum FeeSystemType {
+  Default = 0,
+  Voucher = 1,
+  Benefit = 2
+}
+
+export enum BenefitScheme {
+  // default line items
+  NOT_APPLICABLE = 0,
+  APPLICABLE = 1,
+
+  // benefit line items
+  LIMIT = 2,
+  POOL = 3,
+  DEDUCTIBLE_RATE = 4,
+  DEDUCTIBLE_AMOUNT = 5,
+  COPAY_RATE = 6,
+  COPAY_AMOUNT = 7
+}
+
+export enum AppointmentStatus {
+  Open = 'Open',
+  Closed = 'Closed'
 }

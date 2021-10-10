@@ -8,207 +8,21 @@
     </form>
 </div>
 <div>
-    <mat-card class="example-card">
+    <mat-card class="example-card" *ngFor="let appt of appointments">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image">
-                <img src="https://randomuser.me/api/portraits/thumb/men/75.jpg" />
+                <img src="{{appt.patient.imgUrl}}" />
             </div>
-            <mat-card-title>Shiba Inu</mat-card-title>
-            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+            <mat-card-title>{{appt.patient.firstName}} {{appt.patient.lastName}}</mat-card-title>
+            <mat-card-subtitle>{{appt.startAt | date: 'shortTime'}} - {{appt.endAt | date: 'shortTime'}}
+                <br/>Dr {{appt.doctor.firstName}} {{appt.doctor.lastName}}
+                <br/>{{appt.provider.title}} ({{appt.provider.id}})</mat-card-subtitle>
         </mat-card-header>
         <mat-card-actions>
             <button mat-icon-button><mat-icon>videocam</mat-icon></button>
             <button mat-icon-button (click)="onCheckout($event, null)"><mat-icon>shopping_cart</mat-icon></button>
             <button mat-icon-button><mat-icon>chat_bubble</mat-icon></button>
             <button mat-icon-button><mat-icon>archive</mat-icon></button>
-        </mat-card-actions>
-    </mat-card>
-
-
-
-
-    <mat-card class="example-card">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image">
-                <img src="https://randomuser.me/api/portraits/thumb/men/75.jpg" />
-            </div>
-            <mat-card-title>Shiba Inu</mat-card-title>
-            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-actions>
-            <button mat-icon-button>
-                <mat-icon>videocam</mat-icon>
-            </button>
-            <button mat-icon-button (click)="onCheckout($event, null)">
-                <mat-icon>shopping_cart</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>chat_bubble</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>archive</mat-icon>
-            </button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="example-card">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image">
-                <img src="https://randomuser.me/api/portraits/thumb/men/75.jpg" />
-            </div>
-            <mat-card-title>Shiba Inu</mat-card-title>
-            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-actions>
-            <button mat-icon-button>
-                <mat-icon>videocam</mat-icon>
-            </button>
-            <button mat-icon-button (click)="onCheckout($event, null)">
-                <mat-icon>shopping_cart</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>chat_bubble</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>archive</mat-icon>
-            </button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="example-card">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image">
-                <img src="https://randomuser.me/api/portraits/thumb/men/75.jpg" />
-            </div>
-            <mat-card-title>Shiba Inu</mat-card-title>
-            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-actions>
-            <button mat-icon-button>
-                <mat-icon>videocam</mat-icon>
-            </button>
-            <button mat-icon-button (click)="onCheckout($event, null)">
-                <mat-icon>shopping_cart</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>chat_bubble</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>archive</mat-icon>
-            </button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="example-card">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image">
-                <img src="https://randomuser.me/api/portraits/thumb/men/75.jpg" />
-            </div>
-            <mat-card-title>Shiba Inu</mat-card-title>
-            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-actions>
-            <button mat-icon-button>
-                <mat-icon>videocam</mat-icon>
-            </button>
-            <button mat-icon-button (click)="onCheckout($event, null)">
-                <mat-icon>shopping_cart</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>chat_bubble</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>archive</mat-icon>
-            </button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="example-card">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image">
-                <img src="https://randomuser.me/api/portraits/thumb/men/75.jpg" />
-            </div>
-            <mat-card-title>Shiba Inu</mat-card-title>
-            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-actions>
-            <button mat-icon-button>
-                <mat-icon>videocam</mat-icon>
-            </button>
-            <button mat-icon-button (click)="onCheckout($event, null)">
-                <mat-icon>shopping_cart</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>chat_bubble</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>archive</mat-icon>
-            </button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="example-card">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image">
-                <img src="https://randomuser.me/api/portraits/thumb/men/75.jpg" />
-            </div>
-            <mat-card-title>Shiba Inu</mat-card-title>
-            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-actions>
-            <button mat-icon-button>
-                <mat-icon>videocam</mat-icon>
-            </button>
-            <button mat-icon-button (click)="onCheckout($event, null)">
-                <mat-icon>shopping_cart</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>chat_bubble</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>archive</mat-icon>
-            </button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="example-card">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image">
-                <img src="https://randomuser.me/api/portraits/thumb/men/75.jpg" />
-            </div>
-            <mat-card-title>Shiba Inu</mat-card-title>
-            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-actions>
-            <button mat-icon-button>
-                <mat-icon>videocam</mat-icon>
-            </button>
-            <button mat-icon-button (click)="onCheckout($event, null)">
-                <mat-icon>shopping_cart</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>chat_bubble</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>archive</mat-icon>
-            </button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="example-card">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image">
-                <img src="https://randomuser.me/api/portraits/thumb/men/75.jpg" />
-            </div>
-            <mat-card-title>Shiba Inu</mat-card-title>
-            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-actions>
-            <button mat-icon-button>
-                <mat-icon>videocam</mat-icon>
-            </button>
-            <button mat-icon-button (click)="onCheckout($event, null)">
-                <mat-icon>shopping_cart</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>chat_bubble</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>archive</mat-icon>
-            </button>
         </mat-card-actions>
     </mat-card>
 </div>

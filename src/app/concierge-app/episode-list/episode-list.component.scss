@@ -9,6 +9,13 @@ mat-card {
 
 mat-card-header {
     flex: 1 0 auto;
+
+    .example-header-image {
+        img {
+            max-width: 100%;
+            border-radius: 20rem;
+        }
+    }
 }
 
 mat-card-actions {

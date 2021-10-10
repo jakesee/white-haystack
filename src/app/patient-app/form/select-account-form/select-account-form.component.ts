@@ -17,7 +17,7 @@ export class SelectAccountFormComponent implements IForm, OnInit {
   contact: string;
   email: string;
   gender: string;
-  birthdate: string;
+  birthdate: Date;
   nationalId: string;
 
   constructor(private _dataService: DataService, private _auth: AuthenticationService) {

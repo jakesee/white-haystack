@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { BenefitScheme, FeeSystemType, FeeType, Invoice, InvoiceControllerService, InvoiceLineItem } from '@app/invoice-controller.service';
+import { Invoice, InvoiceControllerService, InvoiceLineItem } from '@app/invoice-controller.service';
 import * as _ from 'lodash';
 
 import { MatAccordion } from '@angular/material/expansion';
+import { BenefitScheme, FeeSystemType, FeeType } from '@app/interfaces';
 
 @Component({
   selector: 'app-bill-edit',

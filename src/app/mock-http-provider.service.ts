@@ -111,7 +111,7 @@ export class MockHttpProviderService implements HttpInterceptor {
 
     function _fixAppointmentDateTime(response: any): any {
 
-      for (var i = 0, day = -3; i < response.data.episodes.length; i++, day++) {
+      for (var i = 0, day = -3; i < response.data.episodes?.length; i++, day++) {
         response.data.episodes[i].startAt = Date.now() + (1000 * 60 * 60 * 24 * day);
         // 15 minutes, but can be any duration
         response.data.episodes[i].endAt = response.data.episodes[i].startAt + (1000 * 60 * 15);

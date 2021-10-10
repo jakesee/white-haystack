@@ -1,48 +1,10 @@
-import { IDatabase } from "@app/interfaces";
+import { IDatabase, UserRole } from "@app/interfaces";
 
 export const Database: IDatabase = {
-    users: [
-        {
-            "id": 1,
-            "username": "bill.gates@my-doc.com",
-            "password": "mydoc",
-            "firstName": "Bill",
-            "lastName": "Gates",
-            "gender": "Male",
-            "birthdate": "10/28/1955",
-            "episodes": []
-        },
-        {
-            "id": 2,
-            "username": "steve.jobs@my-doc.com",
-            "password": "mydoc",
-            "firstName": "Steve",
-            "lastName": "Jobs",
-            "gender": "Male",
-            "birthdate": "02/24/1955",
-            "episodes": []
-        },
-        {
-            "id": 3,
-            "username": "test",
-            "password": "test",
-            "firstName": "Jake",
-            "lastName": "See",
-            "gender": "Male",
-            "birthdate": "01/22/1985",
-            "email": "jake.see@my-doc.com",
-            "contact": "90889411",
-            "nationalId": "S7865248H",
-            "episodes": [
-                { "doctorName": "Dr Kim Lee Yong", "doctorImgUrl": "https://randomuser.me/api/portraits/men/75.jpg", "startAt": 1631893316000, "endAt": 1631893316000 },
-                { "doctorName": "Dr Eileen Fox", "doctorImgUrl": "https://randomuser.me/api/portraits/women/65.jpg", "startAt": 1631893316000, "endAt": 1631893316000 },
-                { "doctorName": "Dr Lucas Vamp", "doctorImgUrl": "https://randomuser.me/api/portraits/men/18.jpg", "startAt": 1631893316000, "endAt": 1631893316000 },
-                { "doctorName": "Dr Angelina Jolie", "doctorImgUrl": "https://randomuser.me/api/portraits/women/35.jpg", "startAt": 1631893316000, "endAt": 1631893316000 },
-                { "doctorName": "Dr Famous Amos", "doctorImgUrl": "https://randomuser.me/api/portraits/men/35.jpg", "startAt": 1631893316000, "endAt": 1631893316000 },
-                { "doctorName": "Dr Minnie Feline", "doctorImgUrl": "https://randomuser.me/api/portraits/women/12.jpg", "startAt": 1631893316000, "endAt": 1631893316000 }
-            ]
-        }
-    ],
+     // will be populated randomly on init
+    appointments: [], users: [],
+
+    // define providers
     providers: [
         {
             "id": 0,
@@ -798,3 +760,16 @@ export const Database: IDatabase = {
         }
     ]
 }
+
+export const Generator = {
+    firstNames: ["Sarah", "Johnnie", "Wm", "Megan", "Lynn", "Andre", "Celia", "Delia", "Geoffrey", "Dora", "Fannie", "Colin", "Marlene", "Tammy", "Grady", "Lola", "Bonnie", "Luke", "Marta", "Russell", "Felix", "Kyle", "Ricardo", "Lois", "Vanessa", "Caleb", "Woodrow", "Joe", "Joel", "Christie", "Kevin", "April", "Ada", "Don", "Darnell", "Dixie", "Moses", "Guadalupe", "Marlon", "Bradley", "Blanca", "Esther", "Gail", "Laurie", "Amos", "Mitchell", "Joann", "Marsha", "Preston", "Jean", "Nick", "Antonia", "Carla", "Grant", "Shelia", "Natalie", "Sonya", "Christy", "Omar", "Jody", "Traci", "Judith", "Sherman", "Leroy", "Stacey", "Elmer", "Irene", "Guy", "Kerry", "Lawrence", "Hazel", "Karla", "Dianne", "Vincent", "Domingo", "Wilfred", "Dana", "Willie", "Misty", "Leslie", "Ken", "Lela", "Kelli", "Yvonne", "Orville", "Sonia", "Harriet", "Bernadette", "Jeannie", "Ted", "Mike", "Vivian", "Brooke", "Kara", "Zachary", "Evelyn", "Carl", "Cristina", "Candace", "Jerom"],
+    lastNames: ["Perez", "Mccormick", "Turner", "Goodwin", "Logan", "Gardner", "Fletcher", "Hale", "Berry", "Zimmerman", "Wilkerson", "Ortega", "Burke", "Cunningham", "Klein", "Mullins", "Campbell", "Dawson", "Herrera", "Griffin", "Valdez", "Bowers", "Leonard", "Powers", "Ramirez", "Norris", "Alexander", "Hunter", "Moody", "Baker", "Lee", "Daniels", "Gregory", "Warner", "Fowler", "Pittman", "Webb", "Floyd", "Norton", "Murray", "Sutton", "Dean", "Barber", "Harris", "Harrington", "Marshall", "Jordan", "Hicks", "Joseph", "Garza", "Lawson", "Griffith", "Bennett", "Duncan", "Pierce", "Owen", "Swanson", "Weber", "Stone", "Gonzales", "Mckinney", "Parks", "Rice", "Castro", "Johnson", "Summers", "Holland", "Conner", "Wallace", "Weaver", "Walker", "Poole", "Gonzalez", "Jacobs", "Maxwell", "Schneider", "Ortiz", "Reyes", "Brock", "Colon", "Mills", "Harrison", "Padilla", "Baldwin", "Hogan", "Flores", "Byrd", "Frazier", "Hawkins", "Howard", "Meyer", "Morris", "Reid", "Cobb", "Allen", "Copeland", "Chapman", "Francis", "Rodriquez", "Bush"],
+    gender: ["Male", "Female"],
+    clinicNames: ["Blessings Community Hospital", "Meadowview Clinic", "Pine Valley Medical Clinic", "Clearview Medical Clinic", "Great Plains General Hospital", "Paradise Grove Hospital", "White Wing Hospital Center", "Specialty Medical Center", "Hill Crest General Hospital", "Olympus General Hospital", "Castle Hospital Center", "Honor Clinic", "Rainbow Clinic", "Angelvale Medical Center", "Riverside General Hospital", "White Wing Clinic", "Mineral Community Hospital", "Bayview Hospital", "Beacon Medical Center", "Principal Clinic", "Rainbow Hospital Center", "Highland Medical Clinic", "Wellness Community Hospital", "Swan River General Hospital", "White Feather Medical Center", "Griffin Hospital", "Jade Forest General Hospital", "Tranquility General Hospital", "Rose Petal General Hospital", "Summer Springs General Hospital", "Spring Harbor Medical Clinic", "Grand Mountain Community Hospital", "Lakewood Clinic", "Summerstone Hospital Center", "Evergreen Hospital Center", "Grand Valley Medical Center", "White Blossom Medical Center", "Blossom Valley Hospital Center", "Hot Springs Clinic", "Grand Meadow General Hospital", "Pearl River Clinic", "Sapphire Lake Medical Clinic", "Hill Crest Hospital", "Grand River Community Hospital", "Hope Haven Hospital Center", "North Star Hospital Center", "Good Samaritan Hospital", "Evergreen General Hospital", "Wellness Community Hospital", "Grand View Community Hospital"],
+    adjectives: ["tan", "vagabond", "learned", "energetic", "capable", "gorgeous", "lush", "crazy", "rotten", "laughable", "giant", "fortunate", "recondite", "natural", "billowy", "diligent", "mysterious", "industrious", "sulky", "half", "rambunctious", "rabid", "loutish", "versed", "ashamed", "feeble", "defective", "faded", "ill-fated", "mundane", "terrific", "suitable", "roomy", "regular", "painful", "mad", "abundant", "dispensable", "two", "defiant", "skinny", "anxious", "former", "wanting", "agonizing", "troubled", "tasteless", "thankful", "breezy", "federal"],
+    nouns: ["description", "employment", "map", "transportation", "agreement", "diamond", "agency", "unit", "investment", "police", "church", "hair", "movie", "delivery", "paper", "protection", "football", "person", "funeral", "tennis", "debt", "fishing", "leadership", "cell", "birthday", "engine", "member", "two", "penalty", "childhood", "departure", "emotion", "manager", "establishment", "breath", "science", "freedom", "idea", "entertainment", "fortune", "pollution", "gate", "control", "death", "confusion", "library", "attention", "election", "perspective", "literature"],
+    businesses: ["Mystic Entertainment", "Apache Brews", "Mercury Corporation", "Marsoftwares", "Crowares", "Rushcorp", "Smilectronics", "Heartcast", "Tigerlife", "Cliffwood", "Hook Media", "Twilight Acoustics", "Dwarf Softwares", "Fortunetworks", "Turtletainment", "Lokilutions", "Sawwares", "Wonderhive", "Spritewalk", "Banshee Aviation", "Fjord Sports", "Goblin Brews", "Deserprises", "Grizzlimited", "Globaviations", "Wizardustries", "Foresthut", "Moonmedia", "Bansheestone", "Peachworks", "Honeydew Industries", "Hercules Industries", "Revelation Entertainment", "Raptolutions", "Greenetworks", "Prodintelligence", "Odinetworks", "Cubedale", "Spiritman", "Mountainshack", "Raptor Microsystems", "Amazon Solutions", "Turtle Motors", "Pixystems", "Asco", "Pyramidustries", "Rabbitechnologies", "Alpinepoint", "Mermaidgold", "Auradew", "Cloud Security", "Hero Entertainment", "Granitelligence", "Globaviations", "Pumpkinavigation", "Hatchworks", "Lionesspoint", "Arcanestar", "Phoenixwell"]
+
+}
+
+

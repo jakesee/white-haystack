@@ -1,9 +1,9 @@
 <div class="appointment-card">
     <div class="episode">
-        <div class="portrait"><img src="{{episode.doctorImgUrl}}" /></div>
+        <div class="portrait"><img src="{{episode.doctor.imgUrl}}" /></div>
         <div class="content">
             <div class="metadata">
-                <div class="doctor-name">{{episode.doctorName}}</div>
+                <div class="doctor-name">Dr {{episode.doctor.firstName}} {{episode.doctor.lastName}}</div>
                 <div><fa-icon [icon]="['fas', 'calendar-alt']"></fa-icon> {{episode.startAt | date: 'fullDate'}}</div>
                 <div><fa-icon [icon]="['fas', 'clock']"></fa-icon> {{episode.startAt | date: 'shortTime'}} - {{episode.endAt | date: 'shortTime'}}</div>
             </div>
