@@ -1,0 +1,33 @@
+@import '../../../../variables.scss';
+
+form {
+    div {
+        padding: 10px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 6px;
+    }
+    input, select {
+        display: block;
+        border: none;
+        background: #EEEEEE;
+        padding: 6px 9px;
+        width: 100%;
+    }
+}
+
+.button-list {
+
+    display: flex;
+
+    button {
+        padding: 6px 9px;
+        margin-right: 5px;
+    }
+    button.default {
+        margin-left: auto;
+        align-self: flex-end;
+    }
+}

@@ -1,0 +1,65 @@
+@import '../../../../variables.scss';
+
+.settings-section {
+
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--theme-box-border-color);
+
+
+  .col-field div,
+  .col-value div {
+    margin-bottom: 12px;
+  }
+
+  .col-field {
+    font-weight: bold;
+  }
+}
+
+.settings-page {
+  .settings-page-nav {
+
+    margin: 20px 0 0 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      margin: 0;
+      padding: 10px;
+      background-color: white;
+      border-bottom: 1px solid var(--theme-box-border-color);
+      border-left: 1px solid var(--theme-box-border-color);
+    }
+    li:first-child {
+       border-top: 1px solid var(--theme-box-border-color);
+    }
+  }
+}
+
+@media screen and (min-width: $size-md) {
+  .settings-page {
+    display: flex;
+
+    .settings-page-nav {
+      flex: 0 0 180px;
+      margin: 20px 0 0 0;
+      padding: 0;
+
+      li {
+        list-style: none;
+        margin: 0;
+        padding: 10px;
+        background-color: white;
+        border-bottom: 1px solid var(--theme-box-border-color);
+        border-left: 1px solid var(--theme-box-border-color);
+      }
+      li:first-child {
+        border-top: 1px solid var(--theme-box-border-color);
+      }
+    }
+
+    .card {
+      flex: 1 1 100px;
+    }
+  }
+}

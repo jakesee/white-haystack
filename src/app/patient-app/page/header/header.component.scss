@@ -1,0 +1,156 @@
+@import '../../../../variables.scss';
+
+div.download-mobile-prompt {
+  background-color: #10164C;
+  color: white;
+  padding: 10px;
+
+  img {
+    width: 20px;
+    vertical-align: middle;
+    margin-right: 12px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  div {
+    width: 20px;
+    height: 20px;
+    font-weight: bold;
+    text-align: center;
+    float: right;
+    font-size: 130%;
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+.navbar {
+
+  font-size: 1.4rem;
+
+  .navbar-brand {
+    width: auto;
+    height: 55px;
+    float: left;
+    margin: 12px;
+
+    a {
+      display: inline-block;
+
+      img {
+        display: inline-block;
+        width: auto;
+        height: 55px;
+        box-sizing: border-box;
+      }
+    }
+
+  }
+
+  .navbar-toggler {
+    background: none;
+    border: none;
+    float: right;
+    font-size: 160%;
+    line-height: 55px;
+    margin: 11px;
+    box-sizing: border-box;
+  }
+
+  .navbar-collapse {
+    display:none;
+  }
+
+  .navbar-menu::before {
+    content: "";
+    clear: both;
+    display: block;
+  }
+
+  .navbar-menu {
+    ul {
+      margin: 12px;
+      padding: 12px;
+
+
+      li { list-style: none; }
+
+      .nav-item {
+
+        padding: 6px;
+
+        .dropdown-divider {
+          border-collapse: collapse;
+          border-top: 1px solid grey
+        }
+
+        a:link, a:visited {
+          color: var(--theme-color-on-background);
+          text-decoration: none;
+        }
+
+        a:hover {
+          color: var(--theme-button-primary-background-color);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $size-md) {
+
+  div.download-mobile-prompt {
+    display: none;
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .navbar-brand {
+    display: inline-flex;
+    width: 160px;
+  }
+
+  .navbar-toggler {
+    display: none;
+  }
+
+  .navbar-menu {
+    // display: inline-flex !important;
+    display: inline-block !important;
+    width: 100%;
+
+    .navbar-nav {
+
+      .navbar-divider {
+        display: none;
+      }
+
+      .dropdown-divider {
+        display: none;
+      }
+
+      .nav-item {
+        float: left;
+      }
+
+      .nav-item.align-right {
+        float: right;
+      }
+    }
+
+  }
+}
+
+
+

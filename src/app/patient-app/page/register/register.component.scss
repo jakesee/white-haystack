@@ -1,0 +1,77 @@
+@import '../../../../variables.scss';
+
+.section {
+    background-color: #F3F6FB;
+    border-bottom: 1px solid #DADDE1;
+    border-top: 1px solid #DADDE1;
+}
+
+.wh-container {
+
+    padding: 10px;
+
+    .cta {
+        padding: 20px;
+        font-size: 220%;
+        line-height: normal;
+        text-align: center;
+
+        span.bold {
+            font-weight: 700;
+        }
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+}
+
+
+
+mat-form-field {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.button-list {
+    display: flex;
+    gap: 10px;
+
+    margin-bottom: 20px;
+    button {
+        width: 100%;
+    }
+}
+
+.forgot-password-links {
+    padding: auto;
+    text-align: center;
+}
+
+.new-user-links > p {
+    margin: 30px 0 0 0;
+}
+
+@media only screen and (min-width: $size-sm) {
+    .wh-container {
+        padding: 45px;
+    }
+}
+
+@media only screen and (min-width: $size-md) {
+    .wh-container {
+        padding: 45px;
+
+        display: flex;
+        align-items: center;
+
+        .cta {
+            flex: 1 1 auto;
+            text-align: left;
+        }
+
+        .form-container {
+            flex: 1 1 $size-md;
+        }
+    }
+}

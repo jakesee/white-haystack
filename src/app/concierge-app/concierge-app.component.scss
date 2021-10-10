@@ -1,0 +1,68 @@
+.panel {
+    display: flex;
+    gap: 4px;
+
+    position: absolute;
+    margin-top: 64px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+
+    .context-selector, .worksheet {
+        //border: 5px solid red;
+        padding: 5px;
+    }
+
+    .menu {
+        flex: 0 0 auto;
+
+        background-color: #eeeeee;
+        overflow-x: hidden;
+        padding: 8px;
+
+        transition: all 500ms;
+
+        ul, li {
+            list-style: none;
+            padding: 0; margin: 0;
+            white-space: nowrap;
+            overflow-x: hidden;
+            text-align: left;
+        }
+
+        li {
+            display: flex;
+            gap: 4px;
+
+            margin-bottom: 16px;
+
+            button {
+                mat-icon {
+                    margin-right: 20px;
+                }
+            }
+        }
+
+
+    }
+
+    .menu.collapsed {
+        flex: 0 0 64px;
+
+        transition: all 500ms;
+    }
+
+    .context-selector {
+        flex: 0 1 450px;
+
+        overflow: auto;
+    }
+
+    .worksheet {
+        flex: 1 1 auto;
+
+        overflow: auto;
+    }
+}

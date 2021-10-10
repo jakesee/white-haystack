@@ -1,0 +1,62 @@
+.metadata {
+    td, th {
+        text-align: left;
+        vertical-align: top;
+    }
+    th { width: auto;}
+    td { padding-right: 50px; }
+}
+
+mat-panel-title {
+    font-weight: 400;
+    font-size: 120%;
+}
+
+.bill-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+        border-bottom: 2px solid #999999;
+    }
+
+    tbody {
+        border-bottom: 1px solid #999999;
+    }
+
+    td, th {
+        padding: 6px;
+        text-align: left;
+    }
+
+    th.align-center, td.align-center {
+        text-align: center;
+    }
+
+    .action {
+        width: 80px;
+    }
+
+    .quantity, .unit, .total {
+        width: 80px;
+        text-align: right;
+    }
+}
+
+.form-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    mat-form-field {
+        flex: 0 1 auto;
+    }
+
+    .form-description {
+        flex: 1 1 100%;
+
+        input {
+            width: 100%;
+        }
+    }
+}

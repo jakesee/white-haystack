@@ -1,0 +1,19 @@
+mat-form-field {
+    width: 100%;
+}
+
+mat-card {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+mat-card-header {
+    flex: 1 0 auto;
+}
+
+mat-card-actions {
+    flex: 1 1 auto;
+    margin-left: auto;
+
+    text-align: right;
+}
