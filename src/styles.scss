@@ -1,7 +1,47 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
+// Plus imports for other components in your app.
+
 /* Add application styles & imports to this file! */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
 @import './variables.scss';
+
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$white-haystack-primary: mat.define-palette(mat.$indigo-palette);
+// $white-haystack-primary: mat.define-palette($mydoc-palette);
+$white-haystack-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$white-haystack-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$white-haystack-theme: mat.define-light-theme((
+  color: (
+    primary: $white-haystack-primary,
+    accent: $white-haystack-accent,
+    warn: $white-haystack-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($white-haystack-theme);
+
+
+
+
 
 :root {
 
@@ -109,15 +149,18 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
+html {
+  background-color: var(--theme-color-background);
+}
 html, body {
   font-family: var(--theme-font-family);
   font-weight: 400;
-  background-color: var(--theme-color-background);
   color: var(--theme-color-on-background);
   padding: 0; margin: 0;
 }
 html {
   font-size: 62.5%;
+
   body {
     font-size: 1.4rem;
     h1 { font-weight: 700; }
@@ -292,3 +335,7 @@ div.card {
         background-color: white;
     }
 }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+@import './partner/style-mydoc.scss';

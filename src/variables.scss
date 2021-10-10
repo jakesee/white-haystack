@@ -5,3 +5,56 @@ $size-md: 768px;
 $size-lg: 992px;
 $size-xl: 1200px;
 $size-xxl: 1400px;
+
+
+$cornflower-palette: (
+ 50: #e5f2ff,
+ 100: #c1ddff,
+ 200: #9bc8ff,
+ 300: #77b3fd,
+ 400: #62a2fc,
+ 500: #5692f9,
+ 600: #5383ea,
+ 700: #4f71d6,
+ 800: #4a60c3,
+ 900: #4240a2,
+ // ... continues to 900
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: rgba(black, 0.87),
+   400: rgba(black, 0.87),
+   500: white,
+   600: white,
+   700: white,
+   800: white,
+   900: white
+ )
+);
+
+$intelligence-palette: (
+ 50: #e5f2ff,
+ 100: #c1ddff,
+ 200: #9bc8ff,
+ 300: #77b3fd,
+ 400: #62a2fc,
+ 500: #5692f9,
+ 600: #5383ea,
+ 700: #4f71d6,
+ 800: #4a60c3,
+ 900: #4240a2,
+ // ... continues to 900
+ contrast: (
+   50: rgba(black, 0.87),
+   100: rgba(black, 0.87),
+   200: rgba(black, 0.87),
+   300: rgba(black, 0.87),
+   400: rgba(black, 0.87),
+   500: white,
+   600: white,
+   700: white,
+   800: white,
+   900: white
+ )
+);

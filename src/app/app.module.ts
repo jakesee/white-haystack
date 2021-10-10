@@ -49,6 +49,15 @@ import { RecentFeedsSectionComponent } from './sections/recent-feeds-section/rec
 import { HtmlFormComponent } from './form/html-form/html-form.component';
 import { SelectAccountFormComponent } from './form/select-account-form/select-account-form.component';
 import { ThemesGuideComponent } from './page/themes-guide/themes-guide.component';
+import { MatSliderModule } from '@angular/material/slider'
+import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { RegisterComponent } from './page/register/register.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -62,6 +71,14 @@ import { ThemesGuideComponent } from './page/themes-guide/themes-guide.component
     BrowserAnimationsModule,
     HttpClientModule,
     FontAwesomeModule,
+    MatSliderModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDividerModule,
+    MatTooltipModule
   ],
   declarations: [
     AppComponent,
@@ -101,8 +118,15 @@ import { ThemesGuideComponent } from './page/themes-guide/themes-guide.component
     HtmlFormComponent,
     SelectAccountFormComponent,
     ThemesGuideComponent,
+    RegisterComponent,
   ],
-  providers: [DataService, AuthenticationService, mockHttpProviderService],
+  providers: [
+    DataService,
+    AuthenticationService,
+    mockHttpProviderService,
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } }
+  ],
+
   bootstrap: [AppComponent],
 
 })

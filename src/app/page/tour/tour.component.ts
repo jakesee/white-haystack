@@ -104,12 +104,9 @@ export class TourComponent implements OnInit, AfterViewInit {
     });
 
     this.medicalConditions = conditions.join(', ');
-
-    console.log(conditions);
   }
 
   onGenderAgeChange($event) {
-    console.log(this.gender, this.birthDay, this.birthMonth, this.birthYear);
 
     if (this.gender == '' || this.birthDay == null || this.birthMonth == null || this.birthYear == null) {
       this.researchStatement = "";

@@ -24,7 +24,6 @@ export class AppComponent extends PageBase implements AfterViewInit {
 
   private _loadComponents() {
     if (this.viewHeader && this.viewFooter) {
-      console.log(this._dataService.appConfig.footer, this.viewFooter);
       this._dataService.loadComponent(this.viewHeader, this._dataService.appConfig.header.component);
       this._dataService.loadComponent(this.viewFooter, this._dataService.appConfig.footer.component);
     }

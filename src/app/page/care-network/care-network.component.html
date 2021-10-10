@@ -1,13 +1,18 @@
-<div>
-    <div class="search-bar">
-        <div class="search-control">
-            <input class="search-input" type="search" value="" placeholder="Search" (keyup)="search($event)" /> <fa-icon [icon]="['fas', 'search']"></fa-icon>
+<div [ngClass]="pageStyle.container">
+    <div class="wh-container">
+        <div class="search-bar">
+            <mat-form-field>
+                <mat-label>Search</mat-label>
+                <input matInput type="search" (change)="search($event)">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
         </div>
-    </div>
-</div>
-<div *ngFor="let category of categories">
-    <h1>{{category}}</h1>
-    <div class="wh-row">
-        <app-provider-card-control *ngFor="let p of getProvidersByCategory(category)" [provider]="p"></app-provider-card-control>
+        <div *ngFor="let category of categories">
+            <h1>{{category}}</h1>
+            <div class="wh-row">
+                <app-provider-card-control *ngFor="let p of getProvidersByCategory(category)" [provider]="p">
+                </app-provider-card-control>
+            </div>
+        </div>
     </div>
 </div>

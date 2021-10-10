@@ -1,9 +1,14 @@
 import { IAppConfig, PageStyleContainerEnum, PageStyleContentEnum } from "@app/interfaces";
 
+// proximanova-regular
+// proximanova-semibold
+// proximanova-bold
+// proximanova-black
+
 export const MyDoc: IAppConfig = {
     providerId: 0,
     theme: {
-        "--theme-font-family": "'Roboto', sans-serif",
+        "--theme-font-family": "'proximanova-regular', sans-serif",
         "--theme-color-background": "#ffffff",
         "--theme-color-on-background": "#000000",
         "--theme-color-surface": "#ffffff",
@@ -38,6 +43,7 @@ export const MyDoc: IAppConfig = {
         "--theme-color-on-secondary-0": "#ffffff",
         "--theme-color-on-secondary-1": "#ffffff",
         "--theme-color-on-secondary-2": "#ffffff",
+        //"--theme-header-background-color": "#F3F6FB",
         "--theme-header-background-color": "#ffffff",
         "--theme-footer-background-color": "#ffffff",
         "--theme-box-border-radius": "5px",
@@ -80,7 +86,7 @@ export const MyDoc: IAppConfig = {
         { "text": "Feeds", "routerLink": "/feeds", "icon": ["fas", "newspaper"], "display": { "public": true, "private": true } },
         { "text": "Settings", "routerLink": "/profile", "icon": ["fas", "user"], "display": { "public": false, "private": true } }
     ],
-    pageStyle: { container: PageStyleContainerEnum.container, content: PageStyleContentEnum.contentCenter },
+    pageStyle: { container: PageStyleContainerEnum.fluidContainer, content: PageStyleContentEnum.contentCenter },
     header: { component: "HeaderComponent", "config": { } },
     footer: { component: "FooterComponent", "config": { } },
     sections: [

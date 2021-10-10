@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
+import { DataService } from '@app/data.service';
+import { PageBase } from '@app/page/page-base';
 import { AuthenticationService } from '../authentication.service';
 
 @Component({
@@ -8,17 +9,19 @@ import { AuthenticationService } from '../authentication.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent extends PageBase implements OnInit {
 
   form: FormGroup;
 
-  isLogin: boolean = true;
+  isShowPassword: boolean = false;
+
+  isEmailLogin: boolean = true;
 
   error;
   loading;
 
-  constructor(private _auth: AuthenticationService) {
-
+  constructor(private _auth: AuthenticationService, protected _dateService: DataService) {
+    super(_dateService);
   }
 
   ngOnInit(): void {
@@ -46,17 +49,5 @@ export class LoginComponent implements OnInit {
     return await this._auth.logIn(this.f.username.value, this.f.password.value).toPromise().then((data) => {
       this._auth.navigateToReturnUrl();
     });
-  }
-
-  onRegister($event: any): void {
-    this._auth.register(this.f.username.value, this.f.password.value).toPromise().then((data) => {
-      this._auth.navigateToReturnUrl();
-    });
-  }
-
-  onToggleForm($event: any): boolean {
-    this.isLogin = !this.isLogin;
-
-    return false;
   }
 }

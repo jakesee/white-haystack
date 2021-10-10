@@ -65,7 +65,6 @@ export class WaitingRoomComponent extends PageBase implements OnInit {
 
   onChatOpen($event: any) {
     this.chatEpisode = $event.episode;
-    console.log($event);
   }
 
   onChatClose($event: any) {

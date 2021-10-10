@@ -24,7 +24,6 @@ export class RecentProvidersSectionComponent extends Section implements OnInit {
     this._dataService.getProvidersByParent(this.provider.id).toPromise().then((response) => {
       this.providers = response.data;
       this.providers = this._dataService.any(this.providers, 4);
-      console.log('RecentProvidersSectionComponent', this.providers);
     });
   }
 }
