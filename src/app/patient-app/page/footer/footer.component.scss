@@ -1,0 +1,37 @@
+@import '../../../../variables.scss';
+
+.fixed-margin {
+    height: 50px;
+}
+
+ul {
+    display: flex;
+    margin: 0;
+    padding: 10px;
+    border-top: 1px solid var(--theme-box-border-color);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: white;
+
+    li {
+        list-style: none;
+        text-align: center;
+        flex-grow: 1;
+        font-size: 200%;
+
+        a {
+            color: black;
+        }
+
+        a:hover {
+            color: var(--theme-button-primary-background-color);
+        }
+    }
+}
+
+@media screen and (min-width: $size-md) {
+    .footer-nav {
+        display: none;
+    }
+}

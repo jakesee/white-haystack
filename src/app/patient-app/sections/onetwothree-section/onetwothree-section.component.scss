@@ -1,0 +1,105 @@
+@import '../../../../variables.scss';
+
+.section {
+    background-color: #efefef;
+    padding: 40px 20px;
+}
+
+li.one::before { content: "1" }
+li.two::before {content: "2" }
+li.three::before {content: "3" }
+li::before {
+    border: 3px solid #C3C3C3;
+    color: #C3C3C3;
+    text-align: center;
+}
+
+li.one::before, li.two::before, li.three::before  {
+    display: block;
+    float: left;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    border-radius: 45px;
+    font-size: 120%;
+    font-weight: 700;
+    margin-right: 24px;
+}
+
+ul {
+    max-width: $size-sm;
+    margin: auto;
+    padding: 0 30px 0 30px;
+    vertical-align: middle;
+    text-align: left;
+}
+
+li {
+    list-style: none;
+    margin-bottom: 12px;
+}
+
+li::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.description {
+    float: left;
+    max-width: 60%;
+    font-weight: 700;
+    padding-top: 10px;
+}
+
+@media only screen and (min-width: $size-md) {
+
+    ul {
+        max-width: $size-md;
+    }
+
+    li {
+        display: inline-block;
+        list-style: none;
+        width: 33.33%;
+        vertical-align: top;
+        margin: auto;
+        text-align: center;
+    }
+
+    li.one::before, li.two::before, li.three::before  {
+        display: block;
+        float: none;
+        height: 70px;
+        width: 70px;
+        line-height: 70px;
+        font-size: 250%;
+        margin: auto;
+    }
+
+    .description {
+        display: inline-block;
+        float: none;
+        width: 90%;
+        max-width: 100%;
+    }
+}
+
+@media only screen and (min-width: $size-lg) {
+
+    ul { max-width: $size-lg; }
+
+    li {
+        text-align: left;
+    }
+
+    li.one::before, li.two::before, li.three::before  {
+        float: left;
+    }
+
+    .description {
+        display: inline-block;
+        width: 160px;
+        margin: 0 0 0 12px;
+    }
+}

@@ -47,7 +47,7 @@ export class AuthenticationService implements CanActivate {
 
   private _activateAuth(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     // not logged in so redirect to login page with the return url
-    this._router.navigate(['/login'], { queryParams: { returnUrl: (state.url) } });
+    this._router.navigate(['/patient/login'], { queryParams: { returnUrl: (state.url) } });
     return false;
   }
 

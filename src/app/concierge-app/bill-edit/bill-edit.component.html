@@ -1,0 +1,150 @@
+<div class="example-action-buttons">
+    <button mat-button (click)="accordion?.openAll()">Expand All</button>
+    <button mat-button (click)="accordion?.closeAll()">Collapse All</button>
+</div>
+
+
+<mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel expanded="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Invoice Metadata
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <table class="metadata">
+            <tr>
+                <th>Episode:</th>
+                <td>{{invoice.metadata.episodeId}}</td>
+                <th>Status:</th>
+                <td>{{invoice.metadata.status}}</td>
+                <th>Payment Method Applied:</th>
+                <td>{{invoice.metadata.isPaymentMethodCollected}}</td>
+            </tr>
+            <tr>
+                <th>Patient:</th>
+                <td>{{invoice.metadata.patient.id}}</td>
+                <th>Doctor:</th>
+                <td>{{invoice.metadata.doctor.id}}</td>
+                <th>Group Id:</th>
+                <td>{{invoice.metadata.group.id}}</td>
+            </tr>
+            <tr>
+                <th>Name:</th>
+                <td>{{invoice.metadata.patient.firstName}} {{invoice.metadata.patient.lastName}}</td>
+                <th>Name:</th>
+                <td>{{invoice.metadata.doctor.firstName}} {{invoice.metadata.doctor.lastName}}</td>
+                <th>Group Name:</th>
+                <td>{{invoice.metadata.group.name}}</td>
+            </tr>
+            <tr>
+                <th>Date of Birth:</th>
+                <td>{{invoice.metadata.patient.birthdate | date: 'mediumDate'}}</td>
+                <th>Clinic:</th>
+                <td>{{invoice.metadata.doctor.clinic}}</td>
+            </tr>
+            <tr>
+                <th>Contact:</th>
+                <td>{{invoice.metadata.patient.phone}}</td>
+                <th>Contact:</th>
+                <td>{{invoice.metadata.doctor.phone}}</td>
+            </tr>
+        </table>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel expanded="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Invoice Line Items
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <table class="bill-table">
+            <thead class="bill-header">
+                <tr>
+                    <th class="action align-center"></th>
+                    <th>Description</th>
+                    <th class="quantity">Quantity</th>
+                    <th class="unit">Unit SGD</th>
+                    <th class="total">Total SGD</th>
+                </tr>
+            </thead>
+
+            <tbody class="bill-lineitems">
+                <ng-template ngFor let-feeType [ngForOf]="getFeeTypes()" let-i="index">
+                    <tr>
+                        <th colspan="5">{{feeType}}</th>
+                    </tr>
+                    <tr *ngFor="let item of getGoodsAndServices(feeType)">
+                        <td class="action align-center">
+                            <button mat-icon-button>
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                            <button mat-icon-button color="{{item.scheme ? 'accent' : ''}}"
+                                (click)="item.scheme = item.scheme != 0 ? 0 : 1">
+                                <mat-icon>{{item.scheme ? 'gpp_good' : 'gpp_bad'}}</mat-icon>
+                            </button>
+                        </td>
+                        <td>{{item.description}} {{item.code}}</td>
+                        <td class="quantity">{{item.quantity | number: '1.2-2'}}</td>
+                        <td class="unit">{{item.unitPrice | number: '1.2-2'}}</td>
+                        <td class="total">{{item.amount | number: '1.2-2'}}</td>
+                    </tr>
+                </ng-template>
+            </tbody>
+        </table>
+
+        <mat-action-row><button mat-raised-button type="submit" color="primary">Save</button></mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Add New Line Item
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <form (submit)="onAddNewItem($event)">
+            <div class="form-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Fee Type</mat-label>
+                    <select matNativeControl #feeType name="feeType" required>
+                        <option value="Payment">Payment</option>
+                        <option value="Consultation">Consultation</option>
+                        <option value="Prescription">Prescription</option>
+                        <option value="Delivery">Delivery</option>
+                        <option value="Applicable Fees">Applicable Fees</option>
+                        <option value="Drugs and Injections">Drugs and Injections</option>
+                        <option value="Medical Procedure">Medical Procedure</option>
+                        <option value="Consumables">Consumables</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </mat-form-field>
+            </div>
+            <div class="form-container">
+                <mat-form-field appearance="fill" class="form-description">
+                    <mat-label>Description</mat-label>
+                    <input matInput name="description">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" *ngIf="feeType.value == 'Payment'">
+                    <mat-label>Code</mat-label>
+                    <input matInput name="code">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Quantity</mat-label>
+                    <input matInput name="quantity" value="1">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Unit Price</mat-label>
+                    <input matInput name="unitPrice">
+                </mat-form-field>
+            </div>
+
+            <mat-action-row><button mat-raised-button type="submit" color="primary">Add Item</button></mat-action-row>
+        </form>
+    </mat-expansion-panel>
+</mat-accordion>

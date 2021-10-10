@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '@app/data.service';
-import { PageBase } from '@app/page/page-base';
+import { PageBase } from '@app/patient-app/page/page-base';
 import { AuthenticationService } from '../authentication.service';
 
 @Component({

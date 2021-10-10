@@ -1,0 +1,49 @@
+@import '../../../../variables.scss';
+
+.appointments {
+    padding: 20px;
+
+    .appointment-nav {
+        border-radius: var(--theme-button-border-radius);
+        border: 1px solid var(--theme-button-secondary-border-color);
+        background-color: var(--theme-button-secondary-background-color);
+        color: var(--theme-button-secondary-foreground-color);
+
+        padding: 10px;
+
+        button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            font-weight: 700;
+            border: none;
+            padding: 5px 10px;
+
+            background-color: var(--theme-button-secondary-background-color);
+            color: var(--theme-button-secondary-foreground-color);
+        }
+
+        button.active, button:hover {
+            background-color: var(--theme-button-primary-background-color);
+            color: var(--theme-button-primary-foreground-color);
+        }
+    }
+}
+
+@media screen and (min-width: $size-sm) {
+    .appointments {
+
+        .appointment-nav {
+
+            display: flex;
+            gap: 10px;
+
+            padding: 10px;
+
+            button {
+                flex: 1 1 33%;
+                margin: 0;
+            }
+        }
+    }
+}

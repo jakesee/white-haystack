@@ -109,8 +109,8 @@ export const Database: IDatabase = {
                 "start": {
                     "auth": true,
                     "label": "Talk to a doctor now!",
-                    "cmdCancel": ["../.."],
-                    "cmdSuccess": ["/waiting-room"],
+                    "cmdCancel": ["/patient/provider/1"],
+                    "cmdSuccess": ["/patient/waiting-room"],
                     "sequence": [
                         {
                             "stepName": "Validate Membership",
@@ -193,8 +193,8 @@ export const Database: IDatabase = {
                 "start": {
                     "auth": true,
                     "label": "Book appointment with GP!",
-                    "cmdCancel": ["../.."],
-                    "cmdSuccess": ["/waiting-room"],
+                    "cmdCancel": ["/patient/provider/2"],
+                    "cmdSuccess": ["/patient/waiting-room"],
                     "sequence": [
                         {
                             "stepName": "Emergency Notice",
@@ -502,8 +502,8 @@ export const Database: IDatabase = {
                 "start": {
                     "auth": true,
                     "label": "Find a Counsellor",
-                    "cmdCancel": ["../.."],
-                    "cmdSuccess": ["/waiting-room"],
+                    "cmdCancel": ["/patient/provider/12"],
+                    "cmdSuccess": ["/patient/waiting-room"],
                     "sequence": [
                         {
                             "stepName": "Validate Membership",
@@ -557,8 +557,8 @@ export const Database: IDatabase = {
                 "start": {
                     "auth": true,
                     "label": "Wellness starts here.",
-                    "cmdCancel": ["../.."],
-                    "cmdSuccess": ["/waiting-room"],
+                    "cmdCancel": ["/patient/provider/13"],
+                    "cmdSuccess": ["/patient/waiting-room"],
                     "sequence": [
                         {
                             "stepName": "Validate Membership",
@@ -640,8 +640,8 @@ export const Database: IDatabase = {
                 "start": {
                     "auth": true,
                     "label": "Talk to a doctor now!",
-                    "cmdCancel": ["../.."],
-                    "cmdSuccess": ["/waiting-room"],
+                    "cmdCancel": ["/patient/provider/15"],
+                    "cmdSuccess": ["/patient/waiting-room"],
                     "sequence": [
                         {
                             "stepName": "Emergency Notice",
@@ -692,12 +692,8 @@ export const Database: IDatabase = {
                 "start": {
                     "auth": true,
                     "label": "Book Health Screening Appointment",
-                    "cmdCancel": [
-                        "../.."
-                    ],
-                    "cmdSuccess": [
-                        "/waiting-room"
-                    ],
+                    "cmdCancel": ["/patient/provider/16"],
+                    "cmdSuccess": ["/patient/waiting-room"],
                     "sequence": [
                         {
                             "stepName": "Confirm Personal Info",
@@ -729,12 +725,8 @@ export const Database: IDatabase = {
                 "start": {
                     "auth": false,
                     "label": "Book Appointment",
-                    "cmdCancel": [
-                        "../.."
-                    ],
-                    "cmdSuccess": [
-                        "/waiting-room"
-                    ],
+                    "cmdCancel": ["/patient/provider/17"],
+                    "cmdSuccess": ["/patient/waiting-room"],
                     "sequence": [
                         {
                             stepName: "Terms & Conditions",
@@ -785,12 +777,8 @@ export const Database: IDatabase = {
                 "start": {
                     "auth": true,
                     "label": "Book Report Review Appointment",
-                    "cmdCancel": [
-                        "../.."
-                    ],
-                    "cmdSuccess": [
-                        "/waiting-room"
-                    ],
+                    "cmdCancel": ["/patient/provider/18"],
+                    "cmdSuccess": ["/patient/waiting-room"],
                     "sequence": [
                         {
                             "stepName": "Confirm Personal Info",

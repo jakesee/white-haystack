@@ -1,0 +1,63 @@
+@import '../../../../variables.scss';
+
+form {
+
+    p {
+        font-weight: 700;
+    }
+
+    div {
+        margin-bottom: 6px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 6px;
+    }
+    input, select {
+        display: block;
+        padding: 6px 9px;
+        width: 100%;
+        border: none;
+
+        border-bottom: 1px solid black;
+        border-radius: 0;
+
+        // background: #EEEEEE;
+    }
+    input[type=radio] {
+        display: inline;
+        width: auto;
+    }
+    span {
+        padding: 5px 10px;
+        color: var(--theme-color-neutral-0);
+    }
+
+    .input-name {
+        display: flex;
+
+        input {
+            flex: 1 1 100%;
+        }
+
+        fa-icon {
+            flex: 0 0 auto;
+        }
+    }
+}
+
+.button-list {
+
+    display: flex;
+    margin-top: 20px;
+
+    button {
+        padding: 6px 9px;
+        margin-right: 5px;
+    }
+    button.default {
+        margin-left: auto;
+        align-self: flex-end;
+    }
+}

@@ -1,0 +1,22 @@
+<app-navigation (menuToggle)="isMenuCollapsed = !isMenuCollapsed"></app-navigation>
+<div class="panel">
+    <div class="menu" [ngClass]="{ collapsed: isMenuCollapsed }">
+        <ul>
+            <li><button mat-button>
+                    <mat-icon>local_hospital</mat-icon> Appointments
+                </button>
+            <li><button mat-button>
+                    <mat-icon>inventory_2</mat-icon> Archive
+                </button>
+            <li><button mat-button>
+                    <mat-icon>face</mat-icon> Patients
+                </button>
+        </ul>
+    </div>
+    <div class="context-selector">
+        <app-episode-list></app-episode-list>
+    </div>
+    <div class="worksheet">
+        <app-bill-edit></app-bill-edit>
+    </div>
+</div>

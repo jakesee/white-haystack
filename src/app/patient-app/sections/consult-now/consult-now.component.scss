@@ -1,0 +1,59 @@
+@import '../../../../variables.scss';
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+#call-to-action {
+  text-align: center;
+  padding: 20px;
+  font-size: 2.2rem;
+
+  button {
+     padding: 10px 18px;
+     border: none;
+     background-color: var(--theme-button-primary-background-color);
+     color: var(--theme-button-primary-foreground-color);
+     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+   }
+
+  h1 { font-size: 100%; }
+  p { font-size: 70% ; }
+  button { font-size: 80%; }
+  h2 { font-size: 60%; font-weight: 400;}
+}
+
+@media (min-width: $size-sm) {
+  #background { position: relative; }
+
+  #call-to-action {
+    text-align: left;
+    float: none;
+    position: absolute;
+    top: 20%;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 1.6rem;
+    padding: 5%;
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 5px;
+      padding: 0;
+    }
+  }
+}
+@media (min-width: $size-md) {
+  #call-to-action {
+    font-size: 2.4rem;
+  }
+}
+@media (min-width: $size-lg) {
+  #call-to-action {
+    padding-left: 10%;
+    font-size: 2.6rem;
+    top: 20%;
+  }
+}
+
+
