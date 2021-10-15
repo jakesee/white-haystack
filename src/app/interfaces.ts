@@ -1,4 +1,5 @@
 import { EventEmitter } from '@angular/core';
+import { Invoice } from './invoice-controller.service';
 
 export interface IAppConfig {
   providerId: number;

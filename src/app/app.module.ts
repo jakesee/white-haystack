@@ -67,6 +67,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { PatientAppComponent } from './patient-app/patient-app.component';
 import { AppSelectorComponent } from './app-selector/app-selector.component';
+import { AngularSplitModule } from 'angular-split';
 
 
 
@@ -90,7 +91,8 @@ import { AppSelectorComponent } from './app-selector/app-selector.component';
     MatDividerModule,
     MatTooltipModule,
     MatToolbarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    AngularSplitModule
   ],
   declarations: [
     AppComponent,

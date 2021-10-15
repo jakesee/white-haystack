@@ -1,22 +1,45 @@
 <app-navigation (menuToggle)="isMenuCollapsed = !isMenuCollapsed"></app-navigation>
 <div class="panel">
+    <as-split direction="horizontal" unit="pixel">
+        <as-split-area [size]="isMenuCollapsed ? 64 : 200" class="menu">
+            <ul>
+                <li><button mat-button><mat-icon>local_hospital</mat-icon> Episodes</button>
+                <li><button mat-button><mat-icon>local_hospital</mat-icon> Appointments</button>
+                <li><button mat-button><mat-icon>local_hospital</mat-icon> Consulted</button>
+                <li><button mat-button><mat-icon>inventory_2</mat-icon> Archive</button>
+                <li><button mat-button><mat-icon>face</mat-icon> Patients</button>
+            </ul>
+            <mat-divider></mat-divider>
+            <ul>
+                <li><button mat-button><mat-icon>local_hospital</mat-icon> Episodes</button>
+                <li><button mat-button><mat-icon>local_hospital</mat-icon> Appointments</button>
+                <li><button mat-button><mat-icon>local_hospital</mat-icon> Consulted</button>
+                <li><button mat-button><mat-icon>inventory_2</mat-icon> Archive</button>
+                <li><button mat-button><mat-icon>face</mat-icon> Patients</button>
+            </ul>
+        </as-split-area>
+        <as-split-area [size]="200">
+            sdsads
+        </as-split-area>
+        <as-split-area>
+            <as-split direction="horizontal">
+                <as-split-area [size]="30">
+                    <app-episode-list></app-episode-list>
+                </as-split-area>
+                <as-split-area [size]="70">
+                    <app-bill-edit></app-bill-edit>
+                </as-split-area>
+            </as-split>
+        </as-split-area>
+    </as-split>
+</div>
+<!--
+
+<div class="panel">
     <div class="menu" [ngClass]="{ collapsed: isMenuCollapsed }">
-        <ul>
-            <li><button mat-button>
-                    <mat-icon>local_hospital</mat-icon> Appointments
-                </button>
-            <li><button mat-button>
-                    <mat-icon>inventory_2</mat-icon> Archive
-                </button>
-            <li><button mat-button>
-                    <mat-icon>face</mat-icon> Patients
-                </button>
-        </ul>
-    </div>
-    <div class="context-selector">
-        <app-episode-list></app-episode-list>
+
     </div>
     <div class="worksheet">
-        <app-bill-edit></app-bill-edit>
+
     </div>
-</div>
+</div> -->

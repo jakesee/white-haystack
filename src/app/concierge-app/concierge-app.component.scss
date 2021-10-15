@@ -16,40 +16,33 @@
     }
 
     .menu {
-        flex: 0 0 auto;
-
         background-color: #eeeeee;
+    }
+
+    ul, li {
+        list-style: none;
+        padding: 0; margin: 0;
+        white-space: nowrap;
         overflow-x: hidden;
-        padding: 8px;
+        text-align: left;
+    }
 
-        transition: all 500ms;
+    li {
+        display: flex;
+        gap: 4px;
 
-        ul, li {
-            list-style: none;
-            padding: 0; margin: 0;
-            white-space: nowrap;
-            overflow-x: hidden;
-            text-align: left;
-        }
+        margin-bottom: 16px;
 
-        li {
-            display: flex;
-            gap: 4px;
-
-            margin-bottom: 16px;
-
-            button {
-                mat-icon {
-                    margin-right: 20px;
-                }
+        button {
+            mat-icon {
+                margin-right: 20px;
             }
         }
-
-
     }
 
     .menu.collapsed {
         flex: 0 0 64px;
+        width: 64px;
 
         transition: all 500ms;
     }

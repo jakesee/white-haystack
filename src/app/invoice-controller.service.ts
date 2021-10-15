@@ -10,14 +10,14 @@ export class InvoiceControllerService {
   constructor() { }
 
   // line items
-  addLineItems(items: InvoiceLineItem[]): void { }
-  addDiscountLineItems(items: InvoiceLineItem[]): void { }
-  addBenefitLineItems(items: InvoiceLineItem[]): void { }
+  addLineItems(items: IInvoiceLineItem[]): void { }
+  addDiscountLineItems(items: IInvoiceLineItem[]): void { }
+  addBenefitLineItems(items: IInvoiceLineItem[]): void { }
   addPaymentMethod(paymentMethod: object): void { }
-  putLineItems(items: InvoiceLineItem[]): void { }
+  putLineItems(items: IInvoiceLineItem[]): void { }
 
-  getLineItems(): InvoiceLineItem[] { return [] as InvoiceLineItem[]; }
-  getDiscountLineItems(): InvoiceLineItem[] { return [] as InvoiceLineItem[]; }
+  getLineItems(): IInvoiceLineItem[] { return [] as IInvoiceLineItem[]; }
+  getDiscountLineItems(): IInvoiceLineItem[] { return [] as IInvoiceLineItem[]; }
   getFeeTypes(): FeeType[] { return [] as FeeType[]; }
 
   // status
@@ -77,7 +77,7 @@ export class InvoiceControllerService {
     return invoice;
   }
 
-  private __getRandomDrugLineItem(lineItemId: number, invoiceId: number): InvoiceLineItem {
+  private __getRandomDrugLineItem(lineItemId: number, invoiceId: number): IInvoiceLineItem {
     return new InvoiceLineItem(
       lineItemId,
       invoiceId,
@@ -124,25 +124,36 @@ export class InvoiceControllerService {
   }
 }
 
-
 export interface IBillTotal {
+  subTotals: { [key in FeeType]: ISubTotal },
   isTaxIncluded: boolean,
-  billTotalAmount: number,
   taxLabel: string,
   taxRate: number, // 0..1
   taxAmount: number,
+  billTotalAmount: number,
   billTotalWithTax: number,
+  claimTotalAmount: number,
+  claimTotalAmountWithTax: number,
   balancePayable: number
+}
+
+export interface ISubTotal {
+  bill: number;
+  claim: number;
 }
 
 export class Invoice {
 
   totals: IBillTotal = {} as IBillTotal;
 
-  constructor(public metadata: IInvoiceMetadata, public lineItems: InvoiceLineItem[], public currency: string, taxLabel?:string, taxRate?: number) {
+  constructor(public metadata: IInvoiceMetadata, public lineItems: IInvoiceLineItem[], public currency: string, taxLabel?:string, taxRate?: number) {
     this.totals.isTaxIncluded = taxLabel ? true : false;
     this.totals.taxLabel = taxLabel ?? '';
     this.totals.taxRate = taxRate ?? 0;
+
+    // initialize subTotals
+    this.totals.subTotals = {} as { [key in FeeType]: ISubTotal };
+    _.each(FeeType, (ft) => { this.totals.subTotals[ft] = { bill: 0, claim: 0 } as ISubTotal; });
 
     this.__calcTotals();
   }
@@ -162,35 +173,53 @@ export class Invoice {
   }
 
   private __calcTotals() {
+    // aggregate all non-discount line items
+    this.lineItems.forEach((item) => {
+      let isGoodsAndService = item.feeType != FeeType.Payment && item.feeSystemType == FeeSystemType.Default;
+      if (isGoodsAndService) {
+        this.totals.subTotals[item.feeType].bill += item.amount;
+      }
+    });
+
+    // update all discount.amount values
+    this.lineItems.forEach((item, index) => {
+      let isDiscountItem = item.feeSystemType == FeeSystemType.Voucher && item.feeType != FeeType.Payment;
+      if (isDiscountItem) {
+        if (item.rate != null) { // this is a % discount
+          this.lineItems[index].amount = -(item.rate * this.totals.subTotals[item.feeType].bill);
+        } else {
+          // this is a $ discount and the amount value is already available
+        }
+      }
+    });
 
     // total payable
-    this.totals.billTotalAmount = 0;
     this.lineItems.forEach((item) => {
-      if (item.feeSystemType == FeeSystemType.Default) {
-        this.totals.billTotalAmount += item.amount;
+      let isIncluded = item.feeType != FeeType.Payment && item.feeSystemType != FeeSystemType.Benefit;
+      if (isIncluded) {
+        this.totals.subTotals[item.feeType]['bill'] += item.amount
+        if (item.scheme == BenefitScheme.APPLICABLE)
+          this.totals.subTotals[item.feeType]['benefit'] += item.amount
       }
+    });
+    _.each(this.totals.subTotals, (item, key: FeeType, collection) => {
+      this.totals.billTotalAmount += this.totals.subTotals[key].bill = Math.max(0, item.bill);
+      this.totals.claimTotalAmount += this.totals.subTotals[key].claim = Math.max(0, item.claim);
     });
 
     // tax
     if (this.totals.isTaxIncluded) {
       this.totals.taxAmount = this.totals.taxRate * this.totals.billTotalAmount;
-      this.totals.billTotalWithTax = this.totals.taxAmount + this.totals.billTotalAmount;
+      this.totals.billTotalWithTax = this.totals.billTotalAmount + (1 + this.totals.taxRate);
+      this.totals.claimTotalAmountWithTax = this.totals.claimTotalAmount * (1 + this.totals.taxRate);
     }
-
-    // total benefit base amount
-    let benefitBaseAmount = 0;
-    this.lineItems.forEach((item) => {
-      let isNotCoveredByBenefit = item.scheme != BenefitScheme.APPLICABLE || item.feeType == FeeType.Payment;
-      if (!isNotCoveredByBenefit) benefitBaseAmount += item.amount;
-    });
-    benefitBaseAmount *= this.totals.taxRate + 1; // add the tax to the base amount
-
 
     // objective: calculate item.amount for benefit line items
     this.lineItems.forEach((item) => {
       let isBenefitLineItem = item.feeSystemType == FeeSystemType.Benefit && item.feeType == FeeType.Payment;
-      if (isBenefitLineItem) this._calcBenefitAmount(item, benefitBaseAmount); // 99.9% of the time there is only 1 benefit line item
+      if (isBenefitLineItem) this.__calcBenefitAmount(item, this.totals.claimTotalAmountWithTax); // 99.9% of the time there is only 1 benefit line item
     });
+
 
     // at this point, ALL line items have item.amount value; whether it is positive or negative value, therefore...
     this.totals.balancePayable = 0;
@@ -199,46 +228,46 @@ export class Invoice {
     });
   }
 
-  private _calcBenefitAmount(benefit: InvoiceLineItem, benefitBaseAmount: number): boolean | number {
+  private __calcBenefitAmount(benefit: IInvoiceLineItem, claimAmount: number): boolean | number {
     switch (benefit.scheme) {
       case BenefitScheme.LIMIT:
-        return this._calcBenefitLimit(benefit, benefitBaseAmount);
+        return this.__calcBenefitLimit(benefit, claimAmount);
       case BenefitScheme.POOL:
-        return this._calcBenefitPool(benefit, benefitBaseAmount);
+        return this.__calcBenefitPool(benefit, claimAmount);
       case BenefitScheme.DEDUCTIBLE_RATE:
-        return this._calcBenefitDeductibleRate(benefit, benefitBaseAmount);
+        return this.__calcBenefitDeductibleRate(benefit, claimAmount);
       case BenefitScheme.DEDUCTIBLE_AMOUNT:
-        return this._calcBenefitDeductibleAmount(benefit, benefitBaseAmount);
+        return this.__calcBenefitDeductibleAmount(benefit, claimAmount);
       case BenefitScheme.COPAY_RATE:
-        return this._calcBenefitCoPayRate(benefit, benefitBaseAmount);
+        return this.__calcBenefitCoPayRate(benefit, claimAmount);
       case BenefitScheme.COPAY_RATE:
-        return this._calcBenefitCoPayAmount(benefit, benefitBaseAmount);
+        return this.__calcBenefitCoPayAmount(benefit, claimAmount);
       default:
         throw new Error(); // should not reach here
     }
   }
 
-  private _calcBenefitLimit(benefit: InvoiceLineItem, benefitBaseAmount: number): boolean | number {
+  private __calcBenefitLimit(benefit: IInvoiceLineItem, claimAmount: number): boolean | number {
     var db = {} as DB;
     // find out how many times the code is used
     var used = db.count("code = " + benefit.code).result<number>();
     var balance = benefit.max - used;
     if (balance > 0) {
-      benefit.amount = -benefitBaseAmount;
+      benefit.amount = -claimAmount;
       return benefit.amount; // success
     } else {
       return false; // cannot use this benefit because no balance remaining
     }
   }
 
-  private _calcBenefitPool(benefit: InvoiceLineItem, benefitBaseAmount: number): boolean | number {
+  private __calcBenefitPool(benefit: IInvoiceLineItem, claimAmount: number): boolean | number {
     var db = {} as DB;
     // find out how much money insurer has paid based on this code
     var used = db.select("code = " + benefit.code).sum("amount").result<number>();
     var balance = benefit.max - used;
     if (balance > 0) {
-      var patientShare = Math.max(0, benefitBaseAmount - balance);
-      benefit.amount = benefitBaseAmount - patientShare;
+      var patientShare = Math.max(0, claimAmount - balance);
+      benefit.amount = claimAmount - patientShare;
 
       return benefit.amount;
     }
@@ -247,23 +276,23 @@ export class Invoice {
     }
   }
 
-  private _calcBenefitDeductibleRate(benefit: InvoiceLineItem, benefitBaseAmount: number): number {
-    benefit.amount = benefit.rate * benefitBaseAmount;
+  private __calcBenefitDeductibleRate(benefit: IInvoiceLineItem, claimAmount: number): number {
+    benefit.amount = benefit.rate * claimAmount;
     benefit.amount = Math.min(benefit.max, benefit.amount);
     return benefit.amount;
   }
-  private _calcBenefitDeductibleAmount(benefit: InvoiceLineItem, benefitBaseAmount: number): number {
-    benefit.amount = Math.min(benefit.max, benefitBaseAmount);
+  private __calcBenefitDeductibleAmount(benefit: IInvoiceLineItem, claimAmount: number): number {
+    benefit.amount = Math.min(benefit.max, claimAmount);
     return benefit.amount;
   }
-  private _calcBenefitCoPayRate(benefit: InvoiceLineItem, benefitBaseAmount:number): number {
-    var patient_share = benefit.rate * benefitBaseAmount;
-    benefit.amount = Math.min(benefit.max, benefitBaseAmount - patient_share);
+  private __calcBenefitCoPayRate(benefit: IInvoiceLineItem, claimAmount:number): number {
+    var patient_share = benefit.rate * claimAmount;
+    benefit.amount = Math.min(benefit.max, claimAmount - patient_share);
     return benefit.amount;
   }
-  private _calcBenefitCoPayAmount(benefit: InvoiceLineItem, benefitBaseAmount: number): number {
-    var patient_share = Math.min(benefitBaseAmount, benefit.copay);
-    benefit.amount = Math.min(benefit.max, benefitBaseAmount - patient_share);
+  private __calcBenefitCoPayAmount(benefit: IInvoiceLineItem, claimAmount: number): number {
+    var patient_share = Math.min(claimAmount, benefit.copay);
+    benefit.amount = Math.min(benefit.max, claimAmount - patient_share);
     return benefit.amount;
   }
 }
@@ -276,9 +305,24 @@ export interface DB {
   result<T>(): T;
 }
 
+export interface IInvoiceLineItem {
+  id: number;
+  invoice_id: number;
+  feeType: FeeType;
+  description: string;
+  unitPrice: number, // decima;
+  quantity: number;
+  scheme: BenefitScheme;
+  feeSystemType: FeeSystemType;
+  code: string;
+  max: number;
+  rate: number;
+  copay: number;
+  amount: number;
+}
 
 
-export class InvoiceLineItem {
+export class InvoiceLineItem implements IInvoiceLineItem{
 
   amount: number = 0;
 
