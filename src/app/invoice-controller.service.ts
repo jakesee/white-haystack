@@ -173,33 +173,39 @@ export class Invoice {
   }
 
   private __calcTotals() {
-    // aggregate all non-discount line items
+
+    // calculate the feeType subtotals
     this.lineItems.forEach((item) => {
-      let isGoodsAndService = item.feeType != FeeType.Payment && item.feeSystemType == FeeSystemType.Default;
-      if (isGoodsAndService) {
+      let isGoodsAndServices = item.feeType != FeeType.Payment && item.feeSystemType == FeeSystemType.Default;
+      if (isGoodsAndServices) {
         this.totals.subTotals[item.feeType].bill += item.amount;
       }
     });
 
-    // update all discount.amount values
+    // populate the intial feetype discount.amount values
+    var maxDiscountByFeeType = _.cloneDeep(this.totals.subTotals);
     this.lineItems.forEach((item, index) => {
-      let isDiscountItem = item.feeSystemType == FeeSystemType.Voucher && item.feeType != FeeType.Payment;
-      if (isDiscountItem) {
-        if (item.rate != null) { // this is a % discount
+      let isDiscount = item.feeType != FeeType.Payment && item.feeSystemType == FeeSystemType.Voucher;
+      if (isDiscount) {
+        if (item.rate != null) {
           this.lineItems[index].amount = -(item.rate * this.totals.subTotals[item.feeType].bill);
         } else {
           // this is a $ discount and the amount value is already available
         }
+
+        // another adjustment because we cannot discount more than the current remaining subtotal
+        this.lineItems[index].amount = -Math.min(-item.amount, maxDiscountByFeeType[item.feeType].bill)
+        maxDiscountByFeeType[item.feeType].bill += this.lineItems[index].amount;
       }
     });
 
     // total payable
-    this.lineItems.forEach((item) => {
+    this.lineItems.forEach((item, index) => {
       let isIncluded = item.feeType != FeeType.Payment && item.feeSystemType != FeeSystemType.Benefit;
       if (isIncluded) {
-        this.totals.subTotals[item.feeType]['bill'] += item.amount
+        this.totals.subTotals[item.feeType].bill += item.amount
         if (item.scheme == BenefitScheme.APPLICABLE)
-          this.totals.subTotals[item.feeType]['benefit'] += item.amount
+          this.totals.subTotals[item.feeType].claim += item.amount
       }
     });
     _.each(this.totals.subTotals, (item, key: FeeType, collection) => {
@@ -226,6 +232,9 @@ export class Invoice {
     this.lineItems.forEach((item) => {
       this.totals.balancePayable += item.amount; // this will eventually give balance amount that patient has to pay.
     });
+    // just in case there is a payment voucher that exceeds the total balance payable,
+    // balance payable must not be negative value
+    this.totals.balancePayable = Math.max(0, this.totals.balancePayable);
   }
 
   private __calcBenefitAmount(benefit: IInvoiceLineItem, claimAmount: number): boolean | number {
@@ -305,21 +314,34 @@ export interface DB {
   result<T>(): T;
 }
 
-export interface IInvoiceLineItem {
+export interface IInvoiceLineItem extends IBenefitLineItem, IDiscountLineItem, IGoodServiceLineItem {
+  // as per everything included
+}
+
+export interface IGoodServiceLineItem {
   id: number;
   invoice_id: number;
-  feeType: FeeType;
   description: string;
   unitPrice: number, // decima;
   quantity: number;
-  scheme: BenefitScheme;
-  feeSystemType: FeeSystemType;
-  code: string;
-  max: number;
-  rate: number;
-  copay: number;
   amount: number;
+
+  // added due to benefits and discount system
+  feeType: FeeType;
+  feeSystemType: FeeSystemType;
+  scheme: BenefitScheme;
 }
+
+export interface IDiscountLineItem extends IGoodServiceLineItem {
+  rate: number;
+  code: string;
+}
+
+export interface IBenefitLineItem extends IDiscountLineItem {
+  copay: number;
+  max: number;
+}
+
 
 
 export class InvoiceLineItem implements IInvoiceLineItem{
@@ -341,6 +363,9 @@ export class InvoiceLineItem implements IInvoiceLineItem{
     public copay: number = -1,
   ) { this.amount = unitPrice * quantity }
 }
+
+
+
 
 
 
