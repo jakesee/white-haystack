@@ -22,9 +22,9 @@ import { Database, Generator } from '../assets/database';
 import { MedicalProfileFormComponent } from '@app/patient-app/form/medical-profile-form/medical-profile-form.component';
 import { FooterComponent } from '@app/patient-app/page/footer/footer.component';
 import { HeaderComponent } from '@app/patient-app/page/header/header.component';
-import { MyDoc as Partner } from '@app/patient-app/partner/theme-mydoc';
-//import { Daiichi as Partner } from 'src/partner/theme-daiichi';
-//import { Bowtie as Partner } from 'src/partner/theme-bowtie';
+// import { MyDoc as Partner } from '@app/patient-app/partner/theme-mydoc';
+import { Daiichi as Partner } from '@app/patient-app/partner/theme-daiichi'
+// import { Bowtie as Partner } from '@app/patient-app/partner/theme-bowtie'
 import * as _ from 'lodash';
 import { RecentFeedsSectionComponent } from '@app/patient-app/sections/recent-feeds-section/recent-feeds-section.component';
 import { RecentProvidersSectionComponent } from '@app/patient-app/sections/recent-providers-section/recent-providers-section.component';

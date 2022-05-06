@@ -77,10 +77,10 @@ export const Bowtie: IAppConfig = {
     },
     logoUrl: "assets/home/logo-bowtie.png",
     menuItems: [
-        { "text": "Home", "routerLink": "/home", "icon": ["fas", "home"], "display": { "public": true, "private": true } },
-        { "text": "Dashboard", "routerLink": "/dashboard", "icon": ["fas", "home"], "display": { "public": true, "private": true } },
-        { "text": "Waiting Room", "routerLink": "/waiting-room", "icon": ["fas", "calendar-alt"], "display": { "public": true, "private": true } },
-        { "text": "Profile", "routerLink": "/profile", "icon": ["fas", "user"], "display": { "public": true, "private": true } }
+        { "text": "Home", "routerLink": "./home", "icon": ["fas", "home"], "display": { "public": true, "private": true } },
+        { "text": "Dashboard", "routerLink": "./dashboard", "icon": ["fas", "home"], "display": { "public": true, "private": true } },
+        { "text": "Waiting Room", "routerLink": "./waiting-room", "icon": ["fas", "calendar-alt"], "display": { "public": true, "private": true } },
+        { "text": "Profile", "routerLink": "./profile", "icon": ["fas", "user"], "display": { "public": true, "private": true } }
     ],
     pageStyle: { container: PageStyleContainerEnum.fluidContainer, content: PageStyleContentEnum.contentLeft },
     header: { component: "HeaderComponent", "config": {} },
